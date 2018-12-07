@@ -2,6 +2,7 @@ module.exports = {
     useHTTPS: false,
     sslCertPath: '',
     httpPort: 8000,
-    databaseURL: '',
-    websiteDNSName: 'transportsg.me'
+    databaseURL: 'mongodb://localhost:27017',
+    websiteDNSName: 'transportsg.me',
+    webrootPath: ''
 }

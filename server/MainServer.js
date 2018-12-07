@@ -1,20 +1,57 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const compression = require('compression');
+const path = require('path');
+
+const DatabaseConnection = require('../application/database/DatabaseConnection');
+
+const config = require('../config');
 
 module.exports = class MainServer {
 
     constructor() {
         this.app = express();
-        this.configMiddleware();
-        this.configRoutes();
+        this.initDatabaseConnection(this.app);
+        this.configMiddleware(this.app);
+        this.configRoutes(this.app);
     }
 
-    configMiddleware() {
+    initDatabaseConnection(app) {
+        let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
+        database.connect((err) => {
+            database.createCollection('bus services');
+            database.createCollection('bus stops');
+            database.createCollection('bus registrations');
 
+            app.use((req, res, next) => {
+                res.db = database;
+                next();
+            });
+        });
     }
 
-    configRoutes() {
-        this.app.use((req, res) => {
-            res.end('Hello world');
+    configMiddleware(app) {
+        app.use(compression());
+
+    	app.use('/static', express.static(path.join(__dirname, '../application/static')));
+
+        app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(bodyParser.json());
+        app.use(bodyParser.text());
+
+        app.set('views', path.join(__dirname, '../application/views'));
+        app.set('view engine', 'pug');
+    }
+
+    configRoutes(app) {
+        let routers = {
+            Index: '/',
+            BusTimings: '/timings'
+        };
+
+        Object.keys(routers).forEach(routerName => {
+            let router = require(`../application/routes/${routerName}Router`);
+            app.use(routers[routerName], router);
         });
     }
 
