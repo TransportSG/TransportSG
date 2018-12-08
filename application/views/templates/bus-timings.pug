@@ -1,3 +1,6 @@
+- function hasArrived(timing) {return +new Date() - +new Date(timing) > 0;}
+- function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {minutes: d.getUTCMinutes(),seconds: d.getUTCSeconds(),}};
+
 if busTimings.length == 0
     span No buses now!
 
@@ -5,20 +8,20 @@ if busTimings.length == 0
 
 for bus in busTimings
     - let {timings} = bus;
+    - timings[0].arrivalTime = '2018-12-08T08:58:16.000Z';
 
     div.busService
-        //- console.log(timings)
         a(href=`/bus/${bus.service.fullService}` class='busServiceNumber ' + bus.service.operator.toLowerCase())
             span=bus.service.serviceNumber
             span=bus.service.variant
-        div.destination
+        a.destination(href=`/timings/${bus.destination.busStopCode}`)
             span Towards
             span=bus.destination.busStopName
         div.timings
             for arrival in timings
                 - let ttl = getTimingsDifference(new Date(), new Date(arrival.arrivalTime))
-                div(class='bus-arrival load-' + ttl.load)
-                    span=ttl.minutes
-                    span=ttl.seconds
-                    span=['', 'SD', 'DD', 'BD'][ttl.busType]
-                    img(src='/static/images/' + ttl.isWAB :''?'non-' + 'wheelchair.svg')
+                div(class='bus-arrival load-' + (arrival.load * 1 + 1))
+                    span(class=hasArrived(arrival.arrivalTime) ? 'bus-arr' : '')=hasArrived(arrival.arrivalTime) ? 'Arr' : ttl.minutes
+                    span=hasArrived(arrival.arrivalTime) ? '' : ttl.seconds
+                    span=['', 'SD', 'DD', 'BD'][arrival.busType]
+                    img(src='/static/images/' + (arrival.isWAB ? '' : 'non-') + 'wheelchair.svg')

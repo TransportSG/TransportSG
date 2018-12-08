@@ -1,0 +1,175 @@
+@font-face {
+    font-family: FFMeta;
+    src: url(/static/fonts/ff-meta.otf);
+}
+
+div.busService {
+    background-color: #2a2a2a;
+
+    display: flex;
+    height: calc(7vw + 7vh);
+}
+
+div.busService:nth-child(even) {
+    background-color: #202020;
+}
+
+a.busServiceNumber {
+    width: calc(5vw + 5vh);
+    height: calc(7vw + 7vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    font-family: FFMeta;
+    color: #d2d2d2;
+}
+
+a.busServiceNumber:visited {
+    color: #d2d2d2;
+}
+
+a.busServiceNumber span {
+    margin-top: calc(-0.8vh - 0.8vw);
+}
+
+a.busServiceNumber span:nth-child(1) {
+    font-size: calc(2.7vw + 2.7vh);
+}
+
+a.busServiceNumber span:nth-child(2) {
+    font-size: calc(2vw + 2vh);
+}
+
+.sbst {
+    background-color: #b845be;
+}
+
+div.busService:nth-child(even) .sbst {
+    background-color: #9d3ba2;
+}
+
+.smrt {
+    background-color: #c63d3d;
+}
+
+div.busService:nth-child(even) .smrt {
+    background-color: #b43535;
+}
+
+.tts {
+    background-color: #4ebe45;
+}
+
+div.busService:nth-child(even) .tts {
+    background-color: #43a93b;
+}
+
+.gas {
+    background-color: #d7832c;
+}
+
+div.busService:nth-child(even) .gas {
+    background-color: #c47625;
+}
+
+a.destination {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-decoration: none;
+}
+
+a.destination span {
+    margin-left: calc(1vw + 1vh);
+}
+
+a.destination span:nth-child(1) {
+    font-size: calc(0.7vw + 0.7vh);
+
+    color: #8f8f8f;
+}
+
+a.destination span:nth-child(2) {
+    font-size: calc(1.6vw + 1.6vh);
+    margin-top: calc(-0.4vw - 0.4vh);
+
+    color: #c5c5c5;
+}
+
+div.timings {
+    margin-left: auto;
+
+    display: flex;
+}
+
+div.bus-arrival {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(2.6vw + 2.6vh);
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+.load-1 {
+    background-color: #60bd29;
+}
+
+div.busService:nth-child(even) .load-1 {
+    background-color: #58ad25;
+}
+
+.load-2 {
+    background-color: #d0ae16;
+}
+
+div.busService:nth-child(even) .load-2 {
+    background-color: #be9f14;
+}
+
+.load-3 {
+    background-color: #b23624;
+}
+
+div.busService:nth-child(even) .load-3 {
+    background-color: #a13121;
+}
+
+div.bus-arrival span {
+    color: #101010;
+}
+
+div.bus-arrival span:nth-child(1) {
+    margin-top: calc(0.3vh + 0.3vw);
+    font-size: calc(1.05vw + 1.05vh);
+}
+
+div.bus-arrival span.bus-arr {
+    font-size: calc(0.9vw + 0.9vh);
+
+    margin-top: calc(0.65vw + 0.65vh);
+}
+
+div.bus-arrival span:nth-child(2) {
+    font-size: calc(0.68vw + 0.68vh);
+}
+
+div.bus-arrival span:nth-child(3) {
+    margin-top: auto;
+    font-size: calc(0.8vw + 0.8vh);
+}
+
+div.bus-arrival img {
+    width: calc(1vw + 1vh);
+    height: calc(1vw + 1vh);
+
+    margin-top: calc(0.2vw + 0.2vh);
+    margin-bottom: calc(0.65vw + 0.65vh);
+}

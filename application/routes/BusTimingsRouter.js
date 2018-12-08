@@ -17,13 +17,9 @@ function getServiceVariant(service) {
         return service.replace(/[0-9]/g, '').replace(/#/, 'C');
 }
 
-function getTimingsDifference(a, b) {
-    var diff = new Date(Math.abs(a - b));
-    return {
-        minutes: diff.getUTCMinutes(),
-        seconds: diff.getUTCSeconds(),
-    }
-};
+function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {minutes: d.getUTCMinutes(),seconds: d.getUTCSeconds(),}};
+
+function hasArrived(timing) {return +new Date() - +new Date(timing) > 0;}
 
 router.get('/:busStopCode', (req, res) => {
     let db = res.db;
@@ -62,10 +58,9 @@ router.get('/:busStopCode', (req, res) => {
         busStops.findDocument({
             busStopCode
         }, (err, currentBusStop) => {
-            res.render('timings/bus', {
+            res.render('bus/timings', {
                 currentBusStop,
-                busTimings,
-                getTimingsDifference
+                busTimings
             });
         });
     });
