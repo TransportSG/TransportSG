@@ -33,6 +33,8 @@ a.busServiceNumber:visited {
 
 a.busServiceNumber span {
     margin-top: calc(-0.8vh - 0.8vw);
+    width: calc(5vw + 5vh);
+    text-align: center;
 }
 
 a.busServiceNumber span:nth-child(1) {
@@ -82,6 +84,8 @@ a.destination {
     flex-direction: column;
 
     justify-content: center;
+
+    width: 100%;
 }
 
 a.destination span {
