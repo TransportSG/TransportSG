@@ -44,8 +44,6 @@ function updateBusStopData(data) {
         busStopCode: data.busStopCode
     };
 
-    console.log(query, data);
-
     remaining++;
 
     busStops.findDocument(query, (err, busStop) => {
@@ -62,6 +60,8 @@ function updateBusStopData(data) {
 }
 
 setInterval(() => {
-    if (remaining > 0 && remaining === completed)
+    if (remaining > 0 && remaining === completed) {
+        console.log('Completed ' + completed + ' entries')
         process.exit(0);
+    }
 }, 100);

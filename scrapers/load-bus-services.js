@@ -92,7 +92,7 @@ function updateBusServiceData(data) {
 
 setInterval(() => {
     if (remaining > 0 && remaining === completed) {
-        console.log('Updated ' + completed + ' bus services')
+        console.log('Completed ' + completed + ' entries')
         process.exit(0);
     }
 }, 100);
