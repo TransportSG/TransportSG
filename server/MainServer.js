@@ -11,12 +11,13 @@ module.exports = class MainServer {
 
     constructor() {
         this.app = express();
-        this.initDatabaseConnection(this.app);
-        this.configMiddleware(this.app);
-        this.configRoutes(this.app);
+        this.initDatabaseConnection(this.app, () => {
+            this.configMiddleware(this.app);
+            this.configRoutes(this.app);
+        });
     }
 
-    initDatabaseConnection(app) {
+    initDatabaseConnection(app, callback) {
         let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
         database.connect((err) => {
             database.createCollection('bus services');
@@ -27,6 +28,8 @@ module.exports = class MainServer {
                 res.db = database;
                 next();
             });
+
+            callback();
         });
     }
 

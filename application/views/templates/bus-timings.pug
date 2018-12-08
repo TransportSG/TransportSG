@@ -1,0 +1,24 @@
+if busTimings.length == 0
+    span No buses now!
+
+- busTimings = busTimings.sort((a, b) => a.service.number - b.service.number);
+
+for bus in busTimings
+    - let {timings} = bus;
+
+    div.busService
+        //- console.log(timings)
+        a(href=`/bus/${bus.service.fullService}` class='busServiceNumber ' + bus.service.operator.toLowerCase())
+            span=bus.service.serviceNumber
+            span=bus.service.variant
+        div.destination
+            span Towards
+            span=bus.destination.busStopName
+        div.timings
+            for arrival in timings
+                - let ttl = getTimingsDifference(new Date(), new Date(arrival.arrivalTime))
+                div(class='bus-arrival load-' + ttl.load)
+                    span=ttl.minutes
+                    span=ttl.seconds
+                    span=['', 'SD', 'DD', 'BD'][ttl.busType]
+                    img(src='/static/images/' + ttl.isWAB :''?'non-' + 'wheelchair.svg')

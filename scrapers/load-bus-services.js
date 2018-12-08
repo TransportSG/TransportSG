@@ -22,21 +22,17 @@ database.connect((err) => {
 });
 
 function getServiceNumber(service) {
-    if (service.startsWith('NR')) {
-        return service.replace(/[0-9]/g, '');
-    } else if (service.startsWith('CT')) {
-        return 'CT';
+    if (service.startsWith('NR') || service.startsWith('CT')) {
+        return service.slice(0, 2);
     } else
         return service.replace(/[A-Za-z#]/g, '');
 }
 
 function getServiceVariant(service) {
-    if (service.startsWith('NR')) {
-        return service.replace(/[A-Za-z#]/g, '');
-    } else if (service.startsWith('CT')) {
-        return service.replace(/CT/, '');
+    if (service.startsWith('NR') || service.startsWith('CT')) {
+        return service.slice(2);
     } else
-    return service.replace(/[0-9]/g, '').replace(/#/, 'C');
+        return service.replace(/[0-9]/g, '').replace(/#/, 'C');
 }
 
 function transformBusServiceData(busService) {
