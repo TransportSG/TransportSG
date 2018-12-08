@@ -38,8 +38,8 @@ a.busServiceNumber span {
 }
 
 a.busServiceNumber span:nth-child(1) {
-    font-size: calc(2.7vw + 2.7vh);
-    margin-top: calc(-0.2vw - 0.2vh);
+    font-size: calc(3vw + 3vh);
+    margin-top: calc(-0.8vw - 0.8vh);
 }
 
 a.busServiceNumber span:nth-child(2) {
