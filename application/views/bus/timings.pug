@@ -5,3 +5,7 @@ block css
 
 block content
     include ../templates/bus-timings
+
+block header
+    img#page-icon(src='/static/images/bus-stop.svg')
+    span#header=`${currentBusStop.busStopCode} ${currentBusStop.busStopName}`

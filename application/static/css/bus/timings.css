@@ -21,7 +21,6 @@ a.busServiceNumber {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
 
     font-family: FFMeta;
     color: #d2d2d2;
@@ -80,8 +79,6 @@ a.destination {
     flex-direction: column;
 
     justify-content: center;
-
-    text-decoration: none;
 }
 
 a.destination span {
