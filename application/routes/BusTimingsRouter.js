@@ -35,6 +35,10 @@ router.get('/:busStopCode', (req, res) => {
         busTimings = [];
     }
 
+    function e(s) {return s.match(/(\d+)/)[1]*1}
+
+    busTimings = busTimings.sort((a, b) => e(a.service) - e(b.service));
+
     busTimings.forEach((busService, i) => {
 
         promises.push(new Promise(resolve => {
