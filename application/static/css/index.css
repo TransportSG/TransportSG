@@ -35,12 +35,14 @@
 
     flex-direction: column;
 
-    margin: calc(3vw + 3vh);
+    margin: calc(2.6vw + 2.6vh);
 }
 
 .feature span {
     text-align: center;
     margin-top: -1.5vw;
+
+    font-size: calc(1.2vw + 1.2vh);
 }
 
 .feature img {
