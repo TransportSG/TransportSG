@@ -10,11 +10,11 @@ let mainServer = new MainServer();
 
 if (config.useHTTPS) {
     let redirectServer = new HTTPSRedirectServer();
-    httpServer = HTTPServer.createServer(redirectServer.request);
+    httpServer = HTTPServer.createServer(redirectServer);
 
-    httpsServer = HTTPSServer.createServer(mainServer.app, config.sslCertPath);
+    httpsServer = HTTPSServer.createServer(mainServer, config.sslCertPath);
 } else {
-    httpServer = HTTPServer.createServer(mainServer.app);
+    httpServer = HTTPServer.createServer(mainServer);
 }
 
 httpServer.listen(config.httpPort);

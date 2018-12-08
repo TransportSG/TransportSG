@@ -6,16 +6,9 @@ const config = require('../config');
 module.exports = class HTTPSRedirectServer {
 
     constructor() {
-        this.httpsURL = `https://${config.websiteDNSName}`;
     }
 
-    resolveHTTPSUrl(httpURL) {
-        let parsedURL = url.parse(httpURL);
-
-        return `${this.httpsURL}${parsedURL.path}`;
-    }
-
-    request(req, res) {
+    app(req, res) {
         if (req.url.startsWith('/.well-known')) {
             let filePath = path.join(config.webrootPath, req.url.path);
 
@@ -24,7 +17,7 @@ module.exports = class HTTPSRedirectServer {
             return;
         }
 
-        let redirectedURL = this.resolveHTTPSUrl(req.url);
+        let redirectedURL = `https://${config.websiteDNSName}${url.parse(req.url).path}`;
 
         res.writeHead(308, {Location: redirectedURL});
         res.end();

@@ -25,16 +25,16 @@ module.exports = {
 
     createSNICallback: () => {
         return (servername, callback) => {
-            callback(null, this.getSecureContext());
+            callback(null, module.exports.getSecureContext());
         };
     },
 
     createServer: (app, certPath) => {
-        createSecureContext(certPath);
+        module.exports.createSecureContext(certPath);
 
         return https.createServer({
-            SNICallback: this.createSNICallback()
-        }, app);
+            SNICallback: module.exports.createSNICallback()
+        }, app.app);
     }
 
 };
