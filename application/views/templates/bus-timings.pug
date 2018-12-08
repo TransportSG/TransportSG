@@ -10,7 +10,8 @@ for bus in busTimings
     div.busService
         a(href=`/bus/${bus.service.fullService}` class='busServiceNumber ' + bus.service.operator.toLowerCase())
             span=bus.service.serviceNumber
-            span=bus.service.variant
+            if (bus.service.variant)
+                span=bus.service.variant
         a.destination(href=`/timings/${bus.destination.busStopCode}`)
             span Towards
             span=bus.destination.busStopName
