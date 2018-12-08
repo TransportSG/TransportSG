@@ -3,6 +3,8 @@ const tls = require('tls');
 const fs = require('fs');
 const path = require('path');
 
+require('../security/CertificateRenewal');
+
 let secureContext = null;
 
 module.exports = {
