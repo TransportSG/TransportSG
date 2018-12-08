@@ -73,7 +73,6 @@ database.connect({
 
 function processBusService(service, direction, busStopsList) {
     return new Promise(resolve => {
-        console.log(service, direction)
         let query = {
             fullService: service,
             routeDirection: direction

@@ -21,6 +21,7 @@ a.busServiceNumber {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     font-family: FFMeta;
     color: #d2d2d2;
@@ -36,10 +37,12 @@ a.busServiceNumber span {
 
 a.busServiceNumber span:nth-child(1) {
     font-size: calc(2.7vw + 2.7vh);
+    margin-top: calc(-0.2vw - 0.2vh);
 }
 
 a.busServiceNumber span:nth-child(2) {
     font-size: calc(2vw + 2vh);
+    margin-top: calc(0.2vw + 0.2vh);
 }
 
 .sbst {
