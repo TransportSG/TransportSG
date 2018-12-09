@@ -36,6 +36,10 @@ div#results {
     height: calc(91vh - 9vw);
 }
 
+.bus {
+    background-color: #FF69B4;
+}
+
 label {
     width: 100vw;
     text-align: center;

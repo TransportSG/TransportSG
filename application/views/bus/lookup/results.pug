@@ -1,8 +1,8 @@
 -var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
 
 for bus in buses
-    div(class=`bus ${operatorCss[bus.operator.operator]}`)
-        label(for=`${bus.registration.prefix}${bus.registration.number}`)
+    div(class=`bus`)
+        label(class=`${operatorCss[bus.operator.operator]}` for=`${bus.registration.prefix}${bus.registration.number}`)
                 span.numberplate=bus.registration.prefix + bus.registration.number + bus.registration.checksum
         input.busHide(type='checkbox' id=`${bus.registration.prefix}${bus.registration.number}`)
         div.bus-data
