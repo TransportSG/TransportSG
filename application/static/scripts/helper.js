@@ -34,7 +34,6 @@ $.ajax = function(options, callback) {
 }
 
 $.ready = function(callback) {
-    console.log('ready called', document.readyState)
     if (document.readyState !== 'loading')
         callback();
     else

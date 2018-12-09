@@ -1,0 +1,27 @@
+-function getDistanceCssClass(distance) {
+-    if (distance >= 0 && distance < 0.1) return 'nearby';
+-    if (distance >= 0.1 && distance < 0.3) return 'close';
+-    else return 'far';
+-}
+
+for busStop in busStops
+    div.busStop
+        a(href='/timings/' + busStop.busStopCode).busStopLink
+            div(class='distanceMeter ' + getDistanceCssClass(busStop.distance))
+                span.distance=Math.round(busStop.distance * 1000)
+                span meters
+            div.routeInfo
+                span.busStopRoad=busStop.roadName
+                span.busStopName=busStop.busStopCode + ' ' + busStop.busStopName
+
+
+
+
+            //div.servicePeek
+            //    div.services
+            //        div.col
+            //            for service in (busStop.busServices.slice(5, 10))
+            //                span(class='busService ' + service.operatorCss)=service.fullService
+            //        div.col
+            //            for service in (busStop.busServices.slice(0, 5))
+            //                span(class='busService ' + service.operatorCss)=service.fullService
