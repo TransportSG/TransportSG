@@ -1,10 +1,10 @@
 @media (orientation: portrait) {
     .feature {
-        width:  calc(7vw + 13vh);
-        height: calc(7vw + 13vh);
+        width:  calc(8vw + 14vh);
+        height: calc(8vw + 14vh);
 
-        margin-top: calc(((96vh - 4vw) - (7vw + 12vh) * 2) / 16);
-        margin-bottom: calc(((96vh - 4vw) - (7vw + 12vh) * 2) / 16);
+        margin-left: calc(((96vh - 4vw) - (8vw + 14vh) * 2) / 16) !important;
+        margin-right: calc(((96vh - 4vw) - (8vw + 14vh) * 2) / 16) !important;
     }
 }
 
@@ -13,8 +13,8 @@
         width:  calc(13vw + 7vh);
         height: calc(13vw + 7vh);
 
-        margin-top: calc(((96vh - 4vw) - (12vw + 7vh) * 2) / 8);
-        margin-bottom: calc(((96vh - 4vw) - (12vw + 7vh) * 2) / 8);
+        margin-top: calc(((96vh - 4vw) - (12vw + 7vh) * 2) / 16) !important;
+        margin-bottom: calc(((96vh - 4vw) - (12vw + 7vh) * 2) / 16) !important;
     }
 }
 
@@ -41,8 +41,7 @@
 
     flex-direction: column;
 
-    margin-left: calc(2.6vw + 2.6vh);
-    margin-right: calc(2.6vw + 2.6vh);
+    margin: calc(2.6vw + 2.6vh);
 }
 
 .feature span {
