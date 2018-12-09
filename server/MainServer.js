@@ -51,7 +51,8 @@ module.exports = class MainServer {
         let routers = {
             Index: '/',
             BusTimings: '/timings',
-            BusLookup: '/lookup'
+            BusLookup: '/lookup',
+            NearbyObjects: '/nearby'
         };
 
         Object.keys(routers).forEach(routerName => {
