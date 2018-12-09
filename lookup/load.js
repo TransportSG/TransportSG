@@ -12,19 +12,19 @@ let completed = 0;
 let remaining = 0;
 
 const fileTypes = {
-    // 'TIBS': 'TIB',
-    // 'SBST': 'SBS',
-	// 'SBSR': 'SBS-R',
+    'TIBS': 'TIB',
+    'SBST': 'SBS',
+	'SBSR': 'SBS-R',
     'SG': 'SG',
     'SMRT': 'SMB',
-    // 'PA': 'PA',
-    // 'PC': 'PC',
-    // 'PZ': 'PZ',
-    // 'RU': 'RU',
-    // 'WC': 'WC',
-    // 'CB': 'CB',
-	// 'SH': 'SH',
-	// 'PH': 'PH'
+    'PA': 'PA',
+    'PC': 'PC',
+    'PZ': 'PZ',
+    'RU': 'RU',
+    'WC': 'WC',
+    'CB': 'CB',
+	'SH': 'SH',
+	'PH': 'PH'
 };
 
 database.connect((err) => {
