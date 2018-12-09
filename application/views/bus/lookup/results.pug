@@ -4,7 +4,10 @@ for bus in buses
     div(class=`bus`)
         label(class=`${operatorCss[bus.operator.operator]}` for=`${bus.registration.prefix}${bus.registration.number}`)
                 span.numberplate=bus.registration.prefix + bus.registration.number + bus.registration.checksum
-        input.busHide(type='checkbox' id=`${bus.registration.prefix}${bus.registration.number}`)
+        if buses.length == 1
+            input.busHide(type='checkbox' id=`${bus.registration.prefix}${bus.registration.number}` checked='hi')
+        else
+            input.busHide(type='checkbox' id=`${bus.registration.prefix}${bus.registration.number}`)
         div.bus-data
             div.data.deployment
                 span Deployment
