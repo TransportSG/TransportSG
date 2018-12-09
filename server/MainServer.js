@@ -23,7 +23,6 @@ module.exports = class MainServer {
             database.createCollection('bus services');
             database.createCollection('bus stops');
             database.createCollection('bus registrations');
-            database.createCollection('bus registrations');
 
             app.use((req, res, next) => {
                 res.db = database;
@@ -52,7 +51,8 @@ module.exports = class MainServer {
             Index: '/',
             BusTimings: '/timings',
             BusLookup: '/lookup',
-            NearbyObjects: '/nearby'
+            NearbyObjects: '/nearby',
+            GeneralSearch: '/search'
         };
 
         Object.keys(routers).forEach(routerName => {
