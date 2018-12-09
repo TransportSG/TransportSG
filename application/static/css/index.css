@@ -1,7 +1,7 @@
 @media (orientation: portrait) {
     .feature {
-        width:  calc(7vw + 12vh);
-        height: calc(7vw + 12vh);
+        width:  calc(7vw + 13vh);
+        height: calc(7vw + 13vh);
 
         margin-top: calc(((96vh - 4vw) - (7vw + 12vh) * 2) / 16);
         margin-bottom: calc(((96vh - 4vw) - (7vw + 12vh) * 2) / 16);
@@ -10,8 +10,8 @@
 
 @media (orientation: landscape) {
     .feature {
-        width:  calc(12vw + 7vh);
-        height: calc(12vw + 7vh);
+        width:  calc(13vw + 7vh);
+        height: calc(13vw + 7vh);
 
         margin-top: calc(((96vh - 4vw) - (12vw + 7vh) * 2) / 8);
         margin-bottom: calc(((96vh - 4vw) - (12vw + 7vh) * 2) / 8);
