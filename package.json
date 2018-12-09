@@ -11,7 +11,9 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
+    "csv": "^5.0.0",
     "express": "^4.16.4",
+    "jsdom": "^13.0.0",
     "mongodb": "^3.1.10",
     "pug": "^2.0.3",
     "request": "^2.88.0"

@@ -1,0 +1,117 @@
+div#searchbar {
+    background-color: #0f0f0f;
+    width: 100vw;
+    height: calc(5vw + 5vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input#input {
+    height: calc(3.3vw + 3.3vh);
+    width: calc(20vw + 20vh);
+    border: none;
+    border-radius: calc(1vw + 1vh);
+    outline: none;
+    text-align: center;
+    font-size: calc(2.2vw + 2.2vh);
+    padding-bottom: calc(.2vw + .2vh);
+    background-color: #e0e0e0;
+    appearance: none;
+    -moz-appearance: textfield;
+
+    font-family: BreeSerif;
+}
+
+input#input::-moz-selection, input#input::selection {
+    background-color: #BFBFBF;
+}
+
+input#input::-webkit-outer-spin-button, input#input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+div#results {
+    height: calc(91vh - 9vw);
+}
+
+label {
+    width: 100vw;
+    text-align: center;
+    user-select: none;
+    -moz-user-select: none;
+    display: block;
+}
+
+label span {
+    font-size: calc(4vw + 4vh);
+    color: #121212;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input.busHide:not(checked) + .bus-data {
+    display: none;
+}
+
+input.busHide:checked + .bus-data {
+    display: flex;
+    flex-direction: column;
+}
+
+div.data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: calc(2vw + 2vh);
+    background-color: #171717;
+}
+
+div.data:nth-child(even) {
+    background-color: #1e1e1e;
+}
+
+div.data span:nth-child(1) {
+    margin-left: calc(1vw + 1vh);
+    max-width: 50vw;
+    line-height: calc(3.7vw + 3.7vh);
+}
+
+div.data span:nth-child(2) {
+    margin-right: calc(1vw + 1vh);
+    font-size: calc(1.5vw + 1.5vh);
+    max-width: 50vw;
+    text-align: right;
+    line-height: calc(3vw + 3vh);
+}
+
+.smrt {
+    background-color: #b43535;
+}
+
+.sbst {
+    background-color: #a63cac;
+}
+
+.tts {
+    background-color: #4ebe45;
+}
+
+.gas {
+    background-color: #d7832c;
+}
+
+.tibs {
+    background-color: #d4ce24;
+}
+
+.sbs {
+    background-color: #512ed1;
+}
+
+.lta {
+    background-color: #e0e0e0;
+}

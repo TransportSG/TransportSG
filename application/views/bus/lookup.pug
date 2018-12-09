@@ -1,0 +1,18 @@
+extends ../layout
+
+block head
+    title Bus Lookup
+
+block scripts
+    script(src='/static/scripts/bus/lookup.js' async)
+
+block css
+    link(rel='stylesheet' href='/static/css/bus/lookup.css')
+
+block header
+    span#header Bus Lookup
+
+block content
+    div#searchbar
+        input(type='number')#input
+    div#results

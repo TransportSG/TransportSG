@@ -1,0 +1,61 @@
+-var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+
+for bus in buses
+    div(class=`bus ${operatorCss[bus.operator.operator]}`)
+        label(for=`${bus.registration.prefix}${bus.registration.number}`)
+                span.numberplate=bus.registration.prefix + bus.registration.number + bus.registration.checksum
+        input.busHide(type='checkbox' id=`${bus.registration.prefix}${bus.registration.number}`)
+        div.bus-data
+            div.data.deployment
+                span Deployment
+                span=bus.operator.depot.length ? (bus.operator.depot.replace(/@/, '') + ' ' + bus.operator.permService) : 'Unknown'
+            div.data.make
+                span Make
+                span=bus.busData.make
+            div.data.operator
+                span Operator
+                span=bus.operator.operator
+            div.data.model
+                span Model
+                span=bus.busData.model
+            div.data.livery
+                span Livery
+                span=bus.busData.livery
+            div.data.bodywork
+                span Bodywork
+                span=bus.busData.bodywork
+            div.data.batch
+                span Batch
+                span=bus.fleet.batch
+            div.data.advert
+                span Advertisement
+                span=bus.fleet.ad
+            div.data.dereg
+                span Deregistration
+                if +bus.busData.deregDate === 0
+                    span Unknown
+                else
+                    div.dereg-div
+                        span.dereg-date=bus.busData.deregDate.getDate() + ' ' + months[bus.busData.deregDate.getMonth()] + ' ' + bus.busData.deregDate.getFullYear()
+                        span.timeToDereg=bus.timeToDereg
+            div.data.chassis
+                span Chassis ID
+                span=bus.busData.chassis || 'Unknown'
+            div.data.gearbox
+                span Gearbox
+                span=bus.busData.gearbox
+            div.data
+                span EDS
+                span=bus.busData.edsModel
+            div.data
+                span Chair Model
+                span=bus.misc.chair
+            div.data
+                span Door Model
+                span=bus.misc.door
+            div.data
+                span Aircon Model
+                span=bus.misc.aircon
+            div.data
+                span Notes
+                span=bus.misc.notes
