@@ -21,32 +21,10 @@ function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {m
 
 function hasArrived(timing) {return +new Date() - +new Date(timing) > 0;}
 
-router.get('/:busStopCode', (req, res) => {
-    let db = res.db;
-    let busStops = db.getCollection('bus stops');
-    let busServices = db.getCollection('bus services');
-
-    let busStopCode = req.params.busStopCode
-    let busTimings = getBusTimings()[busStopCode];
-
+function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, callback) {
     let promises = [];
 
-    if (!busTimings) {
-        busTimings = [];
-    }
-
-    function e(s) {
-        let numberPart = s.match(/(\d+)/)[1]*1;
-        let letterPart = s.match(/(\w+)/)[1];
-        letterPart = [...letterPart].map(e=>e.charCodeAt(0)).reduce((a, b) => a + b, '');
-
-        return parseFloat(numberPart + '.' + letterPart);
-    }
-
-    busTimings = busTimings.sort((a, b) => e(a.service) - e(b.service));
-
     busTimings.forEach((busService, i) => {
-
         promises.push(new Promise(resolve => {
             busStops.findDocument({
                 busStopCode: busService.destination
@@ -65,16 +43,47 @@ router.get('/:busStopCode', (req, res) => {
     });
 
     Promise.all(promises).then(() => {
-        busStops.findDocument({
-            busStopCode
-        }, (err, currentBusStop) => {
-            res.render('bus/timings', {
-                currentBusStop,
-                busTimings
+        if (currentBusStopCode)
+            busStops.findDocument({
+                busStopCode: currentBusStopCode
+            }, (err, currentBusStop) => {
+                callback(currentBusStop, busTimings);
             });
+        else
+            callback(null, busTimings);
+    });
+}
+
+router.get('/:busStopCode', (req, res) => {
+    let db = res.db;
+    let busStops = db.getCollection('bus stops');
+    let busServices = db.getCollection('bus services');
+
+    let busStopCode = req.params.busStopCode
+    let busTimings = getBusTimings()[busStopCode];
+
+    if (!busTimings) {
+        busTimings = [];
+    }
+
+    function e(s) {
+        let numberPart = s.match(/(\d+)/)[1]*1;
+        let letterPart = s.match(/(\w+)/)[1];
+        letterPart = [...letterPart].map(e=>e.charCodeAt(0)).reduce((a, b) => a + b, '');
+
+        return parseFloat(numberPart + '.' + letterPart);
+    }
+
+    busTimings = busTimings.sort((a, b) => e(a.service) - e(b.service));
+
+    loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, busTimings) => {
+        res.render('bus/timings', {
+            currentBusStop,
+            busTimings
         });
     });
-
 });
+
+router.loadBusStopData = loadBusStopData;
 
 module.exports = router;

@@ -1,6 +1,10 @@
 const express = require('express');
 let router = new express.Router();
 
+let getBusTimings = require('../../../timings/bus').getTimings;
+
+let BusTimingsRouter = require('../../../routes/BusTimingsRouter');
+
 const TextParser = require('./parser');
 const depotList = require('./naughty_list');
 
@@ -11,14 +15,17 @@ function parseQuery(query) {
             canRepeat: true
         },
         wheelchair: ['wab', 'nwab'],
-        type: ['SD', 'DD', 'BD'],
+        types: {
+            type: ['SD', 'DD', 'BD'],
+            canRepeat: true
+        },
         depots: {
             type: ['SLBP', 'UPDEP', 'BBDEP', 'HGDEP', 'BNDEP', 'SMBAMDEP', 'SBSAMDEP', 'SEDEP', 'KJDEP', 'WLDEP', 'BUDEP', 'LYDEP'],
             canRepeat: true
         }
     });
     parsed.wheelchair = !(parsed.wheelchair || 'wab').includes('n');
-    parsed.type = Math.max(0, ['', 'SD', 'DD', 'BD'].indexOf(parsed.type));
+    parsed.types = (parsed.types || []).map(type => Math.max(0, ['', 'SD', 'DD', 'BD'].indexOf(type)).toString());
 
     return parsed;
 }
@@ -35,6 +42,79 @@ function resolveServices(parsed) {
     return parsed;
 }
 
+function filter(timings, check) {
+    let newTimings = {};
+    Object.keys(timings).map(busStopCode => {
+        newTimings[busStopCode] = timings[busStopCode].filter(check);
+    });
+    return newTimings;
+}
+
+function map(timings, mapper) {
+    let newTimings = {};
+    Object.keys(timings).map(busStopCode => {
+        newTimings[busStopCode] = timings[busStopCode].map(mapper);
+    });
+    return newTimings;
+}
+
+function filterService(timings, parsed) {
+    return filter(timings, svc =>
+        parsed.services.includes(svc.service)
+    );
+}
+
+function filterWAB(timings, parsed) {
+    return map(timings, svc => {svc.timings = svc.timings.filter(arrival => arrival.isWAB == parsed.wheelchair); return svc;});
+}
+
+function filterType(timings, parsed) {
+    if (parsed.types.length === 0) return timings;
+    return map(timings, svc => {svc.timings = svc.timings.filter(arrival => parsed.types.includes(arrival.busType)); return svc;});
+}
+
+function filterEmpties(timings) {
+    let newTimings = {};
+    Object.keys(timings).map(busStopCode => {
+        if (timings[busStopCode].length > 0) {
+            if (timings[busStopCode].filter(svc => svc.timings.length > 0).length > 0)
+                newTimings[busStopCode] = timings[busStopCode]
+        }
+    });
+
+    return newTimings;
+}
+
+function filterBuses(parsed) {
+    let timings = filterType(filterWAB(filterService(getBusTimings(), parsed), parsed), parsed);
+
+    return filterEmpties(timings);
+}
+
+function loadBusStopsInfo(busStops, buses, callback) {
+    let busStopsData = {};
+
+    let busStopCodes = Object.keys(buses);
+    busStopCodes = busStopCodes.filter((busStopCode, i) => busStopCodes.indexOf(busStopCode) == i);
+
+    let promises = [];
+
+    busStopCodes.forEach(busStopCode => {
+        promises.push(new Promise(resolve => {
+            busStops.findDocument({
+                busStopCode
+            }, (err, busStop) => {
+                busStopsData[busStopCode] = busStop;
+                resolve();
+            });
+        }));
+    });
+
+    Promise.all(promises).then(() => {
+        callback(busStopsData);
+    });
+}
+
 router.get('/', (req, res) => {
     res.render('secret/candies');
 });
@@ -46,9 +126,31 @@ router.post('/', (req, res) => {
         res.status(400).end();
     }
 
+    let db = res.db;
+    let busStops = db.getCollection('bus stops');
+    let busServices = db.getCollection('bus services');
+
     let parsed = resolveServices(parseQuery(query));
 
-    res.end(JSON.stringify(parsed) + ';');
+    let buses = filterBuses(parsed);
+
+    loadBusStopsInfo(busStops, buses, busStopsData => {
+
+        let promises = [];
+
+        Object.keys(buses).forEach(busStopCode => {
+            promises.push(new Promise(resolve => {
+                BusTimingsRouter.loadBusStopData(busStops, busServices, buses[busStopCode], 0, (_, busTimings) => {
+                    buses[busStopCode] = busTimings;
+                    resolve();
+                });
+            }));
+        });
+
+        Promise.all(promises).then(() => {
+            res.render('templates/bus-timings-list', {busStopsData, buses});
+        });
+    });
 });
 
 module.exports = router;
