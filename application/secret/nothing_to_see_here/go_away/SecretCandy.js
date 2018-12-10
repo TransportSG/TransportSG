@@ -46,6 +46,11 @@ router.post('/', (req, res) => {
 
     let parsed = elveMagic.resolveServices(elveMagic.parseQuery(query));
 
+    if (parsed.services.allowed.length == 0) {
+        res.render('templates/bus-timings-list', {busStopsData: {}, buses: {}});
+        return;
+    }
+
     let buses = elveMagic.filterBuses(parsed);
 
     loadBusStopsInfo(busStops, buses, busStopsData => {

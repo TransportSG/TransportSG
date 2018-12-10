@@ -31,8 +31,11 @@ function resolveServices(parsed) {
     let svcs = depots.map(depot => depotList[depot]).reduce((acc, dep) => acc.concat(dep), []);
 
     let allSvcs = (parsed.services || []).concat(svcs);
-    parsed.services = allSvcs.filter((svc, i) => allSvcs.indexOf(svc) == i)
-        .filter(svc => allSvcs.indexOf('!' + svc) === -1);
+    parsed.services = {
+        allowed: allSvcs.filter((svc, i) => allSvcs.indexOf(svc) == i)
+            .filter(svc => svc.indexOf('!') === -1),
+        disallowed: allSvcs.filter(svc => svc.indexOf('!') === 0).map(svc=>svc.slice(1))
+    }
 
     return parsed;
 }
@@ -54,9 +57,16 @@ function map(timings, mapper) {
 }
 
 function filterService(timings, parsed) {
-    return filter(timings, svc =>
-        parsed.services.includes(svc.service)
-    );
+    if (parsed.services.allowed.length === 0 && parsed.services.disallowed.length === 0)
+        return timings;
+    else if (parsed.services.allowed.length !== 0)
+        return filter(timings, svc =>
+            parsed.services.allowed.includes(svc.service) && !parsed.services.disallowed.includes(svc.service)
+        );
+    else if (parsed.services.disallowed.length !== 0)
+        return filter(timings, svc =>
+            !parsed.services.disallowed.includes(svc.service)
+        );
 }
 
 function filterWAB(timings, parsed) {
