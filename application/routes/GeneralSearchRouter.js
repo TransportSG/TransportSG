@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
 
     if (md5(query) === 'c0ddebd92e862720091dd086e944e9a7') {
         res.json({
-            location: "/unikitty's fish candies"
+            location: "/unikitty's fish candies?hide=true"
         });
         return;
     }
