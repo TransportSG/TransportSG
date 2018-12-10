@@ -87,11 +87,11 @@ function search(db, query, callback) {
     busStops.findDocuments({
         $or: [
             {
-                busStopName: (query.length > 3 && /[a-zA-Z]/.exec(query)) ? new RegExp(query) : 'cat goes woof'
+                busStopName: (query.length > 3 && /[a-zA-Z]/.exec(query)) ? new RegExp(query, 'i') : 'cat goes woof'
             }, {
                 busStopCode: query
             }, {
-                roadName: query.length > 4 ? query : 'fox says meow'
+                roadName: query.length > 4 ? new RegExp(query, 'i') : 'fox says meow'
             }
         ],
     }).toArray((err, busStopList) => {
