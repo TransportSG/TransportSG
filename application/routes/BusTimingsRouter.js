@@ -34,9 +34,21 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
                 busServices.findDocument({
                     fullService: busService.service
                 }, (err, busServiceData) => {
-                    busTimings[i].service = busServiceData;
+                    if (busServiceData) {
+                        busTimings[i].service = busServiceData
 
-                    resolve();
+                        resolve();
+                    } else {
+                        busServices.findDocument({
+                            fullService: getServiceNumber(busService.service)
+                        }, (err, busServiceData) => {
+                            if (busServiceData) {
+                                busTimings[i].service = busServiceData
+
+                                resolve();
+                            }
+                        });
+                    }
                 });
             });
         }));
