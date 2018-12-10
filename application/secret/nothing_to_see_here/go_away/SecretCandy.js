@@ -24,7 +24,7 @@ function parseQuery(query) {
             canRepeat: true
         }
     });
-    parsed.wheelchair = !(parsed.wheelchair || 'wab').includes('n');
+    parsed.wheelchair = parsed.wheelchair ? !parsed.wheelchair.includes('n') : -1;
     parsed.types = (parsed.types || []).map(type => Math.max(0, ['', 'SD', 'DD', 'BD'].indexOf(type)).toString());
 
     return parsed;
@@ -65,6 +65,7 @@ function filterService(timings, parsed) {
 }
 
 function filterWAB(timings, parsed) {
+    if (parsed.wheelchair == -1) return timings;
     return map(timings, svc => {svc.timings = svc.timings.filter(arrival => arrival.isWAB == parsed.wheelchair); return svc;});
 }
 
