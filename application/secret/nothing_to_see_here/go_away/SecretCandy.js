@@ -78,7 +78,7 @@ function filterEmpties(timings) {
     Object.keys(timings).map(busStopCode => {
         if (timings[busStopCode].length > 0) {
             if (timings[busStopCode].filter(svc => svc.timings.length > 0).length > 0)
-                newTimings[busStopCode] = timings[busStopCode]
+                newTimings[busStopCode] = timings[busStopCode].filter(svc => svc.timings.length > 0);
         }
     });
 
