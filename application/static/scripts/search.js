@@ -2,7 +2,10 @@ function performQuery() {
     let query = $('#input').value;
     if (query.trim() ==  '') return;
 
+    let url = (history.state || {}).page || '/search';
+
     $.ajax({
+        url,
         method: 'POST',
         data: {
             query
@@ -24,6 +27,12 @@ $.ready(() => {
         clearTimeout(inputTimeout);
         inputTimeout = setTimeout(performQuery, 850);
     });
+
+    if (search.query.hide) {
+        history.pushState({page: location.pathname}, 'Fish Candies', '/search');
+    } else {
+        history.pushState(null, '', '/search');
+    }
 
     performQuery();
 });
