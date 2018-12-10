@@ -2,7 +2,7 @@ function performQuery() {
     let query = $('#input').value;
     if (query.trim() ==  '') return;
 
-    let url = (history.state || {}).page || '/search';
+    let url = (history.state || {}).page || location.pathname;
 
     $.ajax({
         url,
