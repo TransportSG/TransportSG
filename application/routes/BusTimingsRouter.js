@@ -43,6 +43,7 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
                             fullService: getServiceNumber(busService.service)
                         }, (err, busServiceData) => {
                             if (busServiceData) {
+                                busServiceData.fullService = busService.service;
                                 busServiceData.variant = getServiceVariant(busService.service);
 
                                 busTimings[i].service = busServiceData
