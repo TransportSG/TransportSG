@@ -8,7 +8,10 @@ function performQuery() {
             query
         }
     }, (content) => {
-        $('#results').innerHTML = content;
+        if (content.location)
+            location = content.location;
+        else
+            $('#results').innerHTML = content;
     });
 }
 
