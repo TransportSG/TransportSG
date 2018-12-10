@@ -30,7 +30,7 @@ $.ready(() => {
 
     if (search.query.hide) {
         history.pushState({page: location.pathname}, 'Fish Candies', '/search');
-    } else {
+    } else if (location.pathname == '/search') {
         history.pushState(null, '', '/search');
     }
 
