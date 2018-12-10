@@ -89,7 +89,7 @@ function search(db, query, callback) {
         busStopList = busStopList.sort((a, b) => a.busStopName.length - b.busStopName.length);
 
         busServices.findDocuments({
-            serviceNumber: query,
+            $or: [{ fullService: query }, { serviceNumber: query }],
             routeDirection: 1
         }).toArray((err, busServiceList) => {
             resolveInterchanges(busServiceList, busServices, busStops, busServices => {
