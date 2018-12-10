@@ -3,7 +3,6 @@ function performQuery() {
     if (query.trim() ==  '') return;
 
     $.ajax({
-        url: '/search/',
         method: 'POST',
         data: {
             query
