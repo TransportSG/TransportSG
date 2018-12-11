@@ -204,6 +204,18 @@ window.stationData = {
                 "stationCode": "TNM"
             },
             {
+                "stationName": "Expo",
+                "chineseStationName": "博览",
+                "stationNumber": "CG1",
+                "stationCode": "XPO"
+            },
+            {
+                "stationName": "Changi Airport",
+                "chineseStationName": "樟宜机场",
+                "stationNumber": "CG2",
+                "stationCode": "CGA"
+            },
+            {
                 "stationName": "Bedok",
                 "chineseStationName": "勿洛",
                 "stationNumber": "EW5",

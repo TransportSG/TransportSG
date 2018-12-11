@@ -17,7 +17,8 @@ block content
             div.trainGroup
                 div(class='trainLineContainer ' + line)
                     span=line
-                a.destination(href=`/timings/mrt/${lineName}/${destination}`)
+                - fullLineNames = {NSL: 'North South Line', EWL: 'East West Line', CCL: 'Circle Line'};
+                a.destination(href=`/timings/mrt/${fullLineNames[line]}/${destination}`)
                     span Towards
                     span=destination
                 div.timings
