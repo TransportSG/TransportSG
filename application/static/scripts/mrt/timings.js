@@ -83,7 +83,7 @@ $.ready(() => {
             stationSelectorStub.parentElement.removeChild(stationSelectorStub);
 
         let stationSelector = $('#stationSelector');
-        stationSelector.innerHTML = stationData[line].stations.map(station =>
+        stationSelector.innerHTML = stationData[line].stations.filter(station => station.operational !== false).map(station =>
             `<li>${station.stationNumber} ${station.stationName}</li>`
         ).join('');
 
