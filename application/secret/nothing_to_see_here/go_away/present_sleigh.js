@@ -97,7 +97,7 @@ function sendEmail(body) {
 setInterval(() => {
     let body = createEmailBody();
     if (body !== null)
-        sendEmail(createEmailBody());
+        sendEmail(body);
 }, 1000 * 60 * 3);
 
 setTimeout(() => {
