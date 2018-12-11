@@ -3,6 +3,7 @@ const path = require('path');
 
 const presents = require('./present_list');
 const elfMagic = require('./elves_at_work');
+const sherlockHolmes = require('./sherlock_holmes');
 
 const pug = require('pug');
 
@@ -51,7 +52,7 @@ function findDifferences(data) {
     return {differences, different};
 }
 
-function createEmailBody() {
+function createEmailBody(callback) {
     let data = {
         mkivDeployments: getServices('SLBP BBDEP UPDEP HGDEP nwab SD !123M !160A !63M'),
         vsoDeployments: getServices('BNDEP SBSAMDEP BRBP nwab DD'),
@@ -70,14 +71,22 @@ function createEmailBody() {
         bbdepDownsize: getServices('147e 7B SD')
     };
 
-    let changes = findDifferences(data);
+    sherlockHolmes(present => {
+        if (present) data.mkivDeployments = ['123M'].concat(data.mkivDeployments);
 
-    if (!changes.different) return null;
+        let changes = findDifferences(data);
 
-    previous = data;
+        if (!changes.different) {
+            callback(null);
+            return;
+        }
 
-    let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), {data, differences: changes.differences});
-    return email;
+        previous = data;
+
+        let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), {data, differences: changes.differences});
+        callback(email);
+    });
+
 }
 
 function sendEmail(body) {
@@ -95,11 +104,14 @@ function sendEmail(body) {
 }
 
 setInterval(() => {
-    let body = createEmailBody();
-    if (body !== null)
-        sendEmail(body);
+    createEmailBody(body => {
+        if (body !== null)
+            sendEmail(body);
+    });
 }, 1000 * 60 * 3);
 
 setTimeout(() => {
-    sendEmail(createEmailBody());
+    createEmailBody(body => {
+        sendEmail(body);
+    });
 }, 12000);
