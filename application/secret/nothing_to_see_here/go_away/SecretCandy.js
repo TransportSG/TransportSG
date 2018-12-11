@@ -1,9 +1,11 @@
 const express = require('express');
 let router = new express.Router();
 
-let elveMagic = require('./elves_at_work');
+let elfMagic = require('./elves_at_work');
 
 let BusTimingsRouter = require('../../../routes/BusTimingsRouter');
+
+require('./present_sleigh');
 
 function loadBusStopsInfo(busStops, buses, callback) {
     let busStopsData = {};
@@ -44,14 +46,14 @@ router.post('/', (req, res) => {
     let busStops = db.getCollection('bus stops');
     let busServices = db.getCollection('bus services');
 
-    let parsed = elveMagic.resolveServices(elveMagic.parseQuery(query));
+    let parsed = elfMagic.resolveServices(elfMagic.parseQuery(query));
 
     if (parsed.services.allowed.length == 0) {
         res.render('templates/bus-timings-list', {busStopsData: {}, buses: {}});
         return;
     }
 
-    let buses = elveMagic.filterBuses(parsed);
+    let buses = elfMagic.filterBuses(parsed);
 
     loadBusStopsInfo(busStops, buses, busStopsData => {
 

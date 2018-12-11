@@ -12,6 +12,7 @@
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "csv": "^5.0.0",
+    "emailjs": "^2.2.0",
     "express": "^4.16.4",
     "jsdom": "^13.0.0",
     "mongodb": "^3.1.10",
