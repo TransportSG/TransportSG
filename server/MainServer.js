@@ -49,6 +49,7 @@ module.exports = class MainServer {
     configRoutes(app) {
         let routers = {
             Index: '/',
+            MRTTimings: '/timings/mrt',
             BusTimings: '/timings',
             BusLookup: '/lookup',
             NearbyObjects: '/nearby',

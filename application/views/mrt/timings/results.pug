@@ -1,0 +1,26 @@
+extends ../../layout.pug
+
+block css
+    link(rel='stylesheet' href='/static/css/mrt/timings.css')
+        
+block header
+    -let abbvLine = lineName.split(' ').map(p=>p.slice(0, 1)).join('').toLowerCase()
+    - if (abbvLine == 'cl') abbvLine = 'ccl'
+    span.header=`${stationNumber} `
+        span(class='header header-' + abbvLine)=stationName
+
+block content
+    for line in Object.keys(timings)
+        - let destinations = Object.keys(timings[line]);
+        for destination in destinations
+            - let arrivalTimes = timings[line][destination];
+            div.trainGroup
+                div(class='trainLineContainer ' + line)
+                    span=line
+                a.destination(href=`/timings/mrt/${lineName}/${destination}`)
+                    span Towards
+                    span=destination
+                div.timings
+                    for timing in arrivalTimes
+                        div.trainArrival
+                            span=(timing == 1) ? 'Arr' : timing
