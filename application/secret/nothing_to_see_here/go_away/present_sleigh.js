@@ -23,6 +23,8 @@ function getServices(query) {
         .sort((a, b) => e(a) - e(b)).join(', ').trim();
 }
 
+let previous = '';
+
 function createEmailBody() {
     let data = {
         mkivDeployments: getServices('SLBP BBDEP UPDEP HGDEP nwab SD !123M !160A !63M'),
@@ -41,6 +43,10 @@ function createEmailBody() {
         updepUpsize: getServices('120 122 272 273 93 DD'),
         bbdepDownsize: getServices('147e 7B SD')
     };
+
+    if (previous === JSON.stringify(data)) return null;
+    
+    previous = JSON.stringify(data);
 
     let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), data);
     return email;
@@ -61,5 +67,7 @@ function sendEmail(body) {
 }
 
 setInterval(() => {
-    sendEmail(createEmailBody());
+    let body = createEmailBody();
+    if (body !== null)
+        sendEmail(createEmailBody());
 }, 1000 * 60 * 3);
