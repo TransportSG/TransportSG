@@ -1,3 +1,5 @@
+let allDropdowns = [];
+
 function createDropdown(id, onChange) {
     let ul = $('#' + id);
     ul.className += ' selector-dropdown';
@@ -24,13 +26,24 @@ function createDropdown(id, onChange) {
             optionBox.style.zIndex = 1001;
         }
         else {
-            optionBox.className = optionBox.className.slice(0, optionBox.className.length - 7)
+            optionBox.className = optionBox.className.replace(/ opened/g, '');
             ul.style.zIndex = '';
             optionBox.style.zIndex = '';
         }
 
         ul.style.display = dropdownStatus ? 'block' : 'none';
 
+        allDropdowns.forEach(nid => {
+            if (id === nid) return;
+
+            let optionBox = $('#' + nid + '-div');
+            let ul = $('#' + nid);
+
+            optionBox.className = optionBox.className.replace(/ opened/g, '');
+            ul.style.zIndex = '';
+            optionBox.style.zIndex = '';
+            ul.style.display = 'none';
+        });
     }
 
     optionBox.on('click', toggleDropdown);
@@ -54,10 +67,17 @@ function createDropdown(id, onChange) {
 
     ul.parentElement.insertBefore(optionBox, ul);
     ul.style.display = 'none';
+
+    if (!allDropdowns.includes(id))
+        allDropdowns.push(id);
 }
+
+let selectedLine = '';
+let selectedStation = '';
 
 $.ready(() => {
     createDropdown('lineSelector', line => {
+        selectedLine = line;
         let stationSelectorStub = $('#stationSelectorStub');
         if (stationSelectorStub)
             stationSelectorStub.parentElement.removeChild(stationSelectorStub);
@@ -67,8 +87,15 @@ $.ready(() => {
             `<li>${station.stationNumber} ${station.stationName}</li>`
         ).join('');
 
-        createDropdown('stationSelector', station => {
+        selectedStation = '';
 
+        createDropdown('stationSelector', station => {
+            selectedStation = station.split(' ').slice(1).join(' ');
         });
+    });
+
+    $('button').on('click', () => {
+        if (selectedLine && selectedStation)
+            location.pathname = `/timings/mrt/${selectedLine}/${selectedStation}`
     });
 });

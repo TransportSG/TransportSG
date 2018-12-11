@@ -1,0 +1,128 @@
+span.header {
+    font-size: calc((100vw + 100vh) * 0.013);
+    margin: calc(-0.3vw - 0.3vh) 0 0 calc(1vw + 1vh);
+}
+
+span.header * {
+    font-size: calc((100vw + 100vh) * 0.013);
+    margin: 0;
+}
+
+.header-nsl {
+    color: #c63d3d;
+}
+
+.header-ewl {
+    color: #4ebe45;
+}
+
+.header-ccl {
+    color: #d7832c;
+}
+
+.trainGroup {
+    background-color: #2a2a2a;
+
+    display: flex;
+    height: calc(7vw + 7vh);
+}
+
+.trainGroup:nth-child(even) {
+    background-color: #202020;
+}
+
+.trainLineContainer {
+    width: calc(5vw + 5vh);
+    height: calc(7vw + 7vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    color: #d2d2d2;
+}
+
+.trainLineContainer span {
+    width: calc(5vw + 5vh);
+    text-align: center;
+    font-size: calc(2.3vw + 2.3vh);
+}
+
+.trainGroup .nsl {
+    background-color: #c63d3d;
+}
+
+.trainGroup:nth-child(even) .nsl {
+    background-color: #b43535;
+}
+
+.trainGroup .ewl {
+    background-color: #4ebe45;
+}
+
+.trainGroup:nth-child(even) .ewl {
+    background-color: #43a93b;
+}
+
+.trainGroup .ccl {
+    background-color: #d7832c;
+}
+
+.trainGroup:nth-child(even) .ccl {
+    background-color: #c47625;
+}
+
+a.destination {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+a.destination span {
+    margin-left: calc(1vw + 1vh);
+}
+
+a.destination span:nth-child(1) {
+    font-size: calc(0.7vw + 0.7vh);
+
+    color: #8f8f8f;
+}
+
+a.destination span:nth-child(2) {
+    font-size: calc(1.6vw + 1.6vh);
+    margin-top: calc(-0.4vw - 0.4vh);
+
+    color: #c5c5c5;
+}
+
+div.timings {
+    margin-left: auto;
+
+    display: flex;
+}
+
+.trainArrival {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(2.6vw + 2.6vh);
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #60bd29;
+    height: calc(7vw + 7vh);
+}
+
+div.trainGroup:nth-child(even) .trainArrival {
+    background-color: #58ad25;
+}
+
+.trainArrival span {
+    color: #101010;
+    font-size: calc(1.2vw + 1.2vh);
+}
