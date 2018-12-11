@@ -5,6 +5,19 @@ const {JSDOM} = require('jsdom');
 let mrtLines = require('./station-data');
 let supportingData = require('./support');
 
+function groupTimings(timings) {
+    let lines = {};
+
+    timings.forEach(timing => {
+        let {trainLine, arrivalInMin, destination} = timing;
+        lines[trainLine] = lines[trainLine] || {};
+        lines[trainLine][destination] = lines[trainLine][destination] || [];
+        lines[trainLine][destination].push(arrivalInMin);
+    });
+
+    return lines;
+}
+
 function findStationCode(line, stationName) {
     let code = null;
     Object.keys(mrtLines).forEach(lineName => {
@@ -70,7 +83,18 @@ function extractTimings(dom) {
 function getStationTimings(line, stationName, callback) {
     let stationCode = findStationCode(line, stationName);
     performRequest(stationCode, dom => {
-        let timings = extractTimings(dom);
+        let timings = groupTimings(extractTimings(dom));
+
+        Object.keys(timings).forEach(lineName => {
+            let destinations = timings[lineName];
+
+            Object.keys(destinations).forEach(destinationName => {
+                timings[lineName][destinationName] = timings[lineName][destinationName].filter((time, i, a) =>
+                    a.indexOf(time) === i
+                );
+            });
+        });
+
         callback(timings);
     });
 }

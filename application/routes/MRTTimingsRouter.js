@@ -23,25 +23,12 @@ function findStationNumber(line, stationName) {
     return number;
 }
 
-function groupTimings(timings) {
-    let lines = {};
-
-    timings.forEach(timing => {
-        let {trainLine, arrivalInMin, destination} = timing;
-        lines[trainLine] = lines[trainLine] || {};
-        lines[trainLine][destination] = lines[trainLine][destination] || [];
-        lines[trainLine][destination].push(arrivalInMin);
-    });
-
-    return lines;
-}
-
 router.get('/:lineName/:stationName', (req, res) => {
     let {lineName, stationName} = req.params;
 
     getMRTTimings(lineName, stationName, timings => {
         res.render('mrt/timings/results',
-            {lineName, stationName, stationNumber: findStationNumber(lineName, stationName), timings: groupTimings(timings)});
+            {lineName, stationName, stationNumber: findStationNumber(lineName, stationName), timings: timings});
     });
 });
 
