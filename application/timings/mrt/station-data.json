@@ -662,6 +662,19 @@
                 "chineseStationName": "港湾",
                 "stationNumber": "CC29",
                 "stationCode": "CHBF"
+            },
+
+            {
+                "stationName": "Bayfront",
+                "chineseStationName": "海湾舫",
+                "stationNumber": "CE1",
+                "stationCode": ""
+            },
+            {
+                "stationName": "Marina Bay",
+                "chineseStationName": "滨海湾",
+                "stationNumber": "CE2",
+                "stationCode": "CMRB"
             }
         ]
     },

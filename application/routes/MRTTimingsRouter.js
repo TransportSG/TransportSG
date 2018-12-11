@@ -5,6 +5,7 @@ let getMRTTimings = require('../timings/mrt');
 let mrtLines = require('../timings/mrt/station-data');
 
 router.get('/', (req, res) => {
+    res.render('mrt/timings');
 });
 
 function findStationNumber(line, stationName) {

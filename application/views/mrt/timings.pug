@@ -1,0 +1,26 @@
+extends ../layout
+
+block css
+    link(rel='stylesheet' href='/static/css/mrt/timings.css')
+        
+block scripts
+    script(src='/static/scripts/mrt/timings.js')
+
+block header
+    span#header MRT Timings
+    
+block content
+    div#container
+        div.part
+            span Select an MRT Line
+            ul#lineSelector
+                li North South Line
+                li East West Line
+                li Circle Line
+                li Changi Airport Branch Line
+        div.part
+            span Select an MRT Station
+            ul#stationSelector
+                
+        div
+            button Get Timings
