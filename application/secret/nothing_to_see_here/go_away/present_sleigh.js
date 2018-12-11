@@ -20,10 +20,36 @@ function getServices(query) {
 
     return services = Object.values(buses).map(busStop => busStop.map(svc => svc.service))
         .reduce((a, b) => a.concat(b), []).filter((element, index, array) => array.indexOf(element) === index)
-        .sort((a, b) => e(a) - e(b)).join(', ').trim();
+        .sort((a, b) => e(a) - e(b));
 }
 
-let previous = '';
+let previous = {};
+
+function arrayDiff(source, check) {
+    let missing = [];
+    source.forEach(target => {
+        if (!check.includes(target)) missing.push(target);
+    });
+
+    return missing
+}
+
+function findDifferences(data) {
+    let different = false;
+
+    let differences = {};
+    Object.keys(data).forEach(fieldName => {
+        let currentServices = data[fieldName];
+        let additions = arrayDiff(currentServices, previous[fieldName] || []);
+        let subtractions = arrayDiff(previous[fieldName] || [], currentServices);
+
+        if (additions.concat(subtractions).length !== 0) different = true;
+
+        differences[fieldName] = {additions, subtractions};
+    });
+
+    return {differences, different};
+}
 
 function createEmailBody() {
     let data = {
@@ -44,11 +70,13 @@ function createEmailBody() {
         bbdepDownsize: getServices('147e 7B SD')
     };
 
-    if (previous === JSON.stringify(data)) return null;
+    let changes = findDifferences(data);
 
-    previous = JSON.stringify(data);
+    if (!changes.different) return null;
 
-    let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), data);
+    previous = data;
+
+    let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), {data, differences: changes.differences});
     return email;
 }
 
