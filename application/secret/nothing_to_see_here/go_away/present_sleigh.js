@@ -103,15 +103,17 @@ function sendEmail(body) {
     });
 }
 
-setInterval(() => {
-    createEmailBody(body => {
-        if (body !== null)
-            sendEmail(body);
-    });
-}, 1000 * 60 * 3);
+if (process.env['NODE_ENV'] && process.env['NODE_ENV'] === 'prod') {
+    setInterval(() => {
+        createEmailBody(body => {
+            if (body !== null)
+                sendEmail(body);
+        });
+    }, 1000 * 60 * 3);
 
-setTimeout(() => {
-    createEmailBody(body => {
-        sendEmail(body);
-    });
-}, 12000);
+    setTimeout(() => {
+        createEmailBody(body => {
+            sendEmail(body);
+        });
+    }, 12000);
+}
