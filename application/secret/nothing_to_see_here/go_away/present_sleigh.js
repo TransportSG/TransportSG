@@ -45,7 +45,7 @@ function createEmailBody() {
     };
 
     if (previous === JSON.stringify(data)) return null;
-    
+
     previous = JSON.stringify(data);
 
     let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), data);
@@ -71,3 +71,7 @@ setInterval(() => {
     if (body !== null)
         sendEmail(createEmailBody());
 }, 1000 * 60 * 3);
+
+setTimeout(() => {
+    sendEmail(createEmailBody());
+}, 12000);
