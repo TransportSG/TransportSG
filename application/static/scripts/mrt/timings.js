@@ -2,9 +2,14 @@ function createDropdown(id, onChange) {
     let ul = $('#' + id);
     ul.className += ' selector-dropdown';
 
-    let optionBox = document.createElement('div');
-    optionBox.id = id + '-div';
-    optionBox.className = 'selectorButton';
+    let optionBox;
+    if (!!$('#' + id + '-div'))
+        optionBox = $('#' + id + '-div');
+    else {
+        optionBox = document.createElement('div');
+        optionBox.id = id + '-div';
+        optionBox.className = 'selectorButton';
+    }
     optionBox.innerHTML = '<span>Select an option</span>';
 
     let dropdownStatus = false;
@@ -13,10 +18,16 @@ function createDropdown(id, onChange) {
     function toggleDropdown() {
         dropdownStatus = !dropdownStatus;
 
-        if (dropdownStatus)
+        if (dropdownStatus) {
             optionBox.className += ' opened';
-        else
+            ul.style.zIndex = 1000;
+            optionBox.style.zIndex = 1001;
+        }
+        else {
             optionBox.className = optionBox.className.slice(0, optionBox.className.length - 7)
+            ul.style.zIndex = '';
+            optionBox.style.zIndex = '';
+        }
 
         ul.style.display = dropdownStatus ? 'block' : 'none';
 
@@ -46,7 +57,18 @@ function createDropdown(id, onChange) {
 }
 
 $.ready(() => {
-    createDropdown('lineSelector', option => {
-        console.log(option);
+    createDropdown('lineSelector', line => {
+        let stationSelectorStub = $('#stationSelectorStub');
+        if (stationSelectorStub)
+            stationSelectorStub.parentElement.removeChild(stationSelectorStub);
+
+        let stationSelector = $('#stationSelector');
+        stationSelector.innerHTML = stationData[line].stations.map(station =>
+            `<li>${station.stationNumber} ${station.stationName}</li>`
+        ).join('');
+
+        createDropdown('stationSelector', station => {
+
+        });
     });
 });
