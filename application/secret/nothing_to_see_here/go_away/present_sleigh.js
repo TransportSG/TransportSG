@@ -61,12 +61,12 @@ function createEmailBody(callback) {
         nwabBendy: getServices('nwab BD'),
         expUpsize: getServices('14e 30e 74e 97e 151e 174e 196e DD'),
         budepUpsize: getServices('947 DD'),
-        kjdepUpsize: getServices('300 301 302 307 DD'),
+        kjdepUpsize: getServices('307 DD'),
         kjdepDownsize: getServices('180 972 SD'),
         kjdepBendy: getServices('61 176 180 700 700A 972 983 985 BD'),
         slbpDownsize: getServices('179 179A 182 192 198 198A 241 247 248 249 251 252 253 254 255 257 SD'),
         bndepDownsize: getServices('23 65 7A SD'),
-        sedepBendy: getServices('851 851e BD'),
+        sedepBendy: getServices('SEDEP !800 !804 !806 !807 !811 !812 BD'),
         updepUpsize: getServices('120 122 272 273 93 DD'),
         bbdepDownsize: getServices('147e 7B SD')
     };
