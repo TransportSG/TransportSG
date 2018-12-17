@@ -66,7 +66,10 @@ function extractTimings(dom) {
         let destinations = Array.from(table.querySelectorAll('tr:nth-child(3) > td'));
 
         timings.forEach((timing, i) => {
-            let arrivalInMin = timing.textContent.match(/(\d+)/)[1];
+            let arrivalInMin = timing.textContent.match(/(\d+)/);
+            if (!arrivalInMin) return;
+            arrivalInMin = arrivalInMin[1];
+            
             let destination = destinations[i].textContent;
 
             allTimings.push({
