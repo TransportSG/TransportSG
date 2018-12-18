@@ -43,11 +43,15 @@ function performChecks(busRegos, buses, callback) {
         if (new Date() - bus.busData.deregDate > 0) {
             bus.operator.status = 'Retired';
             promises.push(new Promise(resolve => {
-                busRegos.updateDocument(bus, {
+                busRegos.updateDocument({
+                    'registration.prefix': bus.registration.prefix,
+                    'registration.number': bus.registration.number
+                }, {
                     $set: {
                         'operator.status': 'Retired'
                     }
-                }, () => {
+                }, (err) => {
+                    console.log(err)
                     resolve();
                 });
             }));
