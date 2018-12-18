@@ -9,28 +9,28 @@ router.get('/', (req, res) => {
 
 router.get('/render', (req, res) => {
     let query = queryString.parse(url.parse(req.url).query);
-    
+
     if (!query['bus-stops']) {
         res.status(400).end('No bus stop provided');
         return;
     }
-    let busStops = query['bus-stops'].split(',').filter(Boolean);
+    let givenBusStops = query['bus-stops'].split(',').filter(Boolean);
 
     let promises = [];
-    let data = {};
+    let busStops = [];
 
-    busStops.forEach(busStopCode => {
+    givenBusStops.forEach(busStopCode => {
         promises.push(new Promise(resolve => {
             res.db.getCollection('bus stops').findDocument({busStopCode}, (err, busStop) => {
                 if (busStop)
-                    data[busStopCode] = busStop;
+                    busStops.push(busStop);
                 resolve();
             });
         }))
     });
 
     Promise.all(promises).then(() => {
-        res.render('bookmarks/render', {data});
+        res.render('search/results', {busStops, busServices: []});
     });
 });
 
