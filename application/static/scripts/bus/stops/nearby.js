@@ -9,6 +9,7 @@ function processLocation(location) {
         }
     }, data => {
         $('#content').innerHTML = data;
+        if (tag) tag();
     });
 }
 

@@ -15,12 +15,10 @@ router.get('/', (req, res) => {
     res.render('bus/stops/nearby');
 });
 
-router.post('/', (req, res) => {
+function findNearbyBusStops(busStops, position, callback) {
     let maxDiff = 0.004;
+    let {latitude, longitude} = position;
 
-    let busStops = res.db.getCollection('bus stops');
-
-    let {latitude, longitude} = req.body;
     busStops.findDocuments({
         'position.latitude': {
             $gt: latitude - maxDiff,
@@ -30,7 +28,13 @@ router.post('/', (req, res) => {
             $gt: longitude - maxDiff,
             $lt: longitude + maxDiff
         }
-    }).toArray((err, busStops) => {
+    }).toArray(callback);
+}
+
+router.post('/', (req, res) => {
+    let busStops = res.db.getCollection('bus stops');
+    let {latitude, longitude} = req.body;
+    findNearbyBusStops(busStops, req.body, (err, busStops) => {
         res.render('bus/stops/nearby/results', {
             busStops: busStops.map(busStop => {
                 busStop.distance = distance(latitude, longitude,

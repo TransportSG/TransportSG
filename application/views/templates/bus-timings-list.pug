@@ -13,6 +13,6 @@ div#busStops
         div.busStopContainer
             label(for='checkbox-' + busStopCode).busStopHideContainer
                 span.busStopName=busStopData.busStopName
-            input(type='checkbox' id='checkbox-' + busStopCode).busStopHideCheckbox
+            input(type='checkbox' id='checkbox-' + busStopCode bus-stop-code=busStopCode).busStopHideCheckbox
             div.busStopContents
                 include bus-timings

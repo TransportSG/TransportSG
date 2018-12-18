@@ -1,0 +1,19 @@
+extends ../layout.pug
+
+block css
+    link(rel='stylesheet' href='/static/css/nwabs/nearby.css')
+    link(rel='stylesheet' href='/static/css/bus/timings.css')
+    link(rel='stylesheet' href='/static/css/bus/timings-list.css')
+    style.
+        a#home {margin-left: auto !important;}
+
+block scripts
+    script(src='/static/scripts/bus/stops/nearby.js' async)
+    script(src='/static/scripts/unfolding-busstop.js' async)
+
+block header
+    img#page-icon(src='/static/images/bus-stop.svg')
+    span#header Locate Nearby NWABs
+
+block content
+    div.content

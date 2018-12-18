@@ -91,8 +91,8 @@ function filterEmpties(timings) {
     return newTimings;
 }
 
-function filterBuses(parsed) {
-    let timings = filterType(filterWAB(filterService(getBusTimings(), parsed), parsed), parsed);
+function filterBuses(parsed, customTimings) {
+    let timings = filterType(filterWAB(filterService(customTimings || getBusTimings(), parsed), parsed), parsed);
 
     return filterEmpties(timings);
 }

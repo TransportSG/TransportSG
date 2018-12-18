@@ -30,6 +30,8 @@ $.ready(() => {
 
     if (search.query.hide) {
         history.pushState({page: location.pathname}, 'Fish Candies', '/search');
+        setInterval(performQuery, 5000);
+
     } else if (location.pathname == '/search') {
         history.pushState(null, '', '/search');
     }
