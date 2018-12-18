@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
     findNearbyBusStops(busStops, req.body, (err, foundBusStops) => {
         foundBusStops.forEach(busStop => {
             let {busStopCode} = busStop;
+            if (!timings[busStopCode]) return;
 
             allowedBusStops[busStopCode] = timings[busStopCode];
         })
