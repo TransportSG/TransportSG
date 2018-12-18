@@ -36,6 +36,31 @@ function searchRego(req, res, number) {
     });
 }
 
+function performChecks(busRegos, buses, callback) {
+    let promises = [];
+
+    buses = buses.map(bus => {
+        if (new Date() - bus.busData.deregDate > 0) {
+            bus.operator.status = 'Retired';
+            promises.push(new Promise(resolve => {
+                busRegos.updateDocument(bus, {
+                    $set: {
+                        'operator.status': 'Retired'
+                    }
+                }, () => {
+                    resolve();
+                });
+            }));
+        }
+
+        return bus;
+    });
+
+    Promise.all(promises).then(() => {
+        callback(buses);
+    });
+}
+
 function renderBuses(req, res, buses) {
     // buses = buses.map(bus => {
     //     let deregDate = bus.busData.deregDate;
@@ -53,7 +78,9 @@ function renderBuses(req, res, buses) {
     //     return bus;
     // });
 
-    res.render('bus/lookup/results', {buses, operatorCss});
+    performChecks(res.db.getCollection('bus registrations'), buses, buses => {
+        res.render('bus/lookup/results', {buses, operatorCss});
+    });
 }
 
 module.exports = router;
