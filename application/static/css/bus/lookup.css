@@ -1,3 +1,41 @@
+#lookup-method-container {
+    margin-left: auto;
+    margin-right: calc(2vw + 2vh);
+}
+
+a#home {
+    margin-left: 0 !important;
+}
+
+#lookup-method-div.selectorButton {
+    width: calc(10vw + 10vh);
+
+    height: calc(2.5vw + 2.5vh);
+    padding: 0 !important;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lookup-method-div.selectorButton span {
+    margin: 0;
+    font-size: calc(1.2vw + 1.2vh);
+}
+
+#lookup-method {
+    width: calc(10vw + 10vh);
+    font-size: calc(1.2vw + 1.2vh);
+}
+
+ul#lookup-method li {
+    height: calc(2.5vw + 2.5vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
 div#searchbar {
     background-color: #0f0f0f;
     width: 100vw;

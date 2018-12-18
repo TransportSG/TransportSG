@@ -1,3 +1,5 @@
+let method = 'rego';
+
 function performQuery() {
     let query = $('#input').value;
     if (query.trim() ==  '') return;
@@ -6,7 +8,7 @@ function performQuery() {
         url: '/lookup/',
         method: 'POST',
         data: {
-            method: 'rego',
+            method,
             query
         }
     }, (content) => {
@@ -15,6 +17,21 @@ function performQuery() {
 }
 
 $.ready(() => {
+    createDropdown('lookup-method', chosen => {
+        method = chosen.toLowerCase();
+        
+        switch(chosen) {
+            case 'Rego':
+                $('#input').setAttribute('type', 'number');
+                break;
+            case 'Service':
+                $('#input').setAttribute('type', 'text');
+                break;
+        }
+    });
+
+    $('#lookup-method-div span').textContent = 'Rego';
+
     let inputTimeout = 0;
 
     let input = $('#input');
