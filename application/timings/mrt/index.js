@@ -69,8 +69,10 @@ function extractTimings(dom) {
             let arrivalInMin = timing.textContent.match(/(\d+)/);
             if (!arrivalInMin) return;
             arrivalInMin = arrivalInMin[1];
-            
+
             let destination = destinations[i].textContent;
+
+            if (destination === 'Do not board') return;
 
             allTimings.push({
                 trainLine,

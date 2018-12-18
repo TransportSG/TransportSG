@@ -243,7 +243,7 @@
                 "stationName": "Lavender",
                 "chineseStationName": "劳明达",
                 "stationNumber": "EW11",
-                "stationCode": ""
+                "stationCode": "LVR"
             },
             {
                 "stationName": "Bugis",
@@ -363,7 +363,7 @@
                 "stationName": "Tuas Crescent",
                 "chineseStationName": "大士弯站",
                 "stationNumber": "EW31",
-                "stationCode": ""
+                "stationCode": "TCR"
             },
             {
                 "stationName": "Tuas West Road",
@@ -625,7 +625,7 @@
                 "stationName": "one-north",
                 "chineseStationName": "纬壹",
                 "stationNumber": "CC23",
-                "stationCode": ""
+                "stationCode": "CONH"
             },
             {
                 "stationName": "Kent Ridge",
@@ -668,7 +668,7 @@
                 "stationName": "Bayfront",
                 "chineseStationName": "海湾舫",
                 "stationNumber": "CE1",
-                "stationCode": ""
+                "stationCode": "CBFT"
             },
             {
                 "stationName": "Marina Bay",
@@ -686,7 +686,7 @@
                 "stationName": "Bayfront",
                 "chineseStationName": "海湾舫",
                 "stationNumber": "CE1",
-                "stationCode": ""
+                "stationCode": "CBFT"
             },
             {
                 "stationName": "Marina Bay",
