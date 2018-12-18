@@ -49,6 +49,14 @@ function loadCSVs() {
 }
 
 function transformData(regoPrefix, csv) {
+    let status;
+    if (csv[11].includes('(R)')) {
+        csv[11] = csv[11].replace('(R)', '').trim();
+        status = 'Retired';
+    } else if (csv[11].includes('(L)')) {
+        csv[11] = csv[11].replace('(L)', '').trim();
+        status = 'Layup';
+    }
     return {
         registration: {
             prefix: regoPrefix,
@@ -69,7 +77,9 @@ function transformData(regoPrefix, csv) {
         operator: {
             operator: csv[5],
             depot: csv[10],
-            permService: csv[11]
+            permService: csv[11].split('/')[0],
+            crossOvers: csv[11].split('/').slice(1).map(svc => svc.replace('*', '')),
+            status
         }, fleet: {
             batch: csv[12],
 
