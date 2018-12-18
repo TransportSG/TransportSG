@@ -12,6 +12,14 @@ for bus in buses
             div.data.deployment
                 span Deployment
                 span=bus.operator.depot.length ? (bus.operator.depot.replace(/@/, '') + ' ' + bus.operator.permService) : 'Unknown'
+            if (bus.operator.crossOvers.length > 0)
+                div.data.crossovers
+                    span Crossvers
+                    span=bus.operator.crossOvers.join(' / ')
+            if !!bus.operator.status
+                div.data.status
+                    span Status
+                    span=bus.operator.status
             div.data.make
                 span Make
                 span=bus.busData.make
@@ -32,7 +40,7 @@ for bus in buses
                 span=bus.fleet.batch
             div.data.advert
                 span Advertisement
-                span=bus.fleet.ad
+                span=bus.fleet.ad || 'N/A'
             div.data.dereg
                 span Deregistration
                 if +bus.busData.deregDate === 0
