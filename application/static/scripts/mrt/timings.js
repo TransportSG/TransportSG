@@ -2,7 +2,13 @@ let allDropdowns = [];
 
 function createDropdown(id, onChange) {
     let ul = $('#' + id);
-    ul.className += ' selector-dropdown';
+
+    let ulHTML = ul.innerHTML;
+    let newUl = document.createElement('ul');
+    newUl.innerHTML = ulHTML;
+
+    newUl.id = id;
+    newUl.className = 'selector-dropdown';
 
     let optionBox;
     if (!!$('#' + id + '-div'))
@@ -48,7 +54,7 @@ function createDropdown(id, onChange) {
 
     optionBox.on('click', toggleDropdown);
 
-    let options = Array.from(ul.querySelectorAll('li'));
+    let options = Array.from(newUl.querySelectorAll('li'));
 
     options.forEach((option, i) => {
         option.on('click', () => {
@@ -65,7 +71,18 @@ function createDropdown(id, onChange) {
         });
     });
 
-    ul.parentElement.insertBefore(optionBox, ul);
+    let container = document.createElement('div');
+
+    container.id = id + '-container';
+
+    container.appendChild(optionBox);
+    container.appendChild(newUl);
+
+    ul.parentElement.insertBefore(container, ul);
+    ul.parentElement.removeChild(ul);
+
+    ul = newUl;
+
     ul.style.display = 'none';
 
     if (!allDropdowns.includes(id))

@@ -44,6 +44,7 @@ div.part {
 
     z-index: 1;
     cursor: pointer;
+    height: calc(2.78vw + 2.78vh);
 }
 
 .selectorButton.opened {
@@ -65,7 +66,6 @@ div.part {
     margin: 0;
     font-size: calc(2vw + 2vh);
     position: absolute;
-    transform: translateY(calc(50% + 2.26vw + 2.26vh));
     background: #454545;
 
     overflow: scroll;
