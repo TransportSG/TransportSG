@@ -57,7 +57,7 @@ div.part {
 
 .selector-dropdown {
     width: calc(27vw + 27vh + (0.26vw + 0.26vh) * 2);
-    height: calc(7vw + 7vh);
+    max-height: calc(7vw + 14vh);
     padding: 0;
 
     list-style-type: none;
