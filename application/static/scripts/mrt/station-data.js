@@ -35,10 +35,9 @@ window.stationData = {
             },
             {
                 "stationName": "Sungei Kadui",
-                "chineseStationName": "",
+                "chineseStationName": "	双溪加株",
                 "stationNumber": "NS6",
-                "operational": false,
-                "stationCode": ""
+                "operational": false
             },
             {
                 "stationName": "Kranji",
@@ -243,7 +242,7 @@ window.stationData = {
                 "stationName": "Lavender",
                 "chineseStationName": "劳明达",
                 "stationNumber": "EW11",
-                "stationCode": ""
+                "stationCode": "LVR"
             },
             {
                 "stationName": "Bugis",
@@ -363,7 +362,7 @@ window.stationData = {
                 "stationName": "Tuas Crescent",
                 "chineseStationName": "大士弯站",
                 "stationNumber": "EW31",
-                "stationCode": ""
+                "stationCode": "TCR"
             },
             {
                 "stationName": "Tuas West Road",
@@ -481,6 +480,12 @@ window.stationData = {
                 "stationName": "Punggol",
                 "chineseStationName": "榜鹅",
                 "stationNumber": "NE17"
+            },
+            {
+                "stationName": "Punggol Coast",
+                "chineseStationName": "榜鹅海岸",
+                "stationNumber": "NE18",
+                "operational": false
             }
         ]
     },
@@ -595,7 +600,6 @@ window.stationData = {
                 "chineseStationName": "武吉布朗",
                 "stationNumber": "CC18",
                 "operational": false,
-                "stationCode": ""
             },
             {
                 "stationName": "Botanic Gardens",
@@ -625,7 +629,7 @@ window.stationData = {
                 "stationName": "one-north",
                 "chineseStationName": "纬壹",
                 "stationNumber": "CC23",
-                "stationCode": ""
+                "stationCode": "CONH"
             },
             {
                 "stationName": "Kent Ridge",
@@ -663,18 +667,20 @@ window.stationData = {
                 "stationNumber": "CC29",
                 "stationCode": "CHBF"
             },
-
             {
-                "stationName": "Bayfront",
-                "chineseStationName": "海湾舫",
-                "stationNumber": "CE1",
-                "stationCode": ""
+                "stationName": "Keppel",
+                "chineseStationName": "吉宝",
+                "stationNumber": "CC30"
             },
             {
-                "stationName": "Marina Bay",
-                "chineseStationName": "滨海湾",
-                "stationNumber": "CE2",
-                "stationCode": "CMRB"
+                "stationName": "Cantoment",
+                "chineseStationName": "广东民",
+                "stationNumber": "CC31"
+            },
+            {
+                "stationName": "Prince Edward Road",
+                "chineseStationName": "爱德华太子路",
+                "stationNumber": "CC32"
             }
         ]
     },
@@ -686,7 +692,7 @@ window.stationData = {
                 "stationName": "Bayfront",
                 "chineseStationName": "海湾舫",
                 "stationNumber": "CE1",
-                "stationCode": ""
+                "stationCode": "CBFT"
             },
             {
                 "stationName": "Marina Bay",
@@ -717,7 +723,7 @@ window.stationData = {
             },
             {
                 "stationName": "Hume Avenue",
-                "chineseStationName": "",
+                "chineseStationName": "休谟大道",
                 "stationNumber": "DT4",
                 "operational": false
             },
@@ -1057,6 +1063,385 @@ window.stationData = {
                 "chineseStationName": "树德",
                 "stationNumber": "PW7"
             }
+        ]
+    },
+    "Thomson-East Coast Line": {
+        "name": "Thomson-East Coast Line",
+        "chineseName": "汤申-东海岸地铁线",
+        "stations": [
+            {
+                "stationName": "Woodlands North",
+                "chineseStationName": "兀兰北",
+                "stationNumber": "TE1",
+                "stationCode": "WDN",
+                "operational": false
+            },
+            {
+                "stationName": "Woodlands",
+                "chineseStationName": "兀兰",
+                "stationNumber": "TE2",
+                "stationCode": "WDL",
+                "operational": false
+            },
+            {
+                "stationName": "Woodlands South",
+                "chineseStationName": "兀兰南",
+                "stationNumber": "TE3",
+                "stationCode": "WDS",
+                "operational": false
+            },
+            {
+                "stationName": "Springleaf",
+                "chineseStationName": "春叶",
+                "stationNumber": "TE4",
+                "stationCode": "SPL",
+                "operational": false
+            },
+            {
+                "stationName": "Lentor",
+                "chineseStationName": "伦多",
+                "stationNumber": "TE5",
+                "stationCode": "LTR",
+                "operational": false
+            },
+            {
+                "stationName": "Mayflower",
+                "chineseStationName": "美华",
+                "stationNumber": "TE6",
+                "stationCode": "MFL",
+                "operational": false
+            },
+            {
+                "stationName": "Bright Hill",
+                "chineseStationName": "光明山",
+                "stationNumber": "TE7",
+                "stationCode": "BRH",
+                "operational": false
+            },
+            {
+                "stationName": "Upper Thomson",
+                "chineseStationName": "汤申上段",
+                "stationNumber": "TE8",
+                "stationCode": "UTS",
+                "operational": false
+            },
+            {
+                "stationName": "Caldecott",
+                "chineseStationName": "加利谷",
+                "stationNumber": "TE9",
+                "stationCode": "CDT",
+                "operational": false
+            },
+            {
+                "stationName": "Mount Pleasant",
+                "chineseStationName": "快乐山",
+                "stationNumber": "TE10",
+                "stationCode": "MPL",
+                "operational": false
+            },
+            {
+                "stationName": "Stevens",
+                "chineseStationName": "史蒂芬",
+                "stationNumber": "TE11",
+                "stationCode": "STV",
+                "operational": false
+            },
+            {
+                "stationName": "Napier",
+                "chineseStationName": "纳比雅",
+                "stationNumber": "TE12",
+                "stationCode": "NPR",
+                "operational": false
+            },
+            {
+                "stationName": "Orchard Boulevard",
+                "chineseStationName": "乌节林荫道",
+                "stationNumber": "TE13",
+                "stationCode": "OBV",
+                "operational": false
+            },
+            {
+                "stationName": "Orchard",
+                "chineseStationName": "乌节",
+                "stationNumber": "TE14",
+                "stationCode": "ORC",
+                "operational": false
+            },
+            {
+                "stationName": "Great World",
+                "chineseStationName": "大世界",
+                "stationNumber": "TE15",
+                "stationCode": "GRW",
+                "operational": false
+            },
+            {
+                "stationName": "Havelock",
+                "chineseStationName": "合乐",
+                "stationNumber": "TE16",
+                "stationCode": "HVL",
+                "operational": false
+            },
+            {
+                "stationName": "Outram Park",
+                "chineseStationName": "欧南园",
+                "stationNumber": "TE17",
+                "stationCode": "OTP",
+                "operational": false
+            },
+            {
+                "stationName": "Maxwell",
+                "chineseStationName": "麦士威",
+                "stationNumber": "TE18",
+                "stationCode": "MAX",
+                "operational": false
+            },
+            {
+                "stationName": "Shenton Way",
+                "chineseStationName": "珊顿道",
+                "stationNumber": "TE19",
+                "stationCode": "SHW",
+                "operational": false
+            },
+            {
+                "stationName": "Marina Bay",
+                "chineseStationName": "滨海湾",
+                "stationNumber": "TE20",
+                "stationCode": "MRB",
+                "operational": false
+            },
+            {
+                "stationName": "Marina South",
+                "chineseStationName": "滨海南",
+                "stationNumber": "TE21",
+                "stationCode": "MRS",
+                "operational": false
+            },
+            {
+                "stationName": "Gardens By The Bay",
+                "chineseStationName": "滨海湾花园",
+                "stationNumber": "TE22",
+                "stationCode": "GRB",
+                "operational": false
+            },
+            {
+                "stationName": "Tanjong Rhu",
+                "chineseStationName": "丹戎禺",
+                "stationNumber": "TE23",
+                "operational": false
+            },
+            {
+                "stationName": "Katong Park",
+                "chineseStationName": "加东公园",
+                "stationNumber": "TE24",
+                "operational": false
+            },
+            {
+                "stationName": "Tanjong Katong",
+                "chineseStationName": "丹戎加东",
+                "stationNumber": "TE25",
+                "operational": false
+            },
+            {
+                "stationName": "Marine Parade",
+                "chineseStationName": "马林百列",
+                "stationNumber": "TE26",
+                "operational": false
+            },
+            {
+                "stationName": "Marine Terrace",
+                "chineseStationName": "马林台",
+                "stationNumber": "TE27",
+                "operational": false
+            },
+            {
+                "stationName": "Siglap",
+                "chineseStationName": "实乞纳",
+                "stationNumber": "TE28",
+                "operational": false
+            },
+            {
+                "stationName": "Bayshore",
+                "chineseStationName": "碧湾",
+                "stationNumber": "TE29",
+                "operational": false
+            },
+            {
+                "stationName": "Bedok South",
+                "chineseStationName": "勿洛南",
+                "stationNumber": "TE30",
+                "operational": false
+            },
+            {
+                "stationName": "Sungei Bedok",
+                "chineseStationName": "双溪勿洛",
+                "stationNumber": "TE31",
+                "operational": false
+            },
+        ]
+    },
+    "Jurong Region Line (East)": {
+        "name": "Jurong Region Line (East)",
+        "chineseName": "裕廊区域线（东）",
+        "stations": [
+            {
+                "stationName": "Tengah",
+                "chineseStationName": "登加",
+                "stationNumber": "JS3",
+                "operational": false
+            },
+            {
+                "stationName": "Tengah Plantation",
+                "chineseStationName": "登加种植",
+                "stationNumber": "JE1",
+                "operational": false
+            },
+            {
+                "stationName": "Tengah Park",
+                "chineseStationName": "登加园",
+                "stationNumber": "JE2",
+                "operational": false
+            },
+            {
+                "stationName": "Bukit Batok West",
+                "chineseStationName": "武吉巴督西",
+                "stationNumber": "JE3",
+                "operational": false
+            },
+            {
+                "stationName": "Toh Guan",
+                "chineseStationName": "卓源",
+                "stationNumber": "JE4",
+                "operational": false
+            },
+            {
+                "stationName": "Jurong East",
+                "chineseStationName": "裕廊东",
+                "stationNumber": "JE5",
+                "stationCode": "JUR",
+                "operational": false
+            },
+            {
+                "stationName": "Jurong Town Hall",
+                "chineseStationName": "裕廊镇大会堂",
+                "stationNumber": "JE6",
+                "operational": false
+            },
+            {
+                "stationName": "Pandan Reservoir",
+                "chineseStationName": "班丹蓄水池",
+                "stationNumber": "JE7",
+                "operational": false
+            }
+        ]
+    },
+    "Jurong Region Line (West)": {
+        "name": "Jurong Region Line (West)",
+        "chineseName": "裕廊区域线（西）",
+        "stations": [
+            {
+                "stationName": "Choa Chu Kang",
+                "chineseStationName": "蔡厝港",
+                "stationNumber": "JS1",
+                "stationCode": "CCK",
+                "operational": false
+            },
+            {
+                "stationName": "Choa Chu Kang West",
+                "chineseStationName": "蔡厝港西",
+                "stationNumber": "JS2",
+                "operational": false
+            },
+            {
+                "stationName": "Tengah",
+                "chineseStationName": "登加",
+                "stationNumber": "JS3",
+                "operational": false
+            },
+            {
+                "stationName": "Hong Kah",
+                "chineseStationName": "丰嘉",
+                "stationNumber": "JS4",
+                "operational": false
+            },
+            {
+                "stationName": "Corporation",
+                "chineseStationName": "企业",
+                "stationNumber": "JS5",
+                "operational": false
+            },
+            {
+                "stationName": "Jurong West",
+                "chineseStationName": "裕廊西",
+                "stationNumber": "JS6",
+                "operational": false
+            },
+            {
+                "stationName": "Bahar Junction",
+                "chineseStationName": "巴哈路口",
+                "stationNumber": "JS7",
+                "operational": false
+            },
+            {
+                "stationName": "Boon Lay",
+                "chineseStationName": "文礼",
+                "stationNumber": "JS8",
+                "stationCode": "BNL",
+                "operational": false
+            },
+            {
+                "stationName": "Enterprise",
+                "chineseStationName": "事业",
+                "stationNumber": "JS9",
+                "operational": false
+            },
+            {
+                "stationName": "Tukang",
+                "chineseStationName": "都康",
+                "stationNumber": "JS10",
+                "operational": false
+            },
+            {
+                "stationName": "Jurong Hill",
+                "chineseStationName": "裕廊山",
+                "stationNumber": "JS11",
+                "operational": false
+            },
+            {
+                "stationName": "Jurong Pier",
+                "chineseStationName": "裕廊渡头",
+                "stationNumber": "JS12",
+                "operational": false
+            },
+            {
+                "stationName": "Gek Poh",
+                "chineseStationName": "玉宝",
+                "stationNumber": "JW1",
+                "operational": false
+            },
+            {
+                "stationName": "Tawas",
+                "chineseStationName": "大华士",
+                "stationNumber": "JW2",
+                "operational": false
+            },
+            {
+                "stationName": "Nanyang Gateway",
+                "chineseStationName": "南洋门",
+                "stationNumber": "JW3",
+                "operational": false
+            },
+            {
+                "stationName": "Nanyang Cresent",
+                "chineseStationName": "南洋弯",
+                "stationNumber": "JW4",
+                "operational": false
+            },
+            {
+                "stationName": "Pang Kang Hill",
+                "chineseStationName": "秉光山",
+                "stationNumber": "JW5",
+                "operational": false
+            },
         ]
     }
 }
