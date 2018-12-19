@@ -38,6 +38,7 @@ function getServiceVariant(service) {
 function transformBusServiceData(busService) {
     if (busService.ServiceNo.includes('CT')) busService.Category = 'CHINATOWN';
     if (busService.Category === 'NIGHT SERVICE') busService.Category = 'NIGHT OWL';
+    if (busService.Category === 'CITY_LINK') busService.Category = 'CITY DIRECT';
 
     return {
         fullService: busService.ServiceNo,
@@ -84,7 +85,7 @@ function updateBusServiceData(data) {
 
     busServices.findDocument(query, (err, busService) => {
         if (!!busService) {
-            busServices.updateDocument(query, data, () => {
+            busServices.updateDocument(query, {$set: data}, () => {
                 completed++;
             });
         } else {

@@ -48,7 +48,7 @@ function updateBusStopData(data) {
 
     busStops.findDocument(query, (err, busStop) => {
         if (!!busStop) {
-            busStops.updateDocument(query, data, () => {
+            busStops.updateDocument(query, {$set: data}, () => {
                 completed++;
             });
         } else {
