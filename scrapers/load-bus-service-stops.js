@@ -81,7 +81,7 @@ function processBusService(service, direction, busStopsList) {
         let promises = [];
         let finalBusStops = [];
 
-        busStopsList.forEach(busStop => {
+        busStopsList.forEach((busStop, stopNumber) => {
             promises.push(new Promise(resolve2 => {
 
                 busStops.findDocument({
@@ -101,7 +101,7 @@ function processBusService(service, direction, busStopsList) {
                         roadName: busStopInfo.roadName,
 
                         distance: busStop.distance,
-                        stopNumber: busStop.stopNumber,
+                        stopNumber,
                         firstBus: busStop.firstBus,
                         lastBus: busStop.lastBus
                     };
