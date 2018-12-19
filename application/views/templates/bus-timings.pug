@@ -8,13 +8,13 @@ for bus in busTimings
     - let {timings} = bus;
 
     div.busService
-        a(href=`/bus/${bus.service.fullService}` class='busServiceNumber ' + bus.service.operator.toLowerCase())
-            span=bus.service.serviceNumber
-            if (bus.service.variant)
-                span=bus.service.variant
-        a.destination(href=`/timings/${bus.destination.busStopCode}`)
+        a(href=`/bus/${services[bus.service][0].fullService}` class='busServiceNumber ' + services[bus.service][0].operator.toLowerCase())
+            span=services[bus.service][0].serviceNumber
+            if (services[bus.service][0].variant)
+                span=services[bus.service].variant
+        a.destination(href=`/timings/${destinations[bus.destination].busStopCode}`)
             span Towards
-            span=bus.destination.busStopName
+            span=destinations[bus.destination].busStopName
         div.timings
             for arrival in timings
                 - let ttl = getTimingsDifference(new Date(), new Date(arrival.arrivalTime))

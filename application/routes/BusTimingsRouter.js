@@ -17,55 +17,71 @@ function getServiceVariant(service) {
         return service.replace(/[0-9]/g, '').replace(/#/, 'C');
 }
 
+function isBusStopInRoute(svc, busStopCode) {
+    return svc.stops.map(stop => stop.busStopCode == busStopCode).filter(Boolean).length !== 0;
+}
+
 function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {minutes: d.getUTCMinutes(),seconds: d.getUTCSeconds(),}};
 
 function hasArrived(timing) {return +new Date() - +new Date(timing) > 0;}
 
 function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, callback) {
+
+    let svcs = busTimings.map(svc => svc.service);
+    let flattened = svcs.reduce((a, b) => a.concat(b), []);
+    let deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
+
+    let services = {};
+    let destinations = {};
+    let directions = {};
+
     let promises = [];
 
-    busTimings.forEach((busService, i) => {
+    deduped.forEach(service => {
         promises.push(new Promise(resolve => {
-            busStops.findDocument({
-                busStopCode: busService.destination
-            }, (err, destinationBusStop) => {
-                busTimings[i].destination = destinationBusStop;
-
-                busServices.findDocument({
-                    fullService: busService.service
-                }, (err, busServiceData) => {
-                    if (busServiceData) {
-                        busTimings[i].service = busServiceData
-
-                        resolve();
-                    } else {
-                        busServices.findDocument({
-                            fullService: getServiceNumber(busService.service)
-                        }, (err, busServiceData) => {
-                            if (busServiceData) {
-                                busServiceData.fullService = busService.service;
-                                busServiceData.variant = getServiceVariant(busService.service);
-
-                                busTimings[i].service = busServiceData
-
-                                resolve();
-                            }
-                        });
-                    }
-                });
+            busServices.findDocuments({
+                fullService: service
+            }).toArray((err, serviceDirections) => {
+                services[service] = serviceDirections;
+                directions[service] = [];
+                resolve();
             });
         }));
     });
 
+    busTimings.forEach(busService => {
+        promises.push(new Promise(resolve => {
+            let destBSC = busService.destination;
+
+            if (destinations[destBSC]) resolve();
+            else {
+                busStops.findDocument({
+                    busStopCode: destBSC
+                }, (err, busStop) => {
+                    destinations[destBSC] = busStop;
+                    resolve();
+                });
+            }
+        }));
+    });
+
     Promise.all(promises).then(() => {
+        busTimings.forEach(busService => {
+            let destBSC = busService.destination;
+
+            services[busService.service].forEach((direction, i) => {
+                if (isBusStopInRoute(direction, destBSC)) directions[busService.service].push(i + 1);
+            });
+        });
+
         if (currentBusStopCode)
             busStops.findDocument({
                 busStopCode: currentBusStopCode
             }, (err, currentBusStop) => {
-                callback(currentBusStop, busTimings);
+                callback(currentBusStop, services, destinations, directions);
             });
         else
-            callback(null, busTimings);
+            callback(null, services, destinations, directions);
     });
 }
 
@@ -91,10 +107,13 @@ router.get('/:busStopCode', (req, res) => {
 
     busTimings = busTimings.sort((a, b) => e(a.service) - e(b.service));
 
-    loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, busTimings) => {
+    loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations, directions) => {
         res.render('bus/timings', {
             currentBusStop,
-            busTimings
+            busTimings,
+            services,
+            destinations,
+            directions
         });
     });
 });
