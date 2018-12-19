@@ -176,7 +176,7 @@ $.ready(() => {
         case 'NIGHT RIDER':
             svcType = 'nightrider';
             break;
-        case 'NIGHT SERVICE':
+        case 'NIGHT OWL':
             svcType = 'nightowl';
             break;
         case 'CHINATOWN':

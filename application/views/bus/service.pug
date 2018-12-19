@@ -12,8 +12,6 @@ block scripts
     - let busStops = JSON.stringify(service.stops);
     - let routeType = service.routeType;
     
-    if service.serviceNumber === 'CT'
-        - routeType = 'CHINATOWN'
     script window.busStops = JSON.parse(`!{busStops}`); window.svcType = "#{routeType}";
 
 block header

@@ -37,6 +37,8 @@ function getServiceVariant(service) {
 
 function transformBusServiceData(busService) {
     if (busService.ServiceNo.includes('CT')) busService.Category = 'CHINATOWN';
+    if (busService.Category === 'NIGHT SERVICE') busService.Category = 'NIGHT OWL';
+
     return {
         fullService: busService.ServiceNo,
         serviceNumber: getServiceNumber(busService.ServiceNo),
