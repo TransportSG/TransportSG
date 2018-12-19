@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const path = require('path');
 
+const fs = require('fs');
+
 const DatabaseConnection = require('../application/database/DatabaseConnection');
 
 const config = require('../config');
@@ -23,6 +25,7 @@ module.exports = class MainServer {
             database.createCollection('bus services');
             database.createCollection('bus stops');
             database.createCollection('bus registrations');
+            database.createCollection('logging');
 
             app.use((req, res, next) => {
                 res.db = database;
@@ -34,6 +37,24 @@ module.exports = class MainServer {
     }
 
     configMiddleware(app) {
+        let id = 0;
+        let stream = fs.createWriteStream('/tmp/log.txt', {flags: 'a'});
+
+        app.use((req, res, next) => {
+            let start = +new Date();
+
+            let endResponse = res.end;
+            res.end = function(x, y, z) {
+                endResponse.bind(res, x, y, z)();
+                let end = +new Date();
+
+                let diff = end - start;
+                stream.write(diff.toString() + '\n', () => {});
+            };
+
+            next();
+        });
+
         app.use(compression());
 
     	app.use('/static', express.static(path.join(__dirname, '../application/static')));
