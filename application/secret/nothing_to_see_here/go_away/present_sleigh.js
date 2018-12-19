@@ -91,7 +91,7 @@ function createEmailBody(callback) {
 
 function sendEmail(body) {
     let main = presents.people[0];
-    let more = presents.slice(1);
+    let more = presents.people.slice(1);
     server.send(emailjs.message.create({
        text:    body,
        from:    "me <sbs9642p@gmail.com>",
