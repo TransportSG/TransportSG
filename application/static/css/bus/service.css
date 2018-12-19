@@ -299,7 +299,9 @@ div.busStop > span:nth-child(2) {
 }
 
 #fare-box {
-    width: 70vw;
+    padding-left: calc(2vw + 2vh);
+    padding-right: calc(2vw + 2vh);
+
     height: calc(28vw + 28vh);
     background: #303030;
 
