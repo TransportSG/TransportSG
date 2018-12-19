@@ -36,6 +36,7 @@ function getServiceVariant(service) {
 }
 
 function transformBusServiceData(busService) {
+    if (busService.ServiceNo.includes('CT')) busService.Category = 'CHINATOWN';
     return {
         fullService: busService.ServiceNo,
         serviceNumber: getServiceNumber(busService.ServiceNo),
@@ -74,6 +75,8 @@ function updateBusServiceData(data) {
         fullService: data.fullService,
         routeDirection: data.routeDirection
     };
+
+    if (data.routeType.includes('FLAT FARE')) return;
 
     remaining++;
 

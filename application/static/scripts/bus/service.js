@@ -8,6 +8,7 @@ function toggle(busStopCode) {
 }
 
 function calculateStudentFare(distance, mode, service) {
+    if (service === 'chinatown') return 110;
     if (mode === 'card') {
         if (service === 'feeder')
             return 37;
@@ -29,6 +30,7 @@ function calculateStudentFare(distance, mode, service) {
 }
 
 function calculateAdultFare(distance, mode, service) {
+    if (service === 'chinatown') return 200;
     if (mode === 'card') {
         if (service === 'feeder')
             return 77;
@@ -117,6 +119,7 @@ function calculateAdultFare(distance, mode, service) {
 }
 
 function calculateSeniorFare(distance, mode, service) {
+    if (service === 'chinatown') return 110;
     if (mode === 'card') {
         if (service === 'feeder')
             return 54;
@@ -139,6 +142,7 @@ function calculateSeniorFare(distance, mode, service) {
 }
 
 function calculateFare(distance, type, mode, service) {
+    if (service === 'nightrider') return 450;
     switch(type) {
         case 'student':
             return calculateStudentFare(distance, mode, service);
@@ -166,7 +170,17 @@ $.ready(() => {
             svcType = 'feeder';
             break;
         case 'EXPRESS':
+        case 'CITY_LINK':
             svcType = 'express';
+            break;
+        case 'NIGHT RIDER':
+            svcType = 'nightrider';
+            break;
+        case 'NIGHT SERVICE':
+            svcType = 'nightowl';
+            break;
+        case 'CHINATOWN':
+            svcType = 'chinatown';
             break;
         default:
             svcType = 'basic';
@@ -203,7 +217,7 @@ $.ready(() => {
             return null;
         if (!fareType || destBusStop === null || startBusStop === null)
             return null;
-        return '$' + calculateFare(destBusStop - startBusStop, fareType, 'card', svcType) / 100;
+        return '$' + (calculateFare(destBusStop - startBusStop, fareType, 'card', svcType) / 100).toFixed(2);
     }
 
     function update() {
