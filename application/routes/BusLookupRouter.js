@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
 
     if (method === 'rego') {
         searchRego(req, res, query * 1);
-    } if (method === 'service') {
+    } else if (method === 'service') {
         searchByService(req, res, query);
     } else {
         res.status(400).end('Invalid method');
