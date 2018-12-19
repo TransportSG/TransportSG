@@ -6,7 +6,7 @@ for service in busServices
             span.serviceNumber=service.serviceNumber
             span.serviceVariant=service.variant
         div.result-details
-            span=service.routeType.slice(0, 1) + service.routeType.slice(1).toLowerCase() + ' Service ' + service.fullService
+            span=service.routeType.split(' ').map(word=>word.slice(0,1).toUpperCase() + word.slice(1).toLowerCase()).join(' ') + ' Service ' + service.fullService
             span=service.interchangeNames[0].busStopName + ' - ' + (service.interchangeNames[1].busStopName || service.interchangeNames[1])
 
 for busStop in busStops
