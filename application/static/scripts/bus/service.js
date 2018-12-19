@@ -245,17 +245,51 @@ $.ready(() => {
     $('#shade').on('click', () => {
         calcFarePopup(null);
     });
+
+    Array.from(document.querySelectorAll('div.bookmark')).forEach(bookmarkDiv => {
+        let busStopCode = bookmarkDiv.getAttribute('bus-stop-code');
+        isBookmarked(busStopCode, state => {
+            if (state) {
+                bookmarkDiv.querySelector('img').src = '/static/images/bookmark/filled.svg';
+            }
+        });
+    });
 });
 
+function toggleBookmark(busStopCode) {
+    isBookmarked(busStopCode, state => {
+        setBookmarked(busStopCode, !state);
 
+        if (!state) {
+            $(`div.bookmark[bus-stop-code="${busStopCode}"] img`).src = '/static/images/bookmark/filled.svg';
+        } else {
+            $(`div.bookmark[bus-stop-code="${busStopCode}"] img`).src = '/static/images/bookmark/empty.svg';
+        }
+    });
+}
 
+function setBookmarked(busStopCode, state) {
+    idb.open('bookmarks', 1).then(function(db) {
+        var tx = db.transaction(['bus-stops'], 'readwrite');
+        var store = tx.objectStore('bus-stops');
+        store.put({id: busStopCode, data: {bookmarked: state}});
+        return tx.complete;
+    });
+}
 
+function isBookmarked(busStopCode, cb) {
+    idb.open('bookmarks', 1).then(function(db) {
+        var tx = db.transaction(['bus-stops'], 'readonly');
+        var store = tx.objectStore('bus-stops');
 
-
-
-
-
-
+        store.get(busStopCode).then(state => {
+            if (state)
+                cb(state.data.bookmarked);
+            else
+                cb(false);
+        });
+    });
+}
 
 let allDropdowns = [];
 

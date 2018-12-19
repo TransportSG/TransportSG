@@ -8,6 +8,7 @@ block css
     link(rel='stylesheet' href='/static/css/dropdown.css')
 
 block scripts
+    script(src='/static/scripts/idb.js')
     script(src='/static/scripts/bus/service.js')
     - let busStops = JSON.stringify(service.stops);
     - let routeType = service.routeType;
@@ -117,8 +118,8 @@ block content
                     div(onclick=`calcFarePopup(${busStop.stopNumber - 1})`)
                         img(src='/static/images/service/dollar.svg')
                         span Calculate Fare
-                    div
-                        img(src='/static/images/bookmark/filled.svg')
+                    div(onclick=`toggleBookmark("${busStop.busStopCode}")` bus-stop-code=busStop.busStopCode).bookmark
+                        img(src='/static/images/bookmark/empty.svg')
                         span Bookmark
                     div
                         img(src='/static/images/service/street-view.svg')
