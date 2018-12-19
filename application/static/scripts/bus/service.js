@@ -198,7 +198,6 @@ $.ready(() => {
             $('#shade').style.display = 'flex';
             $('#fare-box-container').style.display = 'block';
             $('html').style.overflow = 'hidden';
-            update();
         } else {
             $('#shade').style.display = 'none';
             $('#fare-box-container').style.display = 'none';
@@ -209,6 +208,7 @@ $.ready(() => {
             $(`#start-bus-stop li:nth-child(${stopNumber})`).setAttribute('selected', true);
             startBusStop = busStops[stopNumber - 1].distance;
             $('#start-bus-stop-div span').textContent = busStops[stopNumber - 1].busStopName;
+            update();
         }
     }
 
