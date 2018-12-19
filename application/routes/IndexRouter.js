@@ -7,6 +7,10 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
+router.get('/everything', (req, res) => {
+    res.render('all-features');
+});
+
 router.use("/unikitty's%20fish%20candies", SecretCandy);
 
 module.exports = router;

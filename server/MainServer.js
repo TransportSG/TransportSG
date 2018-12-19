@@ -25,7 +25,6 @@ module.exports = class MainServer {
             database.createCollection('bus services');
             database.createCollection('bus stops');
             database.createCollection('bus registrations');
-            database.createCollection('logging');
 
             app.use((req, res, next) => {
                 res.db = database;

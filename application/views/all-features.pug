@@ -1,0 +1,37 @@
+extends layout
+
+block css
+    link(rel='stylesheet' href='/static/css/all-features.css')
+
+block header
+    span#header TransportSG
+
+block content
+    a(href='/bookmarks')
+        div(style='background-color: #fa5757')
+            img(src='/static/images/home/bookmarks.svg')
+        span Bookmarks
+    a(href='/nearby/bus/stops')
+        div(style='background-color: #ffb250')
+            img(src='/static/images/home/nearby_bus_stops.svg')
+        span Nearby Bus Stops
+    a(href='/timings/mrt')
+        div(style='background-color: #fdff78')
+            img(src='/static/images/home/mrt_timings.svg')
+        span MRT Timings
+    a(href='/search')
+        div(style='background-color: #82eb79')
+            img(src='/static/images/home/general_search.svg')
+        span General Search
+    a(href='/lookup')
+        div(style='background-color: #79d7eb')
+            img(src='/static/images/home/bus_lookup.svg')
+        span Bus Lookup
+    a(href='/nearby/nwabs')
+        div(style='background-color: #7980eb')
+            img(src='/static/images/home/nearby_nwabs.svg')
+        span Nearby NWABs
+    a(href='mailto:sbs9642p@gmail.com')
+        div(style='background-color: #eb79e6')
+            img(src='/static/images/home/contact_me.svg')
+        span Suggestions / Bugs
