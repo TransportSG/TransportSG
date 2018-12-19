@@ -21,10 +21,48 @@ router.post('/', (req, res) => {
 
     if (method === 'rego') {
         searchRego(req, res, query * 1);
+    } if (method === 'service') {
+        searchByService(req, res, query);
     } else {
         res.status(400).end('Invalid method');
     }
 });
+
+function searchByService(req, res, query) {
+    let parts = query.match(/^([A-Z]+)? ?(\d+[ABCeM\*]?)?\/?([\d\/]+[ABCeM]?)?/);
+
+    let depot = parts[1],
+        service = parts[2],
+        crossOvers = parts[3];
+
+    let or = [];
+    if (service) {
+        if (!service.includes('*'))
+            or.push({'operator.permService': service});
+        service = service.replace('*', '');
+        or.push({
+            'operator.crossOvers': {
+                $in: [service]
+            }
+        });
+    }
+    if (crossOvers) {
+        let svcs = crossOvers.split('/');
+        or.push({
+            'operator.crossOvers': {
+                $in: svcs
+            }
+        });
+    }
+
+    res.db.getCollection('bus registrations').findDocuments({$or: or}).toArray((err, buses) => {
+        if (depot)
+            buses = buses.filter(bus => {
+                bus.operator.depot === depot;
+            });
+        renderBuses(req, res, buses);
+    });
+}
 
 function searchRego(req, res, number) {
     let buses = res.db.getCollection('bus registrations');
