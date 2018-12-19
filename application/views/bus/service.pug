@@ -6,6 +6,9 @@ block head
 block css
     link(rel='stylesheet' href='/static/css/bus/service.css')
 
+block scripts
+    script(src='/static/scripts/bus/service.js')
+
 block header
     img#page-icon(src='/static/images/magnifying-glass.svg')
     span#header='Bus Service ' + service.fullService
@@ -81,23 +84,37 @@ block content
             span Bus Stop Code
             span Bus Stop
         for busStop in service.stops
-            div.coloured-row.table-data.spacing2
-                span=busStop.distance
-                span=busStop.busStopCode
-                div
-                    div.busStop
-                        span=busStop.roadName
-                        span=busStop.busStopName
-                    div.busArr
-                        if timings[busStop.busStopCode]
-                            for svc in timings[busStop.busStopCode]
-                                if svc.service === service.fullService
-                                    for timing in svc.timings.slice(0, 2)
-                                        div(class='busArrIndicator load-' + (timing.load*1 + 1))
-                                            span=getTimingsDifference(new Date(), new Date(timing.arrivalTime)).minutes || 'Arr'
-                                            div.busInfo
-                                                span=busTypes[timing.busType]
-                                                if timing.isWAB
-                                                    img(src='/static/images/wheelchair.svg')
-                                                else
-                                                    img(src='/static/images/non-wheelchair.svg')
+            div.coloured-row
+                div(onclick=`toggle(${busStop.busStopCode})`).table-data.spacing2
+                    span=busStop.distance
+                    span=busStop.busStopCode
+                    div
+                        div.busStop
+                            span=busStop.roadName
+                            span=busStop.busStopName
+                        div.busArr
+                            if timings[busStop.busStopCode]
+                                for svc in timings[busStop.busStopCode]
+                                    if svc.service === service.fullService
+                                        for timing in svc.timings.slice(0, 2)
+                                            div(class='busArrIndicator load-' + (timing.load*1 + 1))
+                                                span=getTimingsDifference(new Date(), new Date(timing.arrivalTime)).minutes || 'Arr'
+                                                div.busInfo
+                                                    span=busTypes[timing.busType]
+                                                    if timing.isWAB
+                                                        img(src='/static/images/wheelchair.svg')
+                                                    else
+                                                        img(src='/static/images/non-wheelchair.svg')
+                div(bus-stop=busStop.busStopCode style='display: none;').service-info
+                    div.bsArrivalTimes
+                        img(src='/static/images/service/timer.svg')
+                        span Arrival Times
+                    div.calcFare
+                        img(src='/static/images/service/dollar.svg')
+                        span Calculate Fare
+                    div.bookmark
+                        img(src='/static/images/bookmark/filled.svg')
+                        span Bookmark
+                    div.streetView
+                        img(src='/static/images/service/street-view.svg')
+                        span Street View
