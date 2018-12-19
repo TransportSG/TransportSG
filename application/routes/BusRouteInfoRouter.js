@@ -24,6 +24,13 @@ let renderer = function (req, res, next) {
     });
 }
 
+router.get('/streetview/:busStopCode', (req, res) => {
+    res.db.getCollection('bus stops').findDocument({ busStopCode: req.params.busStopCode }, (err, busStop) => {
+        let url = `https://www.google.com/maps?layer=c&cbll=${busStop.position.latitude},${busStop.position.longitude}`;
+        res.end(url);
+    });
+})
+
 router.get('/:service', renderer);
 
 router.get('/:service/:direction', renderer);

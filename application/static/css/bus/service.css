@@ -319,3 +319,9 @@ div.busStop > span:nth-child(2) {
     display: inline-block;
     font-size: calc(1.8vw + 1.8vh);
 }
+
+.service-info div {
+    cursor: pointer;
+    -moz-cursor: pointer;
+    -webkit-cursor: pointer;
+}

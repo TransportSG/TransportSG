@@ -121,7 +121,7 @@ block content
                     div(onclick=`toggleBookmark("${busStop.busStopCode}")` bus-stop-code=busStop.busStopCode).bookmark
                         img(src='/static/images/bookmark/empty.svg')
                         span Bookmark
-                    div
+                    div(onclick=`checkStreetView("${busStop.busStopCode}")`)
                         img(src='/static/images/service/street-view.svg')
                         span Street View
 

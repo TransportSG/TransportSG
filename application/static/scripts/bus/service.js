@@ -291,6 +291,16 @@ function isBookmarked(busStopCode, cb) {
     });
 }
 
+function checkStreetView(busStopCode) {
+    $.ajax({
+        url: `/bus/streetview/${busStopCode}`
+    }, url => {
+        window.open(url);
+    });
+}
+
+
+
 let allDropdowns = [];
 
 window.createDropdown = function createDropdown(id, onChange) {
