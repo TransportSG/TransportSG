@@ -5,9 +5,12 @@ block head
 
 block css
     link(rel='stylesheet' href='/static/css/bus/service.css')
+    link(rel='stylesheet' href='/static/css/dropdown.css')
 
 block scripts
     script(src='/static/scripts/bus/service.js')
+    - let busStops = JSON.stringify(service.stops);
+    script window.busStops = JSON.parse(`!{busStops}`);
 
 block header
     img#page-icon(src='/static/images/magnifying-glass.svg')
@@ -85,7 +88,7 @@ block content
             span Bus Stop
         for busStop in service.stops
             div.coloured-row
-                div(onclick=`toggle(${busStop.busStopCode})`).table-data.spacing2
+                div(onclick=`toggle("${busStop.busStopCode}")`).table-data.spacing2
                     span=busStop.distance
                     span=busStop.busStopCode
                     div
@@ -106,15 +109,35 @@ block content
                                                     else
                                                         img(src='/static/images/non-wheelchair.svg')
                 div(bus-stop=busStop.busStopCode style='display: none;').service-info
-                    div.bsArrivalTimes
+                    a(href=`/timings/${busStop.busStopCode}`)
                         img(src='/static/images/service/timer.svg')
                         span Arrival Times
-                    div.calcFare
+                    div(onclick=`calcFarePopup(${busStop.stopNumber - 1})`)
                         img(src='/static/images/service/dollar.svg')
                         span Calculate Fare
-                    div.bookmark
+                    div
                         img(src='/static/images/bookmark/filled.svg')
                         span Bookmark
-                    div.streetView
+                    div
                         img(src='/static/images/service/street-view.svg')
                         span Street View
+
+    div#shade
+    div#fare-box-container
+        div#fare-box
+            span Select a fare type
+            ul#fare-type
+                li Student
+                li Senior
+                li Adult
+            span Select a bus stop
+            ul#start-bus-stop
+                for busStop in service.stops
+                    li(distance=busStop.distance)=busStop.busStopName
+                    
+            span Select another bus stop
+            ul#dest-bus-stop
+                for busStop in service.stops
+                    li(distance=busStop.distance)=busStop.busStopName
+            p
+            span#fare-output Your fare is: 

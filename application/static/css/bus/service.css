@@ -243,7 +243,7 @@ div.busStop > span:nth-child(2) {
     justify-content: center;
 }
 
-.service-info > div {
+.service-info > * {
     display: inline-flex;
     width: calc(5vw + 5vh);
     height: calc(5vw + 5vh);
@@ -259,13 +259,61 @@ div.busStop > span:nth-child(2) {
     flex-direction: column;
 }
 
-.service-info > div > img {
+.service-info > * > img {
     width: calc(2.5vw + 2.5vh);
     height: calc(2.5vw + 2.5vh);
 }
-.service-info > div > span {
+.service-info > * > span {
     width: 100%;
     text-align: center;
     font-size: calc(0.83vw + 0.83vh);
     line-height: calc(0.83vw + 0.83vh);
+}
+
+#shade {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    background-color: #b2b2b2;
+    opacity: 0.4;
+
+}
+
+#fare-box-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+#fare-box {
+    width: 70vw;
+    height: calc(28vw + 28vh);
+    background: #303030;
+
+    border-radius: calc(1vw + 1vh);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#fare-box > span {
+    text-align: center;
+    width: 70vw;
+    display: inline-block;
+    font-size: calc(1.8vw + 1.8vh);
 }
