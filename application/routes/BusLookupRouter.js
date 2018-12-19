@@ -58,7 +58,7 @@ function searchByService(req, res, query) {
     res.db.getCollection('bus registrations').findDocuments({$or: or}).toArray((err, buses) => {
         if (depot)
             buses = buses.filter(bus => {
-                bus.operator.depot === depot;
+                return bus.operator.depot === depot;
             });
         renderBuses(req, res, buses);
     });
