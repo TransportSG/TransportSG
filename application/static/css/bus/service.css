@@ -12,7 +12,7 @@
 }
 
 #svcNumber {
-    width: calc(7vh + 8vw);
+    width: calc(9vh + 9vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@
      display: flex;
      align-items: center;
      font-size: calc(1.7vh + 1.3vw);
-     width: calc(-7vh + 92vw);
+     width: calc(100vw - 9vw - 9vh);
 }
 
 #terminals > a > span {
