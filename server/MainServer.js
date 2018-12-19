@@ -54,7 +54,8 @@ module.exports = class MainServer {
             BusLookup: '/lookup',
             NearbyObjects: '/nearby',
             GeneralSearch: '/search',
-            Bookmarks: '/bookmarks'
+            Bookmarks: '/bookmarks',
+            BusRouteInfo: '/bus'
         };
 
         Object.keys(routers).forEach(routerName => {

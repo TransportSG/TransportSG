@@ -1,0 +1,71 @@
+extends ../layout.pug
+
+block head
+    title='Bus Service ' + service.fullService
+
+block css
+    link(rel='stylesheet' href='/static/css/bus/service.css')
+
+block header
+    img#page-icon(src='/static/images/magnifying-glass.svg')
+    span#header='Bus Service ' + service.fullService
+
+block content
+    -var busTypes = ['', 'SD', 'DD', 'BD']
+    div#svcSummary
+        div(class='svc-' + service.operator)#svcNumber
+            span#routeType=service.routeType
+            span#svcText=service.fullService
+        div#terminals
+            div.coloured-row
+                span=service.interchangeNames[0].busStopName.toUpperCase()
+            div.coloured-row
+                span=(service.interchangeNames[1].busStopName || service.interchangeNames[1]).toUpperCase()
+    div#serviceTimings
+        div#keyTimings
+            div.table-header.table-data.spacing1
+                span Days
+                span First Bus
+                span Last Bus
+            div.coloured-row.table-data.spacing1
+                span Weekdays
+                span=service.stops[0].firstBus.weekday
+                span=service.stops[0].lastBus.weekday
+            div.coloured-row.table-data.spacing1
+                span Saturday
+                span=service.stops[0].firstBus.saturday
+                span=service.stops[0].lastBus.saturday
+            div.coloured-row.table-data.spacing1
+                span Sundays / PH
+                span=service.stops[0].firstBus.sunday
+                span=service.stops[0].lastBus.sunday
+            div.coloured-row.table-data
+        div#frequency
+            div.table-header.table-data.spacing1
+                span Time Of Day
+                span Min Frequency
+                span Max Frequency
+            div.coloured-row.table-data.spacing1
+                div.freqTime
+                    span 0530 - 0830
+                    span Morning Peak
+                span=service.frequency.morning.min || '-'
+                span=service.frequency.morning.max || '-'
+            div.coloured-row.table-data.spacing1
+                div.freqTime
+                    span 0831 - 1659
+                    span Morning / Afternoon
+                span=service.frequency.afternoon.min || '-'
+                span=service.frequency.afternoon.max || '-'
+            div.coloured-row.table-data.spacing1
+                div.freqTime
+                    span 1700 - 1900
+                    span Evening Peak
+                span=service.frequency.evening.min || '-'
+                span=service.frequency.evening.max || '-'
+            div.coloured-row.table-data.spacing1
+                div.freqTime
+                    span 1900 - 2330
+                    span Night
+                span=service.frequency.night.min || '-'
+                span=service.frequency.night.max || '-'
