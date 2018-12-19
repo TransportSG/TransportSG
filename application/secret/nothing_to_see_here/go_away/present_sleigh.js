@@ -90,17 +90,18 @@ function createEmailBody(callback) {
 }
 
 function sendEmail(body) {
-    presents.people.forEach(email => {
-        server.send(emailjs.message.create({
-           text:    body,
-           from:    "me <sbs9642p@gmail.com>",
-           to:      `me <${email}>`,
-           subject:  "Bus Timing Update",
-           attachment: [
-               {data: body, alternative: true}
-           ]
-       }), function(err, message) { console.log(err || message); });
-    });
+    let main = presents.people[0];
+    let more = presents.slice(1);
+    server.send(emailjs.message.create({
+       text:    body,
+       from:    "me <sbs9642p@gmail.com>",
+       to:      `me <${main}>`,
+       bcc:     more.map(e => `a cat <${e}>`).join(', '),
+       subject:  "Bus Timing Update",
+       attachment: [
+           {data: body, alternative: true}
+       ]
+   }), function(err, message) { console.log(err || message); });
 }
 
 if (process.env['NODE_ENV'] && process.env['NODE_ENV'] === 'prod') {
