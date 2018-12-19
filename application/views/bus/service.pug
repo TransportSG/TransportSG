@@ -89,6 +89,7 @@ block content
             span Distance
             span Bus Stop Code
             span Bus Stop
+        - let stopNumber = 0;
         for busStop in service.stops
             div.coloured-row
                 div(onclick=`toggle("${busStop.busStopCode}")`).table-data.spacing2
@@ -115,7 +116,7 @@ block content
                     a(href=`/timings/${busStop.busStopCode}`)
                         img(src='/static/images/service/timer.svg')
                         span Arrival Times
-                    div(onclick=`calcFarePopup(${busStop.stopNumber - 1})`)
+                    div(onclick=`calcFarePopup(${++stopNumber})`)
                         img(src='/static/images/service/dollar.svg')
                         span Calculate Fare
                     div(onclick=`toggleBookmark("${busStop.busStopCode}")` bus-stop-code=busStop.busStopCode).bookmark

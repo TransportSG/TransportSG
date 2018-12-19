@@ -206,9 +206,9 @@ $.ready(() => {
         }
 
         if (stopNumber !== null) {
-            $(`#start-bus-stop li:nth-child(${stopNumber + 1})`).setAttribute('selected', true);
-            startBusStop = busStops[stopNumber].distance;
-            $('#start-bus-stop-div span').textContent = busStops[stopNumber].busStopName;
+            $(`#start-bus-stop li:nth-child(${stopNumber})`).setAttribute('selected', true);
+            startBusStop = busStops[stopNumber - 1].distance;
+            $('#start-bus-stop-div span').textContent = busStops[stopNumber - 1].busStopName;
         }
     }
 
