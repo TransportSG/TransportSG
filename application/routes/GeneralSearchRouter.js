@@ -37,7 +37,7 @@ function resolveInterchanges(services, busServices, busStops, callback) {
                     resolve();
                 });
             } else {
-                busServices.findDocument({ fullService: service.fullService, routeDirection: 2}, (err, dir2) => {
+                busServices.findDocument({ fullService: service.fullService, routeDirection: [2,1][service.routeDirection-1]}, (err, dir2) => {
                     let newInts = [interchanges[0]];
 
                     let resolvedInterchanges = [];

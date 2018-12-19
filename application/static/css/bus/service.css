@@ -24,7 +24,7 @@
     margin-top: calc(-1vh - 0.6vw);
 }
 
-#terminals > div {
+#terminals > a {
      height: calc(3.5vh + 3vw);
      display: flex;
      align-items: center;
@@ -32,7 +32,7 @@
      width: calc(-7vh + 92vw);
 }
 
-#terminals > div > span {
+#terminals > a > span {
     margin-left: calc(1.2vh + 0.5vw);
 }
 

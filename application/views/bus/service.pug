@@ -12,14 +12,20 @@ block header
 
 block content
     -var busTypes = ['', 'SD', 'DD', 'BD']
+    - let url = '';
+    if service.interchangeNames[1].busStopName
+        - url = `/bus/${service.fullService}/${[2,1][service.routeDirection-1]}`
+        
     div#svcSummary
-        div(class='svc-' + service.operator)#svcNumber
+        a(class='svc-' + service.operator href=url)#svcNumber
             span#routeType=service.routeType
             span#svcText=service.fullService
         div#terminals
-            div.coloured-row
+            a(href=`/timings/${service.interchangeNames[0].busStopCode}`).coloured-row
                 span=service.interchangeNames[0].busStopName.toUpperCase()
-            div.coloured-row
+            if !!url
+                - url = `/timings/${service.interchangeNames[1].busStopCode}`
+            a(href=url).coloured-row
                 span=(service.interchangeNames[1].busStopName || service.interchangeNames[1]).toUpperCase()
     div#serviceTimings
         div#keyTimings
@@ -69,3 +75,29 @@ block content
                     span Night
                 span=service.frequency.night.min || '-'
                 span=service.frequency.night.max || '-'
+    div#busStops
+        div.table-header.table-data.spacing2
+            span Distance
+            span Bus Stop Code
+            span Bus Stop
+        for busStop in service.stops
+            div.coloured-row.table-data.spacing2
+                span=busStop.distance
+                span=busStop.busStopCode
+                div
+                    div.busStop
+                        span=busStop.roadName
+                        span=busStop.busStopName
+                    div.busArr
+                        if timings[busStop.busStopCode]
+                            for svc in timings[busStop.busStopCode]
+                                if svc.service === service.fullService
+                                    for timing in svc.timings.slice(0, 2)
+                                        div(class='busArrIndicator load-' + (timing.load*1 + 1))
+                                            span=getTimingsDifference(new Date(), new Date(timing.arrivalTime)).minutes || 'Arr'
+                                            div.busInfo
+                                                span=busTypes[timing.busType]
+                                                if timing.isWAB
+                                                    img(src='/static/images/wheelchair.svg')
+                                                else
+                                                    img(src='/static/images/non-wheelchair.svg')
