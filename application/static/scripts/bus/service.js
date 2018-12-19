@@ -156,6 +156,22 @@ function calculateFare(distance, type, mode, service) {
 }
 
 $.ready(() => {
+    switch(svcType) {
+        case 'TRUNK':
+        case 'INDUSTRIAL':
+            svcType = 'basic';
+            break;
+        case 'TOWNLINK':
+        case 'FEEDER':
+            svcType = 'feeder';
+            break;
+        case 'EXPRESS':
+            svcType = 'express';
+            break;
+        default:
+            svcType = 'basic';
+            break;
+    }
 
     let farePopupShowing = false;
 
@@ -187,7 +203,7 @@ $.ready(() => {
             return null;
         if (!fareType || destBusStop === null || startBusStop === null)
             return null;
-        return '$' + calculateFare(destBusStop - startBusStop, fareType, 'card', 'basic') / 100;
+        return '$' + calculateFare(destBusStop - startBusStop, fareType, 'card', svcType) / 100;
     }
 
     function update() {

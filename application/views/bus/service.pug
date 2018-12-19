@@ -10,7 +10,7 @@ block css
 block scripts
     script(src='/static/scripts/bus/service.js')
     - let busStops = JSON.stringify(service.stops);
-    script window.busStops = JSON.parse(`!{busStops}`);
+    script window.busStops = JSON.parse(`!{busStops}`); window.svcType = "#{service.routeType}";
 
 block header
     img#page-icon(src='/static/images/magnifying-glass.svg')
