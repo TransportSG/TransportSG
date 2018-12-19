@@ -33,7 +33,7 @@ function resolveInterchanges(services, busServices, busStops, callback) {
 
             if (interchanges[0] == interchanges[1]) { // Loop
                 busStops.findDocument({ busStopCode: interchanges[0] }, (err, interchange) => {
-                    services[i].interchangeNames = [interchange.busStopName, service.loopPoint];
+                    services[i].interchangeNames = [interchange, service.loopPoint];
                     resolve();
                 });
             } else {
@@ -52,7 +52,7 @@ function resolveInterchanges(services, busServices, busStops, callback) {
                             busStops.findDocument({
                                 busStopCode: int
                             }, (err, int) => {
-                                resolvedInterchanges[j] = int.busStopName;
+                                resolvedInterchanges[j] = int;
                                 r2();
                             });
                         }));
@@ -113,5 +113,7 @@ function search(db, query, callback) {
 function render(res, err, results) {
     res.render('search/results', results);
 }
+
+router.resolveInterchanges = resolveInterchanges;
 
 module.exports = router;
