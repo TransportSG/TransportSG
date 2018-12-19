@@ -109,7 +109,7 @@ if (process.env['NODE_ENV'] && process.env['NODE_ENV'] === 'prod') {
             if (body !== null)
                 sendEmail(body);
         });
-    }, 1000 * 60 * 3);
+    }, 1000 * 60 * 5);
 
     setTimeout(() => {
         createEmailBody(body => {
