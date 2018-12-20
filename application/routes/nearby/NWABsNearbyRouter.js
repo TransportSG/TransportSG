@@ -116,7 +116,7 @@ router.post('/', (req, res) => {
                     allowedBusStops[bsc] = allowedBusStops[bsc].filter(svc => svc.timings.length);
                 });
 
-                res.render('templates/bus-timings-list', {
+                res.render('templates/bus-timings-list-old', {
                     busStopsData,
                     buses: allowedBusStops,
                     services,
