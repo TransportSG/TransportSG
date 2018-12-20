@@ -94,12 +94,15 @@ div.busServiceContainer {
     position: absolute;
 }
 
+div.busServiceContainer > div.serviceDirectionContainer {
+    height: calc(100vh - (4vw + 4vh) - (5vw + 5vh));
+    overflow-y: scroll;
+}
+
 @media (min-width: 700px) {
 
     div.busServiceContainer-2 > div.serviceDirectionContainer {
         width: 50vw;
-        height: calc(100vh - (4vw + 4vh) - (5vw + 5vh));
-        overflow-y: scroll;
     }
 
     div.busServiceContainer-2 .busStopHideContainer {
@@ -124,4 +127,8 @@ div.busServiceContainer {
         width: 100vw;
         position: absolute;
     }
+}
+
+#direction-selector div.active {
+    border-bottom: calc(0.3vw + 0.3vh) solid red;
 }

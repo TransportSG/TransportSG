@@ -1,4 +1,5 @@
 let currentlyShowing = null;
+let currentDirection = 1;
 
 function performQuery() {
     let query = $('#input').value;
@@ -31,15 +32,20 @@ function performQuery() {
             } else {
                 $('#dir-2').style.display = 'flex';
             }
+
+            currentDirection = 2;
+            setDirection(1);
         });
 
-        let currentDirection = 1;
         function setDirection(direction) {
             let width = window.innerWidth;
             if (width > 700) return;
 
             $(`#dircontainer-${currentlyShowing}-${currentDirection}`).style.display = 'none';
             $(`#dircontainer-${currentlyShowing}-${direction}`).style.display = 'block';
+
+            $(`#dir-${direction}`).className = 'active';
+            $(`#dir-${currentDirection}`).className = '';
 
             currentDirection = direction;
         }
@@ -70,13 +76,19 @@ $.ready(() => {
 
     window.on('resize', () => {
         let width = window.innerWidth;
-        if (width > 700) {
-            if ($('#dir-1')) {
+        if ($('#dir-1')) {
+            if (width > 700) {
                 let parent = $(`#busServiceContainer-${currentlyShowing}`);
                 if (parent.className.endsWith('2')) {
                     $(`#dircontainer-${currentlyShowing}-2`).style.display = 'block';
                 }
                 $(`#dircontainer-${currentlyShowing}-1`).style.display = 'block';
+
+
+                $('#dir-1').className = '';
+                $('#dir-2').className = '';
+            } else {
+                $(`#dir-${currentDirection}`).className = 'active';
             }
         }
     });
