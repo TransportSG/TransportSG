@@ -1,7 +1,6 @@
 function processLocation(location) {
     let {coords} = location;
-    // let {latitude, longitude} = coords;
-    let latitude = 1.436667, longitude= 103.786111
+    let {latitude, longitude} = coords;
 
     $.ajax({
         method: 'POST',
