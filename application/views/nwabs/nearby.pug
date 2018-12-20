@@ -1,11 +1,11 @@
 extends ../layout.pug
 
 block css
-    link(rel='stylesheet' href='/static/css/nwabs/nearby.css')
     link(rel='stylesheet' href='/static/css/bus/timings.css')
     link(rel='stylesheet' href='/static/css/bus/timings-list.css')
     style.
         a#home {margin-left: auto !important;}
+        div#serviceSummary span {font-size: calc(1.5vw + 1.5vh);}
 
 block scripts
     script(src='/static/scripts/bus/stops/nearby.js' async)
