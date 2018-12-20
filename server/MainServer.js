@@ -64,6 +64,8 @@ module.exports = class MainServer {
 
         app.set('views', path.join(__dirname, '../application/views'));
         app.set('view engine', 'pug');
+        app.set('view cache', true);
+        app.set('x-powerd-by', false);
     }
 
     configRoutes(app) {
