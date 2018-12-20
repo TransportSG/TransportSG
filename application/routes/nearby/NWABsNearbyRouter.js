@@ -4,8 +4,6 @@ let router = new express.Router();
 let getBusTimings = require('../../timings/bus').getTimings;
 let BusTimingsRouter = require('../BusTimingsRouter');
 
-const elfMagic = require('../../secret/nothing_to_see_here/go_away/elves_at_work');
-
 function distance(lat1, lon1, lat2, lon2) {
   var p = 0.017453292519943295;    // Math.PI / 180
   var c = Math.cos;
@@ -70,17 +68,20 @@ router.post('/', (req, res) => {
     let busServices = res.db.getCollection('bus services');
     let timings = getBusTimings();
 
-    let allowedBusStops = {};
+    let buses = {};
 
     findNearbyBusStops(busStops, req.body, (err, foundBusStops) => {
         foundBusStops.forEach(busStop => {
             let {busStopCode} = busStop;
             if (!timings[busStopCode]) return;
 
-            allowedBusStops[busStopCode] = timings[busStopCode];
-        })
+            let filtered = timings[busStopCode].map(svc => {
+                svc.timings = svc.timings.filter(bus => !bus.isWAB);
+                return svc;
+            }).filter(svc => svc.timings.length);
 
-        let buses = elfMagic.filterBuses(elfMagic.resolveServices(elfMagic.parseQuery('nwab')), allowedBusStops);
+            if (filtered.length > 0) buses[busStopCode] = filtered;
+        });
 
         let services = {};
         let destinations = {};
@@ -102,26 +103,11 @@ router.post('/', (req, res) => {
 
             Promise.all(promises).then(() => {
 
-                Object.values(services).forEach(service => {
-                    directions[service[0].fullService] = {};
-
-                    service.forEach(serviceDirection => {
-                        Object.keys(buses).forEach(busStopCode => {
-                            if (isBusStopInRoute(serviceDirection, busStopCode)) directions[serviceDirection.fullService][serviceDirection.routeDirection] = true;
-                        });
-                    });
-                });
-
-                Object.keys(allowedBusStops).forEach(bsc => {
-                    allowedBusStops[bsc] = allowedBusStops[bsc].filter(svc => svc.timings.length);
-                });
-
                 res.render('templates/bus-timings-list-old', {
                     busStopsData,
-                    buses: allowedBusStops,
+                    buses,
                     services,
                     destinations,
-                    directions
                 });
             });
         });

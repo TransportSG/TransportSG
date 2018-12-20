@@ -1,11 +1,9 @@
 div#serviceSummary
-    -var svcs = Object.keys(services)
-    -var flattened = svcs.reduce((a, b) => a.concat(b), []);
-    -var deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
+    -var svcs = Object.values(services).map(svc => svc[0].fullService);
     
     span Service Summary:
-    span=' ' + deduped.sort().join(', ')
-
+    span=' ' + svcs.sort().join(', ')
+    
 div#busStops
     for busStopCode in Object.keys(buses)
         -let busStopData = busStopsData[busStopCode]
