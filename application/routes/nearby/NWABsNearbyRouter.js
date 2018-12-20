@@ -78,21 +78,33 @@ router.post('/', (req, res) => {
 
         let buses = elfMagic.filterBuses(elfMagic.resolveServices(elfMagic.parseQuery('nwab')), allowedBusStops);
 
+        let services = {};
+        let destinations = {};
+        let directions = {};
+
         loadBusStopsInfo(busStops, buses, busStopsData => {
 
             let promises = [];
 
             Object.keys(buses).forEach(busStopCode => {
                 promises.push(new Promise(resolve => {
-                    BusTimingsRouter.loadBusStopData(busStops, busServices, buses[busStopCode], 0, (_, busTimings) => {
-                        buses[busStopCode] = busTimings;
+                    BusTimingsRouter.loadBusStopData(busStops, busServices, buses[busStopCode], 0, (_   , svcs, dests, dirs) => {
+                        services = Object.assign(services, svcs);
+                        destinations = Object.assign(destinations, dests);
+                        directions = Object.assign(directions, dirs);
                         resolve();
                     });
                 }));
             });
 
             Promise.all(promises).then(() => {
-                res.render('templates/bus-timings-list', {busStopsData, buses});
+                console.log(allowedBusStops, services, destinations);
+                res.render('templates/bus-timings-list', {
+                    busStopsData,
+                    allowedBusStops,
+                    services,
+                    destinations
+                });
             });
         });
 

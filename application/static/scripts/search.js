@@ -2,7 +2,7 @@ function performQuery() {
     let query = $('#input').value;
     if (query.trim() ==  '') return;
 
-    let url = (history.state || {}).page || location.pathname;
+    let url = location.pathname;
 
     $.ajax({
         url,
@@ -27,14 +27,6 @@ $.ready(() => {
         clearTimeout(inputTimeout);
         inputTimeout = setTimeout(performQuery, 850);
     });
-
-    if (search.query.hide) {
-        history.pushState({page: location.pathname}, 'Fish Candies', '/search');
-        setInterval(performQuery, 5000);
-
-    } else if (location.pathname == '/search') {
-        history.pushState(null, '', '/search');
-    }
 
     performQuery();
 });

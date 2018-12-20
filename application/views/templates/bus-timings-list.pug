@@ -1,18 +1,44 @@
-div#serviceSummary
-    -var services = Object.values(buses).map(busStop => busStop.map(svc => svc.service.fullService));
-    -var flattened = services.reduce((a, b) => a.concat(b), []);
-    -var deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
-    span Service Summary:
-    span=' ' + deduped.sort().join(', ')
+-var svcs = Object.keys(services)
+-var flattened = svcs.reduce((a, b) => a.concat(b), []);
+-var deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
 
-div#busStops
-    for busStopCode in Object.keys(buses)
-        -let busStopData = busStopsData[busStopCode]
-        -let busTimings = buses[busStopCode]
+div#services
+    ul#service-selector
+        for service in deduped
+            li=service
 
-        div.busStopContainer
-            label(for='checkbox-' + busStopCode).busStopHideContainer
-                span.busStopName=busStopData.busStopName
-            input(type='checkbox' id='checkbox-' + busStopCode bus-stop-code=busStopCode).busStopHideCheckbox
-            div.busStopContents
-                include bus-timings
+-function isBusStopInRoute(svc, busStopCode) {
+-    return svc.stops.map(stop => stop.busStopCode == busStopCode).filter(Boolean).length !== 0;
+-}
+-function getStopNumber(svc, busStopCode) {
+-    return svc.stops.map(stop=>stop.busStopCode).indexOf(busStopCode) + 1;
+-}
+
+
+div#timings
+    for serviceNumber in Object.keys(directions)
+        div(id=`busServiceContainer-${serviceNumber}` class=`busServiceContainer busServiceContainer-${Object.keys(directions[serviceNumber]).length}`)
+            for direction in Object.keys(directions[serviceNumber])
+                - let routeDirection = services[serviceNumber][direction - 1];
+                - let filteredBusStops = {};
+                for busStopCode in Object.keys(buses)
+                    if (buses[busStopCode].filter(svc=>svc.service == serviceNumber).length > 0) && isBusStopInRoute(routeDirection, busStopCode)
+                        - filteredBusStops[busStopCode] = buses[busStopCode];
+                        - filteredBusStops[busStopCode].busStopCode = busStopCode;
+                        - filteredBusStops[busStopCode].stopNumber = getStopNumber(routeDirection, busStopCode);
+                - let sorted = Object.values(filteredBusStops).sort((a, b) => getStopNumber(routeDirection, a.busStopCode) - getStopNumber(routeDirection, b.busStopCode));
+                if sorted.length > 0
+                    div(id=`dircontainer-${serviceNumber}-${direction}`).serviceDirectionContainer
+                        for busStop in sorted
+                            - let {busStopCode} = busStop;
+                            - let busStopData = busStopsData[busStopCode];
+                            - let busTimings = buses[busStopCode];
+                            
+                            div.busStopContainer
+                                label(for=`checkbox-${busStopCode}-${serviceNumber}-${direction}`).busStopHideContainer
+                                    span.busStopName=busStopData.busStopName
+                                input(type='checkbox' id=`checkbox-${busStopCode}-${serviceNumber}-${direction}` bus-stop-code=busStopCode).busStopHideCheckbox
+                                div.busStopContents
+                                    include bus-timings
+
+                    

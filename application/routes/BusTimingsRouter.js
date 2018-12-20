@@ -33,7 +33,6 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
 
     let services = {};
     let destinations = {};
-    let directions = {};
 
     let promises = [];
 
@@ -42,8 +41,7 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
             busServices.findDocuments({
                 fullService: service
             }).toArray((err, serviceDirections) => {
-                services[service] = serviceDirections;
-                directions[service] = [];
+                services[service] = serviceDirections.sort((a,b)=>a.routeDirection - b.routeDirection);
                 resolve();
             });
         }));
@@ -66,22 +64,14 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
     });
 
     Promise.all(promises).then(() => {
-        busTimings.forEach(busService => {
-            let destBSC = busService.destination;
-
-            services[busService.service].forEach((direction, i) => {
-                if (isBusStopInRoute(direction, destBSC)) directions[busService.service].push(i + 1);
-            });
-        });
-
         if (currentBusStopCode)
             busStops.findDocument({
                 busStopCode: currentBusStopCode
             }, (err, currentBusStop) => {
-                callback(currentBusStop, services, destinations, directions);
+                callback(currentBusStop, services, destinations);
             });
         else
-            callback(null, services, destinations, directions);
+            callback(null, services, destinations);
     });
 }
 
@@ -107,13 +97,12 @@ router.get('/:busStopCode', (req, res) => {
 
     busTimings = busTimings.sort((a, b) => e(a.service) - e(b.service));
 
-    loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations, directions) => {
+    loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations) => {
         res.render('bus/timings', {
             currentBusStop,
             busTimings,
             services,
-            destinations,
-            directions
+            destinations
         });
     });
 });

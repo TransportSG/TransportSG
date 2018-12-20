@@ -51,3 +51,30 @@
 #serviceSummary {
     font-size: calc((100vw + 100vh) * 0.015);
 }
+
+div.busServiceContainer {
+    display: none;
+    position: absolute;
+}
+
+@media (min-width: 700px) {
+
+    div.busServiceContainer-2 > div.serviceDirectionContainer {
+        width: 50vw;
+    }
+
+    div.busServiceContainer-2 .busStopHideContainer {
+        width: 50vw;
+    }
+
+    div.busServiceContainer-2 .busService {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 699px) {
+    div.busServiceContainer-2 > div.serviceDirectionContainer {
+        width: 100vw;
+        position: absolute;
+    }
+}
