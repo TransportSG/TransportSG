@@ -6,16 +6,9 @@ html
         meta(name='apple-mobile-web-app-capable' content='yes')
         meta(name='apple-mobile-web-app-status-bar-style' content='black-translucent')
 
-
         link(rel='icon' type='image/png' href='/static/images/favicon.png')
         link(rel='shortcut icon' type='image/png' href='/static/images/favicon.png')
         link(rel='apple-touch-icon' type='image/png' href='/static/images/favicon.png')
-
-        link(rel='stylesheet' href='/static/css/style.css')
-        block css
-
-        script(src='/static/scripts/helper.js')
-        block scripts
 
         block head
     body
@@ -24,3 +17,9 @@ html
             a#home(href='/') Home
         div#content
             block content
+                
+        script(src='/static/scripts/helper.js')
+        block scripts
+            
+        link(rel='stylesheet' href='/static/css/style.css')
+        block css
