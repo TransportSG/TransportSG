@@ -1,5 +1,6 @@
 @font-face {
     font-family: FFMeta;
+    font-display: fallback;
     src: url(/static/fonts/ff-meta.otf);
 }
 

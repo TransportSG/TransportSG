@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const path = require('path');
+const minify = require('express-minify');
 
 const fs = require('fs');
 
@@ -55,6 +56,7 @@ module.exports = class MainServer {
         });
 
         app.use(compression());
+        app.use(minify());
 
     	app.use('/static', express.static(path.join(__dirname, '../application/static')));
 
