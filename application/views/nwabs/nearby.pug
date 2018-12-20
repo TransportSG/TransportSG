@@ -1,5 +1,8 @@
 extends ../layout.pug
 
+block head
+    title TransportSG - Nearby NWABs
+    
 block css
     link(rel='stylesheet' href='/static/css/bus/timings.css')
     link(rel='stylesheet' href='/static/css/bus/timings-list.css')
@@ -13,6 +16,6 @@ block scripts
 
 block header
     img#page-icon(src='/static/images/bus-stop.svg')
-    span#header Locate Nearby NWABs
+    span#header Nearby NWABs
 
 block content

@@ -1,5 +1,8 @@
 extends ../../layout.pug
 
+block head
+    title=`TransportSG - MRT Timings: ${stationName}`
+    
 block css
     link(rel='stylesheet' href='/static/css/mrt/timings-result.css')
         

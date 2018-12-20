@@ -1,5 +1,8 @@
 extends ../layout.pug
 
+block head
+    title=`TransportSG - Bus Timings: ${currentBusStop.busStopName}`
+    
 block css
     link(rel='stylesheet' href='/static/css/bus/timings.css')
 

@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const compression = require('compression');
 const path = require('path');
 const minify = require('express-minify');
-
+const url = require('url');
 const fs = require('fs');
 
 const DatabaseConnection = require('../application/database/DatabaseConnection');
@@ -49,7 +49,8 @@ module.exports = class MainServer {
                 let end = +new Date();
 
                 let diff = end - start;
-                stream.write(diff.toString() + '\n', () => {});
+                if (diff > 5)
+                    stream.write(req.url + ' ' + diff + '\n', () => {});
             };
 
             next();
@@ -67,7 +68,7 @@ module.exports = class MainServer {
         app.set('views', path.join(__dirname, '../application/views'));
         app.set('view engine', 'pug');
         app.set('view cache', true);
-        app.set('x-powerd-by', false);
+        app.set('x-powered-by', false);
     }
 
     configRoutes(app) {
