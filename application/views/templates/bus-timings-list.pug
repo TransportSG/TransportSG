@@ -6,6 +6,11 @@ div#services
     ul#service-selector
         for service in deduped
             li=service
+    div#direction-selector
+        div#dir-1
+            span Direction 1
+        div#dir-2
+            span Direction 2
 
 -function isBusStopInRoute(svc, busStopCode) {
 -    return svc.stops.map(stop => stop.busStopCode == busStopCode).filter(Boolean).length !== 0;

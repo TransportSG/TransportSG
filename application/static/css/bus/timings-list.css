@@ -48,8 +48,45 @@
     flex-direction: column;
 }
 
-#serviceSummary {
-    font-size: calc((100vw + 100vh) * 0.015);
+#services {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    flex-direction: column;
+    height: calc(10vw + 10vh);
+}
+
+#direction-selector {
+    display: flex;
+    width: 100wv;
+}
+
+#direction-selector div {
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(2vw + 2vh);
+    height: calc(5vw + 5vh);
+
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+ul#service-selector li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectorButton {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 div.busServiceContainer {
@@ -61,6 +98,8 @@ div.busServiceContainer {
 
     div.busServiceContainer-2 > div.serviceDirectionContainer {
         width: 50vw;
+        height: calc(100vh - (4vw + 4vh) - (5vw + 5vh));
+        overflow-y: scroll;
     }
 
     div.busServiceContainer-2 .busStopHideContainer {
@@ -69,6 +108,14 @@ div.busServiceContainer {
 
     div.busServiceContainer-2 .busService {
         width: 50vw;
+    }
+
+    div.busServiceContainer-2 .serviceDirectionContainer:nth-child(2) .busStopContainer:nth-child(odd){
+        background-color: #202020;
+    }
+
+    div.busServiceContainer-2 .serviceDirectionContainer:nth-child(2) .busStopContainer:nth-child(even) {
+        background-color: #2a2a2a;
     }
 }
 
