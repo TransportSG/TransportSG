@@ -2,6 +2,7 @@
     "name": "TransportSG",
     "short_name": "TransportSG",
     "start_url": "/",
+    "scope": "/",
     "background_color": "#1e1e1e",
     "theme_color": "#1e1e1e",
     "display": "fullscreen",

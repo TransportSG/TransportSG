@@ -87,6 +87,10 @@ module.exports = class MainServer {
             let router = require(`../application/routes/${routerName}Router`);
             app.use(routers[routerName], router);
         });
+
+        app.get('/sw.js', (req, res) => {
+            res.sendFile(path.join(__dirname, '../application/static/sw.js'))
+        });
     }
 
 }

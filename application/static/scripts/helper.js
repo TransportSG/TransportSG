@@ -46,3 +46,18 @@ window.search = {};
 
 search.hash = (location.hash.match(/#(\w+[=]\w+&?)+/)||[]).slice(1).map(e=>e.split('=')).reduce((a, e) => {a[e[0]] = e[1]; return a;}, {});
 search.query = (location.search.match(/\?(\w+[=]\w+&?)+/)||[]).slice(1).map(e=>e.split('=')).reduce((a, e) => {a[e[0]] = e[1]; return a;}, {});
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.onmessage = function (evt) {
+        var message = JSON.parse(evt.data);
+
+        var isRefresh = message.type === 'refresh';
+        var isAsset = message.url.includes('asset');
+        var lastETag = localStorage.currentETag;
+
+        var isNew = lastETag !== message.eTag;
+        if (isRefresh && isAsset && isNew) {
+          localStorage.currentETag = message.eTag;
+        }
+    }
+}
