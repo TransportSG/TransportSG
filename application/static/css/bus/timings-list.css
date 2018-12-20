@@ -94,11 +94,6 @@ div.busServiceContainer {
     position: absolute;
 }
 
-div.busServiceContainer > div.serviceDirectionContainer {
-    height: calc(100vh - (4vw + 4vh) - (5vw + 5vh));
-    overflow-y: scroll;
-}
-
 @media (min-width: 700px) {
 
     div.busServiceContainer-2 > div.serviceDirectionContainer {

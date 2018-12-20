@@ -1,18 +1,11 @@
 let currentlyShowing = null;
 let currentDirection = 1;
 
-let scrolls = {};
-
 function performQuery() {
     let query = $('#input').value;
     if (query.trim() ==  '') return;
 
     let url = (history.state || {}).page || location.pathname;
-
-    if (currentlyShowing) {
-        scrolls[currentlyShowing] = Array.from($(`#busServiceContainer-${currentlyShowing}`).querySelectorAll('.serviceDirectionContainer'))
-                                    .map(d => d.scrollTop);
-    }
 
     $.ajax({
         url,
@@ -40,8 +33,10 @@ function performQuery() {
                 $('#dir-2').style.display = 'flex';
             }
 
+            let d = currentDirection;
             currentDirection = 2;
             setDirection(1);
+            setDirection(d);
         });
 
         function setDirection(direction) {
@@ -51,8 +46,8 @@ function performQuery() {
             $(`#dircontainer-${currentlyShowing}-${currentDirection}`).style.display = 'none';
             $(`#dircontainer-${currentlyShowing}-${direction}`).style.display = 'block';
 
-            $(`#dir-${direction}`).className = 'active';
             $(`#dir-${currentDirection}`).className = '';
+            $(`#dir-${direction}`).className = 'active';
 
             currentDirection = direction;
         }
@@ -67,11 +62,6 @@ function performQuery() {
             $(`#service-selector li[service="${currentlyShowing}"]`).click();
 
             setDirection(currentDirection);
-
-            Array.from($(`#busServiceContainer-${currentlyShowing}`).querySelectorAll('.serviceDirectionContainer'))
-            .forEach((div, i) => {
-                div.scrollTop = scrolls[currentlyShowing][i];
-            });
         }
 
         tag();
@@ -98,6 +88,8 @@ $.ready(() => {
 
     window.on('resize', () => {
         let width = window.innerWidth;
+        if (!currentlyShowing) return;
+
         if ($('#dir-1')) {
             if (width > 700) {
                 let parent = $(`#busServiceContainer-${currentlyShowing}`);
