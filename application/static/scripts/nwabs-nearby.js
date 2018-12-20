@@ -1,30 +1,21 @@
 let currentlyShowing = null;
 let currentDirection = 1;
 
-let scrolls = {};
-
-function performQuery() {
-    let query = $('#input').value;
-    if (query.trim() ==  '') return;
-
-    let url = (history.state || {}).page || location.pathname;
-
-    if (currentlyShowing) {
-        scrolls[currentlyShowing] = Array.from($(`#busServiceContainer-${currentlyShowing}`).querySelectorAll('.serviceDirectionContainer'))
-                                    .map(d => d.scrollTop);
-    }
+function processLocation(location) {
+    let {coords} = location;
+    // let {latitude, longitude} = coords;
+    let latitude = 1.436667, longitude = 103.786111
 
     $.ajax({
-        url,
         method: 'POST',
         data: {
-            query
+            latitude, longitude
         }
     }, (content) => {
         if (content.location)
             location = content.location;
         else
-            $('#results').innerHTML = content;
+            $('#content').innerHTML = content;
 
         createDropdown('service-selector', service => {
             if (currentlyShowing)
@@ -61,17 +52,10 @@ function performQuery() {
         $('#dir-2').on('click', setDirection.bind(null, 2));
 
         if (currentlyShowing) {
-            if (!$(`#service-selector li[service="${currentlyShowing}"]`)) return;
-
             $(`#service-selector li[service="${currentlyShowing}"]`).click();
             $(`#service-selector li[service="${currentlyShowing}"]`).click();
 
             setDirection(currentDirection);
-
-            Array.from($(`#busServiceContainer-${currentlyShowing}`).querySelectorAll('.serviceDirectionContainer'))
-            .forEach((div, i) => {
-                div.scrollTop = scrolls[currentlyShowing][i];
-            });
         }
 
         tag();
@@ -79,23 +63,6 @@ function performQuery() {
 }
 
 $.ready(() => {
-    let inputTimeout = 0;
-
-    let input = $('#input');
-
-    input.on('input', () => {
-        clearTimeout(inputTimeout);
-        inputTimeout = setTimeout(performQuery, 850);
-    });
-
-    if (search.query.hide) {
-        history.pushState({page: location.pathname}, 'Fish Candies', '/search');
-        setInterval(performQuery, 5000);
-
-    }
-
-    performQuery();
-
     window.on('resize', () => {
         let width = window.innerWidth;
         if ($('#dir-1')) {
@@ -114,4 +81,13 @@ $.ready(() => {
             }
         }
     });
+
+
+    if ('geolocation' in navigator) {
+        let geo = navigator.geolocation;
+
+        geo.watchPosition(processLocation, () => {}, {
+            enableHighAccuracy: true,
+        });
+    }
 });

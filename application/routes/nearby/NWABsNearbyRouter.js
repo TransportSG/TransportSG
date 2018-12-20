@@ -56,6 +56,10 @@ function loadBusStopsInfo(busStops, buses, callback) {
     });
 }
 
+function isBusStopInRoute(svc, busStopCode) {
+    return svc.stops.map(stop => stop.busStopCode == busStopCode).filter(Boolean).length !== 0;
+}
+
 
 router.get('/', (req, res) => {
     res.render('nwabs/nearby');
@@ -88,22 +92,36 @@ router.post('/', (req, res) => {
 
             Object.keys(buses).forEach(busStopCode => {
                 promises.push(new Promise(resolve => {
-                    BusTimingsRouter.loadBusStopData(busStops, busServices, buses[busStopCode], 0, (_   , svcs, dests, dirs) => {
+                    BusTimingsRouter.loadBusStopData(busStops, busServices, buses[busStopCode], 0, (_   , svcs, dests) => {
                         services = Object.assign(services, svcs);
                         destinations = Object.assign(destinations, dests);
-                        directions = Object.assign(directions, dirs);
                         resolve();
                     });
                 }));
             });
 
             Promise.all(promises).then(() => {
-                console.log(allowedBusStops, services, destinations);
+
+                Object.values(services).forEach(service => {
+                    directions[service[0].fullService] = {};
+
+                    service.forEach(serviceDirection => {
+                        Object.keys(buses).forEach(busStopCode => {
+                            if (isBusStopInRoute(serviceDirection, busStopCode)) directions[serviceDirection.fullService][serviceDirection.routeDirection] = true;
+                        });
+                    });
+                });
+
+                Object.keys(allowedBusStops).forEach(bsc => {
+                    allowedBusStops[bsc] = allowedBusStops[bsc].filter(svc => svc.timings.length);
+                });
+
                 res.render('templates/bus-timings-list', {
                     busStopsData,
-                    allowedBusStops,
+                    buses: allowedBusStops,
                     services,
-                    destinations
+                    destinations,
+                    directions
                 });
             });
         });

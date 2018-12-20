@@ -2,13 +2,15 @@ extends ../layout.pug
 
 block css
     link(rel='stylesheet' href='/static/css/nwabs/nearby.css')
+    link(rel='stylesheet' href='/static/css/dropdown.css')
     link(rel='stylesheet' href='/static/css/bus/timings.css')
     link(rel='stylesheet' href='/static/css/bus/timings-list.css')
     style.
         a#home {margin-left: auto !important;}
 
 block scripts
-    script(src='/static/scripts/bus/stops/nearby.js' async)
+    script(src='/static/scripts/nwabs-nearby.js' async)
+    script(src='/static/scripts/dropdown.js')
     script(src='/static/scripts/unfolding-busstop.js' async)
 
 block header
@@ -16,4 +18,3 @@ block header
     span#header Locate Nearby NWABs
 
 block content
-    div.content

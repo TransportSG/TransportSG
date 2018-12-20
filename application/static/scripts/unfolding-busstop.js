@@ -4,16 +4,16 @@ window.tag = function() {
     let tags = Array.from(document.querySelectorAll('input[type=checkbox].busStopHideCheckbox'));
 
     tags.forEach(tag => {
-        let busStopCode = tag.getAttribute('bus-stop-code');
+        let id = tag.id;
 
         tag.on('click', () => {
-            opened[busStopCode] = !opened[busStopCode];
+            opened[id] = !opened[id];
         });
     });
 
-    Object.keys(opened).forEach(busStopCode => {
-        if (opened[busStopCode]) {
-            $(`input#checkbox-${busStopCode}`).setAttribute('checked', true);
+    Object.keys(opened).forEach(id => {
+        if (opened[id]) {
+            $(`input#${id}`).setAttribute('checked', true);
         }
     })
 }
