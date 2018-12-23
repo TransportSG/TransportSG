@@ -31,12 +31,11 @@ function performQuery() {
                 $('#dir-2').style.display = 'none';
             } else {
                 $('#dir-2').style.display = 'flex';
+                console.log('a')
+                setDirection(currentDirection);
+                console.log('b')
             }
 
-            let d = currentDirection;
-            currentDirection = 2;
-            setDirection(1);
-            setDirection(d);
         });
 
         function setDirection(direction) {
@@ -61,7 +60,11 @@ function performQuery() {
             $(`#service-selector li[service="${currentlyShowing}"]`).click();
             $(`#service-selector li[service="${currentlyShowing}"]`).click();
 
-            setDirection(currentDirection);
+
+            let parent = $(`#busServiceContainer-${currentlyShowing}`);
+            if (parent.className.endsWith('2')) {
+                setDirection(currentDirection);
+            }
         }
 
         tag();
@@ -93,16 +96,16 @@ $.ready(() => {
         if ($('#dir-1')) {
             if (width > 700) {
                 let parent = $(`#busServiceContainer-${currentlyShowing}`);
-                if (parent.className.endsWith('2')) {
-                    $(`#dircontainer-${currentlyShowing}-2`).style.display = 'block';
-                }
-                $(`#dircontainer-${currentlyShowing}-1`).style.display = 'block';
-
+                Array.from($(`#busServiceContainer-${currentlyShowing} .serviceDirectionContainer`)).forEach(e => {
+                    e.style.display = 'block';
+                });
 
                 $('#dir-1').className = '';
                 $('#dir-2').className = '';
             } else {
-                $(`#dir-${currentDirection}`).className = 'active';
+                let parent = $(`#busServiceContainer-${currentlyShowing}`);
+                if (parent.className.endsWith('2'))
+                    $(`#dir-${currentDirection}`).className = 'active';
             }
         }
     });
