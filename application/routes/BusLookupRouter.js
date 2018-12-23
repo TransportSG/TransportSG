@@ -78,7 +78,7 @@ function performChecks(busRegos, buses, callback) {
     let promises = [];
 
     buses = buses.map(bus => {
-        if (new Date() - bus.busData.deregDate > 0 || bus.misc.notes.toLowerCase().includes('scrapped')) {
+        if ((new Date() - bus.busData.deregDate > 0 || bus.misc.notes.toLowerCase().includes('scrapped')) && bus.operator.status === '') {
             bus.operator.status = 'Retired';
             promises.push(new Promise(resolve => {
                 busRegos.updateDocument({
