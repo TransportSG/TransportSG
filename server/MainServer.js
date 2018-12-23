@@ -64,6 +64,10 @@ module.exports = class MainServer {
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(bodyParser.json());
         app.use(bodyParser.text());
+        app.use((req, res, next) => {
+            res.setHeader('Strict-Transport-Security', 'max-age=31536000');
+            next();
+        });
 
         app.set('views', path.join(__dirname, '../application/views'));
         app.set('view engine', 'pug');
