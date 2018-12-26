@@ -88,7 +88,6 @@ let urls = [
     'https://sgwiki.com/wiki/Volvo_B9TL_(Wright_Eclipse_Gemini_2)_(Batch_4)',
     'https://sgwiki.com/wiki/Volvo_B10TL',
     'https://sgwiki.com/wiki/Volvo_B10BLE',
-    'https://sgwiki.com/wiki/Volvo_B10M_Mark_IV_(DM3500)',
     'https://sgwiki.com/wiki/Mercedes-Benz_O530_Citaro_(Batch_SMRT)',
     'https://sgwiki.com/wiki/Mercedes-Benz_O530_Citaro_(Batch_1)',
     'https://sgwiki.com/wiki/Mercedes-Benz_O530_Citaro_(Batch_2)',

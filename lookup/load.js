@@ -57,7 +57,6 @@ function transformData(regoPrefix, csv) {
         csv[11] = csv[11].replace('(L)', '').trim();
         status = 'Layup';
     } else if (csv[11] === 'Not Registered') {
-        console.log('unreg')
         csv[10] = csv[11] = '';
         status = 'Unregistered';
     }
@@ -103,6 +102,10 @@ function updateBus(query, data) {
 
     buses.findDocument(query, (err, bus) => {
         if (!!bus) {
+            if (data.operator.operator === bus.operator.operator && !data.operator.permService) {
+                data.operator.permService = bus.operator.permService;
+                data.operator.depot = bus.operator.depot;
+            }
             buses.updateDocument(query, {
                 $set: data
             }, () => {
