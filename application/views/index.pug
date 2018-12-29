@@ -7,25 +7,25 @@ block css
     link(rel='stylesheet' href='/static/css/index.css')
 
 block header
-    span#header TransportSG
+    span#title TransportSG
 
 block content
     div.wrap
-        a(href='/bookmarks').feature
+        a(href='/bookmarks' alt='Bookmarks').feature
             img(src='/static/images/home/bookmarks.svg')
             span Bookmarks
-        a(href='/nearby/bus/stops').feature
+        a(href='/nearby/bus/stops' alt='Nearby Bus Stops').feature
             img(src='/static/images/home/nearby_bus_stops.svg')
             span Nearby Bus Stops
-        a(href='/timings/mrt').feature
+        a(href='/timings/mrt' alt='MRT Timings').feature
             img(src='/static/images/home/mrt_timings.svg')
             span MRT Timings
-        a(href='/search').feature
+        a(href='/search' alt='General Search').feature
             img(src='/static/images/home/general_search.svg')
             span General Search
-        a(href='/lookup').feature
+        a(href='/lookup' alt='Bus Lookup').feature
             img(src='/static/images/home/bus_lookup.svg')
             span Bus Lookup
-        a(href='/everything').feature
+        a(href='/everything' alt='All Features').feature
             img(src='/static/images/home/about_this_site.svg')
             span Everything Else

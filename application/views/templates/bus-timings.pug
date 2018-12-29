@@ -22,4 +22,7 @@ for bus in busTimings
                     span(class=hasArrived(arrival.arrivalTime) ? 'bus-arr' : '')=hasArrived(arrival.arrivalTime) ? 'Arr' : ttl.minutes
                     span=hasArrived(arrival.arrivalTime) ? '' : ttl.seconds
                     span=['', 'SD', 'DD', 'BD'][arrival.busType]
-                    img(src='/static/images/' + (arrival.isWAB ? '' : 'non-') + 'wheelchair.svg')
+                    if arrival.isWAB
+                        img(src='/static/images/wheelchair.svg' alt='Wheelchair Accessible')
+                    else
+                        img(src='/static/images/non-wheelchair.svg' alt='Non-Wheelchair Accessible')

@@ -1,11 +1,12 @@
+doctype html
 html(lang='en-GB')
     head
         meta(charset='UTF-8')
+        meta(http-eqiv='X-UA-Compatible' content='IE=Edge')
         meta(name='description' content='A transport app for Singapore')
         meta(name='keywords' content='bus,mrt,transport,singapore')
         meta(name='author' content='Unikitty Pte. Ltd.')
         meta(name='application-name' content='TransportSG')
-        meta(http-eqiv='X-UA-Compatible' content='IE=Edge')
         meta(name='viewport' content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
         meta(name='google' content='notranslate')
         meta(name='theme-color' content='#171717')
@@ -42,17 +43,7 @@ html(lang='en-GB')
             block content
                 
         script(src='/static/scripts/helper.js')
-        script.
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js', { scope: '/' })
-                  .then(function(registration) {
-                        console.log('Service Worker Registered');
-                  })
-
-                navigator.serviceWorker.ready.then(function(registration) {
-                   console.log('Service Worker Ready');
-                });
-            }
+        script(src='/static/scripts/sw.js')
         block scripts
             
         block css
