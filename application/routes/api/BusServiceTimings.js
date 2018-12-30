@@ -14,7 +14,7 @@ module.exports = (req, res) => {
         }
 
         let busTimings = getBusTimings();
-        let timings = {};
+        let timings = [];
 
         serviceDirections.forEach(serviceDirection => {
             timings[serviceDirection.routeDirection] = {
