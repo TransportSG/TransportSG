@@ -17,10 +17,11 @@ module.exports = (req, res) => {
         let timings = [];
 
         serviceDirections.forEach(serviceDirection => {
-            timings[serviceDirection.routeDirection] = {
+            timings.push({
                 destination: serviceDirection.interchanges[1],
+                direction: serviceDirection.routeDirection
                 stops: []
-            };
+            });
             serviceDirection.stops.forEach(busStop => {
                 let {busStopCode, busStopName, stopNumber} = busStop;
                 let busStopTimings = busTimings[busStopCode] || [];
