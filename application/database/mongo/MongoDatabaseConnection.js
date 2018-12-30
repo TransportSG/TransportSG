@@ -24,6 +24,7 @@ module.exports = class MongoDatabaseConnection {
 
     createCollection(collectionName, options) {
         this.database.createCollection(collectionName, options);
+        return this.getCollection(collectionName);
     }
 
     getCollection(collectionName) {

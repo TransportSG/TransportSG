@@ -8,8 +8,8 @@ const config = require('../config');
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;
 
-let completed = 0;
-let remaining = 0;
+let completed = -1;
+let remaining = -1;
 
 const fileTypes = {
     'TIBS': 'TIB',
@@ -27,7 +27,9 @@ const fileTypes = {
     'PH': 'PH'
 };
 
-database.connect((err) => {
+database.connect({
+    poolSize: 500
+}, (err) => {
     buses = database.getCollection('bus registrations');
 
     loadCSVs();
@@ -138,7 +140,7 @@ function processRegoSet(regoPrefix, busList) {
 }
 
 setInterval(() => {
-    if (remaining > 0 && remaining === completed) {
+    if (remaining > 0 && remaining === completed || remaining === -1) {
         console.log('Completed ' + completed + ' entries')
         process.exit(0);
     }

@@ -4,6 +4,10 @@ module.exports = class MongoDatabaseCollection {
         this.collection = mongoCollection;
     }
 
+    createIndex(keys, options) {
+        this.collection.createIndex(keys, options);
+    }
+
     createDocument(document, callback) {
         this.collection.insertOne(document, callback);
     }

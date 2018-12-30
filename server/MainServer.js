@@ -25,7 +25,7 @@ module.exports = class MainServer {
         database.connect((err) => {
             database.createCollection('bus services');
             database.createCollection('bus stops');
-            database.createCollection('bus registrations');
+            database.createCollection('bus registrations').createIndex({ 'registration.number': 1 });
 
             app.use((req, res, next) => {
                 res.db = database;
