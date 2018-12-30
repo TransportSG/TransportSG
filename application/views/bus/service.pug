@@ -26,7 +26,7 @@ block content
         - url = `/bus/${service.fullService}/${[2,1][service.routeDirection-1]}`
         
     div#svcSummary
-        a(class='svc-' + service.operator href=url)#svcNumber
+        a(class='svc-' + service.operator.toLowerCase() href=url)#svcNumber
             span#routeType=service.routeType
             span#svcText=service.fullService
         div#terminals
