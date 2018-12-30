@@ -56,6 +56,9 @@ function transformData(regoPrefix, csv) {
     } else if (csv[11].includes('(L)')) {
         csv[11] = csv[11].replace('(L)', '').trim();
         status = 'Layup';
+    } else if (csv[11].includes('(A)')) {
+        csv[11] = csv[11].replace('(A)', '').trim();
+        status = 'Accident';
     } else if (csv[11] === 'Not Registered') {
         csv[10] = csv[11] = '';
         status = 'Unregistered';
