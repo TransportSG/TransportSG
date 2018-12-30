@@ -25,7 +25,7 @@ module.exports = (req, res) => {
                 let {busStopCode, busStopName, stopNumber} = busStop;
                 let busStopTimings = busTimings[busStopCode] || [];
 
-                let serviceTimings = busStopTimings.filter(service => service.service === serviceDirection.fullService)[0];
+                let serviceTimings = busStopTimings.filter(service => service.service === serviceDirection.fullService)[0] || [];
 
                 timings[serviceDirection.routeDirection].stops[stopNumber] = {
                     busStopCode, busStopName, stopNumber,

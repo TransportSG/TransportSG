@@ -3,7 +3,6 @@ const path = require('path');
 
 const presents = require('./present_list');
 const elfMagic = require('./elves_at_work');
-const sherlockHolmes = require('./sherlock_holmes');
 
 const pug = require('pug');
 
@@ -71,22 +70,17 @@ function createEmailBody(callback) {
         bbdepDownsize: getServices('147e 7B SD')
     };
 
-    sherlockHolmes(present => {
-        if (present) data.mkivDeployments = ['123M'].concat(data.mkivDeployments);
+    let changes = findDifferences(data);
 
-        let changes = findDifferences(data);
+    if (!changes.different) {
+        callback(null);
+        return;
+    }
 
-        if (!changes.different) {
-            callback(null);
-            return;
-        }
+    previous = data;
 
-        previous = data;
-
-        let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), {data, differences: changes.differences});
-        callback(email);
-    });
-
+    let email = pug.renderFile(path.join(__dirname, 'present_wrapper.pug'), {data, differences: changes.differences});
+    callback(email);
 }
 
 function sendEmail(body) {
