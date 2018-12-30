@@ -1,6 +1,21 @@
 let express = require('express');
 let router = new express.Router();
+const {exec} = require('child_process');
 
+let buildNumber, buildComment
+
+exec('git describe --always', {
+    cwd: process.cwd()
+}, (err, stdout, stderr) => {
+    buildNumber = stdout.toString().trim();
+
+    exec('git log -1 --oneline --pretty=%B', {
+        cwd: process.cwd()
+    }, (err, stdout, stderr) => {
+        buildComment = stdout.toString().trim();
+
+    })
+});
 const SecretCandy = require('../secret/nothing_to_see_here/go_away/SecretCandy');
 
 router.get('/', (req, res) => {
@@ -8,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/everything', (req, res) => {
-    res.render('all-features');
+    res.render('all-features', {buildNumber, buildComment});
 });
 
 router.use("/unikitty's%20fish%20candies", SecretCandy);
