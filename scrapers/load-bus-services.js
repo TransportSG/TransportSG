@@ -17,7 +17,7 @@ database.connect((err) => {
     busServices = database.getCollection('bus services');
     busServiceLister.getData(data => {
         console.log('loaded data, ' + data.length + ' entries')
-        data.map(transformBusServiceData).forEach(updateBusServiceData);
+        data.map(applyOverrides).map(transformBusServiceData).forEach(updateBusServiceData);
     });
 });
 
@@ -33,6 +33,19 @@ function getServiceVariant(service) {
         return service.slice(2);
     } else
         return service.replace(/[0-9]/g, '').replace(/#/, 'C');
+}
+
+function applyOverrides(busService) { // take into account odpbt
+    if(['253', '255', '257'].includes(busService.ServiceNo)) {
+        busService.AM_Offpeak_Freq = '30-30';
+        busService.PM_Offpeak_Freq = busService.AM_Offpeak_Freq;
+    }
+    if(['400', '402'].includes(busService.ServiceNo)) {
+        busService.AM_Offpeak_Freq = '40-40';
+        busService.PM_Offpeak_Freq = busService.AM_Offpeak_Freq;
+    }
+
+    return busService;
 }
 
 function transformBusServiceData(busService) {
