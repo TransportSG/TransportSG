@@ -87,16 +87,6 @@ router.get('/:busStopCode', (req, res) => {
         busTimings = [];
     }
 
-    function e(s) {
-        let numberPart = s.match(/(\d+)/)[1]*1;
-        let letterPart = s.match(/(\w+)/)[1];
-        letterPart = [...letterPart].map(e=>e.charCodeAt(0)).reduce((a, b) => a + b, '');
-
-        return parseFloat(numberPart + '.' + letterPart);
-    }
-
-    busTimings = busTimings.sort((a, b) => e(a.service) - e(b.service));
-
     loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations) => {
         res.render('bus/timings', {
             currentBusStop,

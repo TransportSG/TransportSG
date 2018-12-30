@@ -5,6 +5,14 @@ const c = vars.chars;
 
 var timingsURL = 'https://s3-ap-southeast-1.amazonaws.com/lta-eta-web-2/bus_arrival.baf3.js';
 
+function createSortIndex(s) {
+    let numberPart = s.match(/(\d+)/)[1]*1;
+    let letterPart = s.match(/(\w+)/)[1];
+    letterPart = [...letterPart].map(e=>e.charCodeAt(0)).reduce((a, b) => a + b, '');
+
+    return parseFloat(numberPart + '.' + letterPart);
+}
+
 module.exports = callback => {
     request(timingsURL, (err, resp, body) => {
         var timings = {};
@@ -23,6 +31,9 @@ module.exports = callback => {
 
                 var timingsForServices = busStop.split('|')[1];
                 var services = timingsForServices.split(';');
+                services = services.sort((prev, curr) => {
+                    return createSortIndex(prev) - createSortIndex(curr);
+                });
                 services.forEach(service => {
                     var serviceData = service.split(':');
                     var serviceNo = serviceData[0],
