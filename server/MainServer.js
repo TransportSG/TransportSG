@@ -59,7 +59,7 @@ module.exports = class MainServer {
         app.use(compression());
         app.use(minify());
 
-    	app.use('/static', express.static(path.join(__dirname, '../application/static')));
+        app.use('/static', express.static(path.join(__dirname, '../application/static')));
 
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(bodyParser.json());

@@ -4,9 +4,9 @@ var timingsCache = {};
 var refreshRate = 30;
 
 function refreshCache() {
-	getTimings(timings => {
-		timingsCache = timings;
-	});
+    getTimings(timings => {
+        timingsCache = timings;
+    });
 }
 
 setInterval(refreshCache, refreshRate * 1000);

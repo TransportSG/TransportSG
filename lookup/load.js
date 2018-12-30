@@ -14,7 +14,7 @@ let remaining = 0;
 const fileTypes = {
     'TIBS': 'TIB',
     'SBST': 'SBS',
-	'SBSR': 'SBS-R',
+    'SBSR': 'SBS-R',
     'SG': 'SG',
     'SMRT': 'SMB',
     'PA': 'PA',
@@ -23,8 +23,8 @@ const fileTypes = {
     'RU': 'RU',
     'WC': 'WC',
     'CB': 'CB',
-	'SH': 'SH',
-	'PH': 'PH'
+    'SH': 'SH',
+    'PH': 'PH'
 };
 
 database.connect((err) => {
