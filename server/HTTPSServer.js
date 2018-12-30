@@ -10,12 +10,14 @@ let secureContext = null;
 module.exports = {
 
     createSecureContext: certPath => {
-        let sslCertPath = path.join(certPath, 'cert.pem'),
-            sslKeyPath = path.join(certPath, 'privkey.pem');
+        let sslCertPath = path.join(certPath, 'fullchain.pem'),
+            sslKeyPath = path.join(certPath, 'privkey.pem'),
+            caPath = path.join(certPath, 'chain.pem');
 
         let context = tls.createSecureContext({
             cert: fs.readFileSync(sslCertPath),
-            key: fs.readFileSync(sslKeyPath)
+            key: fs.readFileSync(sslKeyPath),
+            ca: fs.readFileSync(caPath)
         });
 
         secureContext = context;
