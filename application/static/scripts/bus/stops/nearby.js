@@ -9,7 +9,7 @@ function processLocation(location) {
         }
     }, data => {
         $('#content').innerHTML = data;
-        if (tag) tag();
+        if (typeof tag === 'function') tag();
     });
 }
 
