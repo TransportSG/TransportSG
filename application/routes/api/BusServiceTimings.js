@@ -16,7 +16,7 @@ module.exports = (req, res) => {
         let busTimings = getBusTimings();
         let timings = [];
 
-        serviceDirections.forEach(serviceDirection => {
+        serviceDirections.forEach((serviceDirection, i) => {
             timings.push({
                 destination: serviceDirection.interchanges[1],
                 direction: serviceDirection.routeDirection,
@@ -28,7 +28,7 @@ module.exports = (req, res) => {
 
                 let serviceTimings = busStopTimings.filter(service => service.service === serviceDirection.fullService)[0] || [];
 
-                timings[serviceDirection.routeDirection].stops[stopNumber] = {
+                timings[i].stops[stopNumber] = {
                     busStopCode, busStopName, stopNumber,
                     timings: serviceTimings.timings || []
                 }
