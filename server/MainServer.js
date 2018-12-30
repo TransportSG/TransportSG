@@ -23,8 +23,8 @@ module.exports = class MainServer {
     initDatabaseConnection(app, callback) {
         let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
         database.connect((err) => {
-            database.createCollection('bus services');
-            database.createCollection('bus stops');
+            database.createCollection('bus services').createIndex({ serviceNumber: 1 });
+            database.createCollection('bus stops').createIndex({ busStopCode: 1 });
             database.createCollection('bus registrations').createIndex({ 'registration.number': 1 });
 
             app.use((req, res, next) => {
