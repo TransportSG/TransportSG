@@ -19,7 +19,7 @@ module.exports = (req, res) => {
         serviceDirections.forEach(serviceDirection => {
             timings.push({
                 destination: serviceDirection.interchanges[1],
-                direction: serviceDirection.routeDirection
+                direction: serviceDirection.routeDirection,
                 stops: []
             });
             serviceDirection.stops.forEach(busStop => {
