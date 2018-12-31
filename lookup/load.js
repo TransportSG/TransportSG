@@ -110,6 +110,7 @@ function updateBus(query, data) {
             if (data.operator.operator === bus.operator.operator && !data.operator.permService) {
                 data.operator.permService = bus.operator.permService;
                 data.operator.depot = bus.operator.depot;
+                data.fleet.ad = bus.fleet.ad;
             }
             buses.updateDocument(query, {
                 $set: data
