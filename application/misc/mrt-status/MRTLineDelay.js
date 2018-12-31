@@ -63,7 +63,7 @@ function findDisruptionStart(line, messages) {
     let times = [];
 
     messages.forEach(message => {
-        let time = new Date(message.CreatedDate),
+        let time = new Date(message.CreatedDate + ' UTC+0800 (SST)'),
             contents = message.Content;
 
         if (contents.includes(line) && !hasResumed(contents))
