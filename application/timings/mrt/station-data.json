@@ -985,32 +985,32 @@
             {
                 "stationName": "Sengkang",
                 "chineseStationName": "盛港",
-                "stationNumer": "STC"
+                "stationNumber": "STC"
             },
             {
                 "stationName": "Compassvale",
                 "chineseStationName": "康埔桦",
-                "stationNumer": "SE1"
+                "stationNumber": "SE1"
             },
             {
                 "stationName": "Rumbia",
                 "chineseStationName": "棕美",
-                "stationNumer": "SE2"
+                "stationNumber": "SE2"
             },
             {
                 "stationName": "Bakau",
                 "chineseStationName": "码高",
-                "stationNumer": "SE3"
+                "stationNumber": "SE3"
             },
             {
                 "stationName": "Kangkar",
                 "chineseStationName": "港脚",
-                "stationNumer": "SE4"
+                "stationNumber": "SE4"
             },
             {
                 "stationName": "Ranggung",
                 "chineseStationName": "兰岗",
-                "stationNumer": "SE5"
+                "stationNumber": "SE5"
             }
         ]
     },
@@ -1021,7 +1021,7 @@
             {
                 "stationName": "Sengkang",
                 "chineseStationName": "盛港",
-                "stationNumer": "STC"
+                "stationNumber": "STC"
             },
             {
                 "stationName": "Cheng Lim",
@@ -1072,42 +1072,42 @@
             {
                 "stationName": "Punggol",
                 "chineseStationName": "榜鹅",
-                "stationNumer": "PTC"
+                "stationNumber": "PTC"
             },
             {
                 "stationName": "Cove",
                 "chineseStationName": "海湾",
-                "stationNumer": "PE1"
+                "stationNumber": "PE1"
             },
             {
                 "stationName": "Meridian",
                 "chineseStationName": "丽园",
-                "stationNumer": "PE2"
+                "stationNumber": "PE2"
             },
             {
                 "stationName": "Coral Edge",
                 "chineseStationName": "珊瑚",
-                "stationNumer": "PE3"
+                "stationNumber": "PE3"
             },
             {
                 "stationName": "Riviera",
                 "chineseStationName": "里维拉",
-                "stationNumer": "PE4"
+                "stationNumber": "PE4"
             },
             {
                 "stationName": "Kadaloor",
                 "chineseStationName": "卡达鲁",
-                "stationNumer": "PE5"
+                "stationNumber": "PE5"
             },
             {
                 "stationName": "Osais",
                 "chineseStationName": "绿洲",
-                "stationNumer": "PE6"
+                "stationNumber": "PE6"
             },
             {
                 "stationName": "Damai",
                 "chineseStationName": "达迈",
-                "stationNumer": "PE7"
+                "stationNumber": "PE7"
             }
         ]
     },
@@ -1118,7 +1118,7 @@
             {
                 "stationName": "Punggol",
                 "chineseStationName": "榜鹅",
-                "stationNumer": "PTC"
+                "stationNumber": "PTC"
             },
             {
                 "stationName": "Sam Kee",
