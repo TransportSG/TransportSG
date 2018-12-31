@@ -40,7 +40,7 @@ html(lang='en-GB')
             block header
             div#links
                 block links
-                if MRTDisruptions.length
+                if MRTDisruptions.length && !hideDisruptionLink
                     a#mrt-disruptions(href='/mrt/disruptions')
                         span MRT
                         span Disruption
@@ -52,10 +52,9 @@ html(lang='en-GB')
         script(src='/static/scripts/sw.js' async)
         block scripts
             
-        block css
-
         if MRTDisruptions.length
             style.
                 #header {
                     background-color: #e54629 !important;
                 }
+        block css

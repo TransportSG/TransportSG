@@ -1,4 +1,4 @@
-const version = "0.0.5";
+const version = "0.0.6";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -11,7 +11,6 @@ self.addEventListener('install', e => {
     const timeStamp = Date.now();
     e.waitUntil(
         cacheFiles([
-            '/',
             '/static/css/dropdown.css',
             '/static/css/all-features.css',
             '/static/css/index.css',
@@ -51,6 +50,8 @@ self.addEventListener('install', e => {
             '/static/images/service/dollar.svg',
             '/static/images/service/street-view.svg',
             '/static/images/service/timer.svg',
+            '/static/images/free-bridging-bus-icon.svg',
+            '/static/images/free-public-bus-icon.svg',
             '/static/images/bus-stop.svg',
             '/static/images/magnifying-glass.svg',
             '/static/images/non-wheelchair.svg',

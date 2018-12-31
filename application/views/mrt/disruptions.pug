@@ -1,0 +1,15 @@
+extends ../layout
+
+block head
+    title TransportSG - MRT Disruptions
+    
+block css
+    link(rel='stylesheet' href='/static/css/mrt/disruptions.css')
+        
+block scripts
+
+block header
+    span#title MRT Disruptions
+    
+block content
+    -console.log(JSON.stringify(MRTDisruptions, null, 2))

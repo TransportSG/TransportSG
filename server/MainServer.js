@@ -77,7 +77,8 @@ module.exports = class MainServer {
 
         app.set('views', path.join(__dirname, '../application/views'));
         app.set('view engine', 'pug');
-        // app.set('view cache', true);
+        if (process.env['NODE_ENV'] && process.env['NODE_ENV'] === 'prod')
+            app.set('view cache', true);
         app.set('x-powered-by', false);
     }
 
@@ -90,7 +91,8 @@ module.exports = class MainServer {
             NearbyObjects: '/nearby',
             GeneralSearch: '/search',
             Bookmarks: '/bookmarks',
-            BusRouteInfo: '/bus'
+            BusRouteInfo: '/bus',
+            MRTDisruptions: '/mrt/disruptions'
         };
 
         Object.keys(routers).forEach(routerName => {
