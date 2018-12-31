@@ -1,17 +1,27 @@
-const request = require('request');
 const {accessKey} = require('../../../scrapers/lta-config.json');
-// const data = require('./delay.json');
-const MRTLineDelay = require('./MRTLineDelay');
 
-const url = 'http://datamall2.mytransport.sg/ltaodataservice/TrainServiceAlerts';
+const getMRTDisruptions = require('./lib');
 
-request({
-    url,
-    headers: {
-        AccountKey: accessKey,
-        accept: 'application/json'
+let disruptions = [];
+let disruptionsLastUpdate = 0;
+
+function shouldRun() {
+    let hours = new Date().getUTCHours() + 8;
+
+    return (hours >= 5 && hours <= 23);
+}
+
+function updateDisruptions() {
+    if (shouldRun()) {
+        getMRTDisruptions(accessKey, (err, newDisruptions) => {
+            disruptions = newDisruptions;
+            disruptionsLastUpdate = new Date();
+        });
     }
-}, (err, resp, body) => {
-    let data = JSON.parse(body).value;
-    console.log(JSON.stringify(MRTLineDelay.parse(data), null, 2));
-});
+}
+
+setInterval(updateDisruptions, 5 * 60 * 1000);
+updateDisruptions();
+
+module.exports.getMRTDisruptions = function() { return disruptions; }
+module.exports.getMRTDisruptionsLastUpdate = function () { return disruptionsLastUpdate; }

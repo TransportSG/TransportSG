@@ -1,10 +1,6 @@
 #lookup-method-container {
     margin-left: auto;
-    margin-right: calc(2vw + 2vh);
-}
-
-a#home {
-    margin-left: 0 !important;
+    margin-right: calc(1vw + 1vh);
 }
 
 #lookup-method-div.selectorButton {

@@ -33,11 +33,31 @@ div#header span#title {
     margin: calc(-0.3vw - 0.3vh) 0 0 calc(1vw + 1vh);
 }
 
-div#header a#home {
+div#links {
     margin-left: auto;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#links > * {
     margin-right: calc(1vw + 1vh);
+}
+
+div#header a#home {
     font-size: calc(1.5vw + 1.5vh);
+}
+
+#mrt-disruptions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mrt-disruptions span {
+    font-size: calc(1.3vw + 1.3vh);
+    line-height: calc(1.5vw + 1.5vh);
 }
 
 div#header img#page-icon {

@@ -38,7 +38,13 @@ html(lang='en-GB')
     body
         div#header
             block header
-            a#home(href='/') Home
+            div#links
+                block links
+                if MRTDisruptions.length
+                    a#mrt-disruptions(href='/mrt/disruptions')
+                        span MRT
+                        span Disruption
+                a#home(href='/') Home
         div#content
             block content
                 
@@ -47,3 +53,9 @@ html(lang='en-GB')
         block scripts
             
         block css
+
+        if MRTDisruptions.length
+            style.
+                #header {
+                    background-color: #e54629 !important;
+                }

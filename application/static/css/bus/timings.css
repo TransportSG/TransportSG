@@ -181,10 +181,4 @@ div.bus-arrival img {
 img#bookmark-status {
     width: calc(2.8vw + 2.8vh);
     height: calc(2.8vw + 2.8vh);
-    margin-left: auto;
-    margin-right: calc(1vw + 1vh);
-}
-
-a#home {
-    margin-left: 0 !important;
 }
