@@ -18,7 +18,7 @@ for bus in busTimings
         div.timings
             for arrival in timings
                 - let ttl = getTimingsDifference(new Date(), new Date(arrival.arrivalTime))
-                div(class='bus-arrival load-' + (arrival.load * 1 + 1))
+                div(class='bus-arrival load-' + (arrival.load * 1 + 1) arrival=arrival.arrivalTime)
                     span(class=hasArrived(arrival.arrivalTime) ? 'bus-arr' : '')=hasArrived(arrival.arrivalTime) ? 'Arr' : ttl.minutes
                     span=hasArrived(arrival.arrivalTime) ? '' : ttl.seconds
                     span=['', 'SD', 'DD', 'BD'][arrival.busType]
