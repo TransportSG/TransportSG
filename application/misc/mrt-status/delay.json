@@ -1,0 +1,43 @@
+{
+  "Status": 2,
+  "AffectedSegments": [
+      {
+          "Line": "DTL",
+          "Direction": "Both",
+          "Stations": "DT1,DT2,DT3,DT4",
+          "FreePublicBus": "Free bus service island-wide",
+          "FreeMRTShuttle": "DT1,DT2,DT3,DT4",
+          "MRTShuttleDirection": "Both"
+      },
+      {
+          "Line": "EWL",
+          "Direction": "Both",
+          "Stations": "EW1,EW2,EW3,EW4",
+          "FreePublicBus": "Free bus service island-wide",
+          "FreeMRTShuttle": "EW1,EW2,EW3,EW4",
+          "MRTShuttleDirection": "Both"
+      },
+      {
+          "Line": "NSL",
+          "Direction": "Jurong East",
+          "Stations": "NS1,NS2,NS3,NS4",
+          "FreePublicBus": "Free bus service island-wide",
+          "FreeMRTShuttle": "NS1,NS2,NS3,NS4",
+          "MRTShuttleDirection": "Both"
+      }
+  ],
+  "Message": [
+      {
+          "Content": "1827hrs: DTL - No train service due to a dog on the track. 1827hrs: EWL - Additional travelling time of 30min due to a train fault. 1827hrs: NSL - No train service due to a Track Fault. 1832hrs: SWL - Additional travelling time of 15 minutes on Sengkang LRT (West Loop) due to a signal fault",
+          "CreatedDate": "2018-12-31 20:27:09"
+      },
+      {
+          "Content": "1827hrs: DTL - No train service due to cats on the track. 1827hrs: EWL - Additional travelling time of 30min due to a train fault. 1827hrs: NSL - No train service due to a Track Fault.",
+          "CreatedDate": "2018-12-31 18:27:09"
+      },
+      {
+          "Content": "1827hrs: EWL - Additional travelling time of 30min due to a train fault. 1827hrs: NSL - No train service due to a Track Fault.",
+          "CreatedDate": "2018-12-31 15:27:09"
+      }
+  ]
+}
