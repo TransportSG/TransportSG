@@ -75,7 +75,7 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
     });
 }
 
-router.get('/:busStopCode', (req, res) => {
+function renderTimings(req, res, viewFile) {
     let db = res.db;
     let busStops = db.getCollection('bus stops');
     let busServices = db.getCollection('bus services');
@@ -88,15 +88,23 @@ router.get('/:busStopCode', (req, res) => {
     }
 
     loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations) => {
-        res.render('bus/timings', {
+        res.render(viewFile, {
             currentBusStop,
             busTimings,
             services,
             destinations
         });
     });
+}
+
+router.get('/:busStopCode', (req, res) => {
+    renderTimings(req, res, 'bus/timings');
 });
 
 router.loadBusStopData = loadBusStopData;
+
+router.get('/render-timings/:busStopCode', (req, res) => {
+    renderTimings(req, res, 'templates/bus-timings');
+})
 
 module.exports = router;

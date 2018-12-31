@@ -74,3 +74,11 @@ function setTimes() {
 }
 
 setInterval(setTimes, 1000);
+
+setInterval(() => {
+    $.ajax({
+        url: '/timings/render-timings/' + currentBusStop
+    }, body => {
+        $('#content').innerHTML = body;
+    });
+}, 15000);
