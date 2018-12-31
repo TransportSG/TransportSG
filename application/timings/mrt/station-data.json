@@ -978,10 +978,51 @@
             }
         ]
     },
-    "Sengkang LRT": {
-        "name": "Sengkang LRT",
+    "Sengkang LRT East Loop": {
+        "name": "Sengkang LRT East Loop",
         "chineseName": "盛港轻轨线",
         "stations": [
+            {
+                "stationName": "Sengkang",
+                "chineseStationName": "盛港",
+                "stationNumer": "STC"
+            },
+            {
+                "stationName": "Compassvale",
+                "chineseStationName": "康埔桦",
+                "stationNumer": "SE1"
+            },
+            {
+                "stationName": "Rumbia",
+                "chineseStationName": "棕美",
+                "stationNumer": "SE2"
+            },
+            {
+                "stationName": "Bakau",
+                "chineseStationName": "码高",
+                "stationNumer": "SE3"
+            },
+            {
+                "stationName": "Kangkar",
+                "chineseStationName": "港脚",
+                "stationNumer": "SE4"
+            },
+            {
+                "stationName": "Ranggung",
+                "chineseStationName": "兰岗",
+                "stationNumer": "SE5"
+            }
+        ]
+    },
+    "Sengkang LRT West Loop": {
+        "name": "Sengkang LRT West Loop",
+        "chineseName": "盛港轻轨线",
+        "stations": [
+            {
+                "stationName": "Sengkang",
+                "chineseStationName": "盛港",
+                "stationNumer": "STC"
+            },
             {
                 "stationName": "Cheng Lim",
                 "chineseStationName": "振林",
@@ -1024,10 +1065,61 @@
             }
         ]
     },
-    "Punggol LRT": {
-        "name": "Punggol LRT",
+    "Punggol LRT East Loop": {
+        "name": "Punggol LRT East Loop",
         "chineseName": "榜鹅轻轨线",
         "stations": [
+            {
+                "stationName": "Punggol",
+                "chineseStationName": "榜鹅",
+                "stationNumer": "PTC"
+            },
+            {
+                "stationName": "Cove",
+                "chineseStationName": "海湾",
+                "stationNumer": "PE1"
+            },
+            {
+                "stationName": "Meridian",
+                "chineseStationName": "丽园",
+                "stationNumer": "PE2"
+            },
+            {
+                "stationName": "Coral Edge",
+                "chineseStationName": "珊瑚",
+                "stationNumer": "PE3"
+            },
+            {
+                "stationName": "Riviera",
+                "chineseStationName": "里维拉",
+                "stationNumer": "PE4"
+            },
+            {
+                "stationName": "Kadaloor",
+                "chineseStationName": "卡达鲁",
+                "stationNumer": "PE5"
+            },
+            {
+                "stationName": "Osais",
+                "chineseStationName": "绿洲",
+                "stationNumer": "PE6"
+            },
+            {
+                "stationName": "Damai",
+                "chineseStationName": "达迈",
+                "stationNumer": "PE7"
+            }
+        ]
+    },
+    "Punggol LRT West Loop": {
+        "name": "Punggol LRT West Loop",
+        "chineseName": "榜鹅轻轨线",
+        "stations": [
+            {
+                "stationName": "Punggol",
+                "chineseStationName": "榜鹅",
+                "stationNumer": "PTC"
+            },
             {
                 "stationName": "Sam Kee",
                 "chineseStationName": "三记",
@@ -1036,7 +1128,8 @@
             {
                 "stationName": "Teck Lee",
                 "chineseStationName": "德利",
-                "stationNumber": "PW2"
+                "stationNumber": "PW2",
+                "operational": false
             },
             {
                 "stationName": "Punggol Point",
