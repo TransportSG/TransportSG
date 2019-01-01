@@ -28,4 +28,8 @@ module.exports = class MongoDatabaseCollection {
 
     }
 
+    distinct(field, callback) {
+        this.collection.distinct(field, callback);
+    }
+
 }

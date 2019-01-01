@@ -7,6 +7,7 @@ const BusService = require('./BusService');
 
 router.get('/timings/bus/:busService', BusServiceTimings);
 router.get('/timings/:busStopCode', BusStopTimings);
-router.get('/bus/:busService', BusService);
+router.get('/bus/services', BusService.getAllBusServices);
+router.get('/bus/:busService', BusService.getBusService);
 
 module.exports = router;
