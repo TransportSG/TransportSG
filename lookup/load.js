@@ -8,8 +8,8 @@ const config = require('../config');
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;
 
-let completed = -1;
-let remaining = -1;
+let completed = 0;
+let remaining = 0;
 
 const fileTypes = {
     'TIBS': 'TIB',
@@ -142,7 +142,7 @@ function processRegoSet(regoPrefix, busList) {
 }
 
 setInterval(() => {
-    if (remaining > 0 && remaining === completed || remaining === -1) {
+    if (remaining > 0 && remaining === completed) {
         console.log('Completed ' + completed + ' entries')
         process.exit(0);
     }
