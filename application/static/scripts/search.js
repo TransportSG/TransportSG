@@ -3,6 +3,7 @@ function performQuery() {
     if (query.trim() ==  '') return;
 
     let url = location.pathname;
+    $('#loading').style.display = 'block';
 
     $.ajax({
         url,
@@ -11,10 +12,9 @@ function performQuery() {
             query
         }
     }, (content) => {
-        if (content.location)
-            location = content.location;
-        else
-            $('#results').innerHTML = content;
+        $('#loading').style.display = 'none';
+
+        $('#results').innerHTML = content;
     });
 }
 

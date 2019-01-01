@@ -2,7 +2,6 @@ let express = require('express');
 let router = new express.Router();
 
 let safeRegex = require('safe-regex');
-let md5 = require('../secret/nothing_to_see_here/go_away/unbreakable_code');
 
 router.get('/', (req, res) => {
     res.render('search');
@@ -10,13 +9,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     let query = (req.body.query || '').trim();
-
-    if (md5(query) === 'c0ddebd92e862720091dd086e944e9a7') {
-        res.json({
-            location: "/unikitty's fish candies?hide=true"
-        });
-        return;
-    }
 
     search(res.db, query, (err, results) => {
         render(res, err, results);
