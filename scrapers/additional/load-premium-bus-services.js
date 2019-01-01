@@ -185,22 +185,23 @@ database.connect({
     Promise.all(promises).then(() => {
         let morePromises = [];
 
-        Object.values(serviceData).forEach(data => {
+        Object.values(serviceData).forEach(svc => {
+            Object.values(svc).forEach(data => {
+                morePromises.push(new Promise(resolve => {
+                    let query = {
+                        fullService: data.fullService,
+                        routeDirection: data.routeDirection
+                    };
 
-            morePromises.push(new Promise(resolve => {
-                let query = {
-                    fullService: data.fullService,
-                    routeDirection: data.routeDirection
-                };
-
-                busServices.findDocument(query, (err, busService) => {
-                    if (!!busService) {
-                        busServices.updateDocument(query, data, resolve);
-                    } else {
-                        busServices.createDocument(data, resolve);
-                    }
-                });
-            }));
+                    busServices.findDocument(query, (err, busService) => {
+                        if (!!busService) {
+                            busServices.updateDocument(query, data, resolve);
+                        } else {
+                            busServices.createDocument(data, resolve);
+                        }
+                    });
+                }));
+            });
         });
 
         Promise.all(morePromises).then(() => {
