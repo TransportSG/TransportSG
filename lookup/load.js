@@ -1,5 +1,5 @@
 const fs = require('fs');
-const csv = require('csv');
+const parse = require('csv-parse');
 
 const DatabaseConnection = require('../application/database/DatabaseConnection');
 
@@ -41,7 +41,7 @@ function loadCSVs() {
         var regoPrefix = fileTypes[operatorName];
 
         fs.readFile('./data/' + operatorName + '.csv', (err, data) => {
-            csv.parse(data, (err, busList) => {
+            parse(data, (err, busList) => {
                 busList.splice(0, 1);
 
                 processRegoSet(regoPrefix, busList);
@@ -109,6 +109,7 @@ function updateBus(query, data) {
         if (!!bus) {
             if (data.operator.operator === bus.operator.operator && !data.operator.permService) {
                 data.operator.permService = bus.operator.permService;
+                data.operator.crossOvers = bus.operator.crossOvers;
                 data.operator.depot = bus.operator.depot;
                 data.fleet.ad = bus.fleet.ad;
             }
