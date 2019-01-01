@@ -1,20 +1,5 @@
 const mrtLines = require('../../timings/mrt/station-data.json');
 
-let mrtLineAbbreviations = {
-    "CCL": "Circle Line",
-    "CEL": "Circle Line Extension",
-    "CGL": "Changi Airport Branch Line",
-    "DTL": "Downtown Line",
-    "EWL": "East West Line",
-    "NEL": "North East Line",
-    "NSL": "North South Line",
-    "PEL": "Punggol LRT East Loop",
-    "PWL": "Punggol LRT West Loop",
-    "SEL": "Sengkang LRT East Loop",
-    "SWL": "Sengkang LRT West Loop",
-    "BPL": "Bukit Panjang LRT"
-}
-
 function getMRTStation(code) {
     let found = null;
 

@@ -23,6 +23,7 @@ self.addEventListener('install', e => {
             '/static/css/bus/timings.css',
             '/static/css/mrt/timings-result.css',
             '/static/css/mrt/timings.css',
+            '/static/css/mrt/disruptions.css',
             '/static/scripts/helper.js',
             '/static/scripts/idb.js',
             '/static/scripts/search.js',

@@ -1,0 +1,106 @@
+div.mrtDisruptionContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+div.lineName {
+    height: calc(3.5vw + 3.5vh);
+    display: flex;
+    align-items: center;
+
+    background-color: #161616;
+}
+
+div.lineName span {
+    font-size: calc(2vw + 2vh);
+    margin-left: calc(1vw + 1vh);
+}
+
+div.disruptionInfo {
+    display: flex;
+    flex-direction: row;
+    height: calc(7vw + 7vh);
+
+    background-color: #2a2a2a;
+}
+
+div.mrtDisruptionContainer:nth-child(even) div.disruptionInfo {
+    background-color: #202020;
+}
+
+div.lineType {
+    width: calc(5vw + 5vh);
+    height: calc(7vw + 7vh);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.lineType span {
+    width: calc(5vw + 5vh);
+    text-align: center;
+    font-size: calc(2vw + 2vh);
+}
+
+div.disruptionDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: calc(7vw + 7vh);
+}
+
+div.disruptionDetails span {
+    margin-left: calc(1vw + 1vh);
+    font-size: calc(1.2vw + 1.2vh);
+}
+
+div.disruptionDetails span.disruptionSeverity {
+    font-size: calc(1.5vw + 1.5vh);
+}
+
+div.measures img {
+    width: calc(3vw + 3vh);
+    height: calc(3vw + 3vh);
+}
+
+div.measures {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ccl {
+    background-color: #d7832c;
+}
+
+.cel {
+    background-color: #c47625;
+}
+
+.cgl {
+    background-color: #43a93b;
+}
+
+.dtl {
+    background-color: #3c3eaa;
+}
+
+.ewl {
+    background-color: #4ebe45;
+}
+
+.nel {
+    background-color: #b845be;
+}
+
+.nsl {
+    background-color: #c63d3d;
+}
+
+.pel, .pwl, .sel, .swl, .bpl {
+    background-color: #494949;
+}
