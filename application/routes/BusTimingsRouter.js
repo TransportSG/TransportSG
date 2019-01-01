@@ -26,7 +26,6 @@ function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {m
 function hasArrived(timing) {return +new Date() - +new Date(timing) > 0;}
 
 function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, callback) {
-
     let svcs = busTimings.map(svc => svc.service);
     let flattened = svcs.reduce((a, b) => a.concat(b), []);
     let deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
@@ -75,7 +74,7 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
     });
 }
 
-function renderTimings(req, res, viewFile) {
+function renderTimings(req, res, next, viewFile) {
     let db = res.db;
     let busStops = db.getCollection('bus stops');
     let busServices = db.getCollection('bus services');
@@ -88,23 +87,26 @@ function renderTimings(req, res, viewFile) {
     }
 
     loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations) => {
-        res.render(viewFile, {
-            currentBusStop,
-            busTimings,
-            services,
-            destinations
-        });
+        if (currentBusStop)
+            res.render(viewFile, {
+                currentBusStop,
+                busTimings,
+                services,
+                destinations
+            });
+        else
+            next();
     });
 }
 
-router.get('/:busStopCode', (req, res) => {
-    renderTimings(req, res, 'bus/timings');
+router.get('/:busStopCode', (req, res, next) => {
+    renderTimings(req, res, next, 'bus/timings');
 });
 
 router.loadBusStopData = loadBusStopData;
 
-router.get('/render-timings/:busStopCode', (req, res) => {
-    renderTimings(req, res, 'templates/bus-timings');
+router.get('/render-timings/:busStopCode', (req, res, next) => {
+    renderTimings(req, res, next, 'templates/bus-timings');
 })
 
 module.exports = router;

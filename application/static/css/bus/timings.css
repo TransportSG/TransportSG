@@ -4,6 +4,21 @@
     src: url(/static/fonts/ff-meta.otf);
 }
 
+div.noBuses {
+    width: 100vw;
+    height: calc(100vh - (4vw + 4vh));
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+div.noBuses span {
+    width: 100vw;
+    font-size: calc(2vw + 2vh);
+    text-align: center;
+}
+
 div.busService {
     background-color: #2a2a2a;
 

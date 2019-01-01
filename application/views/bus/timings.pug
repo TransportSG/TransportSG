@@ -9,13 +9,13 @@ block css
 block scripts    
     script(src='/static/scripts/idb.js' async)
     script(src='/static/scripts/bus/timings.js' async)
-
-block content
-    include ../templates/bus-timings
-
+    
 block header
     img#page-icon(src='/static/images/bus-stop.svg')
     span#title=`${currentBusStop.busStopCode} ${currentBusStop.busStopName}`
     
 block links
     img#bookmark-status(src='/static/images/bookmark/empty.svg')
+
+block content
+    include ../templates/bus-timings

@@ -2,7 +2,8 @@
 - function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {minutes: d.getUTCMinutes(),seconds: d.getUTCSeconds(),}};
 
 if busTimings.length == 0
-    span No buses now!
+    div.noBuses
+        span No bus services at this bus stop currently are in operation
 
 for bus in busTimings
     - let {timings} = bus;
