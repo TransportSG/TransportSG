@@ -117,6 +117,14 @@ div#results {
     background-color: #c47625;
 }
 
+.other {
+    background-color: #76b7e9;
+}
+
+.busService:nth-child(even) .other {
+    background-color: #4291cd;
+}
+
 .left-container span {
     width: calc(5vw + 5vh);
     text-align: center;
