@@ -4,35 +4,12 @@ let router = new express.Router();
 let elfMagic = require('./elves_at_work');
 
 let BusTimingsRouter = require('../../../routes/BusTimingsRouter');
+let NWABsNearbyRouter = require('../../../routes/nearby/NWABsNearbyRouter');
 
 require('./present_sleigh');
 
 function isBusStopInRoute(svc, busStopCode) {
     return svc.stops.map(stop => stop.busStopCode == busStopCode).filter(Boolean).length !== 0;
-}
-
-function loadBusStopsInfo(busStops, buses, callback) {
-    let busStopsData = {};
-
-    let busStopCodes = Object.keys(buses);
-    busStopCodes = busStopCodes.filter((busStopCode, i) => busStopCodes.indexOf(busStopCode) == i);
-
-    let promises = [];
-
-    busStopCodes.forEach(busStopCode => {
-        promises.push(new Promise(resolve => {
-            busStops.findDocument({
-                busStopCode
-            }, (err, busStop) => {
-                busStopsData[busStopCode] = busStop;
-                resolve();
-            });
-        }));
-    });
-
-    Promise.all(promises).then(() => {
-        callback(busStopsData);
-    });
 }
 
 router.get('/', (req, res) => {
@@ -59,45 +36,14 @@ router.post('/', (req, res) => {
 
     let buses = elfMagic.filterBuses(parsed);
 
-    let services = {};
-    let destinations = {};
-    let directions = {};
-
-    loadBusStopsInfo(busStops, buses, busStopsData => {
-
-        let promises = [];
-
-        Object.keys(buses).forEach(busStopCode => {
-            promises.push(new Promise(resolve => {
-                BusTimingsRouter.loadBusStopData(busStops, busServices, buses[busStopCode], 0, (_, svcs, dests) => {
-                    services = Object.assign(services, svcs);
-                    destinations = Object.assign(destinations, dests);
-                    resolve();
-                });
-            }));
-        });
-
-        Promise.all(promises).then(() => {
-
-            Object.values(services).forEach(service => {
-                directions[service[0].fullService] = {};
-
-                service.forEach(serviceDirection => {
-                    Object.keys(buses).forEach(busStopCode => {
-                        if (isBusStopInRoute(serviceDirection, busStopCode)) directions[serviceDirection.fullService][serviceDirection.routeDirection] = true;
-                    });
-                });
-            });
-
-            res.render('templates/bus-timings-list', {
-                busStopsData,
-                buses,
-                services,
-                destinations,
-                directions
-            });
+    NWABsNearbyRouter.resolveMultipleBusStops(busStops, busServices, buses, (services, busStops) => {
+        res.render('templates/bus-timings-list-old', {
+            services,
+            busStops,
+            buses
         });
     });
+
 });
 
 module.exports = router;

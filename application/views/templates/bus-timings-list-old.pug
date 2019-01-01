@@ -1,13 +1,15 @@
 div#serviceSummary
-    -var svcs = Object.values(services).map(svc => svc[0].fullService);
+    -var svcs = Object.values(services).map(svc => svc.fullService);
     
     span Service Summary:
     span=' ' + svcs.sort().join(', ')
     
 div#busStops
+    - let destinations = busStops;
     for busStopCode in Object.keys(buses)
-        -let busStopData = busStopsData[busStopCode]
-        -let busTimings = buses[busStopCode]
+        -let busStopData = busStops[busStopCode];
+        -let busTimings = buses[busStopCode];
+        
 
         div.busStopContainer
             label(for='checkbox-' + busStopCode).busStopHideContainer

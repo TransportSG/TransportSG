@@ -25,26 +25,33 @@ function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {m
 
 function hasArrived(timing) {return +new Date() - +new Date(timing) > 0;}
 
-function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, callback) {
+function loadBusServicesFromTimings(busServices, busTimings, callback) {
     let svcs = busTimings.map(svc => svc.service);
     let flattened = svcs.reduce((a, b) => a.concat(b), []);
     let deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
 
     let services = {};
-    let destinations = {};
-
     let promises = [];
 
-    deduped.forEach(service => {
+    deduped.forEach(serviceNum => {
         promises.push(new Promise(resolve => {
-            busServices.findDocuments({
-                fullService: service
-            }).toArray((err, serviceDirections) => {
-                services[service] = serviceDirections.sort((a,b)=>a.routeDirection - b.routeDirection);
+            busServices.findDocument({
+                fullService: serviceNum,
+                routeDirection: 1
+            }, (err, service) => {
+                services[serviceNum] = service;
                 resolve();
             });
         }));
     });
+
+    Promise.all(promises).then(() => callback(services))
+}
+
+function loadDestinationsFromTimings(busStops, busTimings, callback) {
+    let destinations = {};
+
+    let promises = [];
 
     busTimings.forEach(busService => {
         promises.push(new Promise(resolve => {
@@ -62,15 +69,14 @@ function loadBusStopData(busStops, busServices, busTimings, currentBusStopCode, 
         }));
     });
 
-    Promise.all(promises).then(() => {
-        if (currentBusStopCode)
-            busStops.findDocument({
-                busStopCode: currentBusStopCode
-            }, (err, currentBusStop) => {
-                callback(currentBusStop, services, destinations);
-            });
-        else
-            callback(null, services, destinations);
+    Promise.all(promises).then(() => callback(destinations));
+}
+
+function loadBusStop(busStops, busStopCode, callback) {
+    busStops.findDocument({
+        busStopCode
+    }, (err, busStop) => {
+        callback(busStop);
     });
 }
 
@@ -86,16 +92,21 @@ function renderTimings(req, res, next, viewFile) {
         busTimings = [];
     }
 
-    loadBusStopData(busStops, busServices, busTimings, busStopCode, (currentBusStop, services, destinations) => {
-        if (currentBusStop)
-            res.render(viewFile, {
-                currentBusStop,
-                busTimings,
-                services,
-                destinations
+    loadDestinationsFromTimings(busStops, busTimings, destinations => {
+        loadBusServicesFromTimings(busServices, busTimings, services => {
+            loadBusStop(busStops, busStopCode, currentBusStop => {
+                if (currentBusStop)
+                    res.render(viewFile, {
+                        currentBusStop,
+                        busTimings,
+                        services,
+                        destinations
+                    });
+                else {
+                    next();
+                }
             });
-        else
-            next();
+        });
     });
 }
 
@@ -103,10 +114,13 @@ router.get('/:busStopCode', (req, res, next) => {
     renderTimings(req, res, next, 'bus/timings');
 });
 
-router.loadBusStopData = loadBusStopData;
-
 router.get('/render-timings/:busStopCode', (req, res, next) => {
     renderTimings(req, res, next, 'templates/bus-timings');
-})
+});
 
 module.exports = router;
+module.exports = Object.assign(module.exports, {
+    loadDestinationsFromTimings,
+    loadBusServicesFromTimings,
+    loadBusStop
+})

@@ -51,7 +51,7 @@ function filter(timings, check) {
 function map(timings, mapper) {
     let newTimings = {};
     Object.keys(timings).map(busStopCode => {
-        newTimings[busStopCode] = timings[busStopCode].map(mapper);
+        newTimings[busStopCode] = (timings[busStopCode] || []).map(mapper);
     });
     return newTimings;
 }
