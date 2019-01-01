@@ -20,22 +20,32 @@ block header
     span#title='Bus Service ' + service.fullService
 
 block content
-    -var busTypes = ['', 'SD', 'DD', 'BD']
+    - var busTypes = ['', 'SD', 'DD', 'BD']
     - let url = '';
-    if service.interchangeNames[1].busStopName
+    
+    if service.interchangeNames[1] && service.interchangeNames[1].busStopName
         - url = `/bus/${service.fullService}/${[2,1][service.routeDirection-1]}`
-        
+    
+    if !['SMRT', 'SBST', 'TTS', 'GAS'].includes(service.operator)
+        - service.operator = 'other';
+    
     div#svcSummary
         a(class='svc-' + service.operator.toLowerCase() href=url)#svcNumber
             span#routeType=service.routeType
             span#svcText=service.fullService
         div#terminals
-            a(href=`/timings/${service.interchangeNames[0].busStopCode}`).coloured-row
-                span=service.interchangeNames[0].busStopName.toUpperCase()
-            if !!url
-                - url = `/timings/${service.interchangeNames[1].busStopCode}`
-            a(href=url).coloured-row
-                span=(service.interchangeNames[1].busStopName || service.interchangeNames[1]).toUpperCase()
+            if service.interchangeNames[0]
+                a(href=`/timings/${service.interchangeNames[0].busStopCode}`).coloured-row
+                    span=service.interchangeNames[0].busStopName.toUpperCase()
+                if !!url
+                    - url = `/timings/${service.interchangeNames[1].busStopCode}`
+                a(href=url).coloured-row
+                    span=(service.interchangeNames[1].busStopName || service.interchangeNames[1]).toUpperCase()
+            else
+                a.coloured-row
+                    span=service.interchanges[0]
+                a.coloured-row
+                    span=service.interchanges[1]
     div#serviceTimings
         div#keyTimings
             div.table-header.table-data.spacing1
