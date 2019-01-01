@@ -75,7 +75,8 @@ function processBusService(service, direction, busStopsList) {
     return new Promise(resolve => {
         let query = {
             fullService: service,
-            routeDirection: direction
+            routeDirection: direction,
+            special: { $exists: false }
         };
 
         let promises = [];
