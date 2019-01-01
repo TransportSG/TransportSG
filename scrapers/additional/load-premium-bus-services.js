@@ -131,7 +131,9 @@ database.connect({
 
                         return stop;
                     }).map(stop => {
-                        delete stop.pos;
+                        if (stop.busStopCode !== '-')
+                            delete stop.pos;
+
                         return stop;
                     });
 
