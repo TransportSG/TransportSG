@@ -19,7 +19,6 @@ let premiumServices = lines.filter(line => line.BUS_SERVICE_NAME_TXT.match(/PBS 
 let serviceData = {};
 
 let promises = [];
-let firstStops = {};
 
 function parseLine(serviceLine, busStopInfo, resolve) {
     let serviceNumber = serviceLine.BUS_SERVICE_NAME_TXT.match(/PBS (\d+)/)[1];
@@ -32,19 +31,6 @@ function parseLine(serviceLine, busStopInfo, resolve) {
     let firstLastBus = findFirstAndLastBus(serviceLine.OP_HR_TXT);
 
     if (!serviceData[serviceNumber][routeDirection]) {
-        if (!firstStops[serviceNumber])
-            firstStops[serviceNumber] = {};
-
-        if (!!busStopInfo) {
-            firstStops[serviceNumber][routeDirection] = {
-                lat: busStopInfo.position.latitude, long: busStopInfo.position.longitude
-            };
-        } else {
-            firstStops[serviceNumber][routeDirection] = {
-                lat: serviceLine.LATTD_TXT*1, long: serviceLine.LONGTD_TXT*1
-            };
-        }
-
         serviceData[serviceNumber][routeDirection] = {
             fullService: serviceNumber, serviceNumber, serviceVariant: '', routeDirection,
             routeType: 'PREMIUM', operator,
@@ -74,23 +60,13 @@ function parseLine(serviceLine, busStopInfo, resolve) {
     }
 
     let stopNumber = serviceLine.BUS_ROUTE_SEQ_NUM;
-    let distance = 0;
-
-    if (stopNumber !== '1') {
-        let prevLat = firstStops[serviceNumber][routeDirection].lat, prevLong = firstStops[serviceNumber][routeDirection].long;
-        let currLat = busStopInfo ? busStopInfo.position.latitude : serviceLine.LATTD_TXT*1;
-        let currLong = busStopInfo ? busStopInfo.position.longitude : serviceLine.LONGTD_TXT*1;
-
-        distance = calcDist(prevLat, prevLong, currLat, currLong).toFixed(1);
-    }
-
 
     serviceData[serviceNumber][routeDirection].stops[stopNumber - 1] = {
         busStopCode: serviceLine.BUS_STOP_CD,
         busStopName: busStopInfo ? busStopInfo.busStopName : serviceLine.BUS_STOP_DESC_TXT,
         roadName: busStopInfo ? busStopInfo.roadName : serviceLine.RD_NAM_TXT,
 
-        distance,
+        distance: 0,
         stopNumber,
         firstBus: {
             weekday: firstLastBus.firstBus,
@@ -101,6 +77,10 @@ function parseLine(serviceLine, busStopInfo, resolve) {
             weekday: firstLastBus.lastBus,
             saturday: '-',
             sunday: '-'
+        },
+        pos: {
+            lat: busStopInfo ? busStopInfo.position.latitude : serviceLine.LATTD_TXT,
+            long: busStopInfo ? busStopInfo.position.longitude : serviceLine.LONGTD_TXT
         }
     };
 
@@ -136,7 +116,21 @@ database.connect({
         Object.values(serviceData).forEach(svc => {
             Object.values(svc).forEach(data => {
                 morePromises.push(new Promise(resolve => {
-                    data.stops = data.stops.filter(Boolean);
+                    data.stops = data.stops.filter(Boolean).map((stop, i, a) => {
+                        let stopNumber = (i + 1).toString();
+                        stop.stopNumber = stopNumber;
+
+                        if (stopNumber === '1') return stop;
+                        let firstStop = a[0];
+
+                        let firstLat = firstStop.pos.lat, firstLong = firstStop.pos.long,
+                            currLat = stop.pos.lat, currLong = stop.pos.long;
+
+                        stop.distance = calcDist(firstLat, firstLat, currLat, currLat).toFixed(1);
+
+                        return stop;
+                    });
+
                     let query = {
                         fullService: data.fullService,
                         routeDirection: data.routeDirection
