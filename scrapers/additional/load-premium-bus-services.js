@@ -86,7 +86,7 @@ function parseLine(serviceLine, busStopInfo, resolve) {
     let serviceNumber = serviceLine.BUS_SERVICE_NAME_TXT.match(/PBS (\d+)/)[1];
     if (!serviceData[serviceNumber]) serviceData[serviceNumber] = {};
 
-    let routeDirection = serviceLine.BUS_DIRCTN_TXT;
+    let routeDirection = serviceLine.BUS_DIRCTN_TXT * 1;
     let operator = serviceLine.OPR_DESC_TXT;
     let termini = serviceLine.ORIG_DEST_TXT.match(/([\w \/]+) (?:to)?(?:-)? ([\w \/]+)/).slice(1, 3);
     let frequency = calculateFrequency(serviceLine.OP_HR_TXT);
