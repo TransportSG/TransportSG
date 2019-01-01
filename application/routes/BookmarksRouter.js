@@ -11,7 +11,8 @@ router.get('/render', (req, res) => {
     let query = queryString.parse(url.parse(req.url).query);
 
     if (!query['bus-stops']) {
-        res.status(400).end('No bus stop provided');
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        res.end(`<div id="no-bookmarks"><span>Nothing appears to be bookmarked!</span></div>`);
         return;
     }
     let givenBusStops = query['bus-stops'].split(',').filter(Boolean);

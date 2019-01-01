@@ -1,6 +1,6 @@
 $.ready(() => {
     idb.open('bookmarks', 1, db => {
-        let store = db.createObjectStore('bus-stops', {
+        db.createObjectStore('bus-stops', {
             keyPath: 'id'
         });
     });
