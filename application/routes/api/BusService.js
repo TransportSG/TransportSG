@@ -17,7 +17,7 @@ module.exports = {
                 delete dir.special;
 
                 return dir;
-            });
+            }).sort((a, b) => a.routeDirection - b.routeDirection);
 
             res.json(serviceDirections);
         });
