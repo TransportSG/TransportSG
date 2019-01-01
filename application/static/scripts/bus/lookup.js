@@ -2,7 +2,12 @@ let method = 'rego';
 
 function performQuery() {
     let query = $('#input').value;
-    if (query.trim() ==  '') return;
+    if (query.trim() ==  '') {
+        $('#results').innerHTML = '';
+        return;
+    };
+
+    $('#loading').style.display = 'block';
 
     $.ajax({
         url: '/lookup/',
@@ -12,6 +17,8 @@ function performQuery() {
             query
         }
     }, (content) => {
+        $('#loading').style.display = 'none';
+
         $('#results').innerHTML = content;
     });
 }
@@ -19,7 +26,7 @@ function performQuery() {
 $.ready(() => {
     createDropdown('lookup-method', chosen => {
         method = chosen.toLowerCase();
-        
+
         switch(chosen) {
             case 'Rego':
                 $('#input').setAttribute('type', 'number');
