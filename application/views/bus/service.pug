@@ -123,18 +123,24 @@ block content
                                                     else
                                                         img(src='/static/images/non-wheelchair.svg')
                 div(bus-stop=busStop.busStopCode style='display: none;').service-info
-                    a(href=`/timings/${busStop.busStopCode}`)
-                        img(src='/static/images/service/timer.svg')
-                        span Arrival Times
+                    if busStop.busStopCode !== '-'
+                        a(href=`/timings/${busStop.busStopCode}`)
+                            img(src='/static/images/service/timer.svg')
+                            span Arrival Times
                     div(onclick=`calcFarePopup(${++stopNumber})`)
                         img(src='/static/images/service/dollar.svg')
                         span Calculate Fare
                     div(onclick=`toggleBookmark("${busStop.busStopCode}")` bus-stop-code=busStop.busStopCode).bookmark
                         img(src='/static/images/bookmark/empty.svg')
                         span Bookmark
-                    div(onclick=`checkStreetView("${busStop.busStopCode}")`)
-                        img(src='/static/images/service/street-view.svg')
-                        span Street View
+                    if busStop.pos
+                        div(onclick=`window.open("https://www.google.com/maps?layer=c&cbll=${busStop.pos.lat},${busStop.pos.long}")`)
+                            img(src='/static/images/service/street-view.svg')
+                            span Street View
+                    else
+                        div(onclick=`checkStreetView("${busStop.busStopCode}")`)
+                            img(src='/static/images/service/street-view.svg')
+                            span Street View
 
     div#shade
     div#fare-box-container
