@@ -1,5 +1,6 @@
 const parse = require('csv-parse/lib/sync');
 const fs = require('fs');
+const path = require('path');
 const DatabaseConnection = require('../../application/database/DatabaseConnection');
 const config = require('../../config');
 
@@ -7,7 +8,7 @@ let { calcDist, calculateFrequency, findFirstAndLastBus, pad } = require('./scra
 
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 
-let csvData = fs.readFileSync('./premium-bus-services.csv').toString();
+let csvData = fs.readFileSync(path.join(__dirname, '/premium-bus-services.csv')).toString();
 
 let lines = parse(csvData, {
   columns: true,
@@ -128,6 +129,9 @@ database.connect({
 
                         stop.distance = calcDist(firstLat, firstLat, currLat, currLat).toFixed(1);
 
+                        return stop;
+                    }).map(stop => {
+                        delete stop.pos;
                         return stop;
                     });
 
