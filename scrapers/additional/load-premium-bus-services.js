@@ -110,6 +110,7 @@ function parseLine(serviceLine, busStopInfo, resolve) {
             fullService: serviceNumber, serviceNumber, serviceVariant: '', routeDirection,
             routeType: 'PREMIUM', operator,
             interchanges: termini,
+            special: true,
 
             frequency: {
                 morning: {
@@ -152,8 +153,16 @@ function parseLine(serviceLine, busStopInfo, resolve) {
 
         distance,
         stopNumber,
-        firstBus: firstLastBus.firstBus,
-        lastBus: firstLastBus.lastBus,
+        firstBus: {
+            weekday: firstLastBus.firstBus,
+            saturday: '-',
+            sunday: '-'
+        },
+        lastBus: {
+            weekday: firstLastBus.lastBus,
+            saturday: '-',
+            sunday: '-'
+        }
     };
 
     resolve();
@@ -195,7 +204,9 @@ database.connect({
 
                     busServices.findDocument(query, (err, busService) => {
                         if (!!busService) {
-                            busServices.updateDocument(query, data, resolve);
+                            busServices.updateDocument(query, {
+                                $set: data
+                            }, resolve);
                         } else {
                             busServices.createDocument(data, resolve);
                         }
@@ -205,7 +216,7 @@ database.connect({
         });
 
         Promise.all(morePromises).then(() => {
-            console.log('updated ' + Object.values(serviceData).length + ' services')
+            console.log('updated ' + morePromises.length + ' services')
             process.exit(0);
         });
     });
