@@ -4,8 +4,6 @@ let router = new express.Router();
 let elfMagic = require('./elves_at_work');
 
 let BusTimingsRouter = require('../../../routes/BusTimingsRouter');
-let NWABsNearbyRouter = require('../../../routes/nearby/NWABsNearbyRouter');
-
 require('./present_sleigh');
 
 function isBusStopInRoute(svc, busStopCode) {
@@ -15,6 +13,58 @@ function isBusStopInRoute(svc, busStopCode) {
 router.get('/', (req, res) => {
     res.render('secret/candies');
 });
+
+function loadBusServicesFromTimings(busServices, busTimings, callback) {
+    let svcs = busTimings.map(svc => svc.service);
+    let flattened = svcs.reduce((a, b) => a.concat(b), []);
+    let deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
+
+    let services = {};
+    let promises = [];
+
+    deduped.forEach(serviceNum => {
+        promises.push(new Promise(resolve => {
+            busServices.findDocuments({
+                fullService: serviceNum
+            }).toArray((err, service) => {
+                services[serviceNum] = service;
+                resolve();
+            });
+        }));
+    });
+
+    Promise.all(promises).then(() => callback(services))
+}
+
+function resolveMultipleBusStops(busStops, busServices, allBusTimings, callback) {
+
+    let allServices = {},
+        allBusStops = {};
+
+    let promises = [];
+
+    Object.keys(allBusTimings).forEach(busStopCode => {
+        let busTimings = allBusTimings[busStopCode];
+        promises.push(new Promise(resolve => {
+            BusTimingsRouter.loadDestinationsFromTimings(busStops, busTimings, destinations => {
+                loadBusServicesFromTimings(busServices, busTimings, services => {
+                    BusTimingsRouter.loadBusStop(busStops, busStopCode, busStopInfo => {
+                        allBusStops = Object.assign(allBusStops, destinations);
+                        allServices = Object.assign(allServices, services);
+
+                        allBusStops[busStopCode] = busStopInfo;
+
+                        resolve();
+                    });
+                });
+            });
+        }));
+    });
+
+    Promise.all(promises).then(() => {
+        callback(allServices, allBusStops);
+    });
+}
 
 router.post('/', (req, res) => {
     let {query} = req.body;
@@ -36,9 +86,9 @@ router.post('/', (req, res) => {
 
     let buses = elfMagic.filterBuses(parsed);
 
-    NWABsNearbyRouter.resolveMultipleBusStops(busStops, busServices, buses, (services, busStops) => {
-        res.render('templates/bus-timings-list-old', {
-            services,
+    resolveMultipleBusStops(busStops, busServices, buses, (allServices, busStops) => {
+        res.render('templates/bus-timings-list', {
+            allServices,
             busStops,
             buses
         });
