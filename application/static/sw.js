@@ -1,4 +1,4 @@
-const version = "0.0.9";
+const version = "0.0.10";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -21,6 +21,7 @@ self.addEventListener('install', e => {
             '/static/css/bus/service.css',
             '/static/css/bus/timings-list.css',
             '/static/css/bus/timings.css',
+            '/static/css/bus/candies.css',
             '/static/css/mrt/timings-result.css',
             '/static/css/mrt/timings.css',
             '/static/css/mrt/disruptions.css',
@@ -34,7 +35,7 @@ self.addEventListener('install', e => {
             '/static/scripts/bus/lookup.js',
             '/static/scripts/bus/service.js',
             '/static/scripts/bus/timings.js',
-            '/static/scripts/bus/timings-list.js',
+            '/static/scripts/bus/candies.js',
             '/static/scripts/mrt/station-data.js',
             '/static/scripts/mrt/timings.js',
             '/static/images/home/about_this_site.svg',
