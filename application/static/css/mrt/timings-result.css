@@ -20,6 +20,26 @@ span.header * {
     color: #d7832c;
 }
 
+div.invalidLine {
+    width: 100vw;
+    height: calc(100vh - (4vw + 4vh));
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.invalidLine span {
+    width: 100vw;
+    font-size: calc(2vw + 2vh);
+    text-align: center;
+}
+
+span.back {
+    cursor: pointer;
+}
+
 .trainGroup {
     background-color: #2a2a2a;
 

@@ -9,21 +9,29 @@ block css
 block header
     -let abbvLine = lineName.split(' ').map(p=>p.slice(0, 1)).join('').toLowerCase()
     - if (abbvLine == 'cl') abbvLine = 'ccl'
-    span.header=`${stationNumber} `
+    span.header=`${stationNumber || ''} `
         span(class='header header-' + abbvLine)=stationName
 
 block content
-    for line in Object.keys(timings)
-        - let destinations = Object.keys(timings[line]);
-        for destination in destinations
-            - let arrivalTimes = timings[line][destination];
-            div.trainGroup
-                div(class='trainLineContainer ' + line)
-                    span=line
-                a.destination(href=`/timings/mrt/${resolvedDests[destination]}/${destination}`)
-                    span Towards
-                    span=destination
-                div.timings
-                    for timing in arrivalTimes
-                        div.trainArrival
-                            span=(timing == 1) ? 'Arr' : timing
+    
+    if invalidLine
+        div.invalidLine
+            span Support for this line isn't here... yet
+            span(style='display:block;height:calc(1vw+1vh);')
+            span(onclick='history.back();').back Go back
+    else
+        
+        for line in Object.keys(timings)
+            - let destinations = Object.keys(timings[line]);
+            for destination in destinations
+                - let arrivalTimes = timings[line][destination];
+                div.trainGroup
+                    div(class='trainLineContainer ' + line.toLowerCase())
+                        span=line
+                    a.destination(href=`/timings/mrt/${resolvedDests[destination]}/${destination}`)
+                        span Towards
+                        span=destination
+                    div.timings
+                        for timing in arrivalTimes
+                            div.trainArrival
+                                span=(timing == 1) ? 'Arr' : timing

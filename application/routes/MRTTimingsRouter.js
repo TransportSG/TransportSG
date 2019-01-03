@@ -66,12 +66,19 @@ function resolveDestinationLines(lineName, timings) {
 
 router.get('/:lineName/:stationName', (req, res) => {
     let {lineName, stationName} = req.params;
+    let stationNumber = findStationNumber(lineName, stationName);
+
+    let allowedLines = ['North South Line', 'East West Line', 'Circle Line', 'Circle Line Extension', 'Changi Airport Branch Line'];
+    if (!(allowedLines.includes(lineName))) {
+        res.render('mrt/timings/results', {invalidLine: true, lineName, stationName, stationNumber});
+        return;
+    }
 
     getMRTTimings(lineName, stationName, timings => {
         let resolvedDests = resolveDestinationLines(lineName, timings);
 
         res.render('mrt/timings/results',
-            {lineName, resolvedDests, stationName, stationNumber: findStationNumber(lineName, stationName), timings: timings});
+            {lineName, resolvedDests, stationName, stationNumber, timings: timings});
     });
 });
 
