@@ -1,5 +1,14 @@
 //-future idea - show current freq on right
 
+for station in mrtStations
+    - let {lineName} = station, stationData = station.station;
+    a(href=`/timings/mrt/${lineName}/${stationData.stationName}`).mrtStation.result
+        div.leftContainer
+            img(src='/static/images/mrt-icon.svg')
+        div.result-details
+            span=lineName
+            span=stationData.stationNumber + ' ' + stationData.stationName
+
 for service in busServices
     a(href=`/bus/${service.fullService}`).busService.result
         if !['SMRT', 'SBST', 'TTS', 'GAS'].includes(service.operator)

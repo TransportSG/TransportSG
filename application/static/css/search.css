@@ -228,3 +228,11 @@ div#results {
     font-size: calc(2vw + 2vh);
     margin-top: calc(-0.5vw - 0.5vh);
 }
+
+.mrtStation .leftContainer {
+    background-color: #057172;
+}
+
+.mrtStation:nth-child(even) .leftContainer {
+    background-color: #045d5e;
+}

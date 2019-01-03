@@ -1,5 +1,6 @@
 let express = require('express');
 let router = new express.Router();
+let mrtStations = require('../timings/mrt/station-data.json');
 
 let safeRegex = require('safe-regex');
 
@@ -65,6 +66,34 @@ function resolveInterchanges(services, busServices, busStops, callback) {
     });
 }
 
+function findMRTStationsByName(name) {
+    let foundStations = [];
+
+    Object.keys(mrtStations).forEach(lineName => {
+        let {stations} = mrtStations[lineName];
+        stations.forEach(station => {
+            if (station.stationName.toLowerCase() === name.toLowerCase())
+                foundStations.push({station, lineName});
+        });
+    });
+
+    return foundStations;
+}
+
+function findMRTStationByNumber(stationNumber) {
+    let foundStations = [];
+
+    Object.keys(mrtStations).forEach(lineName => {
+        let {stations} = mrtStations[lineName];
+        stations.forEach(station => {
+            if (station.stationNumber.toLowerCase() === stationNumber.toLowerCase())
+                foundStations.push({station, lineName});
+        });
+    });
+
+    return foundStations;
+}
+
 function search(db, query, callback) {
     let busStops = db.getCollection('bus stops');
     let busServices = db.getCollection('bus services');
@@ -96,7 +125,10 @@ function search(db, query, callback) {
             resolveInterchanges(busServiceList, busServices, busStops, busServices => {
 
                 busServices = busServices.sort((a, b) => a.fullService.length - b.fullService.length);
-                callback(null, {busStops: busStopList, busServices});
+
+                let mrtStations = findMRTStationsByName(query).concat(findMRTStationByNumber(query));
+
+                callback(null, {busStops: busStopList, busServices, mrtStations});
             });
         });
     });
