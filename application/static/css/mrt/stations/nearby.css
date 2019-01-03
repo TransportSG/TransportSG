@@ -1,0 +1,107 @@
+div.mrtStation {
+    background-color: #2a2a2a;
+}
+
+div.mrtStation:nth-child(even) {
+    background-color: #202020;
+}
+
+a.mrtStationLink {
+    display: flex;
+}
+
+.distanceMeter {
+    order: 0;
+    width: calc(5.2vw + 5.2vh);
+    height: calc(7vw + 7vh);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: calc(2vw + 2vh);
+    color: #d2d2d2;
+}
+
+.distanceMeter span:nth-child(2) {
+    font-size: calc(0.6vw + 0.6vh);
+}
+
+.nearby {
+    background-color: #4ebe45;
+}
+
+.mrtStation:nth-child(even) .nearby {
+    background-color: #43a93b;
+}
+
+.close {
+    background-color: #d7832c;
+}
+
+.mrtStation:nth-child(even) .close {
+    background-color: #c47625;
+}
+
+.far {
+    background-color: #c63d3d;
+}
+
+.mrtStation:nth-child(even) .far {
+    background-color: #b43535;
+}
+
+.stationInfo {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: calc(1vw + 1vh);
+}
+
+.stationName {
+    font-size: calc(1.5vw + 1.5vh);
+}
+
+.stationLine {
+    font-size: calc(1vw + 1vh);
+    color: #8f8f8f;
+}
+
+.station-colouring {
+    padding-bottom: calc(0.2vw + 0.2vh);
+    padding-left: calc(0.5vw + 0.5vh);
+    padding-right: calc(0.5vw + 0.5vh);
+    border-radius: calc(1vw + 1vh);
+}
+
+.ccl {
+    background-color: #d7832c;
+}
+
+.cel {
+    background-color: #c47625;
+}
+
+.cgl {
+    background-color: #43a93b;
+}
+
+.dtl {
+    background-color: #3c3eaa;
+}
+
+.ewl {
+    background-color: #4ebe45;
+}
+
+.nel {
+    background-color: #b845be;
+}
+
+.nsl {
+    background-color: #c63d3d;
+}
+
+.pel, .pwl, .sel, .swl, .bpl {
+    background-color: #494949;
+}
