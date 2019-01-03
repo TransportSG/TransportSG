@@ -1,5 +1,21 @@
 //-future idea - show current freq on right
-
+-
+    let lineAbbreviations = {
+      "North South Line": "nsl",
+      "East West Line": "ewl",
+      "Changi Airport Branch Line": "cgl",
+      "North East Line": "nel",
+      "Circle Line": "ccl",
+      "Circle Line Extension": "cel",
+      "Downtown Line": "dtl",
+      "Bukit Panjang LRT": "bpl",
+      "Sengkang LRT East Loop": "sel",
+      "Sengkang LRT West Loop": "swl",
+      "Punggol LRT East Loop": "pel",
+      "Punggol LRT West Loop": "pwl"
+    }
+    
+    
 for station in mrtStations
     - let {lineName} = station, stationData = station.station;
     a(href=`/timings/mrt/${lineName}/${stationData.stationName}`).mrtStation.result
@@ -7,7 +23,9 @@ for station in mrtStations
             img(src='/static/images/mrt-icon.svg')
         div.result-details
             span=lineName
-            span=stationData.stationNumber + ' ' + stationData.stationName
+            div.stationNameInfo
+                span(class=`station-colouring ${lineAbbreviations[lineName]}`)=stationData.stationNumber
+                span.stationName=' ' + stationData.stationName
 
 for service in busServices
     a(href=`/bus/${service.fullService}`).busService.result

@@ -163,12 +163,16 @@ div#results {
   margin-left: calc(1vw + 1vh);
 }
 
-.result-details span:nth-child(1) {
+div.stationNameInfo {
+    display: inline-block;
+}
+
+.result-details > span:nth-child(1) {
   color: #8f8f8f;
   font-size: calc(1.6vh + 0.9vw);
 }
 
-.result-details span:nth-child(2) {
+.result-details > span:nth-child(2) {
   font-size: calc(2vh + 1.2vw);
   margin-top: calc(-0.4vh - 0.2vw);
 }
@@ -235,4 +239,56 @@ div#results {
 
 .mrtStation:nth-child(even) .leftContainer {
     background-color: #045d5e;
+}
+
+.stationName {
+    font-size: calc(1.5vw + 1.5vh);
+}
+
+.stationLine {
+    font-size: calc(1vw + 1vh);
+    color: #8f8f8f;
+}
+
+.stationNameInfo {
+    font-size: calc(1.5vw + 1.5vh);
+}
+
+.station-colouring {
+    padding-bottom: calc(0.2vw + 0.2vh);
+    padding-left: calc(0.5vw + 0.5vh);
+    padding-right: calc(0.5vw + 0.5vh);
+    border-radius: calc(1vw + 1vh);
+}
+
+.ccl {
+    background-color: #d7832c;
+}
+
+.cel {
+    background-color: #c47625;
+}
+
+.cgl {
+    background-color: #43a93b;
+}
+
+.dtl {
+    background-color: #3c3eaa;
+}
+
+.ewl {
+    background-color: #4ebe45;
+}
+
+.nel {
+    background-color: #b845be;
+}
+
+.nsl {
+    background-color: #c63d3d;
+}
+
+.pel, .pwl, .sel, .swl, .bpl {
+    background-color: #494949;
 }
