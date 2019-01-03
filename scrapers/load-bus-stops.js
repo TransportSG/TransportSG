@@ -15,7 +15,7 @@ let busStopsLister = new BusStopsLister(ltaConfig.accessKey);
 
 database.connect((err) => {
     busStops = database.getCollection('bus stops');
-    busStops.createIndex({ busStopCode: 1, position: "2dsphere" });
+    busStops.createIndex({ position: "2dsphere", busStopCode: 1 });
 
     busStopsLister.getData(data => {
         let completedBusStops = [];
