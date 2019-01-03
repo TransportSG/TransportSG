@@ -15,6 +15,8 @@ let busStopsLister = new BusStopsLister(ltaConfig.accessKey);
 
 database.connect((err) => {
     busStops = database.getCollection('bus stops');
+    busStops.createIndex({ busStopCode: 1, position: "2dsphere" });
+
     busStopsLister.getData(data => {
         let completedBusStops = [];
 
@@ -32,8 +34,8 @@ function transformBusStopData(busStop) {
         busStopCode: busStop.BusStopCode.toString(),
         busStopName: busStop.Description,
         position: {
-            latitude: busStop.Latitude,
-            longitude: busStop.Longitude
+            type: "Point",
+            coordinates: [busStop.Longitude, busStop.Latitude]
         },
         roadName: busStop.RoadName,
     };
