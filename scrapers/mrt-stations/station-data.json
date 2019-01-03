@@ -1,4 +1,4 @@
-window.stationData = {
+{
     "North South Line": {
         "name": "North South Line",
         "chineseName": "南北线",
@@ -7,51 +7,31 @@ window.stationData = {
                 "stationName": "Jurong East",
                 "chineseStationName": "裕廊东",
                 "stationNumber": "NS1",
-                "stationCode": "JUR",
-                "position": {
-                    "latitude": 1.016276384228009,
-                    "longitude": 103.58268387646248
-                }
+                "stationCode": "JUR"
             },
             {
                 "stationName": "Bukit Batok",
                 "chineseStationName": "武吉巴督",
                 "stationNumber": "NS2",
-                "stationCode": "BBT",
-                "position": {
-                    "latitude": 1.016276527858616,
-                    "longitude": 103.58268394186034
-                }
+                "stationCode": "BBT"
             },
             {
                 "stationName": "Bukit Gombak",
                 "chineseStationName": "武吉甘柏",
                 "stationNumber": "NS3",
-                "stationCode": "BGB",
-                "position": {
-                    "latitude": 1.016276615833913,
-                    "longitude": 103.58268396275805
-                }
+                "stationCode": "BGB"
             },
             {
                 "stationName": "Choa Chu Kang",
                 "chineseStationName": "蔡厝港",
                 "stationNumber": "NS4",
-                "stationCode": "CCK",
-                "position": {
-                    "latitude": 1.01627685638633,
-                    "longitude": 103.5826838948838
-                }
+                "stationCode": "CCK"
             },
             {
                 "stationName": "Yew Tee",
                 "chineseStationName": "油池",
                 "stationNumber": "NS5",
-                "stationCode": "YWT",
-                "position": {
-                    "latitude": 1.016276966478907,
-                    "longitude": 103.58268392240524
-                }
+                "stationCode": "YWT"
             },
             {
                 "stationName": "Sungei Kadui",
@@ -63,51 +43,31 @@ window.stationData = {
                 "stationName": "Kranji",
                 "chineseStationName": "克兰芝",
                 "stationNumber": "NS7",
-                "stationCode": "KRJ",
-                "position": {
-                    "latitude": 1.016277216478036,
-                    "longitude": 103.58268405499942
-                }
+                "stationCode": "KRJ"
             },
             {
                 "stationName": "Marsiling",
                 "chineseStationName": "马西岭",
                 "stationNumber": "NS8",
-                "stationCode": "MSL",
-                "position": {
-                    "latitude": 1.016277282836615,
-                    "longitude": 103.58268416196385
-                }
+                "stationCode": "MSL"
             },
             {
                 "stationName": "Woodlands",
                 "chineseStationName": "兀兰",
                 "stationNumber": "NS9",
-                "stationCode": "WDL",
-                "position": {
-                    "latitude": 1.01627732228173,
-                    "longitude": 103.5826842734911
-                }
+                "stationCode": "WDL"
             },
             {
                 "stationName": "Admiralty",
                 "chineseStationName": "海军部",
                 "stationNumber": "NS10",
-                "stationCode": "ADM",
-                "position": {
-                    "latitude": 1.016277355842435,
-                    "longitude": 103.58268440378907
-                }
+                "stationCode": "ADM"
             },
             {
                 "stationName": "Sembawang",
                 "chineseStationName": "三巴旺",
                 "stationNumber": "NS11",
-                "stationCode": "SBW",
-                "position": {
-                    "latitude": 1.016277432417122,
-                    "longitude": 103.58268457501046
-                }
+                "stationCode": "SBW"
             },
             {
                 "stationName": "Canberra",
@@ -120,161 +80,97 @@ window.stationData = {
                 "stationName": "Yishun",
                 "chineseStationName": "义顺",
                 "stationNumber": "NS13",
-                "stationCode": "YIS",
-                "position": {
-                    "latitude": 1.016277255103468,
-                    "longitude": 103.58268470942197
-                }
+                "stationCode": "YIS"
             },
             {
                 "stationName": "Khatib",
                 "chineseStationName": "卡迪",
                 "stationNumber": "NS14",
-                "stationCode": "KTB",
-                "position": {
-                    "latitude": 1.0162771460391,
-                    "longitude": 103.58268469123558
-                }
+                "stationCode": "KTB"
             },
             {
                 "stationName": "Yio Chu Kang",
                 "chineseStationName": "杨厝港",
                 "stationNumber": "NS15",
-                "stationCode": "YCK",
-                "position": {
-                    "latitude": 1.016276823848975,
-                    "longitude": 103.582684798781
-                }
+                "stationCode": "YCK"
             },
             {
                 "stationName": "Ang Mo Kio",
                 "chineseStationName": "宏茂桥",
                 "stationNumber": "NS16",
-                "stationCode": "AMK",
-                "position": {
-                    "latitude": 1.016276716931143,
-                    "longitude": 103.58268484021522
-                }
+                "stationCode": "AMK"
             },
             {
                 "stationName": "Bishan",
                 "chineseStationName": "碧山",
                 "stationNumber": "NS17",
-                "stationCode": "CBSH",
-                "position": {
-                    "latitude": 1.016276544250355,
-                    "longitude": 103.58268482752298
-                }
+                "stationCode": "CBSH"
             },
             {
                 "stationName": "Braddell",
                 "chineseStationName": "布莱德",
                 "stationNumber": "NS18",
-                "stationCode": "BDL",
-                "position": {
-                    "latitude": 1.016276450491884,
-                    "longitude": 103.58268481543605
-                }
+                "stationCode": "BDL"
             },
             {
                 "stationName": "Toa Payoh",
                 "chineseStationName": "大巴窑",
                 "stationNumber": "NS19",
-                "stationCode": "TAP",
-                "position": {
-                    "latitude": 1.016276379566324,
-                    "longitude": 103.58268482176585
-                }
+                "stationCode": "TAP"
             },
             {
                 "stationName": "Novena",
                 "chineseStationName": "诺维娜",
                 "stationNumber": "NS20",
-                "stationCode": "NOV",
-                "position": {
-                    "latitude": 1.016276269338828,
-                    "longitude": 103.58268478874614
-                }
+                "stationCode": "NOV"
             },
             {
                 "stationName": "Newton",
                 "chineseStationName": "纽顿",
                 "stationNumber": "NS21",
-                "stationCode": "NEW",
-                "position": {
-                    "latitude": 1.016276195894616,
-                    "longitude": 103.58268473627962
-                }
+                "stationCode": "NEW"
             },
             {
                 "stationName": "Orchard",
                 "chineseStationName": "乌节",
                 "stationNumber": "NS22",
-                "stationCode": "ORC",
-                "position": {
-                    "latitude": 1.016276120475391,
-                    "longitude": 103.58268468468
-                }
+                "stationCode": "ORC"
             },
             {
                 "stationName": "Somerset",
                 "chineseStationName": "索美塞",
                 "stationNumber": "NS23",
-                "stationCode": "SOM",
-                "position": {
-                    "latitude": 1.016276086829414,
-                    "longitude": 103.58268474607986
-                }
+                "stationCode": "SOM"
             },
             {
                 "stationName": "Dhoby Ghaut",
                 "chineseStationName": "多美歌",
                 "stationNumber": "NS24",
-                "stationCode": "CDBG",
-                "position": {
-                    "latitude": 1.01627607273769,
-                    "longitude": 103.58268480933155
-                }
+                "stationCode": "CDBG"
             },
             {
                 "stationName": "City Hall",
                 "chineseStationName": "政府大厦",
                 "stationNumber": "NS25",
-                "stationCode": "CTH",
-                "position": {
-                    "latitude": 1.01627602060542,
-                    "longitude": 103.58268486747171
-                }
+                "stationCode": "CTH"
             },
             {
                 "stationName": "Raffles Place",
                 "chineseStationName": "莱佛士坊",
                 "stationNumber": "NS26",
-                "stationCode": "RFP",
-                "position": {
-                    "latitude": 1.016275940924981,
-                    "longitude": 103.5826848573777
-                }
+                "stationCode": "RFP"
             },
             {
                 "stationName": "Marina Bay",
                 "chineseStationName": "滨海湾",
                 "stationNumber": "NS27",
-                "stationCode": "CMRB",
-                "position": {
-                    "latitude": 1.016275871307396,
-                    "longitude": 103.58268488555895
-                }
+                "stationCode": "CMRB"
             },
             {
                 "stationName": "Marina South Pier",
                 "chineseStationName": "滨海南码头",
                 "stationNumber": "NS28",
-                "stationCode": "MSP",
-                "position": {
-                    "latitude": 1.016275825275558,
-                    "longitude": 103.58268495979212
-                }
+                "stationCode": "MSP"
             }
         ]
     },
@@ -286,331 +182,199 @@ window.stationData = {
                 "stationName": "Pasir Ris",
                 "chineseStationName": "巴西立",
                 "stationNumber": "EW1",
-                "stationCode": "PSR",
-                "position": {
-                    "latitude": 1.016276744589436,
-                    "longitude": 103.58268573605449
-                }
+                "stationCode": "PSR"
             },
             {
                 "stationName": "Tampines",
                 "chineseStationName": "淡滨尼",
                 "stationNumber": "EW2",
-                "stationCode": "TAM",
-                "position": {
-                    "latitude": 1.016276566587049,
-                    "longitude": 103.58268569905732
-                }
+                "stationCode": "TAM"
             },
             {
                 "stationName": "Simei",
                 "chineseStationName": "四美",
                 "stationNumber": "EW3",
-                "stationCode": "SIM",
-                "position": {
-                    "latitude": 1.016276475266584,
-                    "longitude": 103.5826857729437
-                }
+                "stationCode": "SIM"
             },
             {
                 "stationName": "Tanah Merah",
                 "chineseStationName": "丹那美拉",
                 "stationNumber": "EW4",
-                "stationCode": "TNM",
-                "position": {
-                    "latitude": 1.016276330421859,
-                    "longitude": 103.58268570983687
-                }
+                "stationCode": "TNM"
             },
             {
                 "stationName": "Bedok",
                 "chineseStationName": "勿洛",
                 "stationNumber": "EW5",
-                "stationCode": "BDK",
-                "position": {
-                    "latitude": 1.016276301406122,
-                    "longitude": 103.58268556283551
-                }
+                "stationCode": "BDK"
             },
             {
                 "stationName": "Kembangan",
                 "chineseStationName": "景万岸",
                 "stationNumber": "EW6",
-                "stationCode": "KEM",
-                "position": {
-                    "latitude": 1.016276274790491,
-                    "longitude": 103.58268540978615
-                }
+                "stationCode": "KEM"
             },
             {
                 "stationName": "Eunos",
                 "chineseStationName": "友诺士",
                 "stationNumber": "EW7",
-                "stationCode": "EUN",
-                "position": {
-                    "latitude": 1.016276263395132,
-                    "longitude": 103.58268532266533
-                }
+                "stationCode": "EUN"
             },
             {
                 "stationName": "Paya Lebar",
                 "chineseStationName": "巴耶利峇",
                 "stationNumber": "EW8",
-                "stationCode": "CPYL",
-                "position": {
-                    "latitude": 1.016276248313516,
-                    "longitude": 103.58268523109577
-                }
+                "stationCode": "CPYL"
             },
             {
                 "stationName": "Aljunied",
                 "chineseStationName": "阿裕尼",
                 "stationNumber": "EW9",
-                "stationCode": "ALJ",
-                "position": {
-                    "latitude": 1.016276233117965,
-                    "longitude": 103.58268513986584
-                }
+                "stationCode": "ALJ"
             },
             {
                 "stationName": "Kallang",
                 "chineseStationName": "加冷",
                 "stationNumber": "EW10",
-                "stationCode": "KAL",
-                "position": {
-                    "latitude": 1.016276188401122,
-                    "longitude": 103.58268503637265
-                }
+                "stationCode": "KAL"
             },
             {
                 "stationName": "Lavender",
                 "chineseStationName": "劳明达",
                 "stationNumber": "EW11",
-                "stationCode": "LVR",
-                "position": {
-                    "latitude": 1.016276151028047,
-                    "longitude": 103.58268495949243
-                }
+                "stationCode": "LVR"
             },
             {
                 "stationName": "Bugis",
                 "chineseStationName": "武吉士",
                 "stationNumber": "EW12",
-                "stationCode": "BGS",
-                "position": {
-                    "latitude": 1.01627608869521,
-                    "longitude": 103.5826848955027
-                }
+                "stationCode": "BGS"
             },
             {
                 "stationName": "City Hall",
                 "chineseStationName": "政府大厦",
                 "stationNumber": "EW13",
-                "stationCode": "CTH",
-                "position": {
-                    "latitude": 1.01627602060542,
-                    "longitude": 103.58268486747171
-                }
+                "stationCode": "CTH"
             },
             {
                 "stationName": "Raffles Place",
                 "chineseStationName": "莱佛士坊",
                 "stationNumber": "EW14",
-                "stationCode": "RFP",
-                "position": {
-                    "latitude": 1.016275940924981,
-                    "longitude": 103.5826848573777
-                }
+                "stationCode": "RFP"
             },
             {
                 "stationName": "Tanjong Pagar",
                 "chineseStationName": "丹戎巴葛",
                 "stationNumber": "EW15",
-                "stationCode": "TPG",
-                "position": {
-                    "latitude": 1.016275872150387,
-                    "longitude": 103.58268480709258
-                }
+                "stationCode": "TPG"
             },
             {
                 "stationName": "Outram Park",
                 "chineseStationName": "欧南园",
                 "stationNumber": "EW16",
-                "stationCode": "OTP",
-                "position": {
-                    "latitude": 1.016275916312071,
-                    "longitude": 103.58268474655424
-                }
+                "stationCode": "OTP"
             },
             {
                 "stationName": "Tiong Bahru",
                 "chineseStationName": "中峇鲁",
                 "stationNumber": "EW17",
-                "stationCode": "TIB",
-                "position": {
-                    "latitude": 1.016275959607983,
-                    "longitude": 103.58268463777532
-                }
+                "stationCode": "TIB"
             },
             {
                 "stationName": "Redhill",
                 "chineseStationName": "红山",
                 "stationNumber": "EW18",
-                "stationCode": "RDH",
-                "position": {
-                    "latitude": 1.016275990071658,
-                    "longitude": 103.58268454610656
-                }
+                "stationCode": "RDH"
             },
             {
                 "stationName": "Queenstown",
                 "chineseStationName": "女皇镇",
                 "stationNumber": "EW19",
-                "stationCode": "QUE",
-                "position": {
-                    "latitude": 1.016276037978735,
-                    "longitude": 103.58268444788162
-                }
+                "stationCode": "QUE"
             },
             {
                 "stationName": "Commonwealth",
                 "chineseStationName": "联邦",
                 "stationNumber": "EW20",
-                "stationCode": "COM",
-                "position": {
-                    "latitude": 1.016276106503873,
-                    "longitude": 103.5826843797757
-                }
+                "stationCode": "COM"
             },
             {
                 "stationName": "Buona Vista",
                 "chineseStationName": "波那维斯达",
                 "stationNumber": "EW21",
-                "stationCode": "CBNV",
-                "position": {
-                    "latitude": 1.016276149407532,
-                    "longitude": 103.58268430688155
-                }
+                "stationCode": "CBNV"
             },
             {
                 "stationName": "Dover",
                 "chineseStationName": "杜弗",
                 "stationNumber": "EW22",
-                "stationCode": "DVR",
-                "position": {
-                    "latitude": 1.016276187579845,
-                    "longitude": 103.58268420307479
-                }
+                "stationCode": "DVR"
             },
             {
                 "stationName": "Clementi",
                 "chineseStationName": "金文泰",
                 "stationNumber": "EW23",
-                "stationCode": "CLE",
-                "position": {
-                    "latitude": 1.016276219667952,
-                    "longitude": 103.58268408322877
-                }
+                "stationCode": "CLE"
             },
             {
                 "stationName": "Jurong East",
                 "chineseStationName": "裕廊东",
                 "stationNumber": "EW24",
-                "stationCode": "JUR",
-                "position": {
-                    "latitude": 1.016276384228009,
-                    "longitude": 103.58268387646248
-                }
+                "stationCode": "JUR"
             },
             {
                 "stationName": "Chinese Garden",
                 "chineseStationName": "裕华园",
                 "stationNumber": "EW25",
-                "stationCode": "CNG",
-                "position": {
-                    "latitude": 1.016276467423954,
-                    "longitude": 103.5826837893983
-                }
+                "stationCode": "CNG"
             },
             {
                 "stationName": "Lakeside",
                 "chineseStationName": "湖畔",
                 "stationNumber": "EW26",
-                "stationCode": "LKS",
-                "position": {
-                    "latitude": 1.016276484656718,
-                    "longitude": 103.58268368475063
-                }
+                "stationCode": "LKS"
             },
             {
                 "stationName": "Boon Lay",
                 "chineseStationName": "文礼",
                 "stationNumber": "EW27",
-                "stationCode": "BNL",
-                "position": {
-                    "latitude": 1.016276433503072,
-                    "longitude": 103.58268355102392
-                }
+                "stationCode": "BNL"
             },
             {
                 "stationName": "Pioneer",
                 "chineseStationName": "先驱",
                 "stationNumber": "EW28",
-                "stationCode": "PNR",
-                "position": {
-                    "latitude": 1.016276424298059,
-                    "longitude": 103.58268347247241
-                }
+                "stationCode": "PNR"
             },
             {
                 "stationName": "Joo Koon",
                 "chineseStationName": "裕群",
                 "stationNumber": "EW29",
-                "stationCode": "JKN",
-                "position": {
-                    "latitude": 1.016276335027269,
-                    "longitude": 103.5826833022562
-                }
+                "stationCode": "JKN"
             },
             {
                 "stationName": "Gul Circle",
                 "chineseStationName": "卡尔圈 站",
                 "stationNumber": "EW30",
-                "stationCode": "GCL",
-                "position": {
-                    "latitude": 1.01627626074927,
-                    "longitude": 103.58268314213902
-                }
+                "stationCode": "GCL"
             },
             {
                 "stationName": "Tuas Crescent",
                 "chineseStationName": "大士弯站",
                 "stationNumber": "EW31",
-                "stationCode": "TCR",
-                "position": {
-                    "latitude": 1.016276274499559,
-                    "longitude": 103.5826830390189
-                }
+                "stationCode": "TCR"
             },
             {
                 "stationName": "Tuas West Road",
                 "chineseStationName": "大 士 西 路站",
                 "stationNumber": "EW32",
-                "stationCode": "TWR",
-                "position": {
-                    "latitude": 1.016276355546322,
-                    "longitude": 103.5826829540068
-                }
+                "stationCode": "TWR"
             },
             {
                 "stationName": "Tuas Link",
                 "chineseStationName": "大士连路站",
                 "stationNumber": "EW33",
-                "stationCode": "TLK",
-                "position": {
-                    "latitude": 1.016276450272968,
-                    "longitude": 103.58268292942356
-                }
+                "stationCode": "TLK"
             }
         ]
     },
@@ -622,21 +386,13 @@ window.stationData = {
                 "stationName": "Expo",
                 "chineseStationName": "博览",
                 "stationNumber": "CG1",
-                "stationCode": "XPO",
-                "position": {
-                    "latitude": 1.016276397017173,
-                    "longitude": 103.5826858464114
-                }
+                "stationCode": "XPO"
             },
             {
                 "stationName": "Changi Airport",
                 "chineseStationName": "樟宜机场",
                 "stationNumber": "CG2",
-                "stationCode": "CGA",
-                "position": {
-                    "latitude": 1.016276602910966,
-                    "longitude": 103.5826860873271
-                }
+                "stationCode": "CGA"
             }
         ]
     },
@@ -647,147 +403,83 @@ window.stationData = {
             {
                 "stationName": "HarbourFront",
                 "chineseStationName": "港湾",
-                "stationNumber": "NE1",
-                "position": {
-                    "latitude": 1.016275772214301,
-                    "longitude": 103.5826845876891
-                }
+                "stationNumber": "NE1"
             },
             {
                 "stationName": "Outram Park",
                 "chineseStationName": "欧南园",
-                "stationNumber": "NE3",
-                "position": {
-                    "latitude": 1.016275901476982,
-                    "longitude": 103.5826847505826
-                }
+                "stationNumber": "NE3"
             },
             {
                 "stationName": "Chinatown",
                 "chineseStationName": "牛车水",
-                "stationNumber": "NE4",
-                "position": {
-                    "latitude": 1.016275943035248,
-                    "longitude": 103.5826847851879
-                }
+                "stationNumber": "NE4"
             },
             {
                 "stationName": "Clarke Quay",
                 "chineseStationName": "克拉码头",
-                "stationNumber": "NE5",
-                "position": {
-                    "latitude": 1.016275979450926,
-                    "longitude": 103.58268481329239
-                }
+                "stationNumber": "NE5"
             },
             {
                 "stationName": "Dhoby Ghaut",
                 "chineseStationName": "多美歌",
-                "stationNumber": "NE6",
-                "position": {
-                    "latitude": 1.016276081818376,
-                    "longitude": 103.58268480369786
-                }
+                "stationNumber": "NE6"
             },
             {
                 "stationName": "Little India",
                 "chineseStationName": "小印度",
-                "stationNumber": "NE7",
-                "position": {
-                    "latitude": 1.016276145981571,
-                    "longitude": 103.58268484105737
-                }
+                "stationNumber": "NE7"
             },
             {
                 "stationName": "Farrer Park",
                 "chineseStationName": "花拉公园",
-                "stationNumber": "NE8",
-                "position": {
-                    "latitude": 1.016276196265375,
-                    "longitude": 103.58268488175472
-                }
+                "stationNumber": "NE8"
             },
             {
                 "stationName": "Boon Keng",
                 "chineseStationName": "文庆",
-                "stationNumber": "NE9",
-                "position": {
-                    "latitude": 1.016276259900053,
-                    "longitude": 103.58268494921744
-                }
+                "stationNumber": "NE9"
             },
             {
                 "stationName": "Potong Pasir",
                 "chineseStationName": "波东巴西",
-                "stationNumber": "NE10",
-                "position": {
-                    "latitude": 1.016276368281836,
-                    "longitude": 103.5826850154171
-                }
+                "stationNumber": "NE10"
             },
             {
                 "stationName": "Woodleigh",
                 "chineseStationName": "兀里",
-                "stationNumber": "NE11",
-                "position": {
-                    "latitude": 1.016276438918136,
-                    "longitude": 103.58268503124809
-                }
+                "stationNumber": "NE11"
             },
             {
                 "stationName": "Serangoon",
                 "chineseStationName": "实龙岗",
                 "stationNumber": "NE12",
-                "stationCode": "CSER",
-                "position": {
-                    "latitude": 1.016276534038896,
-                    "longitude": 103.58268505600678
-                }
+                "stationCode": "CSER"
             },
             {
                 "stationName": "Kovan",
                 "chineseStationName": "高文",
-                "stationNumber": "NE13",
-                "position": {
-                    "latitude": 1.016276628744951,
-                    "longitude": 103.58268515923112
-                }
+                "stationNumber": "NE13"
             },
             {
                 "stationName": "Hougang",
                 "chineseStationName": "后港",
-                "stationNumber": "NE14",
-                "position": {
-                    "latitude": 1.016276729252468,
-                    "longitude": 103.58268522495074
-                }
+                "stationNumber": "NE14"
             },
             {
                 "stationName": "Buangkok",
                 "chineseStationName": "万国",
-                "stationNumber": "NE15",
-                "position": {
-                    "latitude": 1.016276834027975,
-                    "longitude": 103.58268523160056
-                }
+                "stationNumber": "NE15"
             },
             {
                 "stationName": "Sengkang",
                 "chineseStationName": "盛港",
-                "stationNumber": "NE16",
-                "position": {
-                    "latitude": 1.016276913764771,
-                    "longitude": 103.58268525282588
-                }
+                "stationNumber": "NE16"
             },
             {
                 "stationName": "Punggol",
                 "chineseStationName": "榜鹅",
-                "stationNumber": "NE17",
-                "position": {
-                    "latitude": 1.016277029998392,
-                    "longitude": 103.5826853120061
-                }
+                "stationNumber": "NE17"
             },
             {
                 "stationName": "Punggol Coast",
@@ -805,291 +497,175 @@ window.stationData = {
                 "stationName": "Dhoby Ghaut",
                 "chineseStationName": "多美歌",
                 "stationNumber": "CC1",
-                "stationCode": "CDBG",
-                "position": {
-                    "latitude": 1.016276074017532,
-                    "longitude": 103.58268481044514
-                }
+                "stationCode": "CDBG"
             },
             {
                 "stationName": "Bras Basah",
                 "chineseStationName": "百胜",
                 "stationNumber": "CC2",
-                "stationCode": "CBBS",
-                "position": {
-                    "latitude": 1.016276056104134,
-                    "longitude": 103.5826848502321
-                }
+                "stationCode": "CBBS"
             },
             {
                 "stationName": "Esplanade",
                 "chineseStationName": "滨海中心",
                 "stationNumber": "CC3",
-                "stationCode": "CEPN",
-                "position": {
-                    "latitude": 1.016276024092544,
-                    "longitude": 103.58268489369004
-                }
+                "stationCode": "CEPN"
             },
             {
                 "stationName": "Promenade",
                 "chineseStationName": "宝门廊",
                 "stationNumber": "CC4",
-                "stationCode": "CPMN",
-                "position": {
-                    "latitude": 1.016276023159882,
-                    "longitude": 103.58268494306023
-                }
+                "stationCode": "CPMN"
             },
             {
                 "stationName": "Nicoll Highway",
                 "chineseStationName": "尼诰大道",
                 "stationNumber": "CC5",
-                "stationCode": "CNCH",
-                "position": {
-                    "latitude": 1.016276082386177,
-                    "longitude": 103.58268496675547
-                }
+                "stationCode": "CNCH"
             },
             {
                 "stationName": "Stadium",
                 "chineseStationName": "体育场",
                 "stationNumber": "CC6",
-                "stationCode": "CSDM",
-                "position": {
-                    "latitude": 1.016276110192499,
-                    "longitude": 103.58268507199126
-                }
+                "stationCode": "CSDM"
             },
             {
                 "stationName": "Mountbatten",
                 "chineseStationName": "蒙巴登",
                 "stationNumber": "CC7",
-                "stationCode": "CMBT",
-                "position": {
-                    "latitude": 1.016276140595493,
-                    "longitude": 103.58268513647717
-                }
+                "stationCode": "CMBT"
             },
             {
                 "stationName": "Dakota",
                 "chineseStationName": "达科达",
                 "stationNumber": "CC8",
-                "stationCode": "CDKT",
-                "position": {
-                    "latitude": 1.016276160321442,
-                    "longitude": 103.5826851915911
-                }
+                "stationCode": "CDKT"
             },
             {
                 "stationName": "Paya Lebar",
                 "chineseStationName": "巴耶利峇",
                 "stationNumber": "CC9",
-                "stationCode": "CPYL",
-                "position": {
-                    "latitude": 1.016276242146855,
-                    "longitude": 103.58268522317636
-                }
+                "stationCode": "CPYL"
             },
             {
                 "stationName": "MacPherson",
                 "chineseStationName": "麦波申",
                 "stationNumber": "CC10",
-                "stationCode": "CMPS",
-                "position": {
-                    "latitude": 1.016276322769974,
-                    "longitude": 103.58268520617318
-                }
+                "stationCode": "CMPS"
             },
             {
                 "stationName": "Tai Seng",
                 "chineseStationName": "大成",
                 "stationNumber": "CC11",
-                "stationCode": "CTSG",
-                "position": {
-                    "latitude": 1.016276404956105,
-                    "longitude": 103.5826851873698
-                }
+                "stationCode": "CTSG"
             },
             {
                 "stationName": "Bartley",
                 "chineseStationName": "巴特礼",
                 "stationNumber": "CC12",
-                "stationCode": "CBLY",
-                "position": {
-                    "latitude": 1.016276471827593,
-                    "longitude": 103.58268511157206
-                }
+                "stationCode": "CBLY"
             },
             {
                 "stationName": "Serangoon",
                 "chineseStationName": "实龙岗",
                 "stationNumber": "CC13",
-                "stationCode": "CSER",
-                "position": {
-                    "latitude": 1.01627654206315,
-                    "longitude": 103.58268504516408
-                }
+                "stationCode": "CSER"
             },
             {
                 "stationName": "Lorong Chuan",
                 "chineseStationName": "罗弄泉",
                 "stationNumber": "CC14",
-                "stationCode": "CLRC",
-                "position": {
-                    "latitude": 1.016276551253932,
-                    "longitude": 103.58268497134561
-                }
+                "stationCode": "CLRC"
             },
             {
                 "stationName": "Bishan",
                 "chineseStationName": "碧山",
                 "stationNumber": "CC15",
-                "stationCode": "CBSH",
-                "position": {
-                    "latitude": 1.016276548498765,
-                    "longitude": 103.58268483660105
-                }
+                "stationCode": "CBSH"
             },
             {
                 "stationName": "Marymount",
                 "chineseStationName": "玛丽蒙",
                 "stationNumber": "CC16",
-                "stationCode": "CMRM",
-                "position": {
-                    "latitude": 1.016276524965815,
-                    "longitude": 103.58268474917242
-                }
+                "stationCode": "CMRM"
             },
             {
                 "stationName": "Caldecott",
                 "chineseStationName": "加利谷",
                 "stationNumber": "CC17",
-                "stationCode": "CCDT",
-                "position": {
-                    "latitude": 1.016276425190298,
-                    "longitude": 103.58268475013865
-                }
+                "stationCode": "CCDT"
             },
             {
                 "stationName": "Bukit Brown",
                 "chineseStationName": "武吉布朗",
                 "stationNumber": "CC18",
-                "operational": false,
-                "position": {
-                    "latitude": 1.016276389501516,
-                    "longitude": 103.58268467071625
-                }
+                "operational": false
             },
             {
                 "stationName": "Botanic Gardens",
                 "chineseStationName": "植物园",
                 "stationNumber": "CC19",
-                "stationCode": "CBTN",
-                "position": {
-                    "latitude": 1.016276284415959,
-                    "longitude": 103.58268452960706
-                }
+                "stationCode": "CBTN"
             },
             {
                 "stationName": "Farrer Road",
                 "chineseStationName": "花拉路",
                 "stationNumber": "CC20",
-                "stationCode": "CFRR",
-                "position": {
-                    "latitude": 1.016276242814093,
-                    "longitude": 103.58268446315535
-                }
+                "stationCode": "CFRR"
             },
             {
                 "stationName": "Holland Village",
                 "chineseStationName": "荷兰村",
                 "stationNumber": "CC21",
-                "stationCode": "CHLV",
-                "position": {
-                    "latitude": 1.016276191476357,
-                    "longitude": 103.58268436078772
-                }
+                "stationCode": "CHLV"
             },
             {
                 "stationName": "Buona Vista",
                 "chineseStationName": "波那维斯达",
                 "stationNumber": "CC22",
-                "stationCode": "CBNV",
-                "position": {
-                    "latitude": 1.016276143151531,
-                    "longitude": 103.58268431103173
-                }
+                "stationCode": "CBNV"
             },
             {
                 "stationName": "one-north",
                 "chineseStationName": "纬壹",
                 "stationNumber": "CC23",
-                "stationCode": "CONH",
-                "position": {
-                    "latitude": 1.016276082269809,
-                    "longitude": 103.58268428232294
-                }
+                "stationCode": "CONH"
             },
             {
                 "stationName": "Kent Ridge",
                 "chineseStationName": "肯特岗",
                 "stationNumber": "CC24",
-                "stationCode": "CKRG",
-                "position": {
-                    "latitude": 1.016276025318188,
-                    "longitude": 103.58268425693649
-                }
+                "stationCode": "CKRG"
             },
             {
                 "stationName": "Haw Par Villa",
                 "chineseStationName": "虎豹别墅",
                 "stationNumber": "CC25",
-                "stationCode": "CHPV",
-                "position": {
-                    "latitude": 1.016275926556016,
-                    "longitude": 103.58268423159913
-                }
+                "stationCode": "CHPV"
             },
             {
                 "stationName": "Pasir Panjang",
                 "chineseStationName": "巴西班让",
                 "stationNumber": "CC26",
-                "stationCode": "CPPJ",
-                "position": {
-                    "latitude": 1.016275869329208,
-                    "longitude": 103.58268431731415
-                }
+                "stationCode": "CPPJ"
             },
             {
                 "stationName": "Labrador Park",
                 "chineseStationName": "拉柏多公园",
                 "stationNumber": "CC27",
-                "stationCode": "CLBD",
-                "position": {
-                    "latitude": 1.0162758342411,
-                    "longitude": 103.58268442144065
-                }
+                "stationCode": "CLBD"
             },
             {
                 "stationName": "Telok Blangah",
                 "chineseStationName": "直落布兰雅",
                 "stationNumber": "CC28",
-                "stationCode": "CTLB",
-                "position": {
-                    "latitude": 1.016275819961362,
-                    "longitude": 103.58268448261714
-                }
+                "stationCode": "CTLB"
             },
             {
                 "stationName": "HarbourFront",
                 "chineseStationName": "港湾",
                 "stationNumber": "CC29",
-                "stationCode": "CHBF",
-                "position": {
-                    "latitude": 1.016275772214301,
-                    "longitude": 103.5826845876891
-                }
+                "stationCode": "CHBF"
             },
             {
                 "stationName": "Keppel",
@@ -1116,21 +692,13 @@ window.stationData = {
                 "stationName": "Bayfront",
                 "chineseStationName": "海湾舫",
                 "stationNumber": "CE1",
-                "stationCode": "CBFT",
-                "position": {
-                    "latitude": 1.016275920565796,
-                    "longitude": 103.58268492582343
-                }
+                "stationCode": "CBFT"
             },
             {
                 "stationName": "Marina Bay",
                 "chineseStationName": "滨海湾",
                 "stationNumber": "CE2",
-                "stationCode": "CMRB",
-                "position": {
-                    "latitude": 1.016275868805222,
-                    "longitude": 103.58268489001729
-                }
+                "stationCode": "CMRB"
             }
         ]
     },
@@ -1141,29 +709,17 @@ window.stationData = {
             {
                 "stationName": "Bukit Panjang",
                 "chineseStationName": "武吉班让",
-                "stationNumber": "DT1",
-                "position": {
-                    "latitude": 1.016276798885066,
-                    "longitude": 103.58268404936874
-                }
+                "stationNumber": "DT1"
             },
             {
                 "stationName": "Cashew",
                 "chineseStationName": "凯秀",
-                "stationNumber": "DT2",
-                "position": {
-                    "latitude": 1.016276711776946,
-                    "longitude": 103.58268407776015
-                }
+                "stationNumber": "DT2"
             },
             {
                 "stationName": "Hillview",
                 "chineseStationName": "山景",
-                "stationNumber": "DT3",
-                "position": {
-                    "latitude": 1.016276648248053,
-                    "longitude": 103.58268410223724
-                }
+                "stationNumber": "DT3"
             },
             {
                 "stationName": "Hume Avenue",
@@ -1174,288 +730,164 @@ window.stationData = {
             {
                 "stationName": "Beauty World",
                 "chineseStationName": "美世界",
-                "stationNumber": "DT5",
-                "position": {
-                    "latitude": 1.016276457238231,
-                    "longitude": 103.58268417750615
-                }
+                "stationNumber": "DT5"
             },
             {
                 "stationName": "King Albert Park",
                 "chineseStationName": "阿尔柏王园",
-                "stationNumber": "DT6",
-                "position": {
-                    "latitude": 1.016276406979144,
-                    "longitude": 103.58268424949696
-                }
+                "stationNumber": "DT6"
             },
             {
                 "stationName": "Sixth Avenue",
                 "chineseStationName": "第六道",
-                "stationNumber": "DT7",
-                "position": {
-                    "latitude": 1.016276362867363,
-                    "longitude": 103.58268437024857
-                }
+                "stationNumber": "DT7"
             },
             {
                 "stationName": "Tan Kah Kee",
                 "chineseStationName": "陈嘉庚",
-                "stationNumber": "DT8",
-                "position": {
-                    "latitude": 1.016276318532151,
-                    "longitude": 103.58268446077854
-                }
+                "stationNumber": "DT8"
             },
             {
                 "stationName": "Botanic Gardens",
                 "chineseStationName": "植物园",
                 "stationNumber": "DT9",
-                "stationCode": "CBTN",
-                "position": {
-                    "latitude": 1.016276287254511,
-                    "longitude": 103.58268453992913
-                }
+                "stationCode": "CBTN"
             },
             {
                 "stationName": "Stevens",
                 "chineseStationName": "史蒂芬",
-                "stationNumber": "DT10",
-                "position": {
-                    "latitude": 1.01627626593288,
-                    "longitude": 103.58268462881189
-                }
+                "stationNumber": "DT10"
             },
             {
                 "stationName": "Newton",
                 "chineseStationName": "纽顿",
                 "stationNumber": "DT11",
-                "stationCode": "NEW",
-                "position": {
-                    "latitude": 1.016276207533603,
-                    "longitude": 103.58268473471269
-                }
+                "stationCode": "NEW"
             },
             {
                 "stationName": "Little India",
                 "chineseStationName": "小印度",
-                "stationNumber": "DT12",
-                "position": {
-                    "latitude": 1.016276149581957,
-                    "longitude": 103.58268483151251
-                }
+                "stationNumber": "DT12"
             },
             {
                 "stationName": "Rochor",
                 "chineseStationName": "梧槽",
-                "stationNumber": "DT13",
-                "position": {
-                    "latitude": 1.016276119905984,
-                    "longitude": 103.58268486598871
-                }
+                "stationNumber": "DT13"
             },
             {
                 "stationName": "Bugis",
                 "chineseStationName": "武吉士",
                 "stationNumber": "DT14",
-                "stationCode": "BGS",
-                "position": {
-                    "latitude": 1.016276080427205,
-                    "longitude": 103.58268490594256
-                }
+                "stationCode": "BGS"
             },
             {
                 "stationName": "Promenade",
                 "chineseStationName": "宝门廊",
                 "stationNumber": "DT15",
-                "stationCode": "CPMN",
-                "position": {
-                    "latitude": 1.016276020207056,
-                    "longitude": 103.58268494174723
-                }
+                "stationCode": "CPMN"
             },
             {
                 "stationName": "Bayfront",
                 "chineseStationName": "海湾舫",
-                "stationNumber": "DT16",
-                "position": {
-                    "latitude": 1.016275920565796,
-                    "longitude": 103.58268492582343
-                }
+                "stationNumber": "DT16"
             },
             {
                 "stationName": "Downtown",
                 "chineseStationName": "市中心",
-                "stationNumber": "DT17",
-                "position": {
-                    "latitude": 1.016275898607242,
-                    "longitude": 103.58268486976813
-                }
+                "stationNumber": "DT17"
             },
             {
                 "stationName": "Telok Ayer",
                 "chineseStationName": "直落亚逸",
-                "stationNumber": "DT18",
-                "position": {
-                    "latitude": 1.016275924318081,
-                    "longitude": 103.58268482899788
-                }
+                "stationNumber": "DT18"
             },
             {
                 "stationName": "Chinatown",
                 "chineseStationName": "牛车水",
-                "stationNumber": "DT19",
-                "position": {
-                    "latitude": 1.016275946557454,
-                    "longitude": 103.58268479439153
-                }
+                "stationNumber": "DT19"
             },
             {
                 "stationName": "Fort Canning",
                 "chineseStationName": "福康宁",
-                "stationNumber": "DT20",
-                "position": {
-                    "latitude": 1.016276016463862,
-                    "longitude": 103.58268479328167
-                }
+                "stationNumber": "DT20"
             },
             {
                 "stationName": "Bencoolen",
                 "chineseStationName": "明古连",
-                "stationNumber": "DT21",
-                "position": {
-                    "latitude": 1.016276074214461,
-                    "longitude": 103.58268484768703
-                }
+                "stationNumber": "DT21"
             },
             {
                 "stationName": "Jalan Besar",
                 "chineseStationName": "惹兰勿刹",
-                "stationNumber": "DT22",
-                "position": {
-                    "latitude": 1.016276133357361,
-                    "longitude": 103.58268489343826
-                }
+                "stationNumber": "DT22"
             },
             {
                 "stationName": "Bendemeer",
                 "chineseStationName": "明地迷亚",
-                "stationNumber": "DT23",
-                "position": {
-                    "latitude": 1.016276208140275,
-                    "longitude": 103.58268496082472
-                }
+                "stationNumber": "DT23"
             },
             {
                 "stationName": "Geylang Bahru",
                 "chineseStationName": "芽笼峇鲁",
-                "stationNumber": "DT24",
-                "position": {
-                    "latitude": 1.016276278990366,
-                    "longitude": 103.58268504098444
-                }
+                "stationNumber": "DT24"
             },
             {
                 "stationName": "Mattar",
                 "chineseStationName": "玛达",
-                "stationNumber": "DT25",
-                "position": {
-                    "latitude": 1.016276327570277,
-                    "longitude": 103.58268514292644
-                }
+                "stationNumber": "DT25"
             },
             {
                 "stationName": "MacPherson",
                 "chineseStationName": "麦波申",
                 "stationNumber": "DT26",
-                "stationCode": "CMPS",
-                "position": {
-                    "latitude": 1.016276320341217,
-                    "longitude": 103.58268519775994
-                }
+                "stationCode": "CMPS"
             },
             {
                 "stationName": "Ubi",
                 "chineseStationName": "乌美",
-                "stationNumber": "DT27",
-                "position": {
-                    "latitude": 1.016276355436735,
-                    "longitude": 103.58268528672087
-                }
+                "stationNumber": "DT27"
             },
             {
                 "stationName": "Kaki Bukit",
                 "chineseStationName": "加基武吉",
-                "stationNumber": "DT28",
-                "position": {
-                    "latitude": 1.01627640075583,
-                    "longitude": 103.58268536943929
-                }
+                "stationNumber": "DT28"
             },
             {
                 "stationName": "Bedok North",
                 "chineseStationName": "勿洛北",
-                "stationNumber": "DT29",
-                "position": {
-                    "latitude": 1.016276398726033,
-                    "longitude": 103.58268545495898
-                }
+                "stationNumber": "DT29"
             },
             {
                 "stationName": "Bedok Reservoir",
                 "chineseStationName": "勿洛蓄水池",
-                "stationNumber": "DT30",
-                "position": {
-                    "latitude": 1.01627641560876,
-                    "longitude": 103.58268558304293
-                }
+                "stationNumber": "DT30"
             },
             {
                 "stationName": "Tampines West",
                 "chineseStationName": "淡滨尼西",
-                "stationNumber": "DT31",
-                "position": {
-                    "latitude": 1.016276496168571,
-                    "longitude": 103.58268563876152
-                }
+                "stationNumber": "DT31"
             },
             {
                 "stationName": "Tampines",
                 "chineseStationName": "淡滨尼",
                 "stationNumber": "DT32",
-                "stationCode": "TAM",
-                "position": {
-                    "latitude": 1.016276582647637,
-                    "longitude": 103.58268568029479
-                }
+                "stationCode": "TAM"
             },
             {
                 "stationName": "Tampines East",
                 "chineseStationName": "淡滨尼东",
-                "stationNumber": "DT33",
-                "position": {
-                    "latitude": 1.016276592730794,
-                    "longitude": 103.58268578427995
-                }
+                "stationNumber": "DT33"
             },
             {
                 "stationName": "Upper Changi",
                 "chineseStationName": "樟宜上段",
-                "stationNumber": "DT34",
-                "position": {
-                    "latitude": 1.016276462019708,
-                    "longitude": 103.58268584571978
-                }
+                "stationNumber": "DT34"
             },
             {
                 "stationName": "Expo",
                 "chineseStationName": "博览",
                 "stationNumber": "DT35",
-                "stationCode": "XPO",
-                "position": {
-                    "latitude": 1.016276404545263,
-                    "longitude": 103.58268585384543
-                }
+                "stationCode": "XPO"
             },
             {
                 "stationName": "Xilin",
@@ -1477,128 +909,72 @@ window.stationData = {
                 "stationName": "Choa Chu Kang",
                 "chineseStationName": "蔡厝港",
                 "stationNumber": "BP1",
-                "stationCode": "CCK",
-                "position": {
-                    "latitude": 1.01627685163559,
-                    "longitude": 103.58268389679593
-                }
+                "stationCode": "CCK"
             },
             {
                 "stationName": "South View",
                 "chineseStationName": "南山",
-                "stationNumber": "BP2",
-                "position": {
-                    "latitude": 1.016276810595689,
-                    "longitude": 103.58268390343025
-                }
+                "stationNumber": "BP2"
             },
             {
                 "stationName": "Keat Hong",
                 "chineseStationName": "吉丰",
-                "stationNumber": "BP3",
-                "position": {
-                    "latitude": 1.016276795264749,
-                    "longitude": 103.58268393724646
-                }
+                "stationNumber": "BP3"
             },
             {
                 "stationName": "Teck Whye",
                 "chineseStationName": "德惠",
-                "stationNumber": "BP4",
-                "position": {
-                    "latitude": 1.016276777921649,
-                    "longitude": 103.58268397908589
-                }
+                "stationNumber": "BP4"
             },
             {
                 "stationName": "Phoenix",
                 "chineseStationName": "凤凰",
-                "stationNumber": "BP5",
-                "position": {
-                    "latitude": 1.016276795416456,
-                    "longitude": 103.58268401791422
-                }
+                "stationNumber": "BP5"
             },
             {
                 "stationName": "Bukit Panjang",
                 "chineseStationName": "武吉班让",
-                "stationNumber": "BP6",
-                "position": {
-                    "latitude": 1.016276789008537,
-                    "longitude": 103.5826840626532
-                }
+                "stationNumber": "BP6"
             },
             {
                 "stationName": "Petir",
                 "chineseStationName": "柏提",
-                "stationNumber": "BP7",
-                "position": {
-                    "latitude": 1.01627678756807,
-                    "longitude": 103.58268409549449
-                }
+                "stationNumber": "BP7"
             },
             {
                 "stationName": "Pending",
                 "chineseStationName": "秉定",
-                "stationNumber": "BP8",
-                "position": {
-                    "latitude": 1.016276773034189,
-                    "longitude": 103.58268413683511
-                }
+                "stationNumber": "BP8"
             },
             {
                 "stationName": "Bangkit",
                 "chineseStationName": "万吉",
-                "stationNumber": "BP9",
-                "position": {
-                    "latitude": 1.016276808079156,
-                    "longitude": 103.58268414922105
-                }
+                "stationNumber": "BP9"
             },
             {
                 "stationName": "Fajar",
                 "chineseStationName": "法嘉",
-                "stationNumber": "BP10",
-                "position": {
-                    "latitude": 1.016276848800187,
-                    "longitude": 103.58268413268208
-                }
+                "stationNumber": "BP10"
             },
             {
                 "stationName": "Segar",
                 "chineseStationName": "实加",
-                "stationNumber": "BP11",
-                "position": {
-                    "latitude": 1.01627687820304,
-                    "longitude": 103.58268412180693
-                }
+                "stationNumber": "BP11"
             },
             {
                 "stationName": "Jelapang",
                 "chineseStationName": "泽拉邦",
-                "stationNumber": "BP12",
-                "position": {
-                    "latitude": 1.016276868530922,
-                    "longitude": 103.58268407603127
-                }
+                "stationNumber": "BP12"
             },
             {
                 "stationName": "Senja",
                 "chineseStationName": "信佳",
-                "stationNumber": "BP13",
-                "position": {
-                    "latitude": 1.016276832258077,
-                    "longitude": 103.58268405684224
-                }
+                "stationNumber": "BP13"
             },
             {
                 "stationName": "Ten Mile Junction",
                 "chineseStationName": "十里广场",
-                "stationNumber": "BP14",
-                "position": {
-                    "latitude": 1.016276810811589,
-                    "longitude": 103.58268403683144
-                }
+                "stationNumber": "BP14"
             }
         ]
     },
@@ -1614,47 +990,27 @@ window.stationData = {
             {
                 "stationName": "Compassvale",
                 "chineseStationName": "康埔桦",
-                "stationNumber": "SE1",
-                "position": {
-                    "latitude": 1.016276939076018,
-                    "longitude": 103.58268529781597
-                }
+                "stationNumber": "SE1"
             },
             {
                 "stationName": "Rumbia",
                 "chineseStationName": "棕美",
-                "stationNumber": "SE2",
-                "position": {
-                    "latitude": 1.016276911727113,
-                    "longitude": 103.58268534706326
-                }
+                "stationNumber": "SE2"
             },
             {
                 "stationName": "Bakau",
                 "chineseStationName": "码高",
-                "stationNumber": "SE3",
-                "position": {
-                    "latitude": 1.016276881197487,
-                    "longitude": 103.58268534226349
-                }
+                "stationNumber": "SE3"
             },
             {
                 "stationName": "Kangkar",
                 "chineseStationName": "港脚",
-                "stationNumber": "SE4",
-                "position": {
-                    "latitude": 1.016276843991702,
-                    "longitude": 103.58268531293102
-                }
+                "stationNumber": "SE4"
             },
             {
                 "stationName": "Ranggung",
                 "chineseStationName": "兰岗",
-                "stationNumber": "SE5",
-                "position": {
-                    "latitude": 1.016276846291235,
-                    "longitude": 103.5826852681943
-                }
+                "stationNumber": "SE5"
             }
         ]
     },
@@ -1665,83 +1021,47 @@ window.stationData = {
             {
                 "stationName": "Sengkang",
                 "chineseStationName": "盛港",
-                "stationNumber": "STC",
-                "position": {
-                    "latitude": 1.016276912993665,
-                    "longitude": 103.5826852524476
-                }
+                "stationNumber": "STC"
             },
             {
                 "stationName": "Cheng Lim",
                 "chineseStationName": "振林",
-                "stationNumber": "SW1",
-                "position": {
-                    "latitude": 1.016276955210357,
-                    "longitude": 103.58268523766128
-                }
+                "stationNumber": "SW1"
             },
             {
                 "stationName": "Farmway",
                 "chineseStationName": "农道",
-                "stationNumber": "SW2",
-                "position": {
-                    "latitude": 1.016276963279188,
-                    "longitude": 103.58268519729909
-                }
+                "stationNumber": "SW2"
             },
             {
                 "stationName": "Kupang",
                 "chineseStationName": "古邦",
-                "stationNumber": "SW3",
-                "position": {
-                    "latitude": 1.016276972702665,
-                    "longitude": 103.58268512498606
-                }
+                "stationNumber": "SW3"
             },
             {
                 "stationName": "Thanggam",
                 "chineseStationName": "丹甘",
-                "stationNumber": "SW4",
-                "position": {
-                    "latitude": 1.016276964607671,
-                    "longitude": 103.58268507448437
-                }
+                "stationNumber": "SW4"
             },
             {
                 "stationName": "Fernvale",
                 "chineseStationName": "芬微",
-                "stationNumber": "SW5",
-                "position": {
-                    "latitude": 1.016276915481005,
-                    "longitude": 103.5826850805388
-                }
+                "stationNumber": "SW5"
             },
             {
                 "stationName": "Layar",
                 "chineseStationName": "拉雅",
-                "stationNumber": "SW6",
-                "position": {
-                    "latitude": 1.016276917237628,
-                    "longitude": 103.58268511396979
-                }
+                "stationNumber": "SW6"
             },
             {
                 "stationName": "Tongkang",
                 "chineseStationName": "同港",
-                "stationNumber": "SW7",
-                "position": {
-                    "latitude": 1.016276892535682,
-                    "longitude": 103.58268516621233
-                }
+                "stationNumber": "SW7"
             },
             {
                 "stationName": "Renjong",
                 "chineseStationName": "仁宗",
-                "stationNumber": "SW8",
-                "position": {
-                    "latitude": 1.016276868808341,
-                    "longitude": 103.58268520839873
-                }
+                "stationNumber": "SW8"
             }
         ]
     },
@@ -1757,65 +1077,37 @@ window.stationData = {
             {
                 "stationName": "Cove",
                 "chineseStationName": "海湾",
-                "stationNumber": "PE1",
-                "position": {
-                    "latitude": 1.016276982389003,
-                    "longitude": 103.58268534695313
-                }
+                "stationNumber": "PE1"
             },
             {
                 "stationName": "Meridian",
                 "chineseStationName": "丽园",
-                "stationNumber": "PE2",
-                "position": {
-                    "latitude": 1.016276960958433,
-                    "longitude": 103.58268537380283
-                }
+                "stationNumber": "PE2"
             },
             {
                 "stationName": "Coral Edge",
                 "chineseStationName": "珊瑚",
-                "stationNumber": "PE3",
-                "position": {
-                    "latitude": 1.016276933804678,
-                    "longitude": 103.58268540642428
-                }
+                "stationNumber": "PE3"
             },
             {
                 "stationName": "Riviera",
                 "chineseStationName": "里维拉",
-                "stationNumber": "PE4",
-                "position": {
-                    "latitude": 1.016276939371433,
-                    "longitude": 103.58268543863501
-                }
+                "stationNumber": "PE4"
             },
             {
                 "stationName": "Kadaloor",
                 "chineseStationName": "卡达鲁",
-                "stationNumber": "PE5",
-                "position": {
-                    "latitude": 1.016276985135397,
-                    "longitude": 103.58268544151193
-                }
+                "stationNumber": "PE5"
             },
             {
                 "stationName": "Osais",
                 "chineseStationName": "绿洲",
-                "stationNumber": "PE6",
-                "position": {
-                    "latitude": 1.016277009566924,
-                    "longitude": 103.58268540773467
-                }
+                "stationNumber": "PE6"
             },
             {
                 "stationName": "Damai",
                 "chineseStationName": "达迈",
-                "stationNumber": "PE7",
-                "position": {
-                    "latitude": 1.016277036225937,
-                    "longitude": 103.58268537068236
-                }
+                "stationNumber": "PE7"
             }
         ]
     },
@@ -1826,75 +1118,43 @@ window.stationData = {
             {
                 "stationName": "Punggol",
                 "chineseStationName": "榜鹅",
-                "stationNumber": "PTC",
-                "position": {
-                    "latitude": 1.016277035858629,
-                    "longitude": 103.58268531505385
-                }
+                "stationNumber": "PTC"
             },
             {
                 "stationName": "Sam Kee",
                 "chineseStationName": "三记",
-                "stationNumber": "PW1",
-                "position": {
-                    "latitude": 1.016277075814713,
-                    "longitude": 103.58268533678994
-                }
+                "stationNumber": "PW1"
             },
             {
                 "stationName": "Teck Lee",
                 "chineseStationName": "德利",
                 "stationNumber": "PW2",
-                "operational": false,
-                "position": {
-                    "latitude": 1.016277104377449,
-                    "longitude": 103.58268535247527
-                }
+                "operational": false
             },
             {
                 "stationName": "Punggol Point",
                 "chineseStationName": "榜鹅坊",
-                "stationNumber": "PW3",
-                "position": {
-                    "latitude": 1.016277141253839,
-                    "longitude": 103.5826853531298
-                }
+                "stationNumber": "PW3"
             },
             {
                 "stationName": "Samudera",
                 "chineseStationName": "山姆",
-                "stationNumber": "PW4",
-                "position": {
-                    "latitude": 1.016277132688215,
-                    "longitude": 103.58268531275
-                }
+                "stationNumber": "PW4"
             },
             {
                 "stationName": "Nibong",
                 "chineseStationName": "尼蒙",
-                "stationNumber": "PW5",
-                "position": {
-                    "latitude": 1.016277096229895,
-                    "longitude": 103.58268529619893
-                }
+                "stationNumber": "PW5"
             },
             {
                 "stationName": "Sumang",
                 "chineseStationName": "苏芒",
-                "stationNumber": "PW6",
-                "position": {
-                    "latitude": 1.016277065317414,
-                    "longitude": 103.5826852804303
-                }
+                "stationNumber": "PW6"
             },
             {
                 "stationName": "Soo Teck",
                 "chineseStationName": "树德",
-                "stationNumber": "PW7",
-                "position": {
-                    "latitude": 1.016277034895307,
-                    "longitude": 103.58268526831435
-                }
+                "stationNumber": "PW7"
             }
         ]
     },
@@ -1914,22 +1174,14 @@ window.stationData = {
                 "chineseStationName": "兀兰",
                 "stationNumber": "TE2",
                 "stationCode": "WDL",
-                "operational": false,
-                "position": {
-                    "latitude": 1.016277314974203,
-                    "longitude": 103.58268428648026
-                }
+                "operational": false
             },
             {
                 "stationName": "Woodlands South",
                 "chineseStationName": "兀兰南",
                 "stationNumber": "TE3",
                 "stationCode": "WDS",
-                "operational": false,
-                "position": {
-                    "latitude": 1.016277235331533,
-                    "longitude": 103.58268433967523
-                }
+                "operational": false
             },
             {
                 "stationName": "Springleaf",

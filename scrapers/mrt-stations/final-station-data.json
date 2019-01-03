@@ -1,4 +1,4 @@
-window.stationData = {
+{
     "North South Line": {
         "name": "North South Line",
         "chineseName": "南北线",

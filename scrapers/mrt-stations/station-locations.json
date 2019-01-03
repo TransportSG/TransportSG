@@ -1,0 +1,2207 @@
+{
+	"type": "FeatureCollection",
+	"name": "merged",
+	"crs": {
+		"type": "name",
+		"properties": {
+			"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+		}
+	},
+	"features": [{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 1,
+			"STN_NAME": "EUNOS MRT STATION",
+			"STN_NO": "EW7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685322665327, 1.016276263395132]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 2,
+			"STN_NAME": "CHINESE GARDEN MRT STATION",
+			"STN_NO": "EW25"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683789398303, 1.016276467423954]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 3,
+			"STN_NAME": "KHATIB MRT STATION",
+			"STN_NO": "NS14"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684691235585, 1.0162771460391]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 4,
+			"STN_NAME": "KRANJI MRT STATION",
+			"STN_NO": "NS7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684054999419, 1.016277216478036]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 5,
+			"STN_NAME": "REDHILL MRT STATION",
+			"STN_NO": "EW18"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684546106563, 1.016275990071658]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 6,
+			"STN_NAME": "YEW TEE MRT STATION",
+			"STN_NO": "NS5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683922405238, 1.016276966478907]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 7,
+			"STN_NAME": "PIONEER MRT STATION",
+			"STN_NO": "EW28"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683472472411, 1.016276424298059]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 8,
+			"STN_NAME": "COMMONWEALTH MRT STATION",
+			"STN_NO": "EW20"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684379775699, 1.016276106503873]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 9,
+			"STN_NAME": "PAYA LEBAR MRT STATION",
+			"STN_NO": "EW8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685231095766, 1.016276248313516]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 10,
+			"STN_NAME": "SIMEI MRT STATION",
+			"STN_NO": "EW3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685772943705, 1.016276475266584]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 11,
+			"STN_NAME": "TAMPINES MRT STATION",
+			"STN_NO": "EW2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685699057322, 1.016276566587049]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 12,
+			"STN_NAME": "ADMIRALTY MRT STATION",
+			"STN_NO": "NS10"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684403789074, 1.016277355842435]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 13,
+			"STN_NAME": "YISHUN MRT STATION",
+			"STN_NO": "NS13"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684709421969, 1.016277255103468]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 14,
+			"STN_NAME": "PASIR RIS MRT STATION",
+			"STN_NO": "EW1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685736054486, 1.016276744589436]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 15,
+			"STN_NAME": "CLEMENTI MRT STATION",
+			"STN_NO": "EW23"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268408322877, 1.016276219667952]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 16,
+			"STN_NAME": "ALJUNIED MRT STATION",
+			"STN_NO": "EW9"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685139865845, 1.016276233117965]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 17,
+			"STN_NAME": "ANG MO KIO MRT STATION",
+			"STN_NO": "NS16"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684843583564, 1.016276711633031]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 18,
+			"STN_NAME": "EXPO MRT STATION",
+			"STN_NO": "CG1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685846411394, 1.016276397017173]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 19,
+			"STN_NAME": "CHOA CHU KANG MRT STATION",
+			"STN_NO": "NS4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.5826838948838, 1.01627685638633]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 20,
+			"STN_NAME": "JURONG EAST MRT STATION",
+			"STN_NO": "EW24 \/ NS1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683876462482, 1.016276384228009]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 21,
+			"STN_NAME": "QUEENSTOWN MRT STATION",
+			"STN_NO": "EW19"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684447881618, 1.016276037978735]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 22,
+			"STN_NAME": "TUAS LINK MRT STATION",
+			"STN_NO": "EW33"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582682929423555, 1.016276450272968]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 23,
+			"STN_NAME": "GUL CIRCLE MRT STATION",
+			"STN_NO": "EW30"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683142139018, 1.01627626074927]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 24,
+			"STN_NAME": "WOODLANDS MRT STATION",
+			"STN_NO": "NS9"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684273491097, 1.01627732228173]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 25,
+			"STN_NAME": "TUAS CRESCENT MRT STATION",
+			"STN_NO": "EW31"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683039018903, 1.016276274499559]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 26,
+			"STN_NAME": "KALLANG MRT STATION",
+			"STN_NO": "EW10"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685036372652, 1.016276188401122]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 27,
+			"STN_NAME": "TUAS WEST ROAD MRT STATION",
+			"STN_NO": "EW32"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582682954006799, 1.016276355546322]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 28,
+			"STN_NAME": "BUONA VISTA MRT STATION",
+			"STN_NO": "EW21"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684306881546, 1.016276149407532]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 29,
+			"STN_NAME": "DOVER MRT STATION",
+			"STN_NO": "EW22"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684203074791, 1.016276187579845]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 30,
+			"STN_NAME": "SEMBAWANG MRT STATION",
+			"STN_NO": "NS11"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684575010461, 1.016277432417122]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 31,
+			"STN_NAME": "KEMBANGAN MRT STATION",
+			"STN_NO": "EW6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685409786151, 1.016276274790491]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 32,
+			"STN_NAME": "BUKIT BATOK MRT STATION",
+			"STN_NO": "NS2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683941860338, 1.016276527858616]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 33,
+			"STN_NAME": "ANG MO KIO MRT STATION",
+			"STN_NO": "NS16"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684840215222, 1.016276716931143]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 34,
+			"STN_NAME": "BOON LAY MRT STATION",
+			"STN_NO": "EW27"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683551023919, 1.016276433503072]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 35,
+			"STN_NAME": "BUKIT GOMBAK MRT STATION",
+			"STN_NO": "NS3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683962758054, 1.016276615833913]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 36,
+			"STN_NAME": "MARSILING MRT STATION",
+			"STN_NO": "NS8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684161963854, 1.016277282836615]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 37,
+			"STN_NAME": "BEDOK MRT STATION",
+			"STN_NO": "EW5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685562835508, 1.016276301406122]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 38,
+			"STN_NAME": "JOO KOON MRT STATION",
+			"STN_NO": "EW29"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.5826833022562, 1.016276335027269]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 39,
+			"STN_NAME": "LAKESIDE MRT STATION",
+			"STN_NO": "EW26"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683684750634, 1.016276484656718]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 40,
+			"STN_NAME": "TANAH MERAH MRT STATION",
+			"STN_NO": "EW4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685709836866, 1.016276330421859]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 41,
+			"STN_NAME": "YIO CHU KANG MRT STATION",
+			"STN_NO": "NS15"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684798781003, 1.016276823848975]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 42,
+			"STN_NAME": "OASIS LRT STATION",
+			"STN_NO": "PE6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685407734672, 1.016277009566924]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 43,
+			"STN_NAME": "SAM KEE LRT STATION",
+			"STN_NO": "PW1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685336789936, 1.016277075814713]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 44,
+			"STN_NAME": "FARMWAY LRT STATION",
+			"STN_NO": "SW2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685197299085, 1.016276963279188]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 45,
+			"STN_NAME": "KUPANG LRT STATION",
+			"STN_NO": "SW3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685124986057, 1.016276972702665]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 46,
+			"STN_NAME": "RENJONG LRT STATION",
+			"STN_NO": "SW8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685208398729, 1.016276868808341]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 47,
+			"STN_NAME": "BUKIT PANJANG LRT STATION",
+			"STN_NO": "BP6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.5826840626532, 1.016276789008537]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 48,
+			"STN_NAME": "FAJAR LRT STATION",
+			"STN_NO": "BP10"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684132682076, 1.016276848800187]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 50,
+			"STN_NAME": "PUNGGOL LRT STATION",
+			"STN_NO": "PTC"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685315053851, 1.016277035858629]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 51,
+			"STN_NAME": "SAMUDERA LRT STATION",
+			"STN_NO": "PW4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685312750002, 1.016277132688215]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 52,
+			"STN_NAME": "NIBONG LRT STATION",
+			"STN_NO": "PW5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685296198932, 1.016277096229895]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 53,
+			"STN_NAME": "SOO TECK LRT STATION",
+			"STN_NO": "PW7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268526831435, 1.016277034895307]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 54,
+			"STN_NAME": "KADALOOR LRT STATION",
+			"STN_NO": "PE5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685441511927, 1.016276985135397]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 55,
+			"STN_NAME": "CORAL EDGE LRT STATION",
+			"STN_NO": "PE3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685406424275, 1.016276933804678]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 56,
+			"STN_NAME": "THANGGAM LRT STATION",
+			"STN_NO": "SW4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685074484374, 1.016276964607671]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 57,
+			"STN_NAME": "KEAT HONG LRT STATION",
+			"STN_NO": "BP3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683937246458, 1.016276795264749]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 58,
+			"STN_NAME": "DAMAI LRT STATION",
+			"STN_NO": "PE7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685370682356, 1.016277036225937]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 59,
+			"STN_NAME": "COVE LRT STATION",
+			"STN_NO": "PE1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685346953127, 1.016276982389003]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 60,
+			"STN_NAME": "RIVIERA LRT STATION",
+			"STN_NO": "PE4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685438635011, 1.016276939371433]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 61,
+			"STN_NAME": "SENJA LRT STATION",
+			"STN_NO": "BP13"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268405684224, 1.016276832258077]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 62,
+			"STN_NAME": "JELAPANG LRT STATION",
+			"STN_NO": "BP12"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684076031271, 1.016276868530922]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 63,
+			"STN_NAME": "PETIR LRT STATION",
+			"STN_NO": "BP7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684095494486, 1.01627678756807]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 64,
+			"STN_NAME": "TECK WHYE LRT STATION",
+			"STN_NO": "BP4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683979085886, 1.016276777921649]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 65,
+			"STN_NAME": "CHOA CHU KANG LRT STATION",
+			"STN_NO": "BP1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683896795928, 1.01627685163559]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 66,
+			"STN_NAME": "SOUTH VIEW LRT STATION",
+			"STN_NO": "BP2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582683903430251, 1.016276810595689]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 67,
+			"STN_NAME": "LAYAR LRT STATION",
+			"STN_NO": "SW6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685113969788, 1.016276917237628]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 68,
+			"STN_NAME": "KANGKAR LRT STATION",
+			"STN_NO": "SE4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685312931019, 1.016276843991702]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 69,
+			"STN_NAME": "MERIDIAN LRT STATION",
+			"STN_NO": "PE2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685373802832, 1.016276960958433]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 70,
+			"STN_NAME": "CHENG LIM LRT STATION",
+			"STN_NO": "SW1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685237661281, 1.016276955210357]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 71,
+			"STN_NAME": "PUNGGOL POINT LRT STATION",
+			"STN_NO": "PW3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685353129804, 1.016277141253839]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 72,
+			"STN_NAME": "SUMANG LRT STATION",
+			"STN_NO": "PW6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685280430297, 1.016277065317414]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 73,
+			"STN_NAME": "FERNVALE LRT STATION",
+			"STN_NO": "SW5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685080538795, 1.016276915481005]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 74,
+			"STN_NAME": "TONGKANG LRT STATION",
+			"STN_NO": "SW7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685166212329, 1.016276892535682]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 76,
+			"STN_NAME": "PENDING LRT STATION",
+			"STN_NO": "BP8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684136835113, 1.016276773034189]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 77,
+			"STN_NAME": "TECK LEE LRT STATION",
+			"STN_NO": "PW2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685352475266, 1.016277104377449]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 80,
+			"STN_NAME": "BANGKIT LRT STATION",
+			"STN_NO": "BP9"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684149221052, 1.016276808079156]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 81,
+			"STN_NAME": "BAKAU LRT STATION",
+			"STN_NO": "SE3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685342263488, 1.016276881197487]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 82,
+			"STN_NAME": "RUMBIA LRT STATION",
+			"STN_NO": "SE2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685347063261, 1.016276911727113]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 83,
+			"STN_NAME": "COMPASSVALE LRT STATION",
+			"STN_NO": "SE1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685297815971, 1.016276939076018]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 85,
+			"STN_NAME": "TEN MILE JUNCTION LRT STATION",
+			"STN_NO": "BP14"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684036831438, 1.016276810811589]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 89,
+			"STN_NAME": "RANGGUNG LRT STATION",
+			"STN_NO": "SE5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685268194297, 1.016276846291235]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 90,
+			"STN_NAME": "PHOENIX LRT STATION",
+			"STN_NO": "BP5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684017914218, 1.016276795416456]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 91,
+			"STN_NAME": "SEGAR LRT STATION",
+			"STN_NO": "BP11"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684121806935, 1.01627687820304]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 92,
+			"STN_NAME": "SENGKANG LRT STATION",
+			"STN_NO": "STC"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685252447604, 1.016276912993665]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 93,
+			"STN_NAME": "BRAS BASAH MRT STATION",
+			"STN_NO": "CC2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684850232098, 1.016276056104134]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 94,
+			"STN_NAME": "MACPHERSON MRT STATION",
+			"STN_NO": "CC10"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685206173181, 1.016276322769974]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 95,
+			"STN_NAME": "CITY HALL MRT STATION",
+			"STN_NO": "EW13 \/ NS25"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684867471713, 1.01627602060542]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 96,
+			"STN_NAME": "TAMPINES EAST MRT STATION",
+			"STN_NO": "DT33"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685784279946, 1.016276592730794]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 97,
+			"STN_NAME": "TAMPINES WEST MRT STATION",
+			"STN_NO": "DT31"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685638761518, 1.016276496168571]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 98,
+			"STN_NAME": "GEYLANG BAHRU MRT STATION",
+			"STN_NO": "DT24"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685040984444, 1.016276278990366]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 99,
+			"STN_NAME": "BENDEMEER MRT STATION",
+			"STN_NO": "DT23"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684960824722, 1.016276208140275]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 100,
+			"STN_NAME": "BENCOOLEN MRT STATION",
+			"STN_NO": "DT21"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684847687034, 1.016276074214461]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 101,
+			"STN_NAME": "HARBOURFRONT MRT STATION",
+			"STN_NO": "NE1 \/ CC29"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684587689101, 1.016275772214301]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 102,
+			"STN_NAME": "PROMENADE MRT STATION",
+			"STN_NO": "DT15"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684941747232, 1.016276020207056]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 103,
+			"STN_NAME": "BUGIS MRT STATION",
+			"STN_NO": "DT14"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684905942557, 1.016276080427205]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 104,
+			"STN_NAME": "KENT RIDGE MRT STATION",
+			"STN_NO": "CC24"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684256936489, 1.016276025318188]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 105,
+			"STN_NAME": "MACPHERSON MRT STATION",
+			"STN_NO": "DT26"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685197759943, 1.016276320341217]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 106,
+			"STN_NAME": "PUNGGOL MRT STATION",
+			"STN_NO": "NE17"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685312006106, 1.016277029998392]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 107,
+			"STN_NAME": "TANJONG PAGAR MRT STATION",
+			"STN_NO": "EW15"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684807092576, 1.016275872150387]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 108,
+			"STN_NAME": "ONE-NORTH MRT STATION",
+			"STN_NO": "CC23"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684282322944, 1.016276082269809]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 109,
+			"STN_NAME": "BISHAN MRT STATION",
+			"STN_NO": "CC15"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684836601047, 1.016276548498765]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 110,
+			"STN_NAME": "STADIUM MRT STATION",
+			"STN_NO": "CC6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685071991264, 1.016276110192499]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 111,
+			"STN_NAME": "BUGIS MRT STATION",
+			"STN_NO": "EW12"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684895502695, 1.01627608869521]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 112,
+			"STN_NAME": "SOMERSET MRT STATION",
+			"STN_NO": "NS23"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684746079863, 1.016276086829414]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 113,
+			"STN_NAME": "ORCHARD MRT STATION",
+			"STN_NO": "NS22"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684684680004, 1.016276120475391]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 114,
+			"STN_NAME": "JALAN BESAR MRT STATION",
+			"STN_NO": "DT22"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684893438255, 1.016276133357361]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 115,
+			"STN_NAME": "BAYFRONT MRT STATION",
+			"STN_NO": "DT16 \/ CE1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684925823429, 1.016275920565796]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 116,
+			"STN_NAME": "SENGKANG MRT STATION",
+			"STN_NO": "NE16"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685252825883, 1.016276913764771]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 117,
+			"STN_NAME": "BUKIT BROWN MRT STATION",
+			"STN_NO": "CC18"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684670716247, 1.016276389501516]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 118,
+			"STN_NAME": "MOUNTBATTEN MRT STATION",
+			"STN_NO": "CC7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685136477167, 1.016276140595493]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 119,
+			"STN_NAME": "KOVAN MRT STATION",
+			"STN_NO": "NE13"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685159231119, 1.016276628744951]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 120,
+			"STN_NAME": "FORT CANNING MRT STATION",
+			"STN_NO": "DT20"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684793281672, 1.016276016463862]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 121,
+			"STN_NAME": "FARRER ROAD MRT STATION",
+			"STN_NO": "CC20"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684463155346, 1.016276242814093]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 122,
+			"STN_NAME": "EXPO MRT STATION",
+			"STN_NO": "DT35"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685853845433, 1.016276404545263]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 123,
+			"STN_NAME": "DOWNTOWN MRT STATION",
+			"STN_NO": "DT17"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268486976813, 1.016275898607242]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 124,
+			"STN_NAME": "BUONA VISTA MRT STATION",
+			"STN_NO": "CC22"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684311031727, 1.016276143151531]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 125,
+			"STN_NAME": "ESPLANADE MRT STATION",
+			"STN_NO": "CC3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684893690043, 1.016276024092544]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 126,
+			"STN_NAME": "NICOLL HIGHWAY MRT STATION",
+			"STN_NO": "CC5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684966755465, 1.016276082386177]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 127,
+			"STN_NAME": "CALDECOTT MRT STATION",
+			"STN_NO": "CC17"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684750138654, 1.016276425190298]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 128,
+			"STN_NAME": "MARINA BAY MRT STATION",
+			"STN_NO": "NS27"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684885558947, 1.016275871307396]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 129,
+			"STN_NAME": "MARINA BAY MRT STATION",
+			"STN_NO": "CE2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684890017291, 1.016275868805222]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 130,
+			"STN_NAME": "LABRADOR PARK MRT STATION",
+			"STN_NO": "CC27"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684421440646, 1.0162758342411]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 131,
+			"STN_NAME": "CHINATOWN MRT STATION",
+			"STN_NO": "NE4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684785187894, 1.016275943035248]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 132,
+			"STN_NAME": "CHINATOWN MRT STATION",
+			"STN_NO": "DT19"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684794391525, 1.016275946557454]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 133,
+			"STN_NAME": "NEWTON MRT STATION",
+			"STN_NO": "DT11"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684734712686, 1.016276207533603]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 134,
+			"STN_NAME": "TAN KAH KEE MRT STATION",
+			"STN_NO": "DT8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684460778538, 1.016276318532151]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 135,
+			"STN_NAME": "TIONG BAHRU MRT STATION",
+			"STN_NO": "EW17"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684637775316, 1.016275959607983]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 136,
+			"STN_NAME": "HILLVIEW MRT STATION",
+			"STN_NO": "DT3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684102237238, 1.016276648248053]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 137,
+			"STN_NAME": "KING ALBERT PARK MRT STATION",
+			"STN_NO": "DT6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684249496964, 1.016276406979144]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 138,
+			"STN_NAME": "MATTAR MRT STATION",
+			"STN_NO": "DT25"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685142926437, 1.016276327570277]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 139,
+			"STN_NAME": "UBI MRT STATION",
+			"STN_NO": "DT27"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685286720874, 1.016276355436735]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 140,
+			"STN_NAME": "BEAUTY WORLD MRT STATION",
+			"STN_NO": "DT5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684177506152, 1.016276457238231]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 141,
+			"STN_NAME": "KAKI BUKIT MRT STATION",
+			"STN_NO": "DT28"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268536943929, 1.01627640075583]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 142,
+			"STN_NAME": "TAMPINES MRT STATION",
+			"STN_NO": "DT32"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685680294787, 1.016276582647637]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 143,
+			"STN_NAME": "BEDOK NORTH MRT STATION",
+			"STN_NO": "DT29"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685454958977, 1.016276398726033]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 144,
+			"STN_NAME": "DHOBY GHAUT MRT STATION",
+			"STN_NO": "NS24"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684809331553, 1.01627607273769]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 145,
+			"STN_NAME": "SERANGOON MRT STATION",
+			"STN_NO": "CC13"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685045164084, 1.01627654206315]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 146,
+			"STN_NAME": "WOODLEIGH MRT STATION",
+			"STN_NO": "NE11"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268503124809, 1.016276438918136]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 147,
+			"STN_NAME": "NOVENA MRT STATION",
+			"STN_NO": "NS20"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684788746135, 1.016276269338828]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 148,
+			"STN_NAME": "SERANGOON MRT STATION",
+			"STN_NO": "NE12"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685056006781, 1.016276534038896]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 149,
+			"STN_NAME": "BEDOK RESERVOIR MRT STATION",
+			"STN_NO": "DT30"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685583042931, 1.01627641560876]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 150,
+			"STN_NAME": "MARINA SOUTH PIER MRT STATION",
+			"STN_NO": "NS28"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684959792118, 1.016275825275558]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 151,
+			"STN_NAME": "FARRER PARK MRT STATION",
+			"STN_NO": "NE8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684881754716, 1.016276196265375]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 152,
+			"STN_NAME": "PAYA LEBAR MRT STATION",
+			"STN_NO": "CC9"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685223176355, 1.016276242146855]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 153,
+			"STN_NAME": "BARTLEY MRT STATION",
+			"STN_NO": "CC12"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685111572061, 1.016276471827593]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 154,
+			"STN_NAME": "DAKOTA MRT STATION",
+			"STN_NO": "CC8"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685191591096, 1.016276160321442]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 155,
+			"STN_NAME": "PASIR PANJANG MRT STATION",
+			"STN_NO": "CC26"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684317314147, 1.016275869329208]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 156,
+			"STN_NAME": "OUTRAM PARK MRT STATION",
+			"STN_NO": "NE3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684750582601, 1.016275901476982]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 157,
+			"STN_NAME": "CLARKE QUAY MRT STATION",
+			"STN_NO": "NE5"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684813292389, 1.016275979450926]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 158,
+			"STN_NAME": "BISHAN MRT STATION",
+			"STN_NO": "NS17"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684827522982, 1.016276544250355]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 159,
+			"STN_NAME": "BOTANIC GARDENS MRT STATION",
+			"STN_NO": "DT9"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684539929133, 1.016276287254511]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 160,
+			"STN_NAME": "MARYMOUNT MRT STATION",
+			"STN_NO": "CC16"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684749172415, 1.016276524965815]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 161,
+			"STN_NAME": "HAW PAR VILLA MRT STATION",
+			"STN_NO": "CC25"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684231599131, 1.016275926556016]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 162,
+			"STN_NAME": "LORONG CHUAN MRT STATION",
+			"STN_NO": "CC14"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684971345614, 1.016276551253932]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 163,
+			"STN_NAME": "LAVENDER MRT STATION",
+			"STN_NO": "EW11"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684959492425, 1.016276151028047]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 164,
+			"STN_NAME": "DHOBY GHAUT MRT STATION",
+			"STN_NO": "NE6"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684803697859, 1.016276081818376]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 165,
+			"STN_NAME": "DHOBY GHAUT MRT STATION",
+			"STN_NO": "CC1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684810445144, 1.016276074017532]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 166,
+			"STN_NAME": "TAI SENG MRT STATION",
+			"STN_NO": "CC11"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685187369805, 1.016276404956105]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 167,
+			"STN_NAME": "ROCHOR MRT STATION",
+			"STN_NO": "DT13"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268486598871, 1.016276119905984]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 168,
+			"STN_NAME": "LITTLE INDIA MRT STATION",
+			"STN_NO": "DT12"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684831512509, 1.016276149581957]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 169,
+			"STN_NAME": "LITTLE INDIA MRT STATION",
+			"STN_NO": "NE7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684841057372, 1.016276145981571]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 170,
+			"STN_NAME": "STEVENS MRT STATION",
+			"STN_NO": "DT10"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268462881189, 1.01627626593288]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 171,
+			"STN_NAME": "BUKIT PANJANG MRT STATION",
+			"STN_NO": "DT1"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684049368737, 1.016276798885066]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 172,
+			"STN_NAME": "CASHEW MRT STATION",
+			"STN_NO": "DT2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684077760149, 1.016276711776946]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 173,
+			"STN_NAME": "SIXTH AVENUE MRT STATION",
+			"STN_NO": "DT7"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684370248572, 1.016276362867363]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 174,
+			"STN_NAME": "TOA PAYOH MRT STATION",
+			"STN_NO": "NS19"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684821765852, 1.016276379566324]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 175,
+			"STN_NAME": "WOODLANDS SOUTH MRT STATION",
+			"STN_NO": "TE3"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684339675225, 1.016277235331533]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 176,
+			"STN_NAME": "POTONG PASIR MRT STATION",
+			"STN_NO": "NE10"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685015417098, 1.016276368281836]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 177,
+			"STN_NAME": "HOUGANG MRT STATION",
+			"STN_NO": "NE14"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685224950737, 1.016276729252468]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 178,
+			"STN_NAME": "BOON KENG MRT STATION",
+			"STN_NO": "NE9"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684949217438, 1.016276259900053]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 179,
+			"STN_NAME": "UPPER CHANGI MRT STATION",
+			"STN_NO": "DT34"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268584571978, 1.016276462019708]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 180,
+			"STN_NAME": "CHANGI AIRPORT MRT STATION",
+			"STN_NO": "CG2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582686087327104, 1.016276602910966]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 181,
+			"STN_NAME": "WOODLANDS MRT STATION",
+			"STN_NO": "TE2"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684286480259, 1.016277314974203]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 182,
+			"STN_NAME": "BRADDELL MRT STATION",
+			"STN_NO": "NS18"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684815436053, 1.016276450491884]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 183,
+			"STN_NAME": "BUANGKOK MRT STATION",
+			"STN_NO": "NE15"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582685231600564, 1.016276834027975]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 184,
+			"STN_NAME": "PROMENADE MRT STATION",
+			"STN_NO": "CC4"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684943060229, 1.016276023159882]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 185,
+			"STN_NAME": "BOTANIC GARDENS MRT STATION",
+			"STN_NO": "CC19"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684529607064, 1.016276284415959]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 186,
+			"STN_NAME": "RAFFLES PLACE MRT STATION",
+			"STN_NO": "EW14 \/ NS26"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.5826848573777, 1.016275940924981]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 187,
+			"STN_NAME": "HOLLAND VILLAGE MRT STATION",
+			"STN_NO": "CC21"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684360787724, 1.016276191476357]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 188,
+			"STN_NAME": "OUTRAM PARK MRT STATION",
+			"STN_NO": "EW16"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684746554236, 1.016275916312071]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 189,
+			"STN_NAME": "TELOK BLANGAH MRT STATION",
+			"STN_NO": "CC28"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.58268448261714, 1.016275819961362]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 190,
+			"STN_NAME": "TELOK AYER MRT STATION",
+			"STN_NO": "DT18"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684828997884, 1.016275924318081]
+		}
+	},
+	{
+		"type": "Feature",
+		"properties": {
+			"OBJECTID": 191,
+			"STN_NAME": "NEWTON MRT STATION",
+			"STN_NO": "NS21"
+		},
+		"geometry": {
+			"type": "Point",
+			"coordinates": [103.582684736279617, 1.016276195894616]
+		}
+	}
+]
+}
