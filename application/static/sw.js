@@ -1,4 +1,4 @@
-const version = "0.0.13";
+const version = "0.0.14";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -31,6 +31,7 @@ self.addEventListener('install', e => {
             '/static/scripts/unfolding-busstop.js',
             '/static/scripts/bookmarks.js',
             '/static/scripts/dropdown.js',
+            '/static/scripts/header-magic.js',
             '/static/scripts/bus/stops/nearby.js',
             '/static/scripts/bus/lookup.js',
             '/static/scripts/bus/service.js',

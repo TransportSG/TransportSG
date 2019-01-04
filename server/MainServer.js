@@ -5,7 +5,6 @@ const path = require('path');
 const minify = require('express-minify');
 const url = require('url');
 const fs = require('fs');
-const MRTDisruptions = require('../application/misc/mrt-status');
 
 const DatabaseConnection = require('../application/database/DatabaseConnection');
 
@@ -30,11 +29,6 @@ module.exports = class MainServer {
 
             app.use((req, res, next) => {
                 res.db = database;
-                res.locals = {
-                    MRTDisruptions: MRTDisruptions.getMRTDisruptions(),
-                    MRTDisruptionsLastUpdate: MRTDisruptions.getMRTDisruptionsLastUpdate()
-                };
-
                 next();
             });
 

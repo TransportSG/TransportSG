@@ -1,6 +1,8 @@
 let express = require('express');
 let router = new express.Router();
 
+const MRTDisruptions = require('../misc/mrt-status');
+
 let mrtLineAbbreviations = {
     "CCL": "Circle Line",
     "CEL": "Circle Line Extension",
@@ -17,7 +19,17 @@ let mrtLineAbbreviations = {
 }
 
 router.get('/', (req, res) => {
-    res.render('mrt/disruptions', {hideDisruptionLink: true, mrtLineAbbreviations});
+    res.render('mrt/disruptions', {
+        hideDisruptionLink: true, mrtLineAbbreviations,
+        MRTDisruptions: MRTDisruptions.getMRTDisruptions(),
+        MRTDisruptionsLastUpdate: MRTDisruptions.getMRTDisruptionsLastUpdate()
+    });
 });
+
+router.post('/', (req, res) => {
+    let disruptions = MRTDisruptions.getMRTDisruptions();
+    if (disruptions.length) res.json({status: 'disrupted'});
+    else res.json({status: 'ok'});
+})
 
 module.exports = router;

@@ -40,21 +40,17 @@ html(lang='en-GB')
             block header
             div#links
                 block links
-                if MRTDisruptions.length && !hideDisruptionLink
-                    a#mrt-disruptions(href='/mrt/disruptions')
-                        span MRT
-                        span Disruption
+                a#mrt-disruptions(href='/mrt/disruptions' style='display: none;')
+                    span MRT
+                    span Disruption
                 a#home(href='/') Home
         div#content
             block content
                 
         script(src='/static/scripts/helper.js')
         script(src='/static/scripts/sw.js' async)
+        script(src='/static/scripts/header-magic.js' async)
         block scripts
-            
-        if MRTDisruptions.length
-            style.
-                #header {
-                    background-color: #e42323 !important;
-                }
+        
+        style#disruption
         block css
