@@ -73,8 +73,7 @@ self.addEventListener('install', e => {
             '/nearby/nwabs',
             '/timings/mrt',
             '/search',
-            '/lookup',
-            '/everything'
+            '/lookup'
         ])
     );
 });
