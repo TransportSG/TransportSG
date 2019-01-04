@@ -64,7 +64,17 @@ self.addEventListener('install', e => {
             '/static/images/wheelchair.svg',
             '/static/images/mrt-icon.svg',
             '/static/fonts/bree-serif.otf',
-            '/static/fonts/ff-meta.otf'
+            '/static/fonts/ff-meta.otf',
+
+            '/',
+            '/bookmarks',
+            '/nearby/mrt/stations',
+            '/nearby/bus/stops',
+            '/nearby/nwabs',
+            '/timings/mrt',
+            '/search',
+            '/lookup',
+            '/everything'
         ])
     );
 });
