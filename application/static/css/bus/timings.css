@@ -197,3 +197,32 @@ img#bookmark-status {
     width: calc(2.8vw + 2.8vh);
     height: calc(2.8vw + 2.8vh);
 }
+
+.locale-change {
+    display: inline-block;
+
+    margin-left: calc(0.6vw + 0.6vh);
+    padding-left: calc(1vw + 1vh);
+    padding-right: calc(1vw + 1vh);
+    padding-top: calc(0.2vw + 0.2vh);
+    padding-bottom: calc(0.2vw + 0.2vh);
+    border-radius: calc(1vw + 1vh);
+
+    background-color: grey;
+
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    font-size: calc(1.3vw + 1.3vh);
+    height: calc(1.7vw + 1.7vh);
+}
+
+.locale-change span {
+    margin: 0 !important;
+}
+
+#header span {
+    font-size: calc((100vw + 100vh) * .013);
+    margin: calc(-.3vw - .3vh) 0 0 calc(1vw + 1vh);
+}

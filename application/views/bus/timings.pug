@@ -9,10 +9,27 @@ block css
 block scripts    
     script(src='/static/scripts/idb.js' async)
     script(src='/static/scripts/bus/timings.js' async)
-    
+
 block header
+    -
+        let localeNames = {
+            chinese: '中文'
+        }
+        
     img#page-icon(src='/static/images/bus-stop.svg')
-    span#title=`${currentBusStop.busStopCode} ${currentBusStop.busStopName}`
+    span=currentBusStop.busStopCode
+    span.locale-info=currentBusStop.busStopName
+
+    if currentBusStop.locale
+        span(locale='english' style='display: none;')=currentBusStop.busStopName
+        for localeName in Object.keys(currentBusStop.locale)
+            - let localeData = currentBusStop.locale[localeName];
+            span(locale=localeName style='display: none;')=localeData.busStopName
+        
+        div.locale-change(locale=localeName)
+            for localeName in Object.keys(currentBusStop.locale)
+                span=localeNames[localeName]
+
     
 block links
     img#bookmark-status(src='/static/images/bookmark/empty.svg')

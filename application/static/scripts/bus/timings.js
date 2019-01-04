@@ -10,11 +10,11 @@ $.ready(() => {
         setBookmarked(bookmark);
     });
 
-    idb.open('bookmarks', 1, db => {
-        let store = db.createObjectStore('bus-stops', {
-            keyPath: 'id'
-        });
-    });
+    // idb.open('bookmarks', 1, db => {
+    //     let store = db.createObjectStore('bus-stops', {
+    //         keyPath: 'id'
+    //     });
+    // });
 
     isBookmarked(bookmarked => {
         bookmark = bookmarked;
@@ -22,6 +22,22 @@ $.ready(() => {
         if (bookmark) $('#bookmark-status').src = '/static/images/bookmark/filled.svg';
         else $('#bookmark-status').src = '/static/images/bookmark/empty.svg';
     });
+
+    let locales = Array.from(document.querySelectorAll('span[locale]')).map(e=>e.getAttribute('locale'));
+    let translations = Array.from(document.querySelectorAll('span[locale]')).map(e=>e.textContent);
+
+    let currentLocale = 'english';
+
+    if ($('.locale-change')) {
+        $('.locale-change').on('click', () => {
+            let newIndex = locales.indexOf(currentLocale) + 1;
+            if (newIndex === locales.length) newIndex = 0;
+
+            $('.locale-info').textContent = translations[newIndex];
+            currentLocale = locales[newIndex];
+        });
+    }
+
 });
 
 function setBookmarked(state) {
