@@ -1,4 +1,4 @@
-bus stop code, bus stop name, street name, chinese street name, chinese bus stop name, attraction
+bus_stop_code,bus_stop_name,street_name,chinese_street_name,chinese_bus_stop_name,attraction
 48131,S'PORE ZOO,Mandai Lake Rd,万礼湖路,新加坡动物园,Singapore Zoo
 48119,BEF MANDAI RD,Mandai Lake Rd,万礼湖路,万礼路前,Singapore Zoo
 48111,AFT MANDAI RD,Mandai Lake Rd,万礼湖路,万礼路后,Singapore Zoo
@@ -35,12 +35,13 @@ bus stop code, bus stop name, street name, chinese street name, chinese bus stop
 48059,OPP MANDAI AGROTECH PK,Mandai Rd,万礼路,万礼 Agrotech 公园对面,Singapore Zoo
 48071,MANDAI CREMATORIUM,Mandai Rd,万礼路,万礼火葬场,Singapore Zoo
 45189,MANDAI CD TRG VILLAGE,Mandai Rd,万礼路,万礼训练村,Singapore Zoo
+
 22019,OPP JURONG BIRD PK,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,裕廊飞禽公园对面,Jurong Bird Park
 25221,RAFFLES COUNTRY CLUB,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,莱佛士俱乐部,Jurong Bird Park
 24019,LIANG HUAT IND CPLX,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,联发工业大厦,Jurong Bird Park
 21019,AFT YUAN CHING RD,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,园景路后,Jurong Bird Park
 25229,CROWN BEVERAGE CANS S'PORE,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,新加坡皇冠饮料罐私人有限公司,Jurong Bird Park
-22021,OPP PCI,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,PCI对面,Jurong Bird Park
+22021,Givaudan,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,Givaudan,Jurong Bird Park
 21011,AFT JURONG LAKE,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,裕廊湖后,Jurong Bird Park
 23031,PHILLIPS ELECTRONICS,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,飞利浦电子,Jurong Bird Park
 24021,MERITOR HEAVY VEH SYSTEMS,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,美驰车辆系统,Jurong Bird Park
@@ -60,7 +61,7 @@ bus stop code, bus stop name, street name, chinese street name, chinese bus stop
 25219,MATSUSHITA TECHNOLOGY,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,松下技术公司,Jurong Bird Park
 22031,SANKYU S'PORE,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,山九株新加坡,Jurong Bird Park
 25259,BEF TUAS WEST DR,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,大士西通道前,Jurong Bird Park
-22029,PCI,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,PCI,Jurong Bird Park
+22029,Opp Givaudan,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,Givaudan对面,Jurong Bird Park
 25239,ASIA-PACIFIC BREWERY,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,亚太酿酒厂,Jurong Bird Park
 23029,STAMFORD TYRE,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,添福轮胎,Jurong Bird Park
 23011,CARRIER TRANSICOLD PTE LTD,Jln Ahmad Ibrahim,惹兰阿末依布拉欣,Carrier Transicold私人有限公司,Jurong Bird Park
@@ -73,6 +74,7 @@ bus stop code, bus stop name, street name, chinese street name, chinese bus stop
 21299,AFT BILCON IND,Jurong Pier Rd,裕廊渡头路,BILCON IND后,Jurong Bird Park
 21291,OPP BILCON IND,Jurong Pier Rd,裕廊渡头路,BILCON IND对面,Jurong Bird Park
 21281,AFT JURONG PIER WAY,Jurong Pier Rd,裕廊渡头路,裕廊渡头大道后,Jurong Bird Park
+
 78149,OPP GREENVIEW SEC SCH,Pasir Ris Dr 3,巴西立通道3,青景中学对面,Wild Wild Wet
 78139,OPP PASIR RIS PR SCH,Pasir Ris Dr 3,巴西立通道3,思励小学对面,Wild Wild Wet
 77009,PASIR RIS INT,Pasir Ris Dr 3,巴西立通道3,巴西立巴士转换站,Wild Wild Wet
@@ -97,6 +99,7 @@ E7702,NON STOP,Pasir Ris Dr 3,巴西立通道3,不停,Wild Wild Wet
 77259,OPP BLK 713,Pasir Ris Dr 3,巴西立通道3,大牌713号对面,Wild Wild Wet
 98109,OPP LOYANG PT,Pasir Ris Dr 3,巴西立通道3,罗央峰对面,Wild Wild Wet
 78091,OPP DOWNTOWN EAST,Pasir Ris Cl,巴西立弄,乐怡度假村对面,Wild Wild Wet
+
 2061,THE ESPLANADE,Raffles Ave,莱佛士道,滨海剧场中心,Singapore Flyer
 P2051,S'PORE FLYER,Raffles Ave,莱佛士道,新加坡摩天观景轮,Singapore Flyer
 2101,BEF TEMASEK AVE,Raffles Ave,莱佛士道,淡马锡道前,Singapore Flyer
@@ -106,18 +109,22 @@ E0201,NON STOP,Raffles Ave,莱佛士道,不停,Singapore Flyer
 E2000,NON STOP,Raffles Blvd,莱佛士林荫道,不停,Singapore Flyer
 2089,PAN PACIFIC HOTEL,Raffles Blvd,莱佛士林荫道,泛太平洋酒店,Singapore Flyer
 E0200,NON STOP,Raffles Blvd,莱佛士林荫道,不停,Singapore Flyer
+
 3519,OPP MARINA BAY SANDS MICE,Bayfront Ave,海湾道,滨海湾金沙MICE对面,Marina Bay Sands
 3511,MARINA BAY SANDS MICE,Bayfront Ave,海湾道,滨海湾金沙MICE,Marina Bay Sands
 3501,MARINA BAY SANDS THEATRE,Bayfront Ave,海湾道,滨海湾金沙剧院,Marina Bay Sands
 3509,MARINA BAY SANDS HOTEL,Bayfront Ave,海湾道,滨海湾金沙酒店,Marina Bay Sands
+
 49209,SG BULOH WETLAND RESERVE,Neo Tiew Cres,梁宙弯,双溪布洛湿地保留区,Sungei Buloh Wetland Reserve
 49249,DRAGON FISH IND,Neo Tiew Cres,梁宙弯,龙鱼工业,Sungei Buloh Wetland Reserve
 49239,OPP NYEE PHOE GROUP,Neo Tiew Cres,梁宙弯,圆圃园集团对面,Sungei Buloh Wetland Reserve
 49229,LONG KUAN HUNG CROCODILE FARM,Neo Tiew Cres,梁宙弯,农光行鳄鱼场,Sungei Buloh Wetland Reserve
-3349,AFT GDNS BY THE BAY,Marina Gdns Dr,滨海花园通道,滨海湾公园后,Marina Barrage
-3369,MARINA BARRAGE,Marina Gdns Dr,滨海花园通道,滨海堤坝,Marina Barrage
+
+3349,AFT GDNS BY THE BAY,Marina Gdns Dr,滨海花园通道,滨海湾公园后,Gardens By The Bay
+3369,MARINA BARRAGE,Marina Gdns Dr,滨海花园通道,滨海堤坝,Gardens By The Bay
 3371,GDNS BY THE BAY,Marina Gdns Dr,滨海花园通道,滨海湾公园,Marina Barrage
-3341,BEF GDNS BY THE BAY,Marina Gdns Dr,滨海花园通道,滨海湾公园前,Marina Barrage
+3341,BEF GDNS BY THE BAY,Marina Gdns Dr,滨海花园通道,滨海湾公园前,Gardens By The Bay
+
 4219,OPP CLARKE QUAY,River Valley Rd,里巴巴利路,克拉码头对面,Clarke Quay
 13091,AFT AA CTR,River Valley Rd,里巴巴利路,AA CENTRE后,Clarke Quay
 13101,OPP MOHD SULTAN RD,River Valley Rd,里巴巴利路,莫罕默苏丹路对面,Clarke Quay
@@ -135,10 +142,12 @@ E0200,NON STOP,Raffles Blvd,莱佛士林荫道,不停,Singapore Flyer
 13071,OPP ERC INST,River Valley Rd,里巴巴利路,ERC创业管理学院对面,Clarke Quay
 4339,OPP LIANG CT,River Valley Rd,里巴巴利路,亮阁对面,Clarke Quay
 13063,MUTIARA CREST,River Valley Rd,里巴巴利路,翠峰弯,Clarke Quay
+
 5199,OPP HONG LIM CPLX,Sth Bridge Rd,桥南路,芳林大厦对面,Boat Quay
 5029,BOAT QUAY,Sth Bridge Rd,桥南路,驳船码头,Boat Quay
 5189,OPP SRI MARIAMMAN TP,Sth Bridge Rd,桥南路,马里安曼庙对面,Boat Quay
 5269,MAXWELL RD FC,Sth Bridge Rd,桥南路,麦士威路美食中心,Boat Quay
+
 28221,OPP INTL BUSINESS PK,Jurong Town Hall Rd,裕廊镇大会堂路,国际商业园对面,Singapore Science Centre
 28239,OPP JURONG TOWN HALL,Jurong Town Hall Rd,裕廊镇大会堂路,裕廊镇大会堂对面,Singapore Science Centre
 28251,S'PORE SCIENCE CTR,Jurong Town Hall Rd,裕廊镇大会堂路,新加坡科学馆,Singapore Science Centre
@@ -162,3 +171,8 @@ E2203,NON STOP,Jurong Town Hall Rd,裕廊镇大会堂路,不停,Singapore Scienc
 20259,C'WEALTH SEC SCH,Jurong Town Hall Rd,裕廊镇大会堂路,立才中学,Singapore Science Centre
 20251,BEF TEBAN GDNS RD,Jurong Town Hall Rd,裕廊镇大会堂路,德曼花园路前,Singapore Science Centre
 28261,AFT S'PORE SCIENCE CTR,Jurong Town Hall Rd,裕廊镇大会堂路,新加坡科学馆后,Singapore Science Centre
+
+14519,RESORTS WORLD SENTOSA,Sentosa Gateway,圣淘沙网关,圣淘沙名胜世界,Sentosa
+14521,MERLION PLAZA,Artillery Ave,炮兵道,鱼尾狮广场,Sentosa
+14539,BEACH STATION BUS TERMINAL,Beach View,海滩景色,海滩站巴士总站,Sentosa
+14529,OPP MERLION PLAZA,Artillery Ave,炮兵道,鱼尾狮广场,Sentosa
