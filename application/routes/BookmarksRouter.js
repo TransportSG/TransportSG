@@ -31,7 +31,7 @@ router.get('/render', (req, res) => {
     });
 
     Promise.all(promises).then(() => {
-        res.render('search/results', {busStops, busServices: []});
+        res.render('search/results', {busStops, busServices: [], mrtStations: []});
     });
 });
 
