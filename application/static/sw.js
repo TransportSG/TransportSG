@@ -1,4 +1,4 @@
-const version = "0.0.15";
+const version = "0.0.16";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -16,15 +16,18 @@ self.addEventListener('install', e => {
             '/static/css/index.css',
             '/static/css/style.css',
             '/static/css/search.css',
+            
             '/static/css/bus/stops/nearby.css',
             '/static/css/bus/lookup.css',
             '/static/css/bus/service.css',
             '/static/css/bus/timings-list.css',
             '/static/css/bus/timings.css',
             '/static/css/bus/candies.css',
+
             '/static/css/mrt/timings-result.css',
             '/static/css/mrt/timings.css',
             '/static/css/mrt/disruptions.css',
+
             '/static/scripts/helper.js',
             '/static/scripts/idb.js',
             '/static/scripts/search.js',
@@ -32,14 +35,17 @@ self.addEventListener('install', e => {
             '/static/scripts/bookmarks.js',
             '/static/scripts/dropdown.js',
             '/static/scripts/header-magic.js',
+
             '/static/scripts/bus/stops/nearby.js',
             '/static/scripts/bus/lookup.js',
             '/static/scripts/bus/service.js',
             '/static/scripts/bus/timings.js',
             '/static/scripts/bus/candies.js',
+
             '/static/scripts/mrt/station-data.js',
             '/static/scripts/mrt/timings.js',
             '/static/scripts/mrt/stations/nearby.js',
+
             '/static/images/home/about_this_site.svg',
             '/static/images/home/bookmarks.svg',
             '/static/images/home/bus_lookup.svg',
@@ -49,11 +55,14 @@ self.addEventListener('install', e => {
             '/static/images/home/nearby_bus_stops.svg',
             '/static/images/home/nearby_nwabs.svg',
             '/static/images/home/build.svg',
+
             '/static/images/bookmark/empty.svg',
             '/static/images/bookmark/filled.svg',
+
             '/static/images/service/dollar.svg',
             '/static/images/service/street-view.svg',
             '/static/images/service/timer.svg',
+
             '/static/images/free-bridging-bus-icon.svg',
             '/static/images/free-public-bus-icon.svg',
             '/static/images/bus-stop.svg',
