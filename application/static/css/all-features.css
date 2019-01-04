@@ -38,6 +38,7 @@
 
 #buildid span {
     font-size: calc(2vw + 2vh) !important;
+    line-height: calc(2.1vw + 2.1vh);
 }
 
 @-webkit-keyframes rainbow {
