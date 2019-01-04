@@ -2,6 +2,7 @@ extends ../layout.pug
 
 block css
     link(rel='stylesheet' href='/static/css/search.css')
+    link(rel='stylesheet' href='/static/css/loading.css')
     style.
         #no-bookmarks {
             width: 100vw;
@@ -24,3 +25,8 @@ block scripts
 
 block header
     span#title Bookmarks
+    
+block content
+    div#loading
+        div#loadingBar
+    

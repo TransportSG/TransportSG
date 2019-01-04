@@ -16,7 +16,8 @@ self.addEventListener('install', e => {
             '/static/css/index.css',
             '/static/css/style.css',
             '/static/css/search.css',
-            
+            '/static/css/loading.css',
+
             '/static/css/bus/stops/nearby.css',
             '/static/css/bus/lookup.css',
             '/static/css/bus/service.css',
@@ -27,6 +28,7 @@ self.addEventListener('install', e => {
             '/static/css/mrt/timings-result.css',
             '/static/css/mrt/timings.css',
             '/static/css/mrt/disruptions.css',
+            '/static/css/mrt/stations/nearby.css',
 
             '/static/scripts/helper.js',
             '/static/scripts/idb.js',
