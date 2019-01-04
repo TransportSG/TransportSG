@@ -4,7 +4,7 @@
     src: url(/static/fonts/ff-meta.otf);
 }
 
-div.noBuses {
+div.error {
     width: 100vw;
     height: calc(100vh - (4vw + 4vh));
     display: flex;
@@ -13,7 +13,7 @@ div.noBuses {
     align-items: center;
 }
 
-div.noBuses span {
+span.errorMessage {
     width: 100vw;
     font-size: calc(2vw + 2vh);
     text-align: center;

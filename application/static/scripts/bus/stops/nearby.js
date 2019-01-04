@@ -14,7 +14,7 @@ function processLocation(location) {
 }
 
 function error(err) {
-
+    $('#content').innerHTML = `<div class='error'><span class='errorMessage'>${err.message}</span></div>`;
 }
 
 $.ready(() => {
