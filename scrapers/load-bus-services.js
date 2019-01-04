@@ -13,11 +13,23 @@ let busServices = null;
 
 let busServiceLister = new BusServiceLister(ltaConfig.accessKey);
 
+let promises = [];
+
 database.connect((err) => {
     busServices = database.getCollection('bus services');
     busServiceLister.getData(data => {
         console.log('loaded data, ' + data.length + ' entries')
-        data.map(applyOverrides).map(transformBusServiceData).forEach(updateBusServiceData);
+
+        promises.push(new Promise(resolve => {
+            data.map(applyOverrides).map(transformBusServiceData).forEach(busService => {
+                updateBusServiceData(busService, resolve);
+            });
+        }));
+
+        Promise.all(promises).then(() => {
+            console.log('Completed ' + promises.length + ' entries');
+            process.exit(0);
+        });
     });
 });
 
@@ -86,7 +98,7 @@ function transformBusServiceData(busService) {
     };
 }
 
-function updateBusServiceData(data) {
+function updateBusServiceData(data, resolve) {
     let query = {
         fullService: data.fullService,
         routeDirection: data.routeDirection
@@ -94,24 +106,15 @@ function updateBusServiceData(data) {
 
     if (data.routeType.includes('FLAT FARE')) return;
 
-    remaining++;
-
     busServices.findDocument(query, (err, busService) => {
         if (!!busService) {
             busServices.updateDocument(query, {$set: data}, () => {
-                completed++;
+                resolve();
             });
         } else {
             busServices.createDocument(data, () => {
-                completed++;
+                resolve();
             });
         }
     });
 }
-
-setInterval(() => {
-    if (remaining > 0 && remaining === completed) {
-        console.log('Completed ' + completed + ' entries')
-        process.exit(0);
-    }
-}, 100);

@@ -5,8 +5,7 @@ const BusStopsLister = require('./lib/BusStopsLister');
 const ltaConfig = require('./lta-config.json');
 const config = require('../config');
 
-let remaining = 0;
-let completed = 0;
+let promises = [];
 
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let busStops = null;
@@ -21,9 +20,16 @@ database.connect((err) => {
         let completedBusStops = [];
 
         data.map(transformBusStopData).forEach(busStop => {
-            if (completedBusStops.includes(busStop.busStopCode)) return;
+            promises.push(new Promise(resolve => {
+                if (completedBusStops.includes(busStop.busStopCode)) return;
 
-            updateBusStopData(busStop);
+                updateBusStopData(busStop, resolve);
+            }));
+        });
+
+        Promise.all(promises).then(() => {
+            console.log('Completed ' + promises.length + ' entries');
+            process.exit(0);
         });
     });
 });
@@ -41,29 +47,20 @@ function transformBusStopData(busStop) {
     };
 }
 
-function updateBusStopData(data) {
+function updateBusStopData(data, resolve) {
     let query = {
         busStopCode: data.busStopCode
     };
 
-    remaining++;
-
     busStops.findDocument(query, (err, busStop) => {
         if (!!busStop) {
             busStops.updateDocument(query, {$set: data}, () => {
-                completed++;
+                resolve();
             });
         } else {
             busStops.createDocument(data, () => {
-                completed++;
+                resolve();
             });
         }
     })
 }
-
-setInterval(() => {
-    if (remaining > 0 && remaining === completed) {
-        console.log('Completed ' + completed + ' entries')
-        process.exit(0);
-    }
-}, 100);
