@@ -4,7 +4,8 @@ block head
     title TransportSG - MRT Stations Nearby
     
 block css
-    link(href='/static/css/mrt/stations/nearby.css' rel='stylesheet')
+    link(rel='stylesheet' href='/static/css/mrt/stations/nearby.css')
+    link(rel='stylesheet' href='/static/css/loading.css')
         
 block scripts
     script(src='/static/scripts/mrt/stations/nearby.js' async)
@@ -13,5 +14,6 @@ block scripts
 block header
     span#title MRT Stations Nearby
     
-block content
-    div#results
+block content    
+    div#loading
+        div#loadingBar

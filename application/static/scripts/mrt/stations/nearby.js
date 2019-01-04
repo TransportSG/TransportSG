@@ -48,7 +48,7 @@ function render(stations) {
 `;
     });
 
-    $('#results').innerHTML = output;
+    $('#content').innerHTML = output;
     // console.log(stations);
 }
 

@@ -3,13 +3,16 @@ extends ../../layout
 block head
     title TransportSG - Nearby Bus Stops
     
-block scripts
-    script(src='/static/scripts/bus/stops/nearby.js')
-
 block css
     link(rel='stylesheet' href='/static/css/bus/stops/nearby.css')
+    link(rel='stylesheet' href='/static/css/loading.css')
+
+block scripts
+    script(src='/static/scripts/bus/stops/nearby.js')
 
 block header
     span#title Nearby Bus Stops
 
 block content
+    div#loading
+        div#loadingBar

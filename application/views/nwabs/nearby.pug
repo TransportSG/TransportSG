@@ -6,6 +6,7 @@ block head
 block css
     link(rel='stylesheet' href='/static/css/bus/timings.css')
     link(rel='stylesheet' href='/static/css/bus/timings-list.css')
+    link(rel='stylesheet' href='/static/css/loading.css')
     style.
         a#home {margin-left: auto !important;}
         div#serviceSummary span {font-size: calc(1.5vw + 1.5vh);}
@@ -19,3 +20,5 @@ block header
     span#title Nearby NWABs
 
 block content
+    div#loading
+        div#loadingBar
