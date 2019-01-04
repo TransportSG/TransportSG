@@ -100,6 +100,7 @@ block content
             span Bus Stop Code
             span Bus Stop
         - let stopNumber = 0;
+        - let destination = service.interchanges[1];
         for busStop in service.stops
             div.coloured-row
                 div(onclick=`toggle("${busStop.busStopCode}")`).table-data.spacing2
@@ -112,7 +113,7 @@ block content
                         div.busArr
                             if timings[busStop.busStopCode]
                                 for svc in timings[busStop.busStopCode]
-                                    if svc.service === service.fullService
+                                    if svc.service === service.fullService && svc.destination === destination
                                         for timing in svc.timings.slice(0, 2)
                                             div(class='busArrIndicator load-' + (timing.load*1 + 1))
                                                 span=getTimingsDifference(new Date(), new Date(timing.arrivalTime)).minutes || 'Arr'
