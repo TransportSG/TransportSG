@@ -14,6 +14,7 @@ function shouldRun() {
 function updateDisruptions() {
     if (shouldRun()) {
         getMRTDisruptions(accessKey, (err, newDisruptions) => {
+            if (err) return;
             disruptions = newDisruptions;
             disruptionsLastUpdate = new Date();
         });
