@@ -43,7 +43,7 @@ function performRequest(stationCode, callback) {
     });
 }
 
-function extractTimings(dom) {
+function extractTimings(dom, stationName) {
     let allTimings = [];
 
     let document = dom.window.document;
@@ -74,6 +74,9 @@ function extractTimings(dom) {
 
             if (destination === 'Do not board') return;
 
+            if (trainLine === 'CCL' && stationName === 'Dhoby Ghaut')
+                destination = 'Harbourfront'
+
             allTimings.push({
                 trainLine,
                 arrivalInMin,
@@ -88,7 +91,7 @@ function extractTimings(dom) {
 function getStationTimings(line, stationName, callback) {
     let stationCode = findStationCode(line, stationName);
     performRequest(stationCode, dom => {
-        let timings = groupTimings(extractTimings(dom));
+        let timings = groupTimings(extractTimings(dom, stationName));
 
         Object.keys(timings).forEach(lineName => {
             let destinations = timings[lineName];
@@ -96,7 +99,7 @@ function getStationTimings(line, stationName, callback) {
             Object.keys(destinations).forEach(destinationName => {
                 timings[lineName][destinationName] = timings[lineName][destinationName].filter((time, i, a) =>
                     a.indexOf(time) === i
-                );
+                ).sort((a, b) => a - b);
             });
         });
 

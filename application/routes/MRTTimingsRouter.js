@@ -4,6 +4,21 @@ let router = new express.Router();
 let getMRTTimings = require('../timings/mrt');
 let mrtLines = require('../timings/mrt/station-data');
 
+let lineAbbreviations = {
+  "North South Line": "NSL",
+  "East West Line": "EWL",
+  "Changi Airport Branch Line": "CGL",
+  "North East Line": "NEL",
+  "Circle Line": "CCL",
+  "Circle Line Extension": "CEL",
+  "Downtown Line": "DTL",
+  "Bukit Panjang LRT": "BPL",
+  "Sengkang LRT East Loop": "SEL",
+  "Sengkang LRT West Loop": "SWL",
+  "Punggol LRT East Loop": "PEL",
+  "Punggol LRT West Loop": "PWL"
+}
+
 router.get('/', (req, res) => {
     res.render('mrt/timings');
 });
@@ -38,32 +53,6 @@ function findStationLines(stationName) {
     return lines;
 }
 
-function resolveDestinationLines(lineName, timings) {
-    function abbv(line) {
-        let abbvLine = lineName.split(' ').map(p=>p.slice(0, 1)).join('');
-        if (abbvLine === 'CL') abbvLine = 'CCL';
-
-        return abbvLine;
-    }
-
-    let dests = {};
-
-    Object.keys(timings).forEach(currentLineName => {
-        Object.keys(timings[currentLineName]).forEach(destinationName => {
-            let possibleLines = findStationLines(destinationName);
-
-            let biased = possibleLines.filter(possible => abbv(possible) == currentLineName);
-            if (biased.length === 1) {
-                dests[destinationName] = possibleLines.filter(possible => abbv(possible) == currentLineName)[0];
-            } else {
-                dests[destinationName] = possibleLines[0];
-            }
-        });
-    });
-
-    return dests;
-}
-
 router.get('/:lineName/:stationName', (req, res) => {
     let {lineName, stationName} = req.params;
     let stationNumber = findStationNumber(lineName, stationName);
@@ -75,10 +64,8 @@ router.get('/:lineName/:stationName', (req, res) => {
     }
 
     getMRTTimings(lineName, stationName, timings => {
-        let resolvedDests = resolveDestinationLines(lineName, timings);
-
         res.render('mrt/timings/results',
-            {lineName, resolvedDests, stationName, stationNumber, timings: timings});
+            {lineName, stationName, stationNumber, timings, lineAbbreviations});
     });
 });
 

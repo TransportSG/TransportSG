@@ -21,16 +21,17 @@ block content
             span(onclick='history.back();').back Go back
     else
         
-        for line in Object.keys(timings)
-            - let destinations = Object.keys(timings[line]);
-            for destination in destinations
-                - let arrivalTimes = timings[line][destination];
+        for lineName in Object.keys(timings)
+            - let fullLineName = Object.keys(lineAbbreviations)[Object.values(lineAbbreviations).indexOf(lineName)];
+            - let destinationNames = Object.keys(timings[lineName]);
+            for destinationName in destinationNames
+                - let arrivalTimes = timings[lineName][destinationName];
                 div.trainGroup
-                    div(class='trainLineContainer ' + line.toLowerCase())
-                        span=line
-                    a.destination(href=`/timings/mrt/${resolvedDests[destination]}/${destination}`)
+                    div(class='trainLineContainer ' + lineName.toLowerCase())
+                        span=lineName
+                    a.destination(href=`/timings/mrt/${fullLineName}/${destinationName}`)
                         span Towards
-                        span=destination
+                        span=destinationName
                     div.timings
                         for timing in arrivalTimes
                             div.trainArrival
