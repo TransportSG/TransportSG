@@ -20,11 +20,11 @@ database.connect((err) => {
     busServiceLister.getData(data => {
         console.log('loaded data, ' + data.length + ' entries')
 
-        promises.push(new Promise(resolve => {
-            data.map(applyOverrides).map(transformBusServiceData).forEach(busService => {
+        data.map(applyOverrides).map(transformBusServiceData).forEach(busService => {
+            promises.push(new Promise(resolve => {
                 updateBusServiceData(busService, resolve);
-            });
-        }));
+            }));
+        });
 
         Promise.all(promises).then(() => {
             console.log('Completed ' + promises.length + ' entries');
