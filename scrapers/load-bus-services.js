@@ -25,7 +25,7 @@ database.connect((err) => {
                 updateBusServiceData(busService, resolve);
             }));
         });
-
+        
         Promise.all(promises).then(() => {
             console.log('Completed ' + promises.length + ' entries');
             process.exit(0);
@@ -64,6 +64,8 @@ function transformBusServiceData(busService) {
     if (busService.ServiceNo.includes('CT')) busService.Category = 'CHINATOWN';
     if (busService.Category === 'NIGHT SERVICE') busService.Category = 'NIGHT OWL';
     if (busService.Category === 'CITY_LINK') busService.Category = 'CITY DIRECT';
+
+    if (busService.DestinationCode === '02089') busService.DestinationCode = '02099';
 
     return {
         fullService: busService.ServiceNo,
@@ -104,7 +106,10 @@ function updateBusServiceData(data, resolve) {
         routeDirection: data.routeDirection
     };
 
-    if (data.routeType.includes('FLAT FARE')) return;
+    if (data.routeType.includes('FLAT FARE')) {
+        resolve();
+        return;
+    }
 
     busServices.findDocument(query, (err, busService) => {
         if (!!busService) {
