@@ -17,7 +17,8 @@ module.exports = {
         let context = tls.createSecureContext({
             cert: fs.readFileSync(sslCertPath),
             key: fs.readFileSync(sslKeyPath),
-            ca: fs.readFileSync(caPath)
+            ca: fs.readFileSync(caPath),
+            minVersion: 'TLSv1.2'
         });
 
         secureContext = context;
