@@ -3,7 +3,7 @@ const DatabaseConnection = require('../application/database/DatabaseConnection')
 const BusServiceLister = require('./lib/BusServiceLister');
 
 const ltaConfig = require('./lta-config.json');
-const config = require('../config');
+const config = require('../config.json');
 
 let remaining = 0;
 let completed = 0;
@@ -25,7 +25,7 @@ database.connect((err) => {
                 updateBusServiceData(busService, resolve);
             }));
         });
-        
+
         Promise.all(promises).then(() => {
             console.log('Completed ' + promises.length + ' entries');
             process.exit(0);

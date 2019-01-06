@@ -1,5 +1,5 @@
 const DatabaseConnection = require('../../application/database/DatabaseConnection');
-const config = require('../../config');
+const config = require('../../config.json');
 const parse = require('csv-parse/lib/sync');
 const fs = require('fs');
 const path = require('path');

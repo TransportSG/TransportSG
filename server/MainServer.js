@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const DatabaseConnection = require('../application/database/DatabaseConnection');
 
-const config = require('../config');
+const config = require('../config.json');
 
 module.exports = class MainServer {
 

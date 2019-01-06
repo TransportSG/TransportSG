@@ -3,7 +3,7 @@ const DatabaseConnection = require('../application/database/DatabaseConnection')
 const BusStopsLister = require('./lib/BusStopsLister');
 
 const ltaConfig = require('./lta-config.json');
-const config = require('../config');
+const config = require('../config.json');
 
 let promises = [];
 

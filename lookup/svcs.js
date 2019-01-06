@@ -3,7 +3,7 @@ const {JSDOM} = require('jsdom');
 
 const DatabaseConnection = require('../application/database/DatabaseConnection');
 
-const config = require('../config');
+const config = require('../config.json');
 
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;

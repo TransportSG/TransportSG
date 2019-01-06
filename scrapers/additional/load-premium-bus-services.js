@@ -2,7 +2,7 @@ const parse = require('csv-parse/lib/sync');
 const fs = require('fs');
 const path = require('path');
 const DatabaseConnection = require('../../application/database/DatabaseConnection');
-const config = require('../../config');
+const config = require('../../config.json');
 
 let { calcDist, calculateFrequency, findFirstAndLastBus, pad } = require('./scraping-utils');
 

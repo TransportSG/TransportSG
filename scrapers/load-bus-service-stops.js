@@ -3,7 +3,7 @@ const DatabaseConnection = require('../application/database/DatabaseConnection')
 const BusServiceRouteLister = require('./lib/BusServiceRouteLister');
 
 const ltaConfig = require('./lta-config.json');
-const config = require('../config');
+const config = require('../config.json');
 
 let remaining = 0;
 let completed = 0;

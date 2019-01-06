@@ -1,4 +1,4 @@
-const config = require('./config');
+const config = require('./config.json');
 const HTTPServer = require('./server/HTTPServer');
 const HTTPSServer = require('./server/HTTPSServer');
 const HTTPSRedirectServer = require('./server/HTTPSRedirectServer');
