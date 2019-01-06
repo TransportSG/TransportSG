@@ -70,6 +70,10 @@ module.exports = class MainServer {
             let secureDomain = `http${config.useHTTPS ? 's' : ''}://${config.websiteDNSName}:*`;
 
             res.setHeader('Content-Security-Policy', `default-src ${secureDomain}; script-src 'unsafe-inline' ${secureDomain}; style-src 'unsafe-inline' ${secureDomain}`);
+            res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+            res.setHeader('X-Xss-Protection', '1; mode=block');
+            res.setHeader('X-Content-Type-Options', 'nosniff');
+
             next();
         });
 
