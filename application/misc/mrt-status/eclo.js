@@ -10,7 +10,7 @@ module.exports = [
         "line": "NEL",
         "stations": "NE12,NE13,NE14,NE15,NE16,NE17",
         "replacementShuttle": ["Shuttle 21"],
-        "isActive": () => {return true;
+        "isActive": () => {
             let dates = ['11-1', '12-1', '22-2', '23-2', '1-3', '2-3'];
             let now = new time.Date();
             now.setTimezone('Asia/Singapore');
@@ -28,7 +28,7 @@ module.exports = [
         "line": "EWL",
         "stations": "EW12,EW13,EW14",
         "replacementShuttle": ["Shuttle 6"],
-        "isActive": () => {return true;
+        "isActive": () => {
             let dates = ['11-1', '12-1'];
             let now = new time.Date();
             now.setTimezone('Asia/Singapore');
@@ -46,7 +46,7 @@ module.exports = [
         "line": "BPL",
         "stations": "BP1,BP2,BP3,BP4,BP5,BP6,BP7,BP8,BP9,BP10,BP11,BP12,BP13",
         "replacementShuttle": ["920, 922, 973, 974", "extended"],
-        "isActive": () => {return true;
+        "isActive": () => {
             let now = new time.Date();
             now.setTimezone('Asia/Singapore');
 
