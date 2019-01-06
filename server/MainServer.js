@@ -67,6 +67,9 @@ module.exports = class MainServer {
 
         app.use((req, res, next) => {
             res.setHeader('Strict-Transport-Security', 'max-age=31536000');
+            let secureDomain = `http${config.useHTTPS ? 's' : ''}://${config.websiteDNSName}:*`;
+
+            res.setHeader('Content-Security-Policy', `default-src ${secureDomain}; script-src 'unsafe-inline' ${secureDomain}; style-src 'unsafe-inline' ${secureDomain}`);
             next();
         });
 
