@@ -21,6 +21,7 @@
     "pug": "^2.0.3",
     "querystring": "^0.2.0",
     "request": "^2.88.0",
-    "safe-regex": "^2.0.1"
+    "safe-regex": "^2.0.1",
+    "time": "^0.12.0"
   }
 }

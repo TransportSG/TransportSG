@@ -68,9 +68,15 @@ div.measures img {
 
 div.measures {
     margin-left: auto;
+    margin-right: calc(1vw + 1vh);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+
+div.measures span.replacementShuttle {
+    font-size: calc(1.3vw + 1.3vh);
 }
 
 .ccl {

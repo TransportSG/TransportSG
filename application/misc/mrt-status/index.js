@@ -1,6 +1,7 @@
 const {accessKey} = require('../../../scrapers/lta-config.json');
 
 const getMRTDisruptions = require('./lib');
+const getECLOs = require('./eclo-addon');
 
 let disruptions = [];
 let disruptionsLastUpdate = 0;
@@ -15,7 +16,7 @@ function updateDisruptions() {
     if (shouldRun()) {
         getMRTDisruptions(accessKey, (err, newDisruptions) => {
             if (err) return;
-            disruptions = newDisruptions;
+            disruptions = newDisruptions.concat(getECLOs());
             disruptionsLastUpdate = new Date();
         });
     }

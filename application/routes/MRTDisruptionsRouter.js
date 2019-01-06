@@ -27,8 +27,13 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    let disruptions = MRTDisruptions.getMRTDisruptions();
+    let allDisruptions = MRTDisruptions.getMRTDisruptions();
+
+    let eclos = allDisruptions.filter(e=>e.isScheduled);
+    let disruptions = allDisruptions.filter(e=>!e.isScheduled).sort((a,b)=>b.since-a.since);;
+
     if (disruptions.length) res.json({status: 'disrupted'});
+    else if (eclos.length) res.json({status: 'scheduled works'});
     else res.json({status: 'ok'});
 })
 

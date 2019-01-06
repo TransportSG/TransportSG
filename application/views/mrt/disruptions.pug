@@ -12,7 +12,33 @@ block header
     span#title MRT Disruptions
     
 block content
-    for disruption in MRTDisruptions.sort((a,b)=>b.since-a.since)
+    -
+        let eclos = MRTDisruptions.filter(e=>e.isScheduled);
+        let disruptions = MRTDisruptions.filter(e=>!e.isScheduled).sort((a,b)=>b.since-a.since);;
+        
+    for eclo in eclos
+        - let {line, stations, replacementShuttle} = eclo;
+        - let fullLineName = mrtLineAbbreviations[line];
+        div.mrtDisruptionContainer
+            div.lineName
+                span=fullLineName
+            div.disruptionInfo
+                div.lineType(class=line.toLowerCase())
+                    if fullLineName.includes('LRT')
+                        span LRT
+                    else
+                        span MRT
+                        
+                div.disruptionDetails
+                    span.disruptionSeverity Scheduled Works
+                    span=stations[0].stationName + ' -'
+                    span=stations.reverse()[0].stationName
+                div.measures
+                    img(src='/static/images/free-bridging-bus-icon.svg')
+                    span.replacementShuttle=replacementShuttle
+                        
+        
+    for disruption in disruptions
         - let {disruptionType} = disruption.disruptionType;
         - let {line, response} = disruption;
         - let fullLineName = mrtLineAbbreviations[line];

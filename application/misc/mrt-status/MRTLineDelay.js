@@ -93,7 +93,7 @@ function parseResponse(response) {
     if (fpbStations.toLowerCase().includes('free bus service') && fpbStations.includes('island')) {
         fpbStations = 'ISLAND_WIDE';
     } else {
-        fpbStations = listToMRTStations(stations);
+        fpbStations = listToMRTStations(fpbStations);
     }
 
     return {
@@ -125,4 +125,4 @@ function determineDisruptionType(message) {
     }
 }
 
-module.exports = {parse};
+module.exports = {parse, listToMRTStations};
