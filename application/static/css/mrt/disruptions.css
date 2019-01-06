@@ -64,19 +64,21 @@ div.disruptionDetails span.disruptionSeverity {
 div.measures img {
     width: calc(3vw + 3vh);
     height: calc(3vw + 3vh);
+    margin-left: auto;
+    margin-right: calc(1vw + 1vh);
 }
 
 div.measures {
     margin-left: auto;
-    margin-right: calc(1vw + 1vh);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 div.measures span.replacementShuttle {
     font-size: calc(1.3vw + 1.3vh);
+    margin-right: calc(1vw + 1vh);
+    text-align: right;
 }
 
 .ccl {
