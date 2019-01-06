@@ -13,8 +13,12 @@ block header
     
 block content
     -
-        let eclos = MRTDisruptions.filter(e=>e.isScheduled);
-        let disruptions = MRTDisruptions.filter(e=>!e.isScheduled).sort((a,b)=>b.since-a.since);;
+        let sorted = MRTDisruptions.map(disruption => {
+            disruption.stations = disruption.stations.sort((a, b) => a.stationNumber.match(/(\d+)/)[1] - b.stationNumber.match(/(\d+)/)[1]);
+            return disruption;
+        });
+        let eclos = sorted.filter(e=>e.isScheduled);
+        let disruptions = sorted.filter(e=>!e.isScheduled).sort((a,b)=>b.since-a.since);
         
     for eclo in eclos
         - let {line, stations, replacementShuttle} = eclo;
@@ -34,8 +38,9 @@ block content
                     span=stations[0].stationName + ' -'
                     span=stations.reverse()[0].stationName
                 div.measures
-                    img(src='/static/images/free-bridging-bus-icon.svg')
-                    span.replacementShuttle=replacementShuttle
+                    if replacementShuttle
+                        img(src='/static/images/free-bridging-bus-icon.svg')
+                        span.replacementShuttle=replacementShuttle
                         
         
     for disruption in disruptions

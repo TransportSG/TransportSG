@@ -41,5 +41,20 @@ module.exports = [
         },
         "isScheduled": true,
         "disruptionType": "SCHEDULED"
-    }
+    },
+    {
+        "line": "BPL",
+        "stations": "BP1,BP2,BP3,BP4,BP5,BP6,BP7,BP8,BP9,BP10,BP11,BP12,BP13",
+        "replacementShuttle": "",
+        "isActive": () => {
+            let now = new time.Date();
+            now.setTimezone('Asia/Singapore');
+
+            if (now.getMonth() >= 0 && now.getDate() >= 13 && now.getUTCFullYear() === 2019) return false;
+
+            return (now.getHours() >= 23 && now.getMinutes() >= 30) || (now.getHours() <= 1 && now.getMinutes() <= 30);
+        },
+        "isScheduled": true,
+        "disruptionType": "SCHEDULED"
+    },
 ]
