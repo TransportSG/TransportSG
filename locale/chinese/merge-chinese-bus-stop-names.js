@@ -21,7 +21,7 @@ database.connect((err) => {
         let newData = {
             locale: {
                 chinese: {
-                    streetName: busStopLocale.chinese_street_name,
+                    roadName: busStopLocale.chinese_street_name,
                     busStopName: busStopLocale.chinese_bus_stop_name
                 }
             },
