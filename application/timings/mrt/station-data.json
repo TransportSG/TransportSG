@@ -975,6 +975,7 @@
                 "stationName": "Bukit Brown",
                 "chineseStationName": "武吉布朗",
                 "stationNumber": "CC18",
+                "stationCode": "BKB",
                 "operational": false,
                 "position": {
                     "latitude": 1.016276389501516,
