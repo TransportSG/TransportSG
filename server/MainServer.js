@@ -67,10 +67,6 @@ module.exports = class MainServer {
 
         app.use((req, res, next) => {
             res.setHeader('Strict-Transport-Security', 'max-age=31536000');
-            if (config.useHTTPS && config.hpkp) {
-                res.setHeader('Public-Key-Pins', `pin-sha256="${config.hpkp}"; max-age=5184000; includeSubDomains;`);
-            }
-
             next();
         });
 
