@@ -1,5 +1,5 @@
-function toggle(busStopCode) {
-    let div = $(`div.service-info[bus-stop="${busStopCode}"]`);
+function toggle(stopNumber) {
+    let div = $(`div.service-info[stop-number="${stopNumber}"]`);
 
     if (div.style.display === 'none')
         div.style.display = 'flex';

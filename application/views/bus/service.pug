@@ -103,7 +103,7 @@ block content
         - let destination = service.interchanges[1];
         for busStop in service.stops
             div.coloured-row
-                div(onclick=`toggle("${busStop.busStopCode}")`).table-data.spacing2
+                div(onclick=`toggle("${busStop.stopNumber}")`).table-data.spacing2
                     span=busStop.distance
                     span=busStop.busStopCode
                     div
@@ -123,7 +123,7 @@ block content
                                                         img(src='/static/images/wheelchair.svg')
                                                     else
                                                         img(src='/static/images/non-wheelchair.svg')
-                div(bus-stop=busStop.busStopCode style='display: none;').service-info
+                div(bus-stop=busStop.busStopCode stop-number=busStop.stopNumber style='display: none;').service-info
                     if busStop.busStopCode !== '-'
                         a(href=`/timings/${busStop.busStopCode}`)
                             img(src='/static/images/service/timer.svg')
