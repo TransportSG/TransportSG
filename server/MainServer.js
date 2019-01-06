@@ -74,6 +74,9 @@ module.exports = class MainServer {
             res.setHeader('X-Xss-Protection', '1; mode=block');
             res.setHeader('X-Content-Type-Options', 'nosniff');
 
+            res.setHeader('Referrer-Policy', 'no-referrer');
+            res.setHeader('Feature-Policy', "geolocation 'self'; document-write 'none'; microphone 'none'; camera 'none';");
+
             next();
         });
 
