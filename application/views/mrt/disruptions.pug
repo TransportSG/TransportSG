@@ -13,12 +13,15 @@ block header
     
 block content
     -
-        let sorted = MRTDisruptions.map(disruption => {
+        let eclos = MRTDisruptions.filter(e=>e.isScheduled).map(disruption => {
             disruption.stations = disruption.stations.sort((a, b) => a.stationNumber.match(/(\d+)/)[1] - b.stationNumber.match(/(\d+)/)[1]);
             return disruption;
         });
-        let eclos = sorted.filter(e=>e.isScheduled);
-        let disruptions = sorted.filter(e=>!e.isScheduled).sort((a,b)=>b.since-a.since);
+        let disruptions = MRTDisruptions.filter(e=>!e.isScheduled).sort((a,b)=>b.since-a.since).map(disruption => {
+            if (disruption.response.stations)
+                disruption.response.stations = disruption.response.stations.sort((a, b) => a.stationNumber.match(/(\d+)/)[1] - b.stationNumber.match(/(\d+)/)[1]);
+            return disruption;
+        });
         
     for eclo in eclos
         - let {line, stations, replacementShuttle} = eclo;
