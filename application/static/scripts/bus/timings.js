@@ -7,21 +7,13 @@ $.ready(() => {
         if (bookmark) $('#bookmark-status').src = '/static/images/bookmark/filled.svg';
         else $('#bookmark-status').src = '/static/images/bookmark/empty.svg';
 
-        setBookmarked(bookmark);
+        setBookmarked(currentBusStop, bookmark);
     });
 
-    // idb.open('bookmarks', 1, db => {
-    //     let store = db.createObjectStore('bus-stops', {
-    //         keyPath: 'id'
-    //     });
-    // });
+    bookmark = isBookmarked(currentBusStop);
 
-    isBookmarked(bookmarked => {
-        bookmark = bookmarked;
-
-        if (bookmark) $('#bookmark-status').src = '/static/images/bookmark/filled.svg';
-        else $('#bookmark-status').src = '/static/images/bookmark/empty.svg';
-    });
+    if (bookmark) $('#bookmark-status').src = '/static/images/bookmark/filled.svg';
+    else $('#bookmark-status').src = '/static/images/bookmark/empty.svg';
 
     let locales = Array.from(document.querySelectorAll('span[locale]')).map(e=>e.getAttribute('locale'));
     let translations = Array.from(document.querySelectorAll('span[locale]')).map(e=>e.textContent);
@@ -39,29 +31,6 @@ $.ready(() => {
     }
 
 });
-
-function setBookmarked(state) {
-    idb.open('bookmarks', 1).then(function(db) {
-        var tx = db.transaction(['bus-stops'], 'readwrite');
-        var store = tx.objectStore('bus-stops');
-        store.put({id: currentBusStop, data: {bookmarked: state}});
-        return tx.complete;
-    });
-}
-
-function isBookmarked(cb) {
-    idb.open('bookmarks', 1).then(function(db) {
-        var tx = db.transaction(['bus-stops'], 'readonly');
-        var store = tx.objectStore('bus-stops');
-
-        store.get(currentBusStop).then(state => {
-            if (state)
-                cb(state.data.bookmarked);
-            else
-                cb(false);
-        });
-    });
-}
 
 function getTimingsDifference(a, b) {
     let d = new Date(Math.abs(a - b));
