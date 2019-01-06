@@ -38,9 +38,10 @@ block content
                     span=stations[0].stationName + ' -'
                     span=stations.reverse()[0].stationName
                 div.measures
-                    if replacementShuttle
+                    if replacementShuttle.length
                         img(src='/static/images/free-bridging-bus-icon.svg')
-                        span.replacementShuttle=replacementShuttle
+                        for line in replacementShuttle
+                            span.replacementShuttle=line
                         
         
     for disruption in disruptions
