@@ -9,7 +9,6 @@ let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;
 
 let completed = 0;
-let remaining = 0;
 
 const fileTypes = {
     'TIBS': 'TIB',
@@ -32,19 +31,38 @@ database.connect({
 }, (err) => {
     buses = database.getCollection('bus registrations');
 
-    loadCSVs();
+    load();
 });
 
-function loadCSVs() {
-    Object.keys(fileTypes).forEach(operatorName => {
-        console.log('Doing ' + operatorName);
-        var regoPrefix = fileTypes[operatorName];
+let currentOperatorIndex = 0;
+let highestOperatorIndex = Object.keys(fileTypes).length - 1;
 
-        fs.readFile('./data/' + operatorName + '.csv', (err, data) => {
-            parse(data, (err, busList) => {
-                busList.splice(0, 1);
+function load() {
+    loadOperator(currentOperatorIndex, numberCompleted => {
+        console.log(Object.keys(fileTypes)[currentOperatorIndex] + ': ' + numberCompleted + ' entries');
+        completed += numberCompleted;
 
-                processRegoSet(regoPrefix, busList);
+        currentOperatorIndex++;
+        if (currentOperatorIndex === highestOperatorIndex) {
+            console.log('Completed ' + completed + ' entries');
+            process.exit();
+        }
+
+        load();
+    });
+}
+
+function loadOperator(index, callback) {
+    let operatorName = Object.keys(fileTypes)[index];
+
+    var regoPrefix = fileTypes[operatorName];
+
+    fs.readFile('./data/' + operatorName + '.csv', (err, data) => {
+        parse(data, (err, busList) => {
+            busList.splice(0, 1);
+
+            processRegoSet(regoPrefix, busList).then(numberCompleted => {
+                callback(numberCompleted);
             });
         });
     });
@@ -102,9 +120,7 @@ function transformData(regoPrefix, csv) {
     };
 }
 
-function updateBus(query, data) {
-    remaining++;
-
+function updateBus(query, data, resolve) {
     buses.findDocument(query, (err, bus) => {
         if (!!bus) {
             if (data.operator.operator === bus.operator.operator && !data.operator.permService) {
@@ -116,17 +132,19 @@ function updateBus(query, data) {
             buses.updateDocument(query, {
                 $set: data
             }, () => {
-                completed++;
+                resolve();
             });
         } else {
             buses.createDocument(data, () => {
-                completed++;
+                resolve();
             })
         }
     });
 }
 
 function processRegoSet(regoPrefix, busList) {
+    let promises = [];
+
     busList.forEach(busCSV => {
         if (busCSV[2] === '') return;
 
@@ -137,13 +155,14 @@ function processRegoSet(regoPrefix, busList) {
             'registration.number': busData.registration.number
         };
 
-        updateBus(query, busData);
+        promises.push(new Promise(resolve => {
+            updateBus(query, busData, resolve);
+        }));
+    });
+
+    return new Promise(resolve => {
+        Promise.all(promises).then(() => {
+            resolve(promises.length);
+        });
     });
 }
-
-setInterval(() => {
-    if (remaining > 0 && remaining === completed) {
-        console.log('Completed ' + completed + ' entries')
-        process.exit(0);
-    }
-}, 100);
