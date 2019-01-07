@@ -41,6 +41,7 @@ module.exports = class MainServer {
         let stream = fs.createWriteStream('/tmp/log.txt', {flags: 'a'});
 
         app.use((req, res, next) => {
+            let reqURL = req.url + '';
             let start = +new Date();
 
             let endResponse = res.end;
@@ -50,7 +51,7 @@ module.exports = class MainServer {
 
                 let diff = end - start;
                 if (diff > 5)
-                    stream.write(req.url + ' ' + diff + '\n', () => {});
+                    stream.write(reqURL + ' ' + diff + '\n', () => {});
             };
 
             next();
