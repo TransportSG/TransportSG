@@ -13,12 +13,15 @@ function createSortIndex(s) {
     return parseFloat(numberPart + '.' + letterPart);
 }
 
+let nwabOverrideServices = ['43M', '63M', '123M', '139M', '143M', '147e', '160A', '502A', '657'];
+let nwabSDOverrides = ['657', '188e', '859A', '859B', '854e', '868E'];
+
 module.exports = callback => {
     request(timingsURL, (err, resp, body) => {
         var timings = {};
 
         function parseDate(timing) {
-            return new Date('20' + c[timing[0]] + ' ' + c[timing[1]] + ' ' + c[timing[2]] + ' ' + c[timing[3]] + ':' + c[timing[4]] + ':' + c[timing[5]] + ' GMT+0000');
+            return new Date('20' + timing[0] + ' ' + timing[1] + ' ' + timing[2] + ' ' + timing[3] + ':' + timing[4] + ':' + timing[5] + ' GMT+0000');
         }
 
         function etaCallback(args) {
@@ -44,7 +47,14 @@ module.exports = callback => {
 
                     timings[busStopCode].push({
                         timings: timingData.match(/(.{10})/g).map(timing => {
-                            timing = [...timing];
+                            timing = [...timing].map(e => c[e]);
+
+                            if (nwabOverrideServices.includes(serviceNo))
+                                timing[6] = '1';
+
+                            if (nwabSDOverrides.includes(serviceNo) && timing[8] === '1')
+                                timing[6] = '1';
+
                             return {
                                 arrivalTime: parseDate(timing),
                                 isWAB: timing[6] === '1',
