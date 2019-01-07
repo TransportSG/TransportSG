@@ -11,19 +11,19 @@ function calculateStudentFare(distance, mode, service) {
     if (service === 'chinatown') return 110;
     if (mode === 'card') {
         if (service === 'feeder')
-            return 37;
+            return 38;
         if (service === 'basic' || service === 'mrt') {
             if (distance <= 3.2)
-                return 37;
+                return 38;
             else if (distance <= 4.2)
-                return 42;
+                return 43;
             else if (distance <= 5.2)
-                return 47;
+                return 48;
             else if (distance <= 6.2)
-                return 52;
+                return 53;
             else if (distance <= 7.2)
-                return 55;
-            else return 58;
+                return 56;
+            else return 59;
         } else if (service === 'express')
             return calculateStudentFare(distance, mode, 'basic') + 30;
     }
@@ -33,85 +33,85 @@ function calculateAdultFare(distance, mode, service) {
     if (service === 'chinatown') return 200;
     if (mode === 'card') {
         if (service === 'feeder')
-            return 77;
+            return 83;
         if (service === 'basic' || service === 'mrt') {
             if (distance <= 3.2)
-                return 77;
+                return 83;
             else if (distance <= 4.2)
-                return 87;
+                return 93;
             else if (distance <= 5.2)
-                return 97;
+                return 103;
             else if (distance <= 6.2)
-                return 107;
+                return 113;
             else if (distance <= 7.2)
-                return 116;
+                return 122;
             else if (distance <= 8.2)
-                return 123;
-            else if (distance <= 9.2)
                 return 129;
+            else if (distance <= 9.2)
+                return 135;
             else if (distance <= 10.2)
-                return 133;
+                return 139;
             else if (distance <= 11.2)
-                return 137;
+                return 143;
             else if (distance <= 12.2)
-                return 141;
+                return 147;
             else if (distance <= 13.2)
-                return 145;
+                return 151;
             else if (distance <= 14.2)
-                return 149;
+                return 155;
             else if (distance <= 15.2)
-                return 153;
+                return 159;
             else if (distance <= 16.2)
-                return 157;
+                return 163;
             else if (distance <= 17.2)
-                return 161;
+                return 167;
             else if (distance <= 18.2)
-                return 165;
+                return 171;
             else if (distance <= 19.2)
-                return 169;
-            else if (distance <= 20.2)
-                return 172;
-            else if (distance <= 21.2)
                 return 175;
-            else if (distance <= 22.2)
+            else if (distance <= 20.2)
                 return 178;
-            else if (distance <= 23.2)
+            else if (distance <= 21.2)
                 return 181;
-            else if (distance <= 24.2)
-                return 183;
-            else if (distance <= 25.2)
-                return 185;
-            else if (distance <= 26.2)
+            else if (distance <= 22.2)
+                return 184;
+            else if (distance <= 23.2)
                 return 187;
-            else if (distance <= 27.2)
-                return 188;
-            else if (distance <= 28.2)
+            else if (distance <= 24.2)
                 return 189;
-            else if (distance <= 29.2)
-                return 190;
-            else if (distance <= 30.2)
+            else if (distance <= 25.2)
                 return 191;
-            else if (distance <= 31.2)
-                return 192;
-            else if (distance <= 32.2)
+            else if (distance <= 26.2)
                 return 193;
-            else if (distance <= 33.2)
+            else if (distance <= 27.2)
                 return 194;
-            else if (distance <= 34.2)
+            else if (distance <= 28.2)
                 return 195;
-            else if (distance <= 35.2)
+            else if (distance <= 29.2)
                 return 196;
-            else if (distance <= 36.2)
+            else if (distance <= 30.2)
                 return 197;
-            else if (distance <= 37.2)
+            else if (distance <= 31.2)
                 return 198;
-            else if (distance <= 38.2)
+            else if (distance <= 32.2)
                 return 199;
-            else if (distance <= 39.2)
+            else if (distance <= 33.2)
                 return 200;
-            else if (distance <= 40.2)
+            else if (distance <= 34.2)
                 return 201;
-            else return 202
+            else if (distance <= 35.2)
+                return 202;
+            else if (distance <= 36.2)
+                return 203;
+            else if (distance <= 37.2)
+                return 204;
+            else if (distance <= 38.2)
+                return 205;
+            else if (distance <= 39.2)
+                return 206;
+            else if (distance <= 40.2)
+                return 207;
+            else return 208;
         } else if (service === 'express') {
             return calculateAdultFare(distance, mode, 'basic') + 60;
         }
@@ -122,19 +122,19 @@ function calculateSeniorFare(distance, mode, service) {
     if (service === 'chinatown') return 110;
     if (mode === 'card') {
         if (service === 'feeder')
-            return 54;
+            return 55;
         if (service === 'basic' || service === 'mrt') {
             if (distance <= 3.2)
-                return 54;
+                return 55;
             else if (distance <= 4.2)
-                return 61;
+                return 62;
             else if (distance <= 5.2)
-                return 68;
+                return 69;
             else if (distance <= 6.2)
-                return 75;
+                return 76;
             else if (distance <= 7.2)
-                return 81;
-            else return 87;
+                return 82;
+            else return 88;
         } else if (service === 'express') {
             return calculateSeniorFare(distance, mode, 'basic') + 45;
         }
