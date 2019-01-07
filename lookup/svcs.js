@@ -8,9 +8,6 @@ const config = require('../config.json');
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;
 
-let completed = 0;
-let remaining = 0;
-
 database.connect((err) => {
     buses = database.getCollection('bus registrations');
 
@@ -18,39 +15,56 @@ database.connect((err) => {
 });
 
 function load() {
+    let completed = 0;
+    let promises = [];
+
     urls.forEach(url => {
-        request(url, (err, res, body) => {
-            let dom = new JSDOM(body);
+        promises.push(new Promise(bigResolve => {
+            let urlPromises = [];
 
-            let tables = Array.from(dom.window.document.querySelectorAll('table.toccolours'));
-            tables.forEach(table => {
+            request(url, (err, res, body) => {
+                let dom = new JSDOM(body);
 
-                let buses = Array.from(table.querySelectorAll('tr')).slice(1);
-                let lastAd = 'N/A';
+                let tables = Array.from(dom.window.document.querySelectorAll('table.toccolours'));
+                tables.forEach(table => {
 
-                buses.forEach(bus => {
-                    let rego = bus.children[0].textContent.trim().match(/([A-Z]+)(\d+)(\w)/).slice(1, 4);
-                    let deployment = bus.children[1].textContent.trim().split(' ').concat(['Unknown']);
-                    let advert = !!bus.children[2] ? bus.children[2].textContent.trim() : lastAd;
+                    let buses = Array.from(table.querySelectorAll('tr')).slice(1);
+                    let lastAd = 'N/A';
 
-                    lastAd = advert;
+                    buses.forEach(bus => {
+                        let rego = bus.children[0].textContent.trim().match(/([A-Z]+)(\d+)(\w)/).slice(1, 4);
+                        let deployment = bus.children[1].textContent.trim().split(' ').concat(['Unknown']);
+                        let advert = !!bus.children[2] ? bus.children[2].textContent.trim() : lastAd;
 
-                    updateBus(rego, deployment, advert);
+                        lastAd = advert;
+                        urlPromises.push(new Promise(resolve => {
+                            completed++;
+                            updateBus(rego, deployment, advert, resolve);
+                        }));
+                    });
                 });
 
+                Promise.all(urlPromises).then(() => {
+                    bigResolve();
+                });
             });
-        });
+        }));
+    });
+
+    Promise.all(promises).then(() => {
+        console.log('Updated ' + promises.length + ' models');
+        console.log('Updated ' + completed + ' buses');
+
+        process.exit();
     });
 }
 
-function updateBus(rego, deployment, advert) {
+function updateBus(rego, deployment, advert, resolve) {
     let query = {
         'registration.prefix': rego[0],
         'registration.number': rego[1] * 1,
         'registration.checksum': rego[2]
     };
-
-    remaining++;
 
     buses.updateDocument(query, {
         $set: {
@@ -60,19 +74,9 @@ function updateBus(rego, deployment, advert) {
             'fleet.ad': advert
         }
     }, () => {
-        completed++;
+        resolve();
     });
 }
-
-setInterval(() => {
-    if (remaining > 0 && remaining === completed) {
-        console.log('Completed ' + completed + ' entries')
-        process.exit(0);
-    }
-}, 100);
-
-
-
 
 
 
