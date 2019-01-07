@@ -19,3 +19,7 @@ if (config.useHTTPS) {
 
 httpServer.listen(config.httpPort);
 if (httpsServer) httpsServer.listen(443);
+
+process.on('uncaughtException', (err) => {
+    console.error((err && err.stack) ? err.stack : err);
+});
