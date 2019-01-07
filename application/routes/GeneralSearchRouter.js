@@ -94,6 +94,10 @@ function findMRTStationByNumber(stationNumber) {
     return foundStations;
 }
 
+function escapeRegExp(string){
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
 function search(db, query, callback) {
     let busStops = db.getCollection('bus stops');
     let busServices = db.getCollection('bus services');
@@ -105,21 +109,42 @@ function search(db, query, callback) {
         callback('Invalid query');
         return;
     }
-    busStops.findDocuments({
+
+    queyr = query.trim();
+
+    let partialQuery = new RegExp(escapeRegExp(query), 'i');
+    let fullQuery = new RegExp('^' + escapeRegExp(query) + '$', 'i');
+
+    let search = {
         $or: [
             {
-                busStopName: (query.length > 3 && /[a-zA-Z]/.exec(query)) ? new RegExp(query, 'i') : 'cat goes woof'
-            }, {
                 busStopCode: query
-            }, {
-                roadName: query.length > 4 ? new RegExp(query, 'i') : 'fox says meow'
+            },
+            {
+                roadName: query.length > 5 ? partialQuery : fullQuery
             }
-        ],
-    }).toArray((err, busStopList) => {
+        ]
+    };
+
+    let highResults = ['blk', 'opp', 'bef', 'aft'];
+
+    let queryWords = query.toLowerCase().split(' ');
+    let hasHighResultWord = queryWords.filter(word => highResults.includes(word)).length > 0;
+
+    if (hasHighResultWord) {
+        search.$or.push({ busStopName: new RegExp('^' + escapeRegExp(query) + '\\w?$', 'i') });
+    } else {
+        if (query.length <= 3)
+           search.$or.push({ busStopName: fullQuery });
+         else
+            search.$or.push({ busStopName: partialQuery });
+    }
+
+    busStops.findDocuments(search).toArray((err, busStopList) => {
         busStopList = busStopList.sort((a, b) => a.busStopName.length - b.busStopName.length);
 
         busServices.findDocuments({
-            $or: [{ fullService: query }, { serviceNumber: query }],
+            $or: [{ fullService: fullQuery }, { serviceNumber: fullQuery }],
             routeDirection: 1
         }).toArray((err, busServiceList) => {
             resolveInterchanges(busServiceList, busServices, busStops, busServices => {
