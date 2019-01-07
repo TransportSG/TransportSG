@@ -21,11 +21,17 @@ $.delete = function(query) {
         $(query).parentElement.removeChild($(query));
 }
 
+// consider using fetch in future
 $.ajax = function(options, callback) {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', function() {
-        callback(xhr.responseJSON || xhr.responseXML || xhr.responseText);
+        callback(xhr.status, xhr.responseJSON || xhr.responseXML || xhr.responseText);
     });
+
+    xhr.addEventListener('error', function(err) {
+        callback(xhr.status, null);
+    })
+
     xhr.open(options.method || 'GET', options.url || location.toString());
     if (options.data) {
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -35,7 +41,7 @@ $.ajax = function(options, callback) {
 
 $.ready = function(callback) {
     if (document.readyState !== 'loading')
-        callback();
+        setTimeout(callback, 10);
     else
         document.addEventListener("DOMContentLoaded", callback);
 }
@@ -46,18 +52,3 @@ window.search = {};
 
 search.hash = (location.hash.match(/#(\w+[=]\w+&?)+/)||[]).slice(1).map(e=>e.split('=')).reduce((a, e) => {a[e[0]] = e[1]; return a;}, {});
 search.query = (location.search.match(/\?(\w+[=]\w+&?)+/)||[]).slice(1).map(e=>e.split('=')).reduce((a, e) => {a[e[0]] = e[1]; return a;}, {});
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.onmessage = function (evt) {
-        var message = JSON.parse(evt.data);
-
-        var isRefresh = message.type === 'refresh';
-        var isAsset = message.url.includes('asset');
-        var lastETag = localStorage.currentETag;
-
-        var isNew = lastETag !== message.eTag;
-        if (isRefresh && isAsset && isNew) {
-          localStorage.currentETag = message.eTag;
-        }
-    }
-}

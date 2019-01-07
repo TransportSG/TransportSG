@@ -2,7 +2,7 @@ $.ready(() => {
     $.ajax({
         url: '/mrt/disruptions',
         method: 'POST'
-    }, (status) => {
+    }, (code, status) => {
         if (status) {
             if (status.status === 'disrupted') {
                 $('#disruption').textContent = `

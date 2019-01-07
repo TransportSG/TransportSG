@@ -258,7 +258,7 @@ $.ready(() => {
 function checkStreetView(busStopCode) {
     $.ajax({
         url: `/bus/streetview/${busStopCode}`
-    }, url => {
+    }, (status, url) => {
         window.open(url);
     });
 }

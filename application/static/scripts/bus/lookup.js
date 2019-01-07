@@ -16,7 +16,7 @@ function performQuery() {
             method,
             query
         }
-    }, (content) => {
+    }, (status, content) => {
         $('#loading').style.display = 'none';
 
         $('#results').innerHTML = content;

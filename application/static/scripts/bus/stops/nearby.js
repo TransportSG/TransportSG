@@ -7,7 +7,7 @@ function processLocation(location) {
         data: {
             latitude, longitude
         }
-    }, data => {
+    }, (status, data) => {
         $('#content').innerHTML = data;
         if (typeof tag === 'function') tag();
     });
