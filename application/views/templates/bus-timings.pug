@@ -68,6 +68,8 @@ if busTimings.length == 0
                 final.push(prediction);
             });
             
+            final = final.sort((a, b) => new Date(a.arrivalTime) - new Date(b.arrivalTime));
+            
             let predictionsRemaining = 4 - final.length;
             for (let i = 0; i < predictionsRemaining; i++) {
                 let predictedArrival = new Date(+new Date(final[final.length - 1].arrivalTime) + maxHeadway * 60 * 1000);
