@@ -83,16 +83,16 @@ function transformBusServiceData(busService) {
         frequency: {
             morning: {
                 min: busService.AM_Peak_Freq.split('-')[0],
-                max: busService.AM_Peak_Freq.split('-')[1]
+                max: busService.AM_Peak_Freq.split('-')[1] || busService.AM_Peak_Freq.split('-')[0]
             }, afternoon: {
                 min: busService.AM_Offpeak_Freq.split('-')[0],
-                max: busService.AM_Offpeak_Freq.split('-')[1]
+                max: busService.AM_Offpeak_Freq.split('-')[1] || busService.AM_Offpeak_Freq.split('-')[0]
             }, evening: {
                 min: busService.PM_Peak_Freq.split('-')[0],
-                max: busService.PM_Peak_Freq.split('-')[1]
+                max: busService.PM_Peak_Freq.split('-')[1] || busService.PM_Peak_Freq.split('-')[0]
             }, night: {
                 min: busService.PM_Offpeak_Freq.split('-')[0],
-                max: busService.PM_Offpeak_Freq.split('-')[1]
+                max: busService.PM_Offpeak_Freq.split('-')[1] || busService.PM_Offpeak_Freq.split('-')[0]
             }
         },
 

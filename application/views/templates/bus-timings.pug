@@ -61,9 +61,11 @@ if busTimings.length == 0
                 }
             });
             
-            Object.keys(predictions).reverse().forEach(insertionIndex => {
+            Object.keys(predictions).reverse().forEach((insertionIndex, i) => {
+                if (final.length + i > 4) return;
+                
                 let prediction = predictions[insertionIndex];
-                final = final.slice(0, insertionIndex).concat(prediction).concat(final.slice(insertionIndex));
+                final.push(prediction);
             });
             
             let predictionsRemaining = 4 - final.length;
@@ -79,6 +81,8 @@ if busTimings.length == 0
                     busType: 0
                 });
             }
+            
+            final = final.sort((a, b) => new Date(a.arrivalTime) - new Date(b.arrivalTime));
             
             return final;
         } catch (e) {
