@@ -64,6 +64,6 @@ setInterval(() => {
     $.ajax({
         url: '/timings/render-timings/' + currentBusStop
     }, (status, body) => {
-        if (data) $('#content').innerHTML = body;
+        if (body) $('#content').innerHTML = body;
     });
 }, 15000);

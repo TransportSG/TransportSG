@@ -19,7 +19,7 @@ function performQuery() {
     }, (status, content) => {
         $('#loading').style.display = 'none';
 
-        if (data) $('#results').innerHTML = content;
+        if (content) $('#results').innerHTML = content;
     });
 }
 
