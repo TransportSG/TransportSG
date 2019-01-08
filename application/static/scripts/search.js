@@ -14,7 +14,7 @@ function performQuery() {
     }, (status, content) => {
         $('#loading').style.display = 'none';
 
-        $('#results').innerHTML = content;
+        if (data) $('#results').innerHTML = content;
     });
 }
 
