@@ -46,8 +46,9 @@ if busTimings.length == 0
             
             intervals.forEach((interval, i) => {
                 if (interval >= (maxHeadway) + 5) {
-                    let previousArrival = timings[i].arrivalTime;
-                    previousArrival = new Date(previousArrival)
+                    let previousArrival = timings[i + 1] ? timings[i + 1].arrivalTime : timings[i].arrivalTime;
+                    previousArrival = new Date(previousArrival);
+                    
                     let predictedArrival = new Date(+previousArrival - avgHeadway * 60 * 1000);
                     
                     predictedArrival = new Date(Math.round(+predictedArrival / 60000) * 60000);
@@ -69,6 +70,7 @@ if busTimings.length == 0
             });
             
             final = final.sort((a, b) => new Date(a.arrivalTime) - new Date(b.arrivalTime));
+            
             
             let predictionsRemaining = 4 - final.length;
             for (let i = 0; i < predictionsRemaining; i++) {
