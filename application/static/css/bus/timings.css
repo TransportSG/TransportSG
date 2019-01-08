@@ -170,11 +170,11 @@ div.busService:nth-child(even) .load-4 {
 }
 
 .load-5 {
-    background-color: #4e4fdc;
+    background-color: #7576e5;
 }
 
 div.busService:nth-child(even) .load-5 {
-    background-color: #3c3ebc;
+    background-color: #6667cd;
 }
 
 div.bus-arrival span {

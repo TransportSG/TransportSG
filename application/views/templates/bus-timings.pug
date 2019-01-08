@@ -18,68 +18,72 @@ if busTimings.length == 0
     }
 
     function predict(timings, serviceData) {
-        if (timings.length === 4) return timings;
-        
-        let currentInterval = serviceData.frequency[getFrequencySpan()];
-        let minHeadway = currentInterval.min;
-        let maxHeadway = currentInterval.max;
-        if (minHeadway === '-' && maxHeadway === '-') return timings;
-        
-        minHeadway *= 1;
-        maxHeadway = maxHeadway * 1 || minHeadway;
-        
-        let avgHeadway = minHeadway + maxHeadway;
-        avgHeadway /= 2;
-        
-        let times = [+new Date()].concat(timings.map(time => +new Date(time.arrivalTime)));
-        let intervals = times.map((current, i, a) => {
-            if (i === 0) return -1;
-            let prev = a[i - 1];
+        try {
+            if (timings.length === 4) return timings;
             
-            return Math.floor((current - prev) / (1000 * 60));
-        }).filter(e => e !== -1);
-        
-        let final = timings;
-        
-        let predictions = {};
-        
-        intervals.forEach((interval, i) => {
-            if (interval >= (maxHeadway) + 5) {
-                let previousArrival = timings[i].arrivalTime;
-                previousArrival = new Date(previousArrival)
-                let predictedArrival = new Date(+previousArrival - avgHeadway * 60 * 1000);
+            let currentInterval = serviceData.frequency[getFrequencySpan()];
+            let minHeadway = currentInterval.min;
+            let maxHeadway = currentInterval.max;
+            if (minHeadway === '-' && maxHeadway === '-') return timings;
+            
+            minHeadway *= 1;
+            maxHeadway = maxHeadway * 1 || minHeadway;
+            
+            let avgHeadway = minHeadway + maxHeadway;
+            avgHeadway /= 2;
+            
+            let times = [+new Date()].concat(timings.map(time => +new Date(time.arrivalTime)));
+            let intervals = times.map((current, i, a) => {
+                if (i === 0) return -1;
+                let prev = a[i - 1];
+                
+                return Math.floor((current - prev) / (1000 * 60));
+            }).filter(e => e !== -1);
+            
+            let final = timings;
+            
+            let predictions = {};
+            
+            intervals.forEach((interval, i) => {
+                if (interval >= (maxHeadway) + 5) {
+                    let previousArrival = timings[i].arrivalTime;
+                    previousArrival = new Date(previousArrival)
+                    let predictedArrival = new Date(+previousArrival - avgHeadway * 60 * 1000);
+                    
+                    predictedArrival = new Date(Math.round(+predictedArrival / 60000) * 60000);
+                    
+                    predictions[i] = {
+                        arrivalTime: predictedArrival,
+                        isWAB: -1,
+                        load: 3,
+                        busType: 0
+                    }
+                }
+            });
+            
+            Object.keys(predictions).reverse().forEach(insertionIndex => {
+                let prediction = predictions[insertionIndex];
+                final = final.slice(0, insertionIndex).concat(prediction).concat(final.slice(insertionIndex));
+            });
+            
+            let predictionsRemaining = 4 - final.length;
+            for (let i = 0; i < predictionsRemaining; i++) {
+                let predictedArrival = new Date(+new Date(final[final.length - 1].arrivalTime) + maxHeadway * 60 * 1000);
                 
                 predictedArrival = new Date(Math.round(+predictedArrival / 60000) * 60000);
                 
-                predictions[i] = {
+                final.push({
                     arrivalTime: predictedArrival,
                     isWAB: -1,
-                    load: 3,
+                    load: 4,
                     busType: 0
-                }
+                });
             }
-        });
-        
-        Object.keys(predictions).reverse().forEach(insertionIndex => {
-            let prediction = predictions[insertionIndex];
-            final = final.slice(0, insertionIndex).concat(prediction).concat(final.slice(insertionIndex));
-        });
-        
-        let predictionsRemaining = 4 - final.length;
-        for (let i = 0; i < predictionsRemaining; i++) {
-            let predictedArrival = new Date(+new Date(final[final.length - 1].arrivalTime) + maxHeadway * 60 * 1000);
             
-            predictedArrival = new Date(Math.round(+predictedArrival / 60000) * 60000);
-            
-            final.push({
-                arrivalTime: predictedArrival,
-                isWAB: -1,
-                load: 4,
-                busType: 0
-            });
+            return final;
+        } catch (e) {
+            return timings;
         }
-        
-        return final;
     }
 
 for bus in busTimings
