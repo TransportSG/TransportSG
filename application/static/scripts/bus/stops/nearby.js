@@ -9,6 +9,8 @@ function processLocation(location) {
         }
     }, (status, data) => {
         $('#content').innerHTML = data;
+        if (status === 200 && !data) navigator.geolocation.clearWatch(watchID);
+
         if (typeof tag === 'function') tag();
     });
 }
@@ -17,11 +19,13 @@ function error(err) {
     $('#content').innerHTML = `<div class='error'><span class='errorMessage'>${err.message}</span></div>`;
 }
 
+let watchID;
+
 $.ready(() => {
     if ('geolocation' in navigator) {
         let geo = navigator.geolocation;
 
-        geo.watchPosition(processLocation, error, {
+        watchID = geo.watchPosition(processLocation, error, {
             enableHighAccuracy: true,
         });
     }
