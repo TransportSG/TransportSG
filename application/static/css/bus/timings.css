@@ -161,6 +161,22 @@ div.busService:nth-child(even) .load-3 {
     background-color: #a13121;
 }
 
+.load-4 {
+    background-color: #6f6f6f;
+}
+
+div.busService:nth-child(even) .load-4 {
+    background-color: #5a5a5a;
+}
+
+.load-5 {
+    background-color: #4e4fdc;
+}
+
+div.busService:nth-child(even) .load-5 {
+    background-color: #3c3ebc;
+}
+
 div.bus-arrival span {
     color: #101010;
 }

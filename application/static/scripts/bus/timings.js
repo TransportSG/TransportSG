@@ -34,7 +34,7 @@ $.ready(() => {
 
 function getTimingsDifference(a, b) {
     let d = new Date(Math.abs(a - b));
-    return {minutes: d.getUTCMinutes(),seconds: d.getUTCSeconds()};
+    return {minutes: d.getUTCMinutes() + d.getUTCHours() * 60,seconds: d.getUTCSeconds()};
 };
 function hasArrived(timing) {
     return +new Date() - +new Date(timing) > 0;
