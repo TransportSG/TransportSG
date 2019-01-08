@@ -19,6 +19,8 @@ router.post('/', (req, res) => {
     let query = req.body.query;
     let method = req.body.method;
 
+    res.loggingData = query + ';' + method;
+
     if (method === 'rego') {
         searchRego(req, res, query * 1);
     } else if (method === 'service') {

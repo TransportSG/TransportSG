@@ -50,8 +50,9 @@ module.exports = class MainServer {
                 let end = +new Date();
 
                 let diff = end - start;
-                if (diff > 5)
-                    stream.write(reqURL + ' ' + diff + '\n', () => {});
+
+                if (diff > 5 && !reqURL.startsWith('/static/'))
+                    stream.write(req.method + ' ' + reqURL + (res.loggingData ? ' ' + res.loggingData : '') + ' ' + diff + '\n', () => {});
             };
 
             next();

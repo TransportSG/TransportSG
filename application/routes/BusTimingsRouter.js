@@ -95,14 +95,15 @@ function renderTimings(req, res, next, viewFile) {
     loadDestinationsFromTimings(busStops, busTimings, destinations => {
         loadBusServicesFromTimings(busServices, busTimings, services => {
             loadBusStop(busStops, busStopCode, currentBusStop => {
-                if (currentBusStop)
+                if (currentBusStop) {
+                    res.loggingData = currentBusStop.busStopName;
                     res.render(viewFile, {
                         currentBusStop,
                         busTimings,
                         services,
                         destinations
                     });
-                else {
+                } else {
                     next();
                 }
             });

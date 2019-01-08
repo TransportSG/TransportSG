@@ -11,6 +11,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let query = (req.body.query || '').trim();
 
+    res.loggingData = query;
+
     search(res.db, query, (err, results) => {
         render(res, err, results);
     });
