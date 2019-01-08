@@ -50,7 +50,7 @@ module.exports = [
             let now = new time.Date();
             now.setTimezone('Asia/Singapore');
 
-            if (now.getMonth() >= 0 && now.getDate() >= 13 && now.getUTCFullYear() === 2019) return false;
+            if (!(now.getMonth() >= 0 && now.getDate() >= 13 && now.getUTCFullYear() === 2019)) return false;
 
             return (now.getHours() >= 23 && now.getMinutes() >= 30) || (now.getHours() <= 1 && now.getMinutes() <= 30);
         },
