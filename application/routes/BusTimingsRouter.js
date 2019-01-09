@@ -34,10 +34,12 @@ function loadBusServicesFromTimings(busServices, busTimings, callback) {
     let promises = [];
 
     deduped.forEach(serviceNum => {
+        let dest = busTimings.filter(service => service.service === serviceNum)[0].destination;
+
         promises.push(new Promise(resolve => {
             busServices.findDocument({
                 fullService: serviceNum,
-                routeDirection: 1
+                'interchanges.1' : dest
             }, (err, service) => {
                 services[serviceNum] = service;
                 resolve();
