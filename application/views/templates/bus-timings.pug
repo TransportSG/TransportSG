@@ -75,8 +75,7 @@ if busTimings.length == 0
             
             intervals.forEach((interval, i) => {
                 if (interval >= (maxHeadway + 5)) {
-                    let previousArrival = timings[i + 1] ? timings[i + 1].arrivalTime : 
-                        (timings[i - 1] ? timings[i - 1].arrivalTime : timings[i].arrivalTime);
+                    let previousArrival = timings[i + 1] ? timings[i + 1].arrivalTime : timings[i].arrivalTime;
                     previousArrival = new Date(previousArrival);
                     
                     let predictedArrival = new Date(+previousArrival - avgHeadway * 60 * 1000);
