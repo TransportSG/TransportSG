@@ -8,22 +8,47 @@ if busTimings.length == 0
 -
     function getFrequencySpan() {
         let now = new Date();
-        let hours = now.getUTCHours() + 8;
+        let hours = (now.getUTCHours() + 8) % 24;
         let minutes = now.getUTCMinutes();
 
-        if (hours <= 8 && minutes <= 30) return 'morning';
+        if (hours <= 8) return 'morning';
+        if (hours === 8 && minutes <= 30) return 'morning';
+        
         if (hours < 17) return 'afternoon';
         if (hours <= 19) return 'evening';
         else return 'night';
+    }
+    
+    function getDayOfWeek() {
+        let now = new Date();
+        let day = now.getDay();
+        
+        if (day === 0) return 'sunday';
+        if (day <= 5) return 'weekday';
+        else return 'saturday';
+    }
+    
+    function toDate(time) {
+        let hours = time.slice(0, 2) * 1;
+        let minutes = time.slice(2);
+        let offset = 0;
+        
+        if (hours <= 4) offset = 24 * 60 * 60 * 1000;
+        
+        let today = Math.floor(+new Date() / 86400000) * 86400000;
+        
+        offset -= 8 * 60 * 60 * 1000;
+        
+        return new Date(today + (hours * 60 * 60 * 1000) + (minutes * 60 * 1000) + offset);
     }
 
     function predict(timings, serviceData) {
         try {
             if (timings.length === 4) return timings;
             
-            let currentInterval = serviceData.frequency[getFrequencySpan()];
-            let minHeadway = currentInterval.min;
-            let maxHeadway = currentInterval.max;
+            let currentHeadwayLimits = serviceData.frequency[getFrequencySpan()];
+            let minHeadway = currentHeadwayLimits.min;
+            let maxHeadway = currentHeadwayLimits.max;
             if (minHeadway === '-' && maxHeadway === '-') return timings;
             
             minHeadway *= 1;
@@ -32,11 +57,15 @@ if busTimings.length == 0
             let avgHeadway = minHeadway + maxHeadway;
             avgHeadway /= 2;
             
+            let busStopInfo = serviceData.stops.filter(busStop => busStop.busStopCode == currentBusStopCode)[0];
+            let firstBus = toDate(busStopInfo.firstBus[getDayOfWeek()]);
+            let lastBus = toDate(busStopInfo.lastBus[getDayOfWeek()]);
+            
             let times = [+new Date()].concat(timings.map(time => +new Date(time.arrivalTime)));
             let intervals = times.map((current, i, a) => {
                 if (i === 0) return -1;
                 let prev = a[i - 1];
-                
+            
                 return Math.floor((current - prev) / (1000 * 60));
             }).filter(e => e !== -1);
             
@@ -45,26 +74,29 @@ if busTimings.length == 0
             let predictions = {};
             
             intervals.forEach((interval, i) => {
-                if (interval >= (maxHeadway) + 5) {
-                    let previousArrival = timings[i + 1] ? timings[i + 1].arrivalTime : timings[i].arrivalTime;
+                if (interval >= (maxHeadway + 5)) {
+                    let previousArrival = timings[i + 1] ? timings[i + 1].arrivalTime : 
+                        (timings[i - 1] ? timings[i - 1].arrivalTime : timings[i].arrivalTime);
                     previousArrival = new Date(previousArrival);
                     
                     let predictedArrival = new Date(+previousArrival - avgHeadway * 60 * 1000);
                     
                     predictedArrival = new Date(Math.round(+predictedArrival / 60000) * 60000);
                     
+                    if (predictedArrival < firstBus || predictedArrival > lastBus) return;
+                    
                     predictions[i] = {
                         arrivalTime: predictedArrival,
                         isWAB: -1,
                         load: 3,
                         busType: 0
-                    }
+                    } 
                 }
             });
             
             Object.keys(predictions).reverse().forEach((insertionIndex, i) => {
                 if (final.length + i > 4) return;
-                
+            
                 let prediction = predictions[insertionIndex];
                 final.push(prediction);
             });
@@ -78,6 +110,8 @@ if busTimings.length == 0
                 
                 predictedArrival = new Date(Math.round(+predictedArrival / 60000) * 60000);
                 
+                if (predictedArrival < firstBus || predictedArrival > lastBus) continue;
+                
                 final.push({
                     arrivalTime: predictedArrival,
                     isWAB: -1,
@@ -90,6 +124,7 @@ if busTimings.length == 0
             
             return final;
         } catch (e) {
+            console.err(e);
             return timings;
         }
     }

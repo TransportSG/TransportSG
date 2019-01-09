@@ -98,6 +98,7 @@ function renderTimings(req, res, next, viewFile) {
                 if (currentBusStop) {
                     res.loggingData = currentBusStop.busStopName;
                     res.render(viewFile, {
+                        currentBusStopCode: currentBusStop.busStopCode,
                         currentBusStop,
                         busTimings,
                         services,
