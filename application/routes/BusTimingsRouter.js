@@ -37,10 +37,9 @@ function loadBusServicesFromTimings(busServices, busTimings, callback) {
         let dest = busTimings.filter(service => service.service === serviceNum)[0].destination;
 
         promises.push(new Promise(resolve => {
-            busServices.findDocument({
-                fullService: serviceNum,
-                'interchanges.1' : dest
-            }, (err, service) => {
+            busServices.findDocuments({
+                fullService: serviceNum
+            }).toArray((err, service) => {
                 services[serviceNum] = service;
                 resolve();
             });

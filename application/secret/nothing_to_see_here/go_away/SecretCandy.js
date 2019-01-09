@@ -86,9 +86,9 @@ router.post('/', (req, res) => {
 
     let buses = elfMagic.filterBuses(parsed);
 
-    resolveMultipleBusStops(busStops, busServices, buses, (allServices, busStops) => {
+    resolveMultipleBusStops(busStops, busServices, buses, (services, busStops) => {
         res.render('templates/bus-timings-list', {
-            allServices,
+            services,
             busStops,
             buses
         });

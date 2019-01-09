@@ -1,4 +1,4 @@
--var svcs = Object.keys(allServices)
+-var svcs = Object.keys(services)
 -var flattened = svcs.reduce((a, b) => a.concat(b), []);
 -var deduped = flattened.filter((element, index, array) => array.indexOf(element) === index);
 
@@ -21,12 +21,11 @@ div#services
 -}
 
 - let destinations = busStops;
-- let services = Object.keys(allServices).reduce((a, s) => { a[s] = allServices[s][0]; return a; }, {});
 
 div#timings
     for serviceNumber in deduped
         div(service=serviceNumber).serviceContainer
-            for serviceDirection in allServices[serviceNumber].sort((a, b) => a.routeDirection - b.routeDirection)
+            for serviceDirection in services[serviceNumber].sort((a, b) => a.routeDirection - b.routeDirection)
                 -
                     let {routeDirection} = serviceDirection
                     let directionBusStops = []; 
