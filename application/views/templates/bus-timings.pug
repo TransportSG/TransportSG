@@ -129,13 +129,16 @@ if busTimings.length == 0
     }
 
 for bus in busTimings
-    - let {timings} = bus;
-
+    -
+        let {timings} = bus;
+        let destination = bus.destination;
+        let serviceData = services[bus.service].filter(svc => svc.interchanges[1] === destination)[0];
+        
     div.busService
-        a(href=`/bus/${services[bus.service][0].fullService}` class='busServiceNumber ' + services[bus.service][0].operator.toLowerCase())
-            span=services[bus.service][0].serviceNumber
-            if services[bus.service][0].variant
-                span=services[bus.service][0].variant
+        a(href=`/bus/${serviceData.fullService}/${serviceData.routeDirection}` class='busServiceNumber ' + serviceData.operator.toLowerCase())
+            span=serviceData.serviceNumber
+            if serviceData.variant
+                span=serviceData.variant
         a.destination(href=`/timings/${destinations[bus.destination].busStopCode}`)
             span Towards
             span=destinations[bus.destination].busStopName
@@ -146,11 +149,7 @@ for bus in busTimings
                 - arrivals = timings;
             else
                 
-                -
-                    let destination = bus.destination;
-                    let serviceData = services[bus.service].filter(svc => svc.interchanges[1] === destination)[0];
-                    
-                    arrivals = predict(timings, serviceData);
+                - arrivals = predict(timings, serviceData);
             
             for arrival in arrivals
                 - let ttl = getTimingsDifference(new Date(), new Date(arrival.arrivalTime))
