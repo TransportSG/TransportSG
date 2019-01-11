@@ -20,7 +20,8 @@ function updateDisruptions() {
             disruptionsLastUpdate = new Date();
         });
     } else {
-        disruptions = [];
+        disruptions = getECLOs();
+        disruptionsLastUpdate = new Date();
     }
 }
 
