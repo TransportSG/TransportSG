@@ -19,6 +19,8 @@ function updateDisruptions() {
             disruptions = newDisruptions.concat(getECLOs());
             disruptionsLastUpdate = new Date();
         });
+    } else {
+        disruptions = [];
     }
 }
 

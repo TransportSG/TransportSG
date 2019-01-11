@@ -15,7 +15,7 @@ module.exports = [
             let now = new time.Date();
             now.setTimezone('Asia/Singapore');
             let today = formatDate(now);
-            let yesterday = formatDate(now - 24 * 60 * 1000);
+            let yesterday = formatDate(now - 24 * 60 * 60 * 1000);
             if (!dates.includes(today) && !dates.includes(yesterday)) return false;
 
             return (now.getHours() >= 23 && dates.includes(today)) ||
@@ -33,7 +33,7 @@ module.exports = [
             let now = new time.Date();
             now.setTimezone('Asia/Singapore');
             let today = formatDate(now);
-            let yesterday = formatDate(now - 24 * 60 * 1000);
+            let yesterday = formatDate(now - 24 * 60 * 60 * 1000);
             if (!dates.includes(today) && !dates.includes(yesterday)) return false;
 
             return (now.getHours() >= 23 && now.getMinutes() >= 30 && dates.includes(today)) ||
