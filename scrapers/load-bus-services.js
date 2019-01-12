@@ -66,6 +66,8 @@ function transformBusServiceData(busService) {
     if (busService.Category === 'CITY_LINK') busService.Category = 'CITY DIRECT';
 
     if (busService.DestinationCode === '02089') busService.DestinationCode = '02099';
+    if (busService.DestinationCode === '11389') busService.DestinationCode = '11379';
+    if (busService.DestinationCode === '22199') busService.DestinationCode = '22609';
 
     return {
         fullService: busService.ServiceNo,

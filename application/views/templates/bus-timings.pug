@@ -134,7 +134,7 @@ for bus in busTimings
         let {timings} = bus;
         let destination = bus.destination;
         let serviceData = services[bus.service].filter(svc => svc.interchanges[1] === destination)[0];
-        
+        if (!serviceData) console.log(bus)
     div.busService
         a(href=`/bus/${serviceData.fullService}/${serviceData.routeDirection}` class='busServiceNumber ' + serviceData.operator.toLowerCase())
             span=serviceData.serviceNumber
