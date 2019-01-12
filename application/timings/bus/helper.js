@@ -13,7 +13,7 @@ function createSortIndex(s) {
     return parseFloat(numberPart + '.' + letterPart);
 }
 
-let nwabOverrideServices = ['43M', '63M', '123M', '139M', '143M', '147e', '160A', '502A', '657'];
+let nwabOverrideServices = ['43M', '63M', '123M', '139M', '143M', '147e', '160A', '162M', '502A', '657'];
 let nwabSDOverrides = ['657', '188e', '859A', '859B', '854e', '868E'];
 
 module.exports = callback => {
@@ -46,6 +46,7 @@ module.exports = callback => {
                     if (destination === '02089') destination = '02099';
 
                     if (busStopCode === '84009' && serviceNo === 'CT18') return;
+                    if (busStopCode === '55509' && serviceNo === 'CT8') return;
 
                     timings[busStopCode].push({
                         timings: timingData.match(/(.{10})/g).map(timing => {
