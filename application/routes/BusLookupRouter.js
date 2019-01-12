@@ -4,6 +4,8 @@ let router = new express.Router();
 const moment = require('moment');
 require('moment-precise-range-plugin');
 
+const safeRegex = require('safe-regex');
+
 let operatorCss = {
     'Go Ahead Singapore': 'gas',
     'SBS Transit': 'sbst',
@@ -34,7 +36,12 @@ router.post('/', (req, res) => {
 });
 
 function searchByService(req, res, query) {
-    let parts = query.match(/^([A-Z]+)? ?(\d+[ABCeM\*]?)?\/?([\d\/]+[ABCeM]?)?/);
+    if (!safeRegex(query)) {
+        res.status(400).end('Invalid query');
+        return;
+    }
+
+    let parts = query.match(/^([a-zA-Z]+)? ?([\w]+\*?)?\/?(\w+)?/);
 
     let depot = parts[1],
         service = parts[2],
@@ -43,11 +50,11 @@ function searchByService(req, res, query) {
     let or = [];
     if (service) {
         if (!service.includes('*'))
-            or.push({'operator.permService': service});
+            or.push({'operator.permService': new RegExp('^' + service + '$', 'i')});
         service = service.replace('*', '');
         or.push({
             'operator.crossOvers': {
-                $in: [service]
+                $in: [new RegExp('^' + service + '$', 'i')]
             }
         });
     }
@@ -55,7 +62,7 @@ function searchByService(req, res, query) {
         let svcs = crossOvers.split('/');
         or.push({
             'operator.crossOvers': {
-                $in: svcs
+                $in: svcs.map(e=>new RegExp('^' + e + '$', 'i'))
             }
         });
     }
@@ -63,7 +70,7 @@ function searchByService(req, res, query) {
     res.db.getCollection('bus registrations').findDocuments({$or: or}).toArray((err, buses) => {
         if (depot)
             buses = buses.filter(bus => {
-                return bus.operator.depot === depot;
+                return bus.operator.depot === depot.toUpperCase();
             });
         renderBuses(req, res, buses);
     });
