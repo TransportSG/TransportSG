@@ -9,8 +9,14 @@ function getTimingsDifference(a, b) {let d = new Date(Math.abs(a - b));return {m
 let renderer = function (req, res, next) {
     let busServices = res.db.getCollection('bus services');
     let busStops = res.db.getCollection('bus stops');
+
+    if (req.params.service.match(/[^\w]/)) {
+        next();
+        return;
+    }
+
     busServices.findDocument({
-        fullService: req.params.service,
+        fullService: new RegExp('^' + req.params.service + '$', 'i'),
         routeDirection: (req.params.direction || 1) * 1
     }, (err, service) => {
         if (!service) {
