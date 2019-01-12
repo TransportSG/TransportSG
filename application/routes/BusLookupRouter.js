@@ -121,6 +121,8 @@ function renderBuses(req, res, buses) {
     //     return bus;
     // });
 
+    buses = buses.sort((a, b) => a.registration.number - b.registration.number);
+
     performChecks(res.db.getCollection('bus registrations'), buses, buses => {
         res.render('bus/lookup/results', {buses, operatorCss});
     });
