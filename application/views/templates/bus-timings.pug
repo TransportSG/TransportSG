@@ -58,6 +58,8 @@ if busTimings.length == 0
             avgHeadway /= 2;
             
             let busStopInfo = serviceData.stops.filter(busStop => busStop.busStopCode == currentBusStopCode)[0];
+            if (!busStopInfo) return timings;
+            
             let firstBus = toDate(busStopInfo.firstBus[getDayOfWeek()]);
             let lastBus = toDate(busStopInfo.lastBus[getDayOfWeek()]);
             
