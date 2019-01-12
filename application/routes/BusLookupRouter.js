@@ -1,6 +1,9 @@
 let express = require('express');
 let router = new express.Router();
 
+const moment = require('moment');
+require('moment-precise-range-plugin');
+
 let operatorCss = {
     'Go Ahead Singapore': 'gas',
     'SBS Transit': 'sbst',
@@ -105,21 +108,22 @@ function performChecks(busRegos, buses, callback) {
 }
 
 function renderBuses(req, res, buses) {
-    // buses = buses.map(bus => {
-    //     let deregDate = bus.busData.deregDate;
-    //     if (!deregDate) return bus;
-    //
-    //     let difference = deregDate - new Date();
-    //
-    //     if (difference > 0) { // bus still alive
-    //         difference = new Date(difference);
-    //     } else {
-    //         difference = new Date(-difference);
-    //     }
-    //     console.log(difference);
-    //
-    //     return bus;
-    // });
+    buses = buses.map(bus => {
+        let deregDate = bus.busData.deregDate;
+        if (!deregDate) return bus;
+
+        deregDate = moment(deregDate);
+        let now = moment();
+
+        let diff = moment.preciseDiff(now, deregDate, true);
+
+        bus.timeToDereg = `${diff.years? diff.years + " years":""} ${diff.months? diff.months + " months":""} ${diff.days? diff.days + " days":""}`;
+        if (diff.firstDateWasLater) {
+            bus.timeToDereg += ' ago';
+        }
+
+        return bus;
+    });
 
     buses = buses.sort((a, b) => a.registration.number - b.registration.number);
 
