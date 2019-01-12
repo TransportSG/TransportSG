@@ -106,6 +106,15 @@ function processBusService(service, direction, busStopsList) {
                         firstBus: busStop.firstBus,
                         lastBus: busStop.lastBus
                     };
+
+
+                    if (service.match(/^\dN$/)) {
+                        if ((busStop.distance * 1) < 12)
+                            finalBusStops[busStop.stopNumber].busStopType = 'CITY';
+                        else
+                            finalBusStops[busStop.stopNumber].busStopType = 'TOWN';
+                    }
+
                     resolve2();
 
                 });
