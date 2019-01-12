@@ -15,6 +15,7 @@ module.exports = function getMRTDisruptions(accessKey, callback) {
             callback(err, null);
         } else {
             let data = JSON.parse(body).value;
+            console.log('mrt delay data ', JSON.stringify(data, null, 2));
             callback(err, MRTLineDelay.parse(data));
         }
     });

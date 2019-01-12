@@ -98,7 +98,7 @@ function sendEmail(body) {
        attachment: [
            {data: body, alternative: true}
        ]
-   }), function(err, message) { console.log(err || message); });
+   }), function(err, message) { if (err) console.error(err); });
 }
 
 if (process.env['NODE_ENV'] && process.env['NODE_ENV'] === 'prod') {

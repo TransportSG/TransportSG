@@ -23,3 +23,5 @@ if (httpsServer) httpsServer.listen(443);
 process.on('uncaughtException', (err) => {
     console.error((err && err.stack) ? err.stack : err);
 });
+
+console.err = console.error;
