@@ -15,7 +15,7 @@ function parseQuery(query) {
             canRepeat: true
         },
         depots: {
-            type: ['SLBP', 'UPDEP', 'BBDEP', 'HGDEP', 'BNDEP', 'SMBAMDEP', 'SBSAMDEP', 'SEDEP', 'KJDEP', 'WLDEP', 'BUDEP', 'LYDEP'],
+            type: ['SLBP', 'BRBP', 'UPDEP', 'BBDEP', 'HGDEP', 'BNDEP', 'SMBAMDEP', 'SBSAMDEP', 'SEDEP', 'KJDEP', 'WLDEP', 'BUDEP', 'LYDEP'],
             canRepeat: true
         }
     });

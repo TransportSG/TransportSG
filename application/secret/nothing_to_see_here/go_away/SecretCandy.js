@@ -80,7 +80,7 @@ router.post('/', (req, res) => {
     let parsed = elfMagic.resolveServices(elfMagic.parseQuery(query));
 
     if (parsed.services.allowed.length == 0) {
-        res.render('templates/bus-timings-list', {busStopsData: {}, buses: {}});
+        res.render('templates/bus-timings-list', {busStopsData: {}, buses: {}, services: {}});
         return;
     }
 
