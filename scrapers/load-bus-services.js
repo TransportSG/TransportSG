@@ -68,6 +68,7 @@ function transformBusServiceData(busService) {
     if (busService.DestinationCode === '02089') busService.DestinationCode = '02099';
     if (busService.DestinationCode === '11389') busService.DestinationCode = '11379';
     if (busService.DestinationCode === '22199') busService.DestinationCode = '22609';
+    if (busService.DestinationCode === '55311') busService.DestinationCode = '55009';
 
     return {
         fullService: busService.ServiceNo,
