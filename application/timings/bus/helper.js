@@ -45,6 +45,8 @@ module.exports = callback => {
 
                     if (destination === '02089') destination = '02099';
 
+                    if (busStopCode === '84009' && serviceNo === 'CT18') return;
+
                     timings[busStopCode].push({
                         timings: timingData.match(/(.{10})/g).map(timing => {
                             timing = [...timing].map(e => c[e]);
