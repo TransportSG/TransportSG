@@ -36,6 +36,14 @@ database.connect((err) => {
 
 
 function transformBusStopData(busStop) {
+    if (busStop.Description.length >= 6 && busStop.Description.match(/^[^a-z]+$/)) {
+        busStop.Description = busStop.Description.replace(/([A-Z])([^ ]+)/g, (search, m1, m2) => {
+            if (search == 'CP' || search === 'LP') return search;
+            return m1 + m2.toLowerCase();
+        });
+        if (busStop.Description.toLowerCase().includes('st kinetics')) busStop.Description = busStop.Description.replace('St', 'ST');
+    }
+
     return {
         busStopCode: busStop.BusStopCode.toString(),
         busStopName: busStop.Description,
