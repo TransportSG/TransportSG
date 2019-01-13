@@ -135,7 +135,12 @@ for bus in busTimings
     -
         let {timings} = bus;
         let destination = bus.destination;
-        let serviceData = services[bus.service].filter(svc => svc.interchanges[1] === destination)[0];
+        let serviceData;
+        if (bus.service === '307' && destination === '44531') {
+            serviceData = JSON.parse(JSON.stringify(services[307][0]));
+            serviceData.variant = 'T';
+        } else
+            serviceData = services[bus.service].filter(svc => svc.interchanges[1] === destination)[0];
         if (!serviceData) console.error(bus, currentBusStopCode)
     div.busService
         a(href=`/bus/${serviceData.fullService}/${serviceData.routeDirection}` class='busServiceNumber ' + serviceData.operator.toLowerCase())
