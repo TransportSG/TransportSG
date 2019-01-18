@@ -74,7 +74,6 @@ function parseDisruption(disruption) {
 }
 
 function listToMRTStations(stations) {
-    if (stations) console.err(stations);
     return stations.split(',').map(stationNumber => {
         let mainStationNumber = stationNumber.split('|')[0];
 

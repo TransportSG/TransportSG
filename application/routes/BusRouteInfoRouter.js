@@ -15,17 +15,22 @@ let renderer = function (req, res, next) {
         return;
     }
 
+    let serviceSearch = new RegExp('^' + req.params.service + '$', 'i');
+
     busServices.findDocument({
-        fullService: new RegExp('^' + req.params.service + '$', 'i'),
+        fullService: serviceSearch,
         routeDirection: (req.params.direction || 1) * 1
     }, (err, service) => {
         if (!service) {
             next();
             return;
         }
-        resolveInterchanges([service], busServices, busStops, service => {
-            service = service[0];
-            res.render('bus/service', {service, timings: getBusTimings(), getTimingsDifference});
+
+        busServices.countDocuments({fullService: serviceSearch}, (err, directionCount) => {
+            resolveInterchanges([service], busServices, busStops, service => {
+                service = service[0];
+                res.render('bus/service', {service, timings: getBusTimings(), getTimingsDifference, directionCount});
+            });
         });
     });
 }

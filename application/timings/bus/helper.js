@@ -44,6 +44,7 @@ module.exports = callback => {
                         destination = serviceData[2];
 
                     if (destination === '02089') destination = '02099';
+                    if (destination === '03218') destination = '03239';
 
                     if (busStopCode === '84009' && serviceNo === 'CT18') return;
                     if (busStopCode === '55509' && serviceNo === 'CT8') return;

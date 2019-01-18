@@ -32,4 +32,7 @@ module.exports = class MongoDatabaseCollection {
         this.collection.distinct(field, callback);
     }
 
+    countDocuments(query, callback) {
+        this.collection.countDocuments(query, callback);
+    }
 }

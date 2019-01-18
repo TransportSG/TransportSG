@@ -23,7 +23,7 @@ block content
     - var busTypes = ['', 'SD', 'DD', 'BD']
     - let url = '';
     
-    if service.interchangeNames[1] && service.interchangeNames[1].busStopName
+    if directionCount === 2
         - url = `/bus/${service.fullService}/${[2,1][service.routeDirection-1]}`
     
     if !['SMRT', 'SBST', 'TTS', 'GAS'].includes(service.operator)
