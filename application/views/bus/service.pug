@@ -37,7 +37,7 @@ block content
             if service.interchangeNames[0]
                 a(href=`/timings/${service.interchangeNames[0].busStopCode}`).coloured-row
                     span=service.interchangeNames[0].busStopName.toUpperCase()
-                if !!url
+                if service.interchangeNames[1].busStopCode
                     - url = `/timings/${service.interchangeNames[1].busStopCode}`
                 a(href=url).coloured-row
                     span=(service.interchangeNames[1].busStopName || service.interchangeNames[1]).toUpperCase()

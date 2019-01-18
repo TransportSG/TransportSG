@@ -44,8 +44,7 @@ if busTimings.length == 0
 
     function predict(timings, serviceData) {
         try {
-            timings = timings.filter((e, i, a) => a.indexOf(e) === i);
-            
+            timings = timings.filter((e, i, a) => a.map(x=>+new Date(x.arrivalTime)).indexOf(+new Date(e.arrivalTime)) === i);
             if (timings.length === 4) return timings;
             
             let currentHeadwayLimits = serviceData.frequency[getFrequencySpan()];
@@ -66,7 +65,7 @@ if busTimings.length == 0
             let lastBus = toDate(busStopInfo.lastBus[getDayOfWeek()]);
             
             let times = [+new Date()].concat(timings.map(time => +new Date(time.arrivalTime)));
-            let intervals = times.map((current, i, a) => {
+            let intervals = times.concat(+new Date()).map((current, i, a) => {
                 if (i === 0) return -1;
                 let prev = a[i - 1];
             
