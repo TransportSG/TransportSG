@@ -101,6 +101,19 @@ block content
             span Bus Stop
         - let stopNumber = 0;
         - let destination = service.interchanges[1];
+        mixin timings(serviceTimings)
+            for timing in serviceTimings.timings.slice(0, 2)
+                div(class='busArrIndicator load-' + (timing.load*1 + 1))
+                    span=getTimingsDifference(new Date(), new Date(timing.arrivalTime)).minutes || 'Arr'
+                    div.busInfo
+                        span=busTypes[timing.busType]
+                        if timing.isWAB
+                            img(src='/static/images/wheelchair.svg')
+                        else
+                            img(src='/static/images/non-wheelchair.svg')
+        
+        - let checkDest = service.interchanges[0] !== service.interchanges[1];
+        
         for busStop in service.stops
             div.coloured-row
                 div(onclick=`toggle("${busStop.stopNumber}")`).table-data.spacing2
@@ -112,17 +125,13 @@ block content
                             span=busStop.busStopName
                         div.busArr
                             if timings[busStop.busStopCode]
-                                for svc in timings[busStop.busStopCode]
-                                    if svc.service === service.fullService && svc.destination === destination
-                                        for timing in svc.timings.slice(0, 2)
-                                            div(class='busArrIndicator load-' + (timing.load*1 + 1))
-                                                span=getTimingsDifference(new Date(), new Date(timing.arrivalTime)).minutes || 'Arr'
-                                                div.busInfo
-                                                    span=busTypes[timing.busType]
-                                                    if timing.isWAB
-                                                        img(src='/static/images/wheelchair.svg')
-                                                    else
-                                                        img(src='/static/images/non-wheelchair.svg')
+                                for serviceTimings in timings[busStop.busStopCode]
+                                    if checkDest
+                                        if serviceTimings.service === service.fullService && serviceTimings.destination === destination
+                                            +timings(serviceTimings)
+                                    else if serviceTimings.service === service.fullService
+                                        +timings(serviceTimings)
+                                    
                 div(bus-stop=busStop.busStopCode stop-number=busStop.stopNumber style='display: none;').service-info
                     if busStop.busStopCode !== '-'
                         a(href=`/timings/${busStop.busStopCode}`)
