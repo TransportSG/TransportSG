@@ -68,6 +68,7 @@ function createEmailBody(callback) {
         bndepDownsize: getServices('23 35 35M 37 65 168 7A SD'),
         hgdepDownsize: getServices('87 89e 161 SD'),
         brbpDownsize: getServices('88 SD'),
+        amdepDownsize: getServices('50 SD'),
         sedepBendy: getServices('SEDEP !800 !804 !806 !807 !811 !812 BD'),
         updepUpsize: getServices('120 122 272 273 93 DD'),
         bbdepDownsize: getServices('147e 147 7B SD')
