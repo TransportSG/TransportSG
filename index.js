@@ -8,6 +8,8 @@ let httpServer = null;
 let httpsServer = null;
 let mainServer = new MainServer();
 
+global.startTime = +new Date();
+
 if (config.useHTTPS) {
     let redirectServer = new HTTPSRedirectServer();
     httpServer = HTTPServer.createServer(redirectServer);
@@ -21,7 +23,7 @@ httpServer.listen(config.httpPort);
 if (httpsServer) httpsServer.listen(443);
 
 process.on('uncaughtException', (err) => {
-    console.error((err && err.stack) ? err.stack : err);
+    console.error(new Date(), (err && err.stack) ? err.stack : err);
 });
 
 console.err = console.error;
