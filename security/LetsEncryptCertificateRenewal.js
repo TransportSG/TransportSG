@@ -3,11 +3,16 @@ const HTTPSServer = require('../server/HTTPSServer');
 
 const config = require('../config.json');
 
-setInterval(() => {
+function renew() {
     console.error(new Date(), 'renewing certs')
     childProcess.exec('certbot renew --non-interactive', function(err, stdout, stderr) {
-        console.log(stdout);
-        console.error(stderr);
+        stdout = stdout.toString().trim();
+        stderr = stderr.toString().trim();
+        if (stdout) console.log(stdout);
+        if (stderr) console.error(stderr);
         HTTPSServer.createSecureContext(config.sslCertPath);
     });
-}, 1000 * 60 * 60 * 12);
+}
+
+setInterval(renew, 1000 * 60 * 60 * 12);
+renew();

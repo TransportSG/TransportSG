@@ -2,6 +2,7 @@ const https = require('https');
 const tls = require('tls');
 const fs = require('fs');
 const path = require('path');
+const config = require('../config.json');
 
 let secureContext = null;
 
@@ -42,4 +43,5 @@ module.exports = {
 
 };
 
-require('../security/CertificateRenewal');
+if (config.useLetsEncrypt)
+    require('../security/LetsEncryptCertificateRenewal');
