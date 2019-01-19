@@ -5,7 +5,7 @@ const config = require('../config.json');
 
 setInterval(() => {
     console.error(new Date(), 'renewing certs')
-    childProcess.exec('certbot renew', function(err, stdout, stderr) {
+    childProcess.exec('certbot renew --non-interactive', function(err, stdout, stderr) {
         console.log(stdout);
         console.error(stderr);
         HTTPSServer.createSecureContext(config.sslCertPath);
