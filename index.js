@@ -1,14 +1,19 @@
+global.startTime = +new Date();
+
 const config = require('./config.json');
 const HTTPServer = require('./server/HTTPServer');
 const HTTPSServer = require('./server/HTTPSServer');
 const HTTPSRedirectServer = require('./server/HTTPSRedirectServer');
 const MainServer = require('./server/MainServer');
 
+const moment = require('moment');
+
+startTime = moment(startTime);
+
 let httpServer = null;
 let httpsServer = null;
 let mainServer = new MainServer();
 
-global.startTime = +new Date();
 
 if (config.useHTTPS) {
     let redirectServer = new HTTPSRedirectServer();

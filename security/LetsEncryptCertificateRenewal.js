@@ -4,7 +4,7 @@ const HTTPSServer = require('../server/HTTPSServer');
 const config = require('../config.json');
 
 function renew() {
-    console.error(new Date(), 'renewing certs')
+    console.log(new Date(), 'renewing certs')
     childProcess.exec('certbot renew --non-interactive', function(err, stdout, stderr) {
         stdout = stdout.toString().trim();
         stderr = stderr.toString().trim();

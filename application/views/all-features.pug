@@ -50,6 +50,14 @@ block content
         div(style='background-color: #ffb250')
             img(src='/static/images/home/api-documentation.svg' alt='API Documentation')
         span API Documentation
+    a
+        div(style='background-color: #fdff78')
+            img(src='/static/images/home/build.svg' alt='Build number')
+        -
+            let now = moment();
+            let diff = moment.preciseDiff(now, startTime);
+            
+        span='Uptime: ' + diff
     a(href='https://github.com/TransportSG/TransportSG/commit/' + buildNumber)#buildid
         div
             img(src='/static/images/home/build.svg' alt='Build number')
