@@ -25,7 +25,7 @@ function updateDisruptions() {
     }
 }
 
-setInterval(updateDisruptions, 10 * 60 * 1000);
+setInterval(updateDisruptions, 15 * 60 * 1000);
 updateDisruptions();
 
 module.exports.getMRTDisruptions = function() { return disruptions; }
