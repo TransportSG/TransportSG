@@ -35,7 +35,7 @@ if busTimings.length == 0
         
         if (hours <= 4) offset = 24 * 60 * 60 * 1000;
         
-        let today = Math.floor(+new Date() / 86400000) * 86400000;
+        let today = Math.round(+new Date() / 86400000) * 86400000;
             
         offset -= 8 * 60 * 60 * 1000;
         
