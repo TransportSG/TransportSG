@@ -17,9 +17,9 @@ self.addEventListener('install', e => {
         cacheFiles([
             '/static/css/style.css',
             '/static/css/dropdown.css',
+            '/static/css/loading.css',
 
             '/static/css/bus/lookup.css',
-            '/static/css/bus/loading.css',
 
             '/static/scripts/helper.js',
             '/static/scripts/dropdown.js',
