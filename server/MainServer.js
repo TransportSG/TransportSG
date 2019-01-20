@@ -110,6 +110,7 @@ module.exports = class MainServer {
         app.use('/api', require('../application/routes/api'));
 
         app.get('/sw.js', (req, res) => {
+            res.setHeader('Cache-Control', 'no-cache');
             res.sendFile(path.join(__dirname, '../application/static/sw.js'))
         });
     }

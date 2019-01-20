@@ -87,7 +87,9 @@ self.addEventListener('install', e => {
             '/timings/mrt',
             '/search',
             '/lookup'
-        ])
+        ]).then(() => {
+            return self.skipWaiting();
+        });
     );
 });
 
