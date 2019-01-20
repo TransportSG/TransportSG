@@ -24,6 +24,7 @@
     "querystring": "^0.2.0",
     "request": "^2.88.0",
     "safe-regex": "^2.0.1",
+    "subdomain": "^1.2.0",
     "time": "^0.12.0"
   }
 }

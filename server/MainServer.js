@@ -87,6 +87,7 @@ module.exports = class MainServer {
         if (process.env['NODE_ENV'] && process.env['NODE_ENV'] === 'prod')
             app.set('view cache', true);
         app.set('x-powered-by', false);
+        app.set('strict routing', false);
     }
 
     configRoutes(app) {
@@ -101,6 +102,15 @@ module.exports = class MainServer {
             BusRouteInfo: '/bus',
             MRTDisruptions: '/mrt/disruptions'
         };
+
+        app.use('/', (req, res, next) => {
+            let host = req.hostname || req.headers.host;
+
+            if (host === 'bus.' + config.websiteDNSName) {
+                req.url = path.join('/lookup', req.url);
+            }
+            next();
+        });
 
         Object.keys(routers).forEach(routerName => {
             let router = require(`../application/routes/${routerName}Router`);
