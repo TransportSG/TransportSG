@@ -87,22 +87,42 @@ self.addEventListener('install', e => {
             '/timings/mrt',
             '/search',
             '/lookup'
-        ]).then(() => {
+        ].map(url => {
+            return url.startsWith('/static/') ? 'https://static.transportsg.me' + url : url;
+        })).then(() => {
             return self.skipWaiting();
-        });
+        })
     );
 });
+
+function findStaticFile(url) {
+    let file = url.match(/(\/static.+)$/)[1];
+
+    return caches.open(cacheName)
+        .then(cache => cache.match(file, {ignoreSearch: true}))
+        .then(response => {
+            return response || fetch('https://static.transportsg.me' + file);
+        })
+}
 
 self.addEventListener('activate', event => {
     event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.open(cacheName)
-        .then(cache => cache.match(event.request, {ignoreSearch: true}))
-        .then(response => {
-            return response || fetch(event.request);
-        })
-    );
+    if (event.request.method != 'GET') return;
+    let {url} = event.request;
+
+    if (url.includes('/static/'))
+        event.respondWith(
+            findStaticFile(url)
+        );
+    else
+        event.respondWith(
+            caches.open(cacheName)
+            .then(cache => cache.match(event.request, {ignoreSearch: true}))
+            .then(response => {
+                return response || fetch(event.request);
+            })
+        );
 });
