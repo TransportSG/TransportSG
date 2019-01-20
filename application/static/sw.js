@@ -3,7 +3,11 @@ const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
     return caches.open(cacheName).then(cache => {
-        return cache.addAll(files).then(() => self.skipWaiting());
+        return cache.addAll(files).then(() => self.skipWaiting())
+            .catch(e => {
+                console.error(e);
+                return '';
+            });
     });
 }
 
@@ -87,23 +91,9 @@ self.addEventListener('install', e => {
             '/timings/mrt',
             '/search',
             '/lookup'
-        ].map(url => {
-            return url.startsWith('/static/') ? 'https://static.transportsg.me' + url : url;
-        })).then(() => {
-            return self.skipWaiting();
-        })
+        ])
     );
 });
-
-function findStaticFile(url) {
-    let file = 'https://static.transportsg.me' + url.match(/(\/static.+)$/)[1];
-
-    return caches.open(cacheName)
-        .then(cache => cache.match(file, {ignoreSearch: true}))
-        .then(response => {
-            return response || fetch(file);
-        })
-}
 
 self.addEventListener('activate', event => {
     event.waitUntil(self.clients.claim());
@@ -111,18 +101,12 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
     if (event.request.method != 'GET') return;
-    let {url} = event.request;
 
-    if (url.includes('/static/'))
-        event.respondWith(
-            findStaticFile(url)
-        );
-    else
-        event.respondWith(
-            caches.open(cacheName)
-            .then(cache => cache.match(event.request, {ignoreSearch: true}))
-            .then(response => {
-                return response || fetch(event.request);
-            })
-        );
+    event.respondWith(
+        caches.open(cacheName)
+        .then(cache => cache.match(event.request, {ignoreSearch: true}))
+        .then(response => {
+            return response || fetch(event.request);
+        })
+    );
 });
