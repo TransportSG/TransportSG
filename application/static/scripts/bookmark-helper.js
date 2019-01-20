@@ -1,5 +1,7 @@
 window.setBookmarked = function(busStopCode, state) {
     localStorage.setItem(busStopCode, state);
+    if (state == false)
+        localStorage.removeItem(busStopCode);
 }
 
 window.isBookmarked = function(busStopCode) {
@@ -7,5 +9,5 @@ window.isBookmarked = function(busStopCode) {
 }
 
 window.getAllBookmarks = function() {
-    return Object.keys(localStorage);
+    return Object.keys(localStorage).filter(bsc => localStorage[bsc] === 'true');
 }
