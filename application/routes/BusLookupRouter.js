@@ -3,8 +3,10 @@ let router = new express.Router();
 
 const moment = require('moment');
 require('moment-precise-range-plugin');
-
 const safeRegex = require('safe-regex');
+const path = require('path');
+
+const config = require('../../config.json');
 
 let operatorCss = {
     'Go Ahead Singapore': 'gas',
@@ -16,8 +18,14 @@ let operatorCss = {
     'SMRT Buses': 'smrt'
 };
 
+router.use('/static', express.static(path.join(__dirname, '../static')));
+
 router.get('/', (req, res) => {
-    res.render('bus/lookup');
+    let host = req.hostname || req.headers.host;
+
+    res.render('bus/lookup', {
+        standalone: host === 'bus.' + config.websiteDNSName
+    });
 });
 
 router.post('/', (req, res) => {
@@ -138,5 +146,15 @@ function renderBuses(req, res, buses) {
         res.render('bus/lookup/results', {buses, operatorCss});
     });
 }
+
+router.get('/sw.js', (req, res, next) => {
+    let host = req.hostname || req.headers.host;
+
+    if (host === 'bus.' + config.websiteDNSName) {
+        res.setHeader('Cache-Control', 'no-cache');
+        res.sendFile(path.join(__dirname, '../static/lookup-sw.js'));
+    } else
+        next();
+});
 
 module.exports = router;

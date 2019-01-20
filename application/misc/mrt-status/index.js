@@ -9,7 +9,7 @@ let disruptionsLastUpdate = 0;
 function shouldRun() {
     let hours = new Date().getUTCHours() + 8;
 
-    return (hours >= 5 && hours <= 23);
+    return process.env.NODE_ENV === 'prod' ? (hours >= 5 && hours <= 23) : false;
 }
 
 function updateDisruptions() {

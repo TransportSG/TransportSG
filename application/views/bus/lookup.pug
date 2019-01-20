@@ -1,28 +1,39 @@
-extends ../layout
+html
+    head
+        title TransportSG - Bus Lookup
+        
+        link(rel='stylesheet' href='/static/css/style.css')
+        script(src='/static/scripts/helper.js')
+        
+        if standalone
+            meta(name='theme-color' content='#171717')
+            meta(name='apple-mobile-web-app-capable' content='yes')
+            meta(name='mobile-web-app-capable' content='yes')
+            meta(name='apple-mobile-web-app-status-bar-style' content='black-translucent')
+            
+            link(rel='icon' type='image/png' href='/static/images/favicon.png')
+            link(rel='shortcut icon' type='image/png' href='/static/images/favicon.png')
+            link(rel='apple-touch-icon' type='image/png' href='/static/images/favicon.png')
+            link(rel='manifest' href='/static/lookup-manifest.json')
 
-block head
-    title TransportSG - Bus Lookup
-    
-block scripts
-    script(src='/static/scripts/dropdown.js')
-    script(src='/static/scripts/bus/lookup.js' async)
-
-block css
-    link(rel='stylesheet' href='/static/css/bus/lookup.css')
-    link(rel='stylesheet' href='/static/css/dropdown.css')
-    link(rel='stylesheet' href='/static/css/loading.css')
-
-block header
-    span#title Bus Lookup
-    
-block links
-    ul#lookup-method
-        li Rego
-        li Service
-
-block content
-    div#searchbar
-        input(type='number')#input
-    div#loading(style='display: none')
-        div#loadingBar
-    div#results
+    body
+        div#header
+            span#title Bus Lookup
+            div#links
+                ul#lookup-method
+                    li Rego
+                    li Service
+                a#home(href='/') Home    
+        div#searchbar
+            input(type='number')#input
+        div#loading(style='display: none')
+            div#loadingBar
+        div#results
+            
+        script(src='/static/scripts/dropdown.js')
+        script(src='/static/scripts/bus/lookup.js' async)
+        script(src='/static/scripts/sw.js')
+        
+        link(rel='stylesheet' href='/static/css/bus/lookup.css')
+        link(rel='stylesheet' href='/static/css/dropdown.css')
+        link(rel='stylesheet' href='/static/css/loading.css')

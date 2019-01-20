@@ -1,13 +1,13 @@
 {
-    "name": "TransportSG",
-    "short_name": "TransportSG",
+    "name": "TransportSG Bus Lookup",
+    "short_name": "Bus Lookup",
     "start_url": "/",
     "scope": "/",
     "background_color": "#1e1e1e",
     "theme_color": "#1e1e1e",
     "display": "fullscreen",
     "orientation": "portrait",
-    "description": "A transport app for Singapore",
+    "description": "A bus lookup app",
     "icons": [
         {
             "src": "/static/images/favicon.png",
@@ -16,6 +16,6 @@
         }
     ],
     "related_applications": [
-        "TransportSG Bus Lookup"
+        "TransportSG"
     ]
 }

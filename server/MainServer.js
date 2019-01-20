@@ -55,6 +55,8 @@ module.exports = class MainServer {
                     stream.write(req.method + ' ' + reqURL + (res.loggingData ? ' ' + res.loggingData : '') + ' ' + diff + '\n', () => {});
             };
 
+            res.locals.hostname = config.websiteDNSName;
+
             next();
         });
 
@@ -70,7 +72,9 @@ module.exports = class MainServer {
         app.use((req, res, next) => {
             res.setHeader('Strict-Transport-Security', 'max-age=31536000');
             let secureDomain = `http${config.useHTTPS ? 's' : ''}://${config.websiteDNSName}:*`;
-            secureDomain += ` https://static.transportsg.me:*`
+            secureDomain += ` http${config.useHTTPS ? 's' : ''}://static.${config.websiteDNSName}:*`
+            secureDomain += ` http${config.useHTTPS ? 's' : ''}://static.transportsg.me:*`
+            secureDomain += ` http${config.useHTTPS ? 's' : ''}://bus.${config.websiteDNSName}:*`
 
             res.setHeader('Content-Security-Policy', `default-src ${secureDomain}; script-src 'unsafe-inline' ${secureDomain}; style-src 'unsafe-inline' ${secureDomain}`);
             res.setHeader('X-Frame-Options', 'SAMEORIGIN');
@@ -109,8 +113,8 @@ module.exports = class MainServer {
 
             if (host === 'bus.' + config.websiteDNSName) {
                 req.url = path.join('/lookup', req.url);
-            }
-            next();
+            } else
+                next();
         });
 
         Object.keys(routers).forEach(routerName => {
@@ -122,7 +126,7 @@ module.exports = class MainServer {
 
         app.get('/sw.js', (req, res) => {
             res.setHeader('Cache-Control', 'no-cache');
-            res.sendFile(path.join(__dirname, '../application/static/sw.js'))
+            res.sendFile(path.join(__dirname, '../application/static/sw.js'));
         });
     }
 

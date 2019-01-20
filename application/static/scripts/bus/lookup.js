@@ -9,8 +9,12 @@ function performQuery() {
 
     $('#loading').style.display = 'block';
 
+    let url = '/lookup/';
+    if (location.hostname.startsWith('bus.'))
+        url = '/';
+
     $.ajax({
-        url: '/lookup/',
+        url,
         method: 'POST',
         data: {
             method,

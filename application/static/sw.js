@@ -1,4 +1,4 @@
-const version = "0.0.30";
+const version = "0.0.31";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -96,12 +96,12 @@ self.addEventListener('install', e => {
 });
 
 function findStaticFile(url) {
-    let file = url.match(/(\/static.+)$/)[1];
+    let file = 'https://static.transportsg.me' + url.match(/(\/static.+)$/)[1];
 
     return caches.open(cacheName)
         .then(cache => cache.match(file, {ignoreSearch: true}))
         .then(response => {
-            return response || fetch('https://static.transportsg.me' + file);
+            return response || fetch(file);
         })
 }
 
