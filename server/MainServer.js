@@ -113,8 +113,8 @@ module.exports = class MainServer {
 
             if (host === 'bus.' + config.websiteDNSName) {
                 req.url = path.join('/lookup', req.url);
-            } else
-                next();
+            }
+            next();
         });
 
         Object.keys(routers).forEach(routerName => {

@@ -10,6 +10,7 @@ module.exports = class HTTPSRedirectServer {
 
     app(req, res) {
         if (req.url.startsWith('/.well-known')) {
+            req.url = url.parse(url);
             let filePath = path.join(config.webrootPath, req.url.path);
 
             fs.createReadStream(filePath).pipe(res);
