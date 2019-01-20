@@ -3,7 +3,11 @@ const cacheName = `bus.transportsg-${version}`;
 
 function cacheFiles(files) {
     return caches.open(cacheName).then(cache => {
-        return cache.addAll(files).then(() => self.skipWaiting());
+        return cache.addAll(files).then(() => self.skipWaiting())
+            .catch(e => {
+                console.error(e);
+                return '';
+            });
     });
 }
 
@@ -12,9 +16,9 @@ self.addEventListener('install', e => {
     e.waitUntil(
         cacheFiles([
             '/static/css/style.css',
+            '/static/css/dropdown.css',
 
             '/static/css/bus/lookup.css',
-            '/static/css/bus/dropdown.css',
             '/static/css/bus/loading.css',
 
             '/static/scripts/helper.js',
