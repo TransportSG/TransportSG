@@ -50,7 +50,7 @@ div#timings
                         div.busStopContainer
                             label(for=`checkbox-${serviceNumber}-${routeDirection}-${busStopCode}`).busStopHideContainer
                                 span.busStopName=busStopData.busStopName
-                            input(type='checkbox' id=`checkbox-${serviceNumber}-${routeDirection}-${busStopCode}` bus-stop-code=busStopCode).busStopHideCheckbox
+                            input(type='checkbox' id=`checkbox-${serviceNumber}-${routeDirection}-${busStopCode}` bus-stop-code=busStopCode type='hidden').busStopHideCheckbox
                             div.busStopContents
                                 - let doNotPredict = true;
                                 include bus-timings

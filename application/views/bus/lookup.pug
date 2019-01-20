@@ -1,4 +1,5 @@
-html
+doctype html
+html(lang='en-GB')
     head
         meta(charset='UTF-8')
         meta(http-eqiv='X-UA-Compatible' content='IE=Edge')
@@ -32,7 +33,7 @@ html
                     li Service
                 a#home(href='/') Home    
         div#searchbar
-            input(type='number')#input
+            input(type='number' aria-label='Bus Registration Number')#input
         div#loading(style='display: none')
             div#loadingBar
         div#results
