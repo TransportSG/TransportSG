@@ -1,4 +1,4 @@
-const version = "0.0.1";
+const version = "0.0.2";
 const cacheName = `bus.transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -26,6 +26,9 @@ self.addEventListener('install', e => {
             '/static/scripts/bus/lookup.js',
 
             '/static/fonts/bree-serif.otf',
+
+            '/static/images/lookup-favicon192.png',
+            '/static/images/lookup-favicon512.png',
 
             '/',
         ])

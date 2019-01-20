@@ -10,8 +10,13 @@
     "description": "A bus lookup app",
     "icons": [
         {
-            "src": "/static/images/favicon.png",
+            "src": "/static/images/lookup-favicon512.png",
             "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/static/images/lookup-favicon192.png",
+            "sizes": "192x192",
             "type": "image/png"
         }
     ],

@@ -77,11 +77,13 @@ self.addEventListener('install', e => {
             '/static/images/magnifying-glass.svg',
             '/static/images/non-wheelchair.svg',
             '/static/images/lrt-station.svg',
-            '/static/images/favicon.png',
             '/static/images/wheelchair.svg',
             '/static/images/mrt-icon.svg',
             '/static/fonts/bree-serif.otf',
             '/static/fonts/ff-meta.otf',
+
+            '/static/images/favicon192.png',
+            '/static/images/favicon512.png',
 
             '/',
             '/bookmarks',
