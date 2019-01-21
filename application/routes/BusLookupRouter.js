@@ -75,6 +75,11 @@ function searchByService(req, res, query) {
         });
     }
 
+    if (!buses.length) {
+        renderBuses(req, res, []);
+        return;
+    }
+
     res.db.getCollection('bus registrations').findDocuments({$or: or}).toArray((err, buses) => {
         if (depot)
             buses = buses.filter(bus => {
