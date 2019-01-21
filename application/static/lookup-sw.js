@@ -13,6 +13,16 @@ function cacheFiles(files) {
 
 self.addEventListener('install', e => {
     const timeStamp = Date.now();
+
+    caches.keys().then(function (cachesNames) {
+        return Promise.all(cachesNames.map((storedCacheName) => {
+            if (storedCacheName === cacheName || !storedCacheName.startsWith('bus.transportsg')) return Promise.resolve();
+            return caches.delete(storedCacheName).then(() => {
+                console.log("Old cache " + storedCacheName + " deleted");
+            });
+        }))
+    });
+
     e.waitUntil(
         cacheFiles([
             '/static/css/style.css',

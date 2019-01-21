@@ -1,4 +1,4 @@
-const version = "0.0.33";
+const version = "0.0.34";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
@@ -13,6 +13,16 @@ function cacheFiles(files) {
 
 self.addEventListener('install', e => {
     const timeStamp = Date.now();
+
+    caches.keys().then(function (cachesNames) {
+        return Promise.all(cachesNames.map((storedCacheName) => {
+            if (storedCacheName === cacheName || !storedCacheName.startsWith('transportsg')) return Promise.resolve();
+            return caches.delete(storedCacheName).then(() => {
+                console.log("Old cache " + storedCacheName + " deleted");
+            });
+        }))
+    });
+
     e.waitUntil(
         cacheFiles([
             '/static/css/dropdown.css',
@@ -53,8 +63,8 @@ self.addEventListener('install', e => {
             '/static/scripts/mrt/stations/nearby.js',
 
             '/static/images/home/api-documentation.svg',
-            '/static/images/home/build.svg',
             '/static/images/home/bookmarks.svg',
+            '/static/images/home/build.svg',
             '/static/images/home/bus_lookup.svg',
             '/static/images/home/contact_me.svg',
             '/static/images/home/everything_else.svg',
