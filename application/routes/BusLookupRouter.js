@@ -137,10 +137,16 @@ function renderBuses(req, res, buses) {
 
         let diff = moment.preciseDiff(now, deregDate, true);
 
-        bus.timeToDereg = `${diff.years? diff.years + " years":""} ${diff.months? diff.months + " months":""} ${diff.days? diff.days + " days":""}`;
+        bus.timeToDereg = `${diff.years? diff.years + " years ":""}${diff.months? diff.months + " months ":""}${diff.days? diff.days + " days":""}`;
+        if (bus.timeToDereg === '') {
+            bus.timeToDereg = 'Today';
+        }
+
         if (diff.firstDateWasLater) {
             bus.timeToDereg += ' ago';
         }
+
+        bus.daysToDereg = deregDate.diff(now, 'days');
 
         return bus;
     });

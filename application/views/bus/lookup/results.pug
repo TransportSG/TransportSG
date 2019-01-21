@@ -48,7 +48,16 @@ for bus in buses
                     span Unknown
                 else
                     
-                    div.deregInfo
+                    -
+                        let colour = '#c5c5c5';
+                        if (bus.daysToDereg <= 31)
+                            colour = '#c7c925';
+                        if (bus.daysToDereg <= 7)
+                            colour = '#f29723';
+                        if (bus.daysToDereg <= 4)
+                            colour = '#e93d33';
+                        
+                    div(style='color: ' + colour).deregInfo
                         span.deregDate=bus.busData.deregDate.getDate() + ' ' + months[bus.busData.deregDate.getMonth()] + ' ' + bus.busData.deregDate.getFullYear()
                         span.timeToDereg=bus.timeToDereg
             div.data.chassis
