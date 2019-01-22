@@ -75,7 +75,7 @@ function searchByService(req, res, query) {
         });
     }
 
-    if (!buses.length) {
+    if (!or.length) {
         renderBuses(req, res, []);
         return;
     }
