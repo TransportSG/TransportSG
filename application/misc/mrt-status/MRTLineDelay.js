@@ -78,7 +78,7 @@ function listToMRTStations(stations) {
         let mainStationNumber = stationNumber.split('|')[0];
 
         return getMRTStation(mainStationNumber);
-    });
+    }).filter(station => !!station);
 }
 
 function parseResponse(response) {
