@@ -13,14 +13,18 @@ div#services
         div#dir-2
             span Direction 2
 
--function isBusStopInRoute(svc, busStopCode) {
--    return svc.stops.map(stop => stop.busStopCode == busStopCode).filter(Boolean).length !== 0;
--}
--function getStopNumber(svc, busStopCode) {
--    return svc.stops.map(stop=>stop.busStopCode).indexOf(busStopCode) + 1;
--}
+-
+    function isBusStopInRoute(svc, busStopCode, dest) {
+        return svc.stops.map(stop => 
+            stop.busStopCode === busStopCode && svc.interchanges[1] === dest
+        ).filter(Boolean).length !== 0;
+    }
+    
+    function getStopNumber(svc, busStopCode) {
+        return svc.stops.map(stop=>stop.busStopCode).indexOf(busStopCode) + 1;
+    }
 
-- let destinations = busStops;
+    let destinations = busStops;
 
 div#timings
     for serviceNumber in deduped
@@ -30,7 +34,9 @@ div#timings
                     let {routeDirection} = serviceDirection
                     let directionBusStops = []; 
                     Object.keys(buses).forEach(busStopCode => {
-                        if (isBusStopInRoute(serviceDirection, busStopCode)) {
+                        let {destination} = buses[busStopCode].filter(svc => svc.service === serviceNumber)[0];
+                        
+                        if (isBusStopInRoute(serviceDirection, busStopCode, destination)) {
                             if (buses[busStopCode].filter(svc => svc.service === serviceNumber).length)
                                 directionBusStops.push({
                                     busStopCode, busTimings: buses[busStopCode], stopNumber: getStopNumber(serviceDirection, busStopCode)
