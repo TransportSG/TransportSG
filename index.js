@@ -28,7 +28,7 @@ httpServer.listen(config.httpPort);
 if (httpsServer) httpsServer.listen(443);
 
 process.on('uncaughtException', (err) => {
-    console.error(new Date(), (err && err.stack) ? err.stack : err);
+    console.error(new Date() + '  ' + err && err.stack) ? err.stack : err);
 });
 
 console.err = console.error;
