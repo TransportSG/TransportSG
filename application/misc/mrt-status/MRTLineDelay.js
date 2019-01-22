@@ -12,7 +12,8 @@ function getMRTStation(code) {
 }
 
 function hasResumed(status) {
-    return status.includes('service') && status.includes('resume');
+    return status.includes('service') && status.includes('resume') &&
+        !(status.includes('additional') && status.includes('travel') && status.includes('time'));
 }
 
 function parse(data) {
@@ -20,13 +21,13 @@ function parse(data) {
     if (!latestMessage) return [];
 
     let contents = latestMessage.Content;
-    let lineStatuses = contents.match(/(\d{4}hrs: [A-Z]+ - [^.]+)/g);
+    contents = contents.replace(/(\d{4}hrs)/g, '\n$1');
+    let lineStatuses = contents.match(/^(\d{4}hrs: [A-Z]+ ?- ?.+)$/gm);
     lineStatuses = lineStatuses.filter(status => !hasResumed(status));
 
     let disruptions = [];
     lineStatuses.forEach(status => {
-        let statusInfoParts = status.match(/\d{4}hrs: ([A-Z]+) - ([^.]+)/);
-
+        let statusInfoParts = status.match(/\d{4}hrs: ([A-Z]+) ?- ?(.+)/);
         let line = statusInfoParts[1],
             message = statusInfoParts[2];
 
@@ -82,9 +83,9 @@ function listToMRTStations(stations) {
 }
 
 function parseResponse(response) {
-    let stations = response.Stations;
     let fbbStations = response.FreeMRTShuttle;
     let fpbStations = response.FreePublicBus;
+    let stations = response.Stations || fpbStations || fbbStations;
     let line = response.Line;
 
     stations = listToMRTStations(stations);
@@ -108,7 +109,7 @@ function determineDisruptionType(message) {
     let cause = message.match(/due to(?: a)? ([\w ]+)/);
     if (cause) cause = cause[1];
 
-    if (message.includes('additional travelling time')) {
+    if (message.match(/additional travel(?:ling)? time/)) {
         let disruptionTime = message.match(/(\d+) ?min\w*/);
         if (disruptionTime) disruptionTime = disruptionTime[1] * 1;
 
