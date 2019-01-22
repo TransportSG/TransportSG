@@ -238,7 +238,7 @@ img#bookmark-status {
     margin: 0 !important;
 }
 
-#header span {
+#header > span {
     font-size: calc((100vw + 100vh) * .013);
     margin: calc(-.3vw - .3vh) 0 0 calc(1vw + 1vh);
 }
