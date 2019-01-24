@@ -38,6 +38,8 @@ router.post('/', (req, res) => {
         searchRego(req, res, query * 1);
     } else if (method === 'service') {
         searchByService(req, res, query);
+    } else if (method === 'advanced') {
+        advancedSearch(req, res, query);
     } else {
         res.status(400).end('Invalid method');
     }
@@ -95,6 +97,50 @@ function searchRego(req, res, number) {
     buses.findDocuments({
         'registration.number': number
     }).toArray((err, buses) => {
+        renderBuses(req, res, buses);
+    });
+}
+
+let queryKeys = {
+    model: 'busData.model',
+    livery: 'busData.livery',
+    bodywork: 'busData.bodywork',
+    vin: 'busData.chassis',
+    deregDate: 'busData.deregDate',
+    edsModel: 'busData.edsModel',
+    operator: 'operator.operator',
+    depot: 'operator.depot',
+    perm: 'operator.permService',
+    crossOvers: 'operator.crossOvers',
+    advert: 'fleet.ad'
+};
+
+function advancedSearch(req, res, query) {
+    let lines = query.match(/^[\w.]+: [\w .,\-%()'"]+$/gm) || [];
+
+    let search = {};
+
+    lines.forEach(line => {
+        let matches = line.match(/^([\w.]+): ([\w .,\-%()'"]+)$/);
+        let key = matches[1], value = matches[2];
+        if (!safeRegex(value)) return;
+
+        let dbKey = queryKeys[key];
+
+        if (key === 'deregDate')
+            search[dbKey] = new Date(value + ' GMT +0000');
+        else
+            search[dbKey] = new RegExp(value, 'i');
+    });
+
+    let buses = res.db.getCollection('bus registrations');
+
+    buses.findDocuments(search).toArray((err, buses) => {
+        if (buses.length >= 200) {
+            res.status(200).end('Too many buses - please refine query');
+            return;
+        };
+
         renderBuses(req, res, buses);
     });
 }

@@ -1,7 +1,7 @@
 let method = 'rego';
 
 function performQuery() {
-    let query = $('#input').value;
+    let query = method === 'advanced' ? $('#multiline-input').value : $('#input').value;
     if (query.trim() ==  '') {
         $('#results').innerHTML = '';
         return;
@@ -34,23 +34,37 @@ $.ready(() => {
         switch(chosen) {
             case 'Rego':
                 $('#input').setAttribute('type', 'number');
+                $('#searchbar').className = '';
+                $('#input').style.display = 'block';
+                $('#multiline-input').style.display = 'none';
                 break;
             case 'Service':
                 $('#input').setAttribute('type', 'text');
+                $('#searchbar').className = '';
+                $('#input').style.display = 'block';
+                $('#multiline-input').style.display = 'none';
+                break;
+            case 'Advanced':
+                $('#input').setAttribute('type', 'text');
+                $('#searchbar').className = 'expanded';
+                $('#input').style.display = 'none';
+                $('#multiline-input').style.display = 'block';
                 break;
         }
     });
 
     $('#lookup-method-div span').textContent = 'Rego';
 
+    createInputTimeout($('#input'));
+    createInputTimeout($('#multiline-input'));
+    performQuery();
+});
+
+function createInputTimeout(element) {
     let inputTimeout = 0;
 
-    let input = $('#input');
-
-    input.on('input', () => {
+    element.on('input', () => {
         clearTimeout(inputTimeout);
         inputTimeout = setTimeout(performQuery, 650);
     });
-
-    performQuery();
-});
+}

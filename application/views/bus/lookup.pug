@@ -36,9 +36,11 @@ html(lang='en-GB')
                 ul#lookup-method
                     li Rego
                     li Service
+                    li Advanced
                 a#home(href='/') Home    
         div#searchbar
-            input(type='number' aria-label='Bus Registration Number')#input
+            input(type='number' aria-label='Query')#input
+            textarea(autocapitalize='none' autocomplete='off' spellcheck='false' aria-label='Multiline Query')#multiline-input
         div#loading(style='display: none')
             div#loadingBar
         div#results

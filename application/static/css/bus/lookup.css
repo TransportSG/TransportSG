@@ -41,7 +41,7 @@ div#searchbar {
     justify-content: center;
 }
 
-input#input {
+input#input, textarea#multiline-input {
     height: calc(3.3vw + 3.3vh);
     width: calc(20vw + 20vh);
     border: none;
@@ -55,6 +55,29 @@ input#input {
     -moz-appearance: textfield;
 
     font-family: BreeSerif;
+}
+
+textarea#multiline-input {
+    height: calc(15vw + 15vh);
+    width: calc(30vw + 30vh);
+    border: none;
+    border-radius: calc(1vw + 1vh);
+    outline: none;
+    font-family: monospace;
+    font-size: calc(2.2vw + 2.2vh);
+    background-color: #e0e0e0;
+    appearance: none;
+    -moz-appearance: textfield;
+    text-align: left;
+    padding: calc(0.5vw + 0.5vh);
+
+    resize: none;
+
+    display: none;
+}
+
+div#searchbar.expanded {
+    height: calc(17vw + 17vh);
 }
 
 input#input::-moz-selection, input#input::selection {
