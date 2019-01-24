@@ -135,13 +135,15 @@ function advancedSearch(req, res, query) {
 
     let buses = res.db.getCollection('bus registrations');
 
-    buses.findDocuments(search).toArray((err, buses) => {
-        if (buses.length >= 200) {
+    buses.countDocuments(search, (err, busCount) => {
+        if (busCount >= 200) {
             res.status(200).end('Too many buses - please refine query');
             return;
         };
 
-        renderBuses(req, res, buses);
+        buses.findDocuments(search).toArray((err, buses) => {
+            renderBuses(req, res, buses);
+        });
     });
 }
 
