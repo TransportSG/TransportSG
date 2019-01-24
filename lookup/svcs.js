@@ -66,11 +66,13 @@ function updateBus(rego, deployment, advert, resolve) {
         'registration.checksum': rego[2]
     };
 
+    if (rego[1] == '1745') console.log(deployment)
+
     buses.updateDocument(query, {
         $set: {
             'operator.depot': deployment[0],
             'operator.permService': deployment[1].split('/')[0],
-            'operator.crossOvers': deployment[1].split('/').slice(1).map(svc => svc.replace('*', '')),
+            'operator.crossOvers': deployment.slice(1, -1).join(' ').split('/').slice(1).map(svc => svc.replace('*', '').trim()).filter(Boolean),
             'fleet.ad': advert
         }
     }, () => {
