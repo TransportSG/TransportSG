@@ -96,7 +96,7 @@ function transformData(regoPrefix, csv) {
             livery: csv[8],
             bodywork: csv[4],
             chassis: csv[6],
-            deregDate: csv[7] ? new Date(csv[7]) : null,
+            deregDate: csv[7] ? new Date(csv[7] + ' GMT +0000') : null,
             gearbox: csv[13],
             edsModel: csv[14],
         },

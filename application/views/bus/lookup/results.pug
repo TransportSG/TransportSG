@@ -60,7 +60,7 @@ for bus in buses
                         }
                         
                     div(style='color: ' + colour).deregInfo
-                        span.deregDate=bus.busData.deregDate.getDate() + ' ' + months[bus.busData.deregDate.getMonth()] + ' ' + bus.busData.deregDate.getFullYear()
+                        span.deregDate=bus.busData.deregDate.getUTCDate() + ' ' + months[bus.busData.deregDate.getUTCMonth()] + ' ' + bus.busData.deregDate.getUTCFullYear()
                         span.timeToDereg=bus.timeToDereg
             div.data.chassis
                 span Chassis ID
