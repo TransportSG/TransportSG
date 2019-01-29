@@ -102,6 +102,7 @@ function searchRego(req, res, number) {
 }
 
 let queryKeys = {
+    make: 'busData.make',
     model: 'busData.model',
     livery: 'busData.livery',
     bodywork: 'busData.bodywork',
@@ -112,7 +113,8 @@ let queryKeys = {
     depot: 'operator.depot',
     perm: 'operator.permService',
     crossOvers: 'operator.crossOvers',
-    advert: 'fleet.ad'
+    advert: 'fleet.ad',
+    notes: 'misc.notes'
 };
 
 function advancedSearch(req, res, query) {
