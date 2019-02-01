@@ -33,7 +33,7 @@ function load() {
 
                     buses.forEach(bus => {
                         let rego = bus.children[0].textContent.trim().match(/([A-Z]+)(\d+)(\w)/).slice(1, 4);
-                        let deployment = bus.children[1].textContent.trim().split(' ').concat(['Unknown']);
+                        let deployment = bus.children[1].textContent.trim().split(' ');
                         let advert = !!bus.children[2] ? bus.children[2].textContent.trim() : lastAd;
 
                         lastAd = advert;
@@ -68,9 +68,9 @@ function updateBus(rego, deployment, advert, resolve) {
 
     buses.updateDocument(query, {
         $set: {
-            'operator.depot': deployment[0],
-            'operator.permService': deployment[1].split('/')[0],
-            'operator.crossOvers': deployment.slice(1, -1).join(' ').split('/').slice(1).map(svc => svc.replace('*', '').trim()).filter(Boolean),
+            'operator.depot': deployment[0] || 'Unknown',
+            'operator.permService': deployment[1] ? deployment[1].split('/')[0] : 'Unknown',
+            'operator.crossOvers': deployment.slice(1).join(' ').split('/').slice(1).map(svc => svc.replace('*', '').trim()).filter(e => e.length),
             'fleet.ad': advert
         }
     }, () => {
