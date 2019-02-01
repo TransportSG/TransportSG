@@ -45,26 +45,39 @@ router.post('/', (req, res) => {
     }
 });
 
+function expandRange(input) {
+    return input ? input.replace(/_/g, '[\\w ]') : null;
+}
+
+function limitSearch(svc) {
+    return svc.match(/\d/) ? '^' + svc + '$' : svc;
+}
+
 function searchByService(req, res, query) {
     if (!safeRegex(query)) {
         res.status(400).end('Invalid query');
         return;
     }
 
-    let parts = query.match(/^([a-zA-Z]+)? ?([\w]+\*?)?\/?(\w+)?/);
+    let parts = query.match(/^(\w+)? ?([\w]+\*?)?\/?(\w+)?/);
 
-    let depot = parts[1],
-        service = parts[2],
-        crossOvers = parts[3];
+    let depot = expandRange(parts[1]),
+        service = expandRange(parts[2]),
+        crossOvers = expandRange(parts[3]);
+
+    if (!service && !!depot) {
+        service = depot;
+        depot = null;
+    }
 
     let or = [];
     if (service) {
         if (!service.includes('*'))
-            or.push({'operator.permService': new RegExp('^' + service + '$', 'i')});
+            or.push({'operator.permService': new RegExp(limitSearch(service), 'i')});
         service = service.replace('*', '');
         or.push({
             'operator.crossOvers': {
-                $in: [new RegExp('^' + service + '$', 'i')]
+                $in: [new RegExp(limitSearch(service), 'i')]
             }
         });
     }
@@ -72,13 +85,15 @@ function searchByService(req, res, query) {
         let svcs = crossOvers.split('/');
         or.push({
             'operator.crossOvers': {
-                $in: svcs.map(e=>new RegExp('^' + e + '$', 'i'))
+                $in: svcs.map(e=>new RegExp(limitSearch(service), 'i'))
             }
         });
     }
 
     if (!or.length) {
-        renderBuses(req, res, []);
+        or.push({
+            'operator.permService': new RegExp(service, 'i')
+        });
         return;
     }
 
