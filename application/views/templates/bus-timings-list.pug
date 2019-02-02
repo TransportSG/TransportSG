@@ -34,10 +34,10 @@ div#timings
                     let {routeDirection} = serviceDirection
                     let directionBusStops = []; 
                     Object.keys(buses).forEach(busStopCode => {
+                        if (!buses[busStopCode].filter(svc => svc.service === serviceNumber).length) return;
                         let {destination} = buses[busStopCode].filter(svc => svc.service === serviceNumber)[0];
                         
                         if (isBusStopInRoute(serviceDirection, busStopCode, destination)) {
-                            if (buses[busStopCode].filter(svc => svc.service === serviceNumber).length)
                                 directionBusStops.push({
                                     busStopCode, busTimings: buses[busStopCode], stopNumber: getStopNumber(serviceDirection, busStopCode)
                                });
