@@ -12,6 +12,7 @@ let completed = 0;
 
 const fileTypes = {
     'TIBS': 'TIB',
+    'CSS': 'CSS',
     'SBST': 'SBS',
     'SBSR': 'SBS-R',
     'SG': 'SG',
@@ -23,7 +24,8 @@ const fileTypes = {
     'WC': 'WC',
     'CB': 'CB',
     'SH': 'SH',
-    'PH': 'PH'
+    'PH': 'PH',
+    'R': 'R'
 };
 
 database.connect({
@@ -35,7 +37,7 @@ database.connect({
 });
 
 let currentOperatorIndex = 0;
-let highestOperatorIndex = Object.keys(fileTypes).length - 1;
+let highestOperatorIndex = Object.keys(fileTypes).length;
 
 function load() {
     loadOperator(currentOperatorIndex, numberCompleted => {
@@ -61,7 +63,7 @@ function loadOperator(index, callback) {
         parse(data, (err, busList) => {
             busList.splice(0, 1);
 
-            processRegoSet(regoPrefix, busList).then(numberCompleted => {
+            processRegoSet(regoPrefix, busList, operatorName === 'R').then(numberCompleted => {
                 callback(numberCompleted);
             });
         });
@@ -142,10 +144,13 @@ function updateBus(query, data, resolve) {
     });
 }
 
-function processRegoSet(regoPrefix, busList) {
+function processRegoSet(regoPrefix, busList, readPrefixFromFile) {
     let promises = [];
 
     busList.forEach(busCSV => {
+        if (readPrefixFromFile)
+            regoPrefix = busCSV.splice(0, 1)[0];
+
         if (busCSV[2] === '') return;
 
         let busData = transformData(regoPrefix, busCSV);
