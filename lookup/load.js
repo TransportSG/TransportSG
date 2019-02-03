@@ -17,14 +17,18 @@ const fileTypes = {
     'SBSR': 'SBS-R',
     'SG': 'SG',
     'SMRT': 'SMB',
+
     'PA': 'PA',
     'PC': 'PC',
-    'PZ': 'PZ',
-    'RU': 'RU',
-    'WC': 'WC',
-    'CB': 'CB',
-    'SH': 'SH',
     'PH': 'PH',
+    'PZ': 'PZ',
+    'SH': 'SH',
+    'RU': 'RU',
+    'CB': 'CB',
+    'WB': 'WB',
+    'WC': 'WC',
+    'XD': 'XD',
+
     'R': 'R'
 };
 
