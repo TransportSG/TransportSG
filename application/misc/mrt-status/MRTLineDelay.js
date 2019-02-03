@@ -106,8 +106,8 @@ function parseResponse(response) {
 
 function determineDisruptionType(message) {
     message = message.toLowerCase();
-    let cause = message.match(/due to(?: a)? ([\w ]+)/);
-    if (cause) cause = cause[1];
+    let cause = message.match(/due to(?: a)? ([\w ]+)/) || message.match(/([\w ]+) cleared/i);
+    if (cause) cause = cause[1].trim();
 
     if (message.match(/additional travel(?:ling)? time/)) {
         let disruptionTime = message.match(/(\d+) ?min\w*/);
@@ -123,6 +123,14 @@ function determineDisruptionType(message) {
             disruptionType: 'NO_SERVICE',
             cause
         }
+    } else if (message.includes('restored') && message.includes('progressively')) {
+        return {
+            disruptionType: 'DELAYED_SERVICE',
+            cause
+        }
+    } else return {
+        disruptionType: 'UNKNOWN',
+        cause
     }
 }
 

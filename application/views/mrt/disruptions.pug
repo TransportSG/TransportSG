@@ -62,7 +62,11 @@ block content
                         span MRT
                 div.disruptionDetails
                     if disruptionType === 'DELAYED_SERVICE'
-                        span.disruptionSeverity='Delayed ' + disruption.disruptionType.disruptionTime + ' min'
+                        if disruption.disruptionType.disruptionTime
+                            span.disruptionSeverity='Delayed ' + disruption.disruptionType.disruptionTime + ' min'
+                        else
+                            
+                            span.disruptionSeverity Service Delayed
                     else
                         span.disruptionSeverity No Service
                     if response !== 'NO_RESPONSE'

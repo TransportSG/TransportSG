@@ -1,15 +1,15 @@
 {
-	"Status": 1,
+	"Status": 2,
 	"AffectedSegments": [{
-		"Line": "NSL",
+		"Line": "CCL",
 		"Direction": "Both",
-		"Stations": "",
-		"FreePublicBus": "NS5,NS7,NS8,NS9",
+		"Stations": "CC29,CC28",
+		"FreePublicBus": "CC29,CC28,CC27,CC26,CC25,CC24,CC23,CC22",
 		"FreeMRTShuttle": "",
 		"MRTShuttleDirection": ""
 	}],
 	"Message": [{
-		"Content": "0900hrs: NSL- Train services have progressively resumed. Please add 10mins of additional travel time from Woodlands to Yew Tee Stations.",
-		"CreatedDate": "2019-01-22 09:03:33"
+		"Content": "1330hrs: CCL - Due to a Track fault, please add 15 minutes of additional travelling time towards HarbourFront Station. Free travel on public bus services are available at designated bus stops between Buona Vista and HarbourFront Stations.",
+		"CreatedDate": "2019-01-29 13:30:47"
 	}]
 }
