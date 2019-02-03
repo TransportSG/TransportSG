@@ -110,7 +110,10 @@ function searchRego(req, res, number) {
     let buses = res.db.getCollection('bus registrations');
 
     buses.findDocuments({
-        'registration.number': number
+        $or: [
+            { 'registration.number': number },
+            { 'misc.notes': new RegExp('Re-registered as \\w*' + number, 'i') }
+        ]
     }).toArray((err, buses) => {
         renderBuses(req, res, buses);
     });
