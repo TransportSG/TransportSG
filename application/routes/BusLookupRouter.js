@@ -15,7 +15,10 @@ let operatorCss = {
     'Tower Transit Singapore': 'tts',
     'LTA Storage': 'lta',
     'Trans Island Buses': 'tibs',
-    'SMRT Buses': 'smrt'
+    'SMRT Buses': 'smrt',
+    'Sentosa': 'sentosa',
+    'Singapore Shuttle Bus': 'css',
+    'City Shuttle Service': 'css'
 };
 
 router.use('/static', express.static(path.join(__dirname, '../static')));
@@ -112,8 +115,8 @@ function searchRego(req, res, number) {
     buses.findDocuments({
         $or: [
             { 'registration.number': number },
-            { 'misc.notes': new RegExp('Re-registered as \\w*' + number, 'i') },
-            { 'misc.notes': new RegExp('Re-registered from \\w*' + number, 'i') }
+            { 'misc.notes': new RegExp('Re-registered as [A-Z]' + number + '[A-Z]', 'i') },
+            { 'misc.notes': new RegExp('Re-registered from [A-Z]' + number + '[A-Z]', 'i') }
         ]
     }).toArray((err, buses) => {
         renderBuses(req, res, buses);

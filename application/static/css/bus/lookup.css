@@ -230,3 +230,19 @@ div.bus:nth-child(even) .sbs {
 div.bus:nth-child(even) .lta {
     background-color: #c9c9c9;
 }
+
+.css {
+    background-color: #ccac78;
+}
+
+div.bus:nth-child(even) .css {
+    background-color: #b49755;
+}
+
+.sentosa {
+    background-color: #ea8814;
+}
+
+div.bus:nth-child(even) .sentosa {
+    background-color: #bd6e10;
+}
