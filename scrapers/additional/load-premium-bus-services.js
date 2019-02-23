@@ -22,6 +22,10 @@ let serviceData = {};
 let promises = [];
 
 function parseLine(serviceLine, busStopInfo, resolve) {
+    if (!serviceLine.BUS_SERVICE_NAME_TXT.match(/PBS (\d+)/)) {
+        resolve();
+        return;
+    }
     let serviceNumber = serviceLine.BUS_SERVICE_NAME_TXT.match(/PBS (\d+)/)[1];
     if (!serviceData[serviceNumber]) serviceData[serviceNumber] = {};
 
