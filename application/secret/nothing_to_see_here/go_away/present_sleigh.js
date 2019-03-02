@@ -58,12 +58,12 @@ function createEmailBody(callback) {
         mandy: getServices('wab BD'),
         nwabBendy: getServices('nwab BD'),
         expUpsize: getServices('14e 30e 74e 97e 151e 174e 196e DD'),
-        budepUpsize: getServices('143M 947 DD'),
-        kjdepUpsize: getServices('307 DD'),
+        budepUpsize: getServices('77 143M 947 DD'),
+        kjdepUpsize: getServices('307 970 DD'),
         kjdepDownsize: getServices('180 972 SD'),
         kjdepBendy: getServices('61 176 180 700 700A 972 983 985 BD'),
         woodlandsBendy: getServices('178 187 960e 961 963 965 966 951e BD'),
-        wldepUpsize: getServices('900A 902 903M 904 912 912A 912B 912M DD'),
+        wldepUpsize: getServices('178 900A 902 903M 904 912 912A 912B 912M DD'),
         slbpDownsize: getServices('179 179A 182 192 198 198A 241 247 248 249 251 252 253 254 255 257 SD'),
         bndepDownsize: getServices('23 35 35M 37 65 168 7A SD'),
         hgdepDownsize: getServices('87 89e 161 SD'),
@@ -71,7 +71,9 @@ function createEmailBody(callback) {
         amdepDownsize: getServices('50 SD'),
         sedepBendy: getServices('SEDEP !800 !804 !806 !807 !811 !812 BD'),
         updepUpsize: getServices('120 122 272 273 93 DD'),
-        bbdepDownsize: getServices('147e 147 SD')
+        bbdepDownsize: getServices('147e 147 SD'),
+        amdepUpsize: getServices('855 DD'),
+        hgdepUpsize: getServices('156 DD')
     };
 
     let changes = findDifferences(data);
