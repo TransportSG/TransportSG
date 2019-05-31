@@ -4,7 +4,8 @@ module.exports = (req, res) => {
     let busServices = res.db.getCollection('bus services');
 
     busServices.findDocuments({
-        fullService: req.params.busService
+        fullService: req.params.busService,
+        stops: { $exists: true }
     }).toArray((err, serviceDirections) => {
         if (!serviceDirections.length) {
             res.status(404).json({
