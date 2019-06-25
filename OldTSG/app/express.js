@@ -7,8 +7,7 @@ const express = require('express'),
 	flash = require('connect-flash'),
         initDBs = require('./init-dbs');
 
-const packageData = require('../package.json'),
-	config = require('../config.js'),
+const	config = require('../config.js'),
 	path = require('path'),
 	env = process.env.NODE_ENV || 'development';
 
