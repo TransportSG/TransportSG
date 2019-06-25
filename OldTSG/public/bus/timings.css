@@ -1,0 +1,93 @@
+.seats-available:-moz-meter-optimum::-moz-meter-bar {
+    background: none;
+    background-color: #86CC00;
+    border-radius: 3px;
+}
+
+.seats-available::-webkit-meter-optimum-value {
+    background: #86CC00;
+    background-color: #86CC00;
+    border-radius: 3px;
+}
+
+.standing-available:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: none;
+    background-color: yellow;
+    border-radius: 3px;
+}
+
+.standing-available::-webkit-meter-suboptimum-value {
+    background: none;
+    background-color: yellow;
+    border-radius: 3px;
+}
+
+.limited-standing:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: none;
+    background-color: red;
+    border-radius: 3px;
+}
+
+.limited-standing::-webkit-meter-even-less-good-value {
+    background: none;
+    background-color: red;
+    border-radius: 3px;
+}
+
+.load {
+    -moz-appearance: none;
+    appearance: none;
+
+    border: none;
+    background: #EEE;
+    border-radius: 3px;
+    width: 85%;
+    height: 1em;
+}
+
+.load::-webkit-meter-bar {
+    background: #EEE;
+}
+
+.isWAB {
+    position: relative;
+    top: .15em;
+
+    margin-left: 2%;
+
+    width: 1em;
+    height: 1em;
+}
+
+div.bus-timing {
+    display: inline-block;
+    margin-right: 2%;
+    width: 25%;
+}
+
+.arrivalTimings {
+    display: inline-block;
+    width: 85%;
+
+    position: relative;
+    top: 1px;
+
+    margin-left: -85%;
+
+    text-align: center;
+}
+
+.timeToArr {
+    position: relative;
+    top: .05em;
+}
+
+p.service {
+    display: inline-block;
+    margin-right: 2em;
+    width: 2em;
+}
+
+.timings-container {
+    width: 100%
+}

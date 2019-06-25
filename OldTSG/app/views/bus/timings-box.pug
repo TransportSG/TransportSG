@@ -1,0 +1,15 @@
+h1='Timings for stop ' + stop
+for service in timings.services
+    if timings.timings[service].buses.length > 0
+        p.service=service
+        each bus in timings.timings[service].buses
+            if !isNaN(+bus.arrival)
+                div.bus-timing
+                    meter(class='load ' + bus.load.toLowerCase().replace(' ', '-') min=0 max=100 optimum=20 low=50 high=80 value=bus.load === 'SEA' ? 30 : (bus.load === 'SDA' ? 60 : 90))
+                    div.arrivalTimings
+                        if bus.secondsToArrival > 0
+                            span.timeToArr(title='Arriving at ' + dateFormat(bus.arrival, 'h:MM:ss TT'))=prettySeconds(bus.secondsToArrival)
+                        else
+                            span.timeToArr(title='Arriving Now') Arr
+                        img(src='/old/static/bus/' + (bus.isWAB ? '' : 'non-') + 'wheelchair.svg').isWAB
+        br

@@ -1,0 +1,13 @@
+extends ../layout
+
+block head
+    script(src='/old/static/bus/stop-locator.js')
+    link(href='/old/static/bus/stop-locator.css' rel='stylesheet')
+
+block content
+    h1 Bus Stop Locator
+    h2#error
+    h2#request Please accept the location request.
+    input#csrf(type='hidden' value=csrf)
+
+    div#output

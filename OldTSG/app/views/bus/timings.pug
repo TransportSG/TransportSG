@@ -1,0 +1,18 @@
+extends ../layout
+
+block head
+    script(src='/old/static/bus/timings.js')
+    link(href='/old/static/bus/timings.css' rel='stylesheet')
+
+block invisible
+    img(src='/old/static/bus/wheelchair.svg')
+    img(src='/old/static/bus/non-wheelchair.svg')
+
+block content
+    h1 Bus Timings
+    h2#error
+    label(for='bus-stop-code') Bus Stop Code 
+    input#bus-stop-code(type='number') 
+    input#load(type='button' value='Load!')
+
+    div#timings-container

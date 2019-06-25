@@ -1,0 +1,91 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "lta-datamall",
+        "scope": null,
+        "escapedName": "lta-datamall",
+        "name": "lta-datamall",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/home/eyeballcode/TransportSG"
+    ]
+  ],
+  "_from": "lta-datamall@latest",
+  "_id": "lta-datamall@1.3.1",
+  "_inCache": true,
+  "_location": "/lta-datamall",
+  "_nodeVersion": "7.9.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/lta-datamall-1.3.1.tgz_1493301354734_0.15943059837445617"
+  },
+  "_npmUser": {
+    "name": "eyeballcode",
+    "email": "eyeballcode@gmail.com"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "lta-datamall",
+    "scope": null,
+    "escapedName": "lta-datamall",
+    "name": "lta-datamall",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/lta-datamall/-/lta-datamall-1.3.1.tgz",
+  "_shasum": "7b3443e4715e545bc0bcda7b25526227c376b4de",
+  "_shrinkwrap": null,
+  "_spec": "lta-datamall",
+  "_where": "/home/eyeballcode/TransportSG",
+  "author": {
+    "name": "Eyeballcode"
+  },
+  "bugs": {
+    "url": "https://github.com/eyeballcode/LTA-DataMall/issues"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "description": "An API to work with LTA's DataMall",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine": "^2.5.3",
+    "pretty-seconds": "^0.2.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "7b3443e4715e545bc0bcda7b25526227c376b4de",
+    "tarball": "https://registry.npmjs.org/lta-datamall/-/lta-datamall-1.3.1.tgz"
+  },
+  "gitHead": "f14c1a2cac7ce93ab21da0b8f1c03cae16376f56",
+  "homepage": "https://github.com/eyeballcode/LTA-DataMall#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "eyeballcode",
+      "email": "eyeballcode@gmail.com"
+    }
+  ],
+  "name": "lta-datamall",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eyeballcode/LTA-DataMall.git"
+  },
+  "scripts": {
+    "cover": "istanbul cover --include-all-sources jasmine",
+    "test": "jasmine"
+  },
+  "version": "1.3.1"
+}

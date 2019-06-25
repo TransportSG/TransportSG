@@ -10,6 +10,8 @@ const DatabaseConnection = require('../application/database/DatabaseConnection')
 
 const config = require('../config.json');
 
+const OldTSG = require('../OldTSG/index.js');
+
 module.exports = class MainServer {
 
     constructor() {
@@ -121,7 +123,8 @@ module.exports = class MainServer {
             let router = require(`../application/routes/${routerName}Router`);
             app.use(routers[routerName], router);
         });
-
+        
+        app.use('/old', OldTSG);
         app.use('/api', require('../application/routes/api'));
 
         app.get('/sw.js', (req, res) => {

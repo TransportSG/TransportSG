@@ -1,0 +1,72 @@
+.bus-stop-code {
+    min-width: 10%;
+}
+
+.stop-name {
+    margin-left: 4%;
+    min-width: 20%;
+}
+
+.distance-box {
+    float: right;
+    margin-right: 10em;
+}
+
+.distance-meter {
+    -moz-appearance: none;
+    appearance: none;
+
+    border: none;
+    border-radius: 3px;
+
+    width: 10em;
+    background: #EEE;
+}
+
+.distance-meter::-webkit-meter-bar {
+    background: #EEE;
+}
+
+.distance-meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: none;
+    background-color: red;
+    border-radius: 3px;
+}
+
+.distance-meter::-webkit-meter-even-less-good-value {
+    background: none;
+    background-color: red;
+    border-radius: 3px;
+}
+
+.distance-meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: none;
+    background-color: yellow;
+    border-radius: 3px;
+}
+
+.distance-meter::-webkit-meter-suboptimum-value {
+    background: none;
+    background-color: yellow;
+    border-radius: 3px;
+}
+
+.distance-meter:-moz-meter-optimum::-moz-meter-bar {
+    background: none;
+    background-color: #86CC00;
+    border-radius: 3px;
+}
+
+.distance-meter::-webkit-meter-optimum-value {
+    background: #86CC00;
+    background-color: #86CC00;
+    border-radius: 3px;
+}
+
+
+.distance {
+    margin-left: -10em;
+    width: 10em;
+    text-align: center;
+    display: inline-block;
+}

@@ -1,0 +1,14 @@
+extends ../layout
+
+block head
+    script(src='/old/static/bus/stops.js')
+    link(href='/old/static/bus/stops.css' rel='stylesheet')
+
+block content
+    h1 Bus Stops
+    h2#error
+    label(for='bus-stop-code') Bus Stop Code
+    input#bus-stop-code(type='number') 
+    input#load(type='button' value='Load!')
+
+    div#stop-container
