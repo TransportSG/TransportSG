@@ -55,6 +55,14 @@ $.ready(() => {
 
     $('#lookup-method-div span').textContent = 'Rego';
 
+    $('#input').on('input', e => {
+        if ($('#input').value.length > 4);
+        $('#input').value = $('#input').value.slice(0, 4);
+
+        e.preventDefault();
+        e.stopPropagation();
+    }, false)
+
     createInputTimeout($('#input'));
     createInputTimeout($('#multiline-input'));
     performQuery();

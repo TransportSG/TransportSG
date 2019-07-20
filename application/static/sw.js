@@ -1,4 +1,4 @@
-const version = "0.0.37";
+const version = "0.0.38";
 const cacheName = `transportsg-${version}`;
 
 function cacheFiles(files) {
