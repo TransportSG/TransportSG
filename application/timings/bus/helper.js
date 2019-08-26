@@ -17,7 +17,11 @@ let nwabOverrideServices = ['43M', '63M', '123M', '139M', '143M', '147e', '160A'
 let nwabSDOverrides = ['657', '188e', '859A', '859B', '854e', '868E'];
 
 module.exports = callback => {
-    request(timingsURL, (err, resp, body) => {
+    request({
+      method: 'GET',
+      uri: timingsURL,
+      gzip: true
+    }, (err, resp, body) => {
         var timings = {};
 
         function parseDate(timing) {
