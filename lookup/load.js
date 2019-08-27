@@ -34,7 +34,7 @@ const fileTypes = {
 };
 
 database.connect({
-  poolSize: 1000
+  poolSize: 500
 }, (err) => {
   buses = database.getCollection('bus registrations');
 
@@ -96,7 +96,7 @@ async function processRegoSet(regoPrefix, busList, readPrefixFromFile) {
       'registration.number': busData.registration.number
     };
 
-    if (currentBatch.length < 500) {
+    if (currentBatch.length < 250) {
       currentBatch.push([query, busData]);
     } else {
       currentBatch.push([query, busData]);

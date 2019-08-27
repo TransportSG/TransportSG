@@ -9,7 +9,7 @@ let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;
 
 database.connect({
-    poolSize: 1000
+    poolSize: 500
 }, (err) => {
     buses = database.getCollection('bus registrations');
 
@@ -107,7 +107,6 @@ let urls = [
     'https://sgwiki.com/wiki/MAN_ND323F_(Batch_2)',
     'https://sgwiki.com/wiki/MAN_ND323F_(Batch_3)',
     'https://sgwiki.com/wiki/MAN_ND323F_(Batch_4)',
-    'https://sgwiki.com/wiki/MAN_ND323F_(3-Door)',
     'https://sgwiki.com/wiki/Scania_K230UB_(Euro_IV_Batch_1)',
     'https://sgwiki.com/wiki/Scania_K230UB_(Euro_IV_Batch_2)',
     'https://sgwiki.com/wiki/Scania_K230UB_(Euro_V_Batch_1)',
@@ -116,6 +115,5 @@ let urls = [
     'https://sgwiki.com/wiki/Alexander_Dennis_Enviro500_(Batch_2)',
     'https://sgwiki.com/wiki/MAN_NG363F',
     'https://sgwiki.com/wiki/Mercedes-Benz_OC500LE',
-    'https://sgwiki.com/wiki/Mercedes-Benz_O405G_(Hispano_Habit)',
-    'https://sgwiki.com/wiki/Mercedes-Benz_O405G_(Volgren)',
+    'https://sgwiki.com/wiki/Mercedes-Benz_O405G_(Hispano_Habit)'
 ];
