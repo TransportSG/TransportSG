@@ -8,7 +8,9 @@ const config = require('../config.json');
 let database = new DatabaseConnection(config.databaseURL, 'TransportSG');
 let buses = null;
 
-database.connect((err) => {
+database.connect({
+    poolSize: 1000
+}, (err) => {
     buses = database.getCollection('bus registrations');
 
     load();
@@ -93,7 +95,6 @@ let urls = [
     'https://sgwiki.com/wiki/Volvo_B9TL_(Wright_Eclipse_Gemini_2)_(Batch_4)',
     'https://sgwiki.com/wiki/Volvo_B10TL_(Volgren)',
     'https://sgwiki.com/wiki/Volvo_B10TL_(CDGE)',
-    'https://sgwiki.com/wiki/Volvo_B10BLE',
     'https://sgwiki.com/wiki/Mercedes-Benz_O530_Citaro_(Batch_SMRT)',
     'https://sgwiki.com/wiki/Mercedes-Benz_O530_Citaro_(Batch_1)',
     'https://sgwiki.com/wiki/Mercedes-Benz_O530_Citaro_(Batch_2)',
