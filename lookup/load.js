@@ -96,7 +96,7 @@ async function processRegoSet(regoPrefix, busList, readPrefixFromFile) {
       'registration.number': busData.registration.number
     };
 
-    if (currentBatch.length < 250) {
+    if (currentBatch.length < 50) {
       currentBatch.push([query, busData]);
     } else {
       currentBatch.push([query, busData]);
@@ -167,7 +167,8 @@ function transformData(regoPrefix, csv) {
 }
 
 async function updateBus(query, data) {
-  if (await buses.countDocuments(query)) {
+  let bus = await buses.findDocument(query)
+  if (bus) {
     if (data.operator.operator === bus.operator.operator && !data.operator.permService) {
       data.operator.permService = bus.operator.permService;
       data.operator.crossOvers = bus.operator.crossOvers;

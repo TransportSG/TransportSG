@@ -1,38 +1,45 @@
 module.exports = class MongoDatabaseCollection {
+  constructor (mongoCollection) {
+    this.collection = mongoCollection
+  }
 
-    constructor(mongoCollection) {
-        this.collection = mongoCollection;
-    }
+  createIndex (keys, options) {
+    this.collection.createIndex(keys, options)
+  }
 
-    createIndex(keys, options) {
-        this.collection.createIndex(keys, options);
-    }
+  createDocument (document) {
+    return this.collection.insertOne(document)
+  }
 
-    createDocument(document, callback) {
-        this.collection.insertOne(document, callback);
-    }
+  findDocuments (query, projection) {
+    return this.collection.find(query, projection)
+  }
 
-    findDocuments(query, projection) {
-        return this.collection.find(query, projection);
-    }
+  findDocument (query, projection, callback) {
+    return this.collection.findOne(query, projection, callback)
+  }
 
-    findDocument(query, projection, callback) {
-        return this.collection.findOne(query, projection, callback);
-    }
+  updateDocuments (query, update) {
+    return this.collection.updateMany(query, update)
+  }
 
-    updateDocument(query, update, callback) {
-        this.collection.updateOne(query, update, callback);
-    }
+  updateDocument (query, update) {
+    return this.collection.updateOne(query, update)
+  }
 
-    deleteDocument() {
+  deleteDocument () {
 
-    }
+  }
 
-    distinct(field, callback) {
-        this.collection.distinct(field, callback);
-    }
+  distinct (field) {
+    return this.collection.distinct(field, { cursor: {} })
+  }
 
-    countDocuments(query, callback) {
-        this.collection.countDocuments(query, callback);
-    }
+  countDocuments (query) {
+    return this.collection.countDocuments(query)
+  }
+
+  aggregate (pipeline) {
+    return this.collection.aggregate(pipeline)
+  }
 }
