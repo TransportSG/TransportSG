@@ -87,7 +87,7 @@ async function processRegoSet(regoPrefix, busList, readPrefixFromFile) {
     if (readPrefixFromFile)
       regoPrefix = busCSV.Prefix;
 
-    if (busCSV['#ID'] === '') return;
+    if (busCSV['#ID'] === '' || busCSV.Make === '') continue;
 
     let busData = transformData(regoPrefix, busCSV);
 
