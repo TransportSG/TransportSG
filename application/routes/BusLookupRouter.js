@@ -152,7 +152,7 @@ function advancedSearch(req, res, query) {
         let dbKey = queryKeys[key];
 
         if (key === 'deregDate')
-            search[dbKey] = new Date(value + ' GMT +0000');
+            search[dbKey] = new Date(value + ' GMT +0800');
         else
             search[dbKey] = new RegExp(value, 'i');
     });

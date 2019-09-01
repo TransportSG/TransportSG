@@ -142,7 +142,7 @@ function transformData(regoPrefix, csv) {
       livery: csv.Livery,
       bodywork: csv.Bodywork,
       chassis: csv['Chassis ID'],
-      deregDate: csv['Dereg Date'] ? new Date(csv['Dereg Date'] + ' GMT +0000') : null,
+      deregDate: csv['Lifespan Expiry Date'] ? new Date(csv['Lifespan Expiry Date'] + ' GMT +0800') : null,
       gearbox: csv['Gearbox model'],
       edsModel: csv['EDS model'],
     },
