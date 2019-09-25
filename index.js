@@ -1,3 +1,4 @@
+require('moment-timezone')
 global.startTime = +new Date();
 
 const config = require('./config.json');

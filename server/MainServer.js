@@ -107,7 +107,8 @@ module.exports = class MainServer {
             GeneralSearch: '/search',
             Bookmarks: '/bookmarks',
             BusRouteInfo: '/bus',
-            MRTDisruptions: '/mrt/disruptions'
+            MRTDisruptions: '/mrt/disruptions',
+            'platdisplays/PlatformDisplay': '/platform-displays'
         };
 
         app.use('/', (req, res, next) => {

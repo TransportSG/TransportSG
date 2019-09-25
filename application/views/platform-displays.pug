@@ -1,0 +1,93 @@
+html
+  head
+    script(src='/static/scripts/helper.js')
+    script(src='/static/scripts/platform-displays/reload.js' async)
+    //- find a way (maybe send json) to update screen w/o reloading images
+    link(rel='stylesheet' href='/static/css/platform-displays/base-style.css')
+    link(rel='stylesheet' href='/static/css/platform-displays/actual-line-colours.css')
+    link(rel='stylesheet' href='/static/css/platform-displays/index.css')
+  body
+    -
+      departures = departures.map(departure => {
+        const timeDifference = departure.departureTime.diff(new Date(), 'minutes')
+
+        if (+timeDifference <= 0) departure.prettyTimeToDeparture = 'NOW'
+        else {
+          departure.prettyTimeToDeparture = timeDifference + ' min'
+        }
+        return departure
+      })
+      let firstDeparture = departures[0]
+    div.contents
+      div(class='topLineBanner ' + firstDeparture.codedLineName)
+      div.firstDepartureInfo
+        div.details
+          span.scheduledDepartureTime=firstDeparture.departureTime.format('h:mmA').toLowerCase()
+          br
+          span.destination=firstDeparture.destination
+        div.firstDepartureTime
+          div(class='platform ' + firstDeparture.codedLineName)
+            span=firstDeparture.platform
+          div.timeToDeparture
+            span=firstDeparture.prettyTimeToDeparture
+      div.greyLine
+      - let first15Stations = firstDeparture.stopsAt.slice(0, 15)
+      - let next15Stations = firstDeparture.stopsAt.slice(15)
+      div(class='stoppingAt ' + firstDeparture.codedLineName)
+        div
+          mixin stationRow(name, imgSource)
+            div.stationRow
+              img(src=`/static/images/platform-displays/station-${imgSource}.svg`)
+              p(class=imgSource)=name
+
+          div
+            +stationRow(" ", "express")
+
+            - let hasTerminating = firstDeparture.stopsAt.length <= 15
+
+            div.stationRow
+              img(src=`/static/images/platform-displays/station-stops-at.svg` class=firstDeparture.codedLineName)
+              p(class=firstDeparture.codedLineName)=first15Stations[0]
+
+            for station in first15Stations.slice(1, hasTerminating ? -1 : 15)
+              +stationRow(station, "stops-at")
+            if hasTerminating
+              +stationRow(first15Stations.slice(-1)[0], "terminates")
+            else
+              +stationRow(" ", "filler")
+
+          div
+            if next15Stations.length
+              +stationRow(" ", "filler")
+              for station in next15Stations.slice(0, -1)
+                +stationRow(station, "stops-at")
+              +stationRow(next15Stations.slice(-1)[0], "terminates")
+
+      div.next3Departures
+        div.blackLine
+        for departure in departures.concat([null, null, null, null]).slice(1, 5)
+          if !!departure
+            div.smallDeparture
+              div.left
+                div(class='sideBar ' + departure.codedLineName)
+                p=departure.departureTime.format('h:mmA').toLowerCase()
+              div.centre
+                p=departure.destination
+              div.right
+                div(class='platform ' + departure.codedLineName)
+                  p=departure.platform
+                div.timeToDeparture
+                  p=departure.prettyTimeToDeparture.replace(' ', '')
+          else
+            div.smallDeparture
+              div.left
+                div(class='sideBar no-line')
+                p --
+              div.centre
+                p --
+              div.right
+                div(class='platform no-line')
+                  p &nbsp;
+                div.timeToDeparture
+                  p &nbsp;
+          div.greyLine

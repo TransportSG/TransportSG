@@ -1,0 +1,77 @@
+div.north-south-line {
+  background-color: #d42e12;
+}
+
+div.east-west-line {
+  background-color: #009645;
+}
+
+div.circle-line {
+  background-color: #fa9e0d;
+}
+
+div.no-line {
+  background-color: #8a8a8a;
+}
+
+p.north-south-line {
+  background-color: #d42e12;
+  color: #ffffff;
+}
+
+p.east-west-line {
+  background-color: #009645;
+  color: #ffffff;
+}
+
+p.circle-line {
+  background-color: #fa9e0d;
+  color: #000000;
+}
+
+p.no-line {
+  background-color: #8a8a8a;
+  color: #ffffff;
+}
+
+
+.stoppingAt {
+  background-color: #ffffff !important;
+}
+
+.stoppingAt.north-south-line img {
+  filter: invert(20%) sepia(96%) saturate(2986%) hue-rotate(358deg) brightness(87%) contrast(90%);
+}
+
+.stoppingAt.east-west-line img {
+  filter: invert(33%) sepia(42%) saturate(4723%) hue-rotate(136deg) brightness(93%) contrast(102%);
+}
+
+.stoppingAt.circle-line img {
+  filter: invert(69%) sepia(95%) saturate(2176%) hue-rotate(353deg) brightness(99%) contrast(98%);
+}
+
+.stoppingAt.no-line img {
+  filter: invert(66%) sepia(0%) saturate(4%) hue-rotate(136deg) brightness(84%) contrast(88%);
+}
+
+
+div.platform.north-south-line {
+  background-color: #d42e12;
+  color: #ffffff;
+}
+
+div.platform.east-west-line {
+  background-color: #009645;
+  color: #ffffff;
+}
+
+div.platform.circle-line {
+  background-color: #fa9e0d;
+  color: #000000;
+}
+
+div.platform.no-line {
+  background-color: #8a8a8a;
+  color: #ffffff;
+}

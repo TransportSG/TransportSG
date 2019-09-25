@@ -1,0 +1,518 @@
+[
+  {
+    "stopName": "Jurong East",
+    "chineseStopName": "裕廊东",
+    "stopNumber": "NS1,EW24",
+    "codedStopName": "jurong-east"
+  },
+  {
+    "stopName": "Bukit Batok",
+    "chineseStopName": "武吉巴督",
+    "stopNumber": "NS2",
+    "codedStopName": "bukit-batok"
+  },
+  {
+    "stopName": "Bukit Gombak",
+    "chineseStopName": "武吉甘柏",
+    "stopNumber": "NS3",
+    "codedStopName": "bukit-gombak"
+  },
+  {
+    "stopName": "Choa Chu Kang",
+    "chineseStopName": "蔡厝港",
+    "stopNumber": "NS4",
+    "codedStopName": "choa-chu-kang"
+  },
+  {
+    "stopName": "Yew Tee",
+    "chineseStopName": "油池",
+    "stopNumber": "NS5",
+    "codedStopName": "yew-tee"
+  },
+  {
+    "stopName": "Kranji",
+    "chineseStopName": "克兰芝",
+    "stopNumber": "NS7",
+    "codedStopName": "kranji"
+  },
+  {
+    "stopName": "Marsiling",
+    "chineseStopName": "马西岭",
+    "stopNumber": "NS8",
+    "codedStopName": "marsiling"
+  },
+  {
+    "stopName": "Woodlands",
+    "chineseStopName": "兀兰",
+    "stopNumber": "NS9",
+    "codedStopName": "woodlands"
+  },
+  {
+    "stopName": "Admiralty",
+    "chineseStopName": "海军部",
+    "stopNumber": "NS10",
+    "codedStopName": "admiralty"
+  },
+  {
+    "stopName": "Sembawang",
+    "chineseStopName": "三巴旺",
+    "stopNumber": "NS11",
+    "codedStopName": "sembawang"
+  },
+  {
+    "stopName": "Yishun",
+    "chineseStopName": "义顺",
+    "stopNumber": "NS13",
+    "codedStopName": "yishun"
+  },
+  {
+    "stopName": "Khatib",
+    "chineseStopName": "卡迪",
+    "stopNumber": "NS14",
+    "codedStopName": "khatib"
+  },
+  {
+    "stopName": "Yio Chu Kang",
+    "chineseStopName": "杨厝港",
+    "stopNumber": "NS15",
+    "codedStopName": "yio-chu-kang"
+  },
+  {
+    "stopName": "Ang Mo Kio",
+    "chineseStopName": "宏茂桥",
+    "stopNumber": "NS16",
+    "codedStopName": "ang-mo-kio"
+  },
+  {
+    "stopName": "Bishan",
+    "chineseStopName": "碧山",
+    "stopNumber": "NS17,CC15",
+    "codedStopName": "bishan"
+  },
+  {
+    "stopName": "Braddell",
+    "chineseStopName": "布莱德",
+    "stopNumber": "NS18",
+    "codedStopName": "braddell"
+  },
+  {
+    "stopName": "Toa Payoh",
+    "chineseStopName": "大巴窑",
+    "stopNumber": "NS19",
+    "codedStopName": "toa-payoh"
+  },
+  {
+    "stopName": "Novena",
+    "chineseStopName": "诺维娜",
+    "stopNumber": "NS20",
+    "codedStopName": "novena"
+  },
+  {
+    "stopName": "Newton",
+    "chineseStopName": "纽顿",
+    "stopNumber": "NS21",
+    "codedStopName": "newton"
+  },
+  {
+    "stopName": "Orchard",
+    "chineseStopName": "乌节",
+    "stopNumber": "NS22",
+    "codedStopName": "orchard"
+  },
+  {
+    "stopName": "Somerset",
+    "chineseStopName": "索美塞",
+    "stopNumber": "NS23",
+    "codedStopName": "somerset"
+  },
+  {
+    "stopName": "Dhoby Ghaut",
+    "chineseStopName": "多美歌",
+    "stopNumber": "NS24,CC1",
+    "codedStopName": "dhoby-ghaut"
+  },
+  {
+    "stopName": "City Hall",
+    "chineseStopName": "政府大厦",
+    "stopNumber": "NS25,EW13",
+    "codedStopName": "city-hall"
+  },
+  {
+    "stopName": "Raffles Place",
+    "chineseStopName": "莱佛士坊",
+    "stopNumber": "NS26,EW14",
+    "codedStopName": "raffles-place"
+  },
+  {
+    "stopName": "Marina Bay",
+    "chineseStopName": "滨海湾",
+    "stopNumber": "NS27,CE2",
+    "codedStopName": "marina-bay"
+  },
+  {
+    "stopName": "Marina South Pier",
+    "chineseStopName": "滨海南码头",
+    "stopNumber": "NS28",
+    "codedStopName": "marina-south-pier"
+  },
+  {
+    "stopName": "Pasir Ris",
+    "chineseStopName": "巴西立",
+    "stopNumber": "EW1",
+    "codedStopName": "pasir-ris"
+  },
+  {
+    "stopName": "Tampines",
+    "chineseStopName": "淡滨尼",
+    "stopNumber": "EW2",
+    "codedStopName": "tampines"
+  },
+  {
+    "stopName": "Simei",
+    "chineseStopName": "四美",
+    "stopNumber": "EW3",
+    "codedStopName": "simei"
+  },
+  {
+    "stopName": "Tanah Merah",
+    "chineseStopName": "丹那美拉",
+    "stopNumber": "EW4",
+    "codedStopName": "tanah-merah"
+  },
+  {
+    "stopName": "Bedok",
+    "chineseStopName": "勿洛",
+    "stopNumber": "EW5",
+    "codedStopName": "bedok"
+  },
+  {
+    "stopName": "Kembangan",
+    "chineseStopName": "景万岸",
+    "stopNumber": "EW6",
+    "codedStopName": "kembangan"
+  },
+  {
+    "stopName": "Eunos",
+    "chineseStopName": "友诺士",
+    "stopNumber": "EW7",
+    "codedStopName": "eunos"
+  },
+  {
+    "stopName": "Paya Lebar",
+    "chineseStopName": "巴耶利峇",
+    "stopNumber": "EW8,CC9",
+    "codedStopName": "paya-lebar"
+  },
+  {
+    "stopName": "Aljunied",
+    "chineseStopName": "阿裕尼",
+    "stopNumber": "EW9",
+    "codedStopName": "aljunied"
+  },
+  {
+    "stopName": "Kallang",
+    "chineseStopName": "加冷",
+    "stopNumber": "EW10",
+    "codedStopName": "kallang"
+  },
+  {
+    "stopName": "Lavender",
+    "chineseStopName": "劳明达",
+    "stopNumber": "EW11",
+    "codedStopName": "lavender"
+  },
+  {
+    "stopName": "Bugis",
+    "chineseStopName": "武吉士",
+    "stopNumber": "EW12",
+    "codedStopName": "bugis"
+  },
+  {
+    "stopName": "Tanjong Pagar",
+    "chineseStopName": "丹戎巴葛",
+    "stopNumber": "EW15",
+    "codedStopName": "tanjong-pagar"
+  },
+  {
+    "stopName": "Outram Park",
+    "chineseStopName": "欧南园",
+    "stopNumber": "EW16",
+    "codedStopName": "outram-park"
+  },
+  {
+    "stopName": "Tiong Bahru",
+    "chineseStopName": "中峇鲁",
+    "stopNumber": "EW17",
+    "codedStopName": "tiong-bahru"
+  },
+  {
+    "stopName": "Redhill",
+    "chineseStopName": "红山",
+    "stopNumber": "EW18",
+    "codedStopName": "redhill"
+  },
+  {
+    "stopName": "Queenstown",
+    "chineseStopName": "女皇镇",
+    "stopNumber": "EW19",
+    "codedStopName": "queenstown"
+  },
+  {
+    "stopName": "Commonwealth",
+    "chineseStopName": "联邦",
+    "stopNumber": "EW20",
+    "codedStopName": "commonwealth"
+  },
+  {
+    "stopName": "Buona Vista",
+    "chineseStopName": "波那维斯达",
+    "stopNumber": "EW21,CC22",
+    "codedStopName": "buona-vista"
+  },
+  {
+    "stopName": "Dover",
+    "chineseStopName": "杜弗",
+    "stopNumber": "EW22",
+    "codedStopName": "dover"
+  },
+  {
+    "stopName": "Clementi",
+    "chineseStopName": "金文泰",
+    "stopNumber": "EW23",
+    "codedStopName": "clementi"
+  },
+  {
+    "stopName": "Chinese Garden",
+    "chineseStopName": "裕华园",
+    "stopNumber": "EW25",
+    "codedStopName": "chinese-garden"
+  },
+  {
+    "stopName": "Lakeside",
+    "chineseStopName": "湖畔",
+    "stopNumber": "EW26",
+    "codedStopName": "lakeside"
+  },
+  {
+    "stopName": "Boon Lay",
+    "chineseStopName": "文礼",
+    "stopNumber": "EW27",
+    "codedStopName": "boon-lay"
+  },
+  {
+    "stopName": "Pioneer",
+    "chineseStopName": "先驱",
+    "stopNumber": "EW28",
+    "codedStopName": "pioneer"
+  },
+  {
+    "stopName": "Joo Koon",
+    "chineseStopName": "裕群",
+    "stopNumber": "EW29",
+    "codedStopName": "joo-koon"
+  },
+  {
+    "stopName": "Gul Circle",
+    "chineseStopName": "卡尔圈 站",
+    "stopNumber": "EW30",
+    "codedStopName": "gul-circle"
+  },
+  {
+    "stopName": "Tuas Crescent",
+    "chineseStopName": "大士弯站",
+    "stopNumber": "EW31",
+    "codedStopName": "tuas-crescent"
+  },
+  {
+    "stopName": "Tuas West Road",
+    "chineseStopName": "大 士 西 路站",
+    "stopNumber": "EW32",
+    "codedStopName": "tuas-west-road"
+  },
+  {
+    "stopName": "Tuas Link",
+    "chineseStopName": "大士连路站",
+    "stopNumber": "EW33",
+    "codedStopName": "tuas-link"
+  },
+  {
+    "stopName": "Expo",
+    "chineseStopName": "博览",
+    "stopNumber": "CG1",
+    "codedStopName": "expo"
+  },
+  {
+    "stopName": "Changi Airport",
+    "chineseStopName": "樟宜机场",
+    "stopNumber": "CG2",
+    "codedStopName": "changi-airport"
+  },
+  {
+    "stopName": "Bras Basah",
+    "chineseStopName": "百胜",
+    "stopNumber": "CC2",
+    "codedStopName": "bras-basah"
+  },
+  {
+    "stopName": "Esplanade",
+    "chineseStopName": "滨海中心",
+    "stopNumber": "CC3",
+    "codedStopName": "esplanade"
+  },
+  {
+    "stopName": "Promenade",
+    "chineseStopName": "宝门廊",
+    "stopNumber": "CC4",
+    "codedStopName": "promenade"
+  },
+  {
+    "stopName": "Nicoll Highway",
+    "chineseStopName": "尼诰大道",
+    "stopNumber": "CC5",
+    "codedStopName": "nicoll-highway"
+  },
+  {
+    "stopName": "Stadium",
+    "chineseStopName": "体育场",
+    "stopNumber": "CC6",
+    "codedStopName": "stadium"
+  },
+  {
+    "stopName": "Mountbatten",
+    "chineseStopName": "蒙巴登",
+    "stopNumber": "CC7",
+    "codedStopName": "mountbatten"
+  },
+  {
+    "stopName": "Dakota",
+    "chineseStopName": "达科达",
+    "stopNumber": "CC8",
+    "codedStopName": "dakota"
+  },
+  {
+    "stopName": "MacPherson",
+    "chineseStopName": "麦波申",
+    "stopNumber": "CC10",
+    "codedStopName": "macpherson"
+  },
+  {
+    "stopName": "Tai Seng",
+    "chineseStopName": "大成",
+    "stopNumber": "CC11",
+    "codedStopName": "tai-seng"
+  },
+  {
+    "stopName": "Bartley",
+    "chineseStopName": "巴特礼",
+    "stopNumber": "CC12",
+    "codedStopName": "bartley"
+  },
+  {
+    "stopName": "Serangoon",
+    "chineseStopName": "实龙岗",
+    "stopNumber": "CC13",
+    "codedStopName": "serangoon"
+  },
+  {
+    "stopName": "Lorong Chuan",
+    "chineseStopName": "罗弄泉",
+    "stopNumber": "CC14",
+    "codedStopName": "lorong-chuan"
+  },
+  {
+    "stopName": "Marymount",
+    "chineseStopName": "玛丽蒙",
+    "stopNumber": "CC16",
+    "codedStopName": "marymount"
+  },
+  {
+    "stopName": "Caldecott",
+    "chineseStopName": "加利谷",
+    "stopNumber": "CC17",
+    "codedStopName": "caldecott"
+  },
+  {
+    "stopName": "Botanic Gardens",
+    "chineseStopName": "植物园",
+    "stopNumber": "CC19",
+    "codedStopName": "botanic-gardens"
+  },
+  {
+    "stopName": "Farrer Road",
+    "chineseStopName": "花拉路",
+    "stopNumber": "CC20",
+    "codedStopName": "farrer-road"
+  },
+  {
+    "stopName": "Holland Village",
+    "chineseStopName": "荷兰村",
+    "stopNumber": "CC21",
+    "codedStopName": "holland-village"
+  },
+  {
+    "stopName": "one-north",
+    "chineseStopName": "纬壹",
+    "stopNumber": "CC23",
+    "codedStopName": "one-north"
+  },
+  {
+    "stopName": "Kent Ridge",
+    "chineseStopName": "肯特岗",
+    "stopNumber": "CC24",
+    "codedStopName": "kent-ridge"
+  },
+  {
+    "stopName": "Haw Par Villa",
+    "chineseStopName": "虎豹别墅",
+    "stopNumber": "CC25",
+    "codedStopName": "haw-par-villa"
+  },
+  {
+    "stopName": "Pasir Panjang",
+    "chineseStopName": "巴西班让",
+    "stopNumber": "CC26",
+    "codedStopName": "pasir-panjang"
+  },
+  {
+    "stopName": "Labrador Park",
+    "chineseStopName": "拉柏多公园",
+    "stopNumber": "CC27",
+    "codedStopName": "labrador-park"
+  },
+  {
+    "stopName": "Telok Blangah",
+    "chineseStopName": "直落布兰雅",
+    "stopNumber": "CC28",
+    "codedStopName": "telok-blangah"
+  },
+  {
+    "stopName": "HarbourFront",
+    "chineseStopName": "港湾",
+    "stopNumber": "CC29",
+    "codedStopName": "harbourfront"
+  },
+  {
+    "stopName": "Keppel",
+    "chineseStopName": "吉宝",
+    "stopNumber": "CC30",
+    "codedStopName": "keppel"
+  },
+  {
+    "stopName": "Cantoment",
+    "chineseStopName": "广东民",
+    "stopNumber": "CC31",
+    "codedStopName": "cantoment"
+  },
+  {
+    "stopName": "Prince Edward Road",
+    "chineseStopName": "爱德华太子路",
+    "stopNumber": "CC32",
+    "codedStopName": "prince-edward-road"
+  },
+  {
+    "stopName": "Bayfront",
+    "chineseStopName": "海湾舫",
+    "stopNumber": "CE1",
+    "codedStopName": "bayfront"
+  }
+]
