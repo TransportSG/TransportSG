@@ -140,6 +140,16 @@
     "codedName": "east-west-line",
     "stops": [
       {
+        "stopName": "Changi Airport",
+        "chineseStopName": "樟宜机场",
+        "stopNumber": "CG2"
+      },
+      {
+        "stopName": "Expo",
+        "chineseStopName": "博览",
+        "stopNumber": "CG1"
+      },
+      {
         "stopName": "Pasir Ris",
         "chineseStopName": "巴西立",
         "stopNumber": "EW1"
@@ -303,22 +313,6 @@
         "stopName": "Tuas Link",
         "chineseStopName": "大士连路站",
         "stopNumber": "EW33"
-      }
-    ]
-  },
-  {
-    "routeName": "Changi Airport Line",
-    "codedName": "changi-airport-line",
-    "stops": [
-      {
-        "stopName": "Expo",
-        "chineseStopName": "博览",
-        "stopNumber": "CG1"
-      },
-      {
-        "stopName": "Changi Airport",
-        "chineseStopName": "樟宜机场",
-        "stopNumber": "CG2"
       }
     ]
   },

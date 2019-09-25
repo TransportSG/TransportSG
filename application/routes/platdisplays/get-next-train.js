@@ -14,8 +14,7 @@ const hashKey = 'q/t+NNAkQZNlq/aAD6PlexImwQTxwgT2MahfTa9XRLA='
 const hawkKey = 'h42325aqx6krj5z2uzm5e8wwqr2wchk5xq704n1e'
 
 let lineDestinations = {
-  'East West Line': ['Pasir Ris', 'Boon Lay', 'Joo Koon', 'Tuas Link'],
-  'Changi Airport Line': ['Tanah Merah', 'Changi Airport'],
+  'East West Line': ['Pasir Ris', 'Tanah Merah', 'Changi Airport', 'Boon Lay', 'Joo Koon', 'Tuas Link'],
   'North South Line': ['Jurong East', 'Kranji', 'Ang Mo Kio', 'Marina Bay', 'Marina South Pier']
 }
 

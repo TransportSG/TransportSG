@@ -100,15 +100,15 @@ setInterval(() => {
 
         $('.right .timeToDeparture p', departureDIV).textContent = departure.prettyTimeToDeparture.replace(' ', '')
       } else {
-          $('.sideBar', departureDIV).className = 'sideBar no-line'
-          $('.sideBar~p', departureDIV).textContent = '--'
+        $('.sideBar', departureDIV).className = 'sideBar no-line'
+        $('.sideBar~p', departureDIV).textContent = '--'
 
-          $('.centre p', departureDIV).textContent = '--'
+        $('.centre p', departureDIV).textContent = '--'
 
-          $('.right .platform', departureDIV).className = 'platform no-line'
-          $('.right .platform p', departureDIV).innerHTML = '&nbsp;'
+        $('.right .platform', departureDIV).className = 'platform no-line'
+        $('.right .platform p', departureDIV).innerHTML = '&nbsp;'
 
-          $('.right .timeToDeparture p', departureDIV).innerHTML = '&nbsp;'
+        $('.right .timeToDeparture p', departureDIV).innerHTML = '&nbsp;'
       }
     })
   })
