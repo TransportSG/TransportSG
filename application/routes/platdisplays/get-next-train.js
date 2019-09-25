@@ -16,8 +16,15 @@ const hawkKey = 'h42325aqx6krj5z2uzm5e8wwqr2wchk5xq704n1e'
 let lineDestinations = {
   'East West Line': ['Pasir Ris', 'Boon Lay', 'Joo Koon', 'Tuas Link'],
   'Changi Airport Line': ['Tanah Merah', 'Changi Airport'],
-  'North South Line': ['Jurong East', 'Kranji', 'Ang Mo Kio', 'Marina Bay', 'Marina South Pier'],
-  'Circle Line': ['Dhoby Ghaut', 'Stadium', 'Pasir Panjang', 'one-north', 'Caldecott', 'Tai Seng', 'Mountbatten', 'HarbourFront', 'Marina Bay']
+  'North South Line': ['Jurong East', 'Kranji', 'Ang Mo Kio', 'Marina Bay', 'Marina South Pier']
+}
+
+let depots = {
+  'Bishan Depot': ['Kranji', 'Ang Mo Kio', 'Marina Bay', 'Marina South Pier'],
+  'Ulu Pandan Depot': ['Jurong East'],
+  'Ulu Pandan Depot': ['Boon Lay'],
+  'Changi Depot': ['Pasir Ris', 'Tanah Merah', 'Changi Airport'],
+  'Tuas Depot': ['Joo Koon', 'Tuas Link']
 }
 
 function genRandomString(length) {
@@ -80,16 +87,21 @@ async function getDepartures(stationCode) {
     let minToNextTrain = platform.subseq_train_arr
     if (minToNextTrain === 'Arr') minToNextTrain = 1
 
-    let routeName
-    Object.keys(lineDestinations).forEach(line => {
-      if (lineDestinations[line].includes(platform.next_train_destination))
-        routeName = line
-    })
-
-    let codedLineName = routeName.toLowerCase().replace(/[^\w\d ]/g, '-').replace(/  */g, '-').replace(/--+/g, '-')
-
     let platformNumber = platform.platform_ID.slice(-1)
     let isCCLPlatform = platform.platform_ID.length === 6
+
+    let routeName
+    if (isCCLPlatform) routeName = 'Circle Line'
+    else
+      Object.keys(lineDestinations).forEach(line => {
+        if (lineDestinations[line].includes(platform.next_train_destination) ||
+            lineDestinations[line].includes(platform.subseq_train_destination))
+          routeName = line
+      })
+
+    if (!routeName) routeName = 'no-line'
+
+    let codedLineName = routeName.toLowerCase().replace(/[^\w\d ]/g, '-').replace(/  */g, '-').replace(/--+/g, '-')
 
     let firstTrain = {
       departureTime: moment().tz('Asia/Singapore').add(minToFirstTrain, 'minutes'),
@@ -114,7 +126,27 @@ async function getDepartures(stationCode) {
   })
 
   departures.sort((a, b) => a.departureTime - b.departureTime).map(departure => {
+    if (departure.destination === stationCode) departure.destination = 'Do not board' // ccl? gotta investigate but whoops wrong country
+    if (departure.destination === 'Do not board') {
+      departure.routeName = 'no-line'
+      departure.codedLineName = 'no-line'
+    }
+
     let {routeName, destination} = departure
+    if (routeName === 'no-line') {
+      if (departure.isCCLPlatform)
+        departure.stopsAt = [stationCode, 'Kim Chuan Depot']
+      else {
+        let depot = 'Depot'
+        Object.keys(depots).forEach(depotName => {
+          if (depots[depotName].includes(stationCode))
+            depot = depotName
+        })
+        departure.stopsAt = [stationCode, depot]
+      }
+      console.log(departure)
+      return departure
+    }
     let lineData = lines.filter(line => line.routeName === routeName)[0]
 
     let lineStops = lineData.stops.map(stop => stop.stopName)

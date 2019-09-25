@@ -31,8 +31,8 @@ html
           div.timeToDeparture
             span=firstDeparture.prettyTimeToDeparture
       div.greyLine
-      - let first15Stations = firstDeparture.stopsAt.slice(0, 15)
-      - let next15Stations = firstDeparture.stopsAt.slice(15)
+      - let first17Stations = firstDeparture.stopsAt.slice(0, 17)
+      - let next17Stations = firstDeparture.stopsAt.slice(17)
       div(class='stoppingAt ' + firstDeparture.codedLineName)
         div
           mixin stationRow(name, imgSource)
@@ -43,25 +43,25 @@ html
           div
             +stationRow(" ", "express")
 
-            - let hasTerminating = firstDeparture.stopsAt.length <= 15
+            - let hasTerminating = firstDeparture.stopsAt.length <= 17
 
             div.stationRow
               img(src=`/static/images/platform-displays/station-stops-at.svg` class=firstDeparture.codedLineName)
-              p(class=firstDeparture.codedLineName)=first15Stations[0]
+              p(class=firstDeparture.codedLineName)=first17Stations[0]
 
-            for station in first15Stations.slice(1, hasTerminating ? -1 : 15)
+            for station in first17Stations.slice(1, hasTerminating ? -1 : 17)
               +stationRow(station, "stops-at")
             if hasTerminating
-              +stationRow(first15Stations.slice(-1)[0], "terminates")
+              +stationRow(first17Stations.slice(-1)[0], "terminates")
             else
               +stationRow(" ", "filler")
 
           div
-            if next15Stations.length
+            if next17Stations.length
               +stationRow(" ", "filler")
-              for station in next15Stations.slice(0, -1)
+              for station in next17Stations.slice(0, -1)
                 +stationRow(station, "stops-at")
-              +stationRow(next15Stations.slice(-1)[0], "terminates")
+              +stationRow(next17Stations.slice(-1)[0], "terminates")
 
       div.next3Departures
         div.blackLine
