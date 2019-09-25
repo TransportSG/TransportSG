@@ -31,20 +31,20 @@ setInterval(() => {
     if (!departures.length) return
 
     departures = departures.map(departure => {
-      const timeDifference = Math.round((new Date(departure.departureTime) - new Date()) / 1000 / 60)
+      departure.departureTime = new Date(departure.departureTime)
+      const timeDifference = Math.round((departure.departureTime - new Date()) / 1000 / 60)
 
       if (+timeDifference <= 0) departure.prettyTimeToDeparture = 'NOW'
       else {
         departure.prettyTimeToDeparture = timeDifference + ' min'
       }
       return departure
-    })
+    }).sort((a, b) => a.departureTime - b.departureTime)
 
     let firstDeparture = departures[0]
-    let next4Departures = departures.concat([null, null, null, null]).slice(1, 5)
 
     $('.topLineBanner').className = 'topLineBanner ' + firstDeparture.codedLineName
-    $('.firstDepartureInfo .scheduledDepartureTime').textContent = formatTime(new Date(firstDeparture.departureTime))
+    $('.firstDepartureInfo .scheduledDepartureTime').textContent = formatTime(firstDeparture.departureTime)
     $('.firstDepartureInfo .destination').textContent = firstDeparture.destination
     $('.firstDepartureInfo .platform').className = 'platform ' + firstDeparture.codedLineName
     $('.firstDepartureInfo .platform span').textContent = firstDeparture.platform
@@ -91,7 +91,7 @@ setInterval(() => {
       let departureDIV = departureDIVs[i]
       if (!!departure) {
         $('.sideBar', departureDIV).className = 'sideBar ' + departure.codedLineName
-        $('.sideBar~p', departureDIV).textContent = formatTime(new Date(departure.departureTime))
+        $('.sideBar~p', departureDIV).textContent = formatTime(departure.departureTime)
 
         $('.centre p', departureDIV).textContent = departure.destination
 

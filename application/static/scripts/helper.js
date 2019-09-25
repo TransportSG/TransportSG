@@ -12,8 +12,9 @@ Object.defineProperty(XMLHttpRequest.prototype, 'responseJSON', {
     enumerable: false
 });
 
-function $(query) {
-    return document.querySelector(query);
+function $ (query, elem) {
+  if (elem) return elem.querySelector(query)
+  return document.querySelector(query)
 }
 
 $.delete = function(query) {
